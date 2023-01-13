@@ -1,5 +1,5 @@
 // 整合所有组件
-import Button from "./button/index";
+import Button from "./button";
 import type { App } from "vue";
 // 全部引入
 const components = [Button];
