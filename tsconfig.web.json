@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true, // 是否开启项目编译，开启该功能，将会生成被编译文件所在的目录，同时开启declaration、declarationMap和incremental，默认：false
+    "jsx": "preserve", // 指定JSX代码生成用于的开发环境
+    "lib": ["ES2018", "DOM", "DOM.Iterable"], // 指定项目运行时使用的库
+    "types": ["unplugin-vue-define-options","unplugin-vue-define-options/macros-global"], // 用来指定需要包含的模块，并将其包含在全局范围内
+    "skipLibCheck": true // 是否跳过声明文件的类型检查，这可以在编译期间以牺牲类型系统准确性为代价来节省时间，默认：false
+  },
+  "include": ["packages"], // 使用 include 来指定应从绝对类型中使用哪些类型
+  "exclude": [
+    // 提供用于禁用 JavaScript 项目中某个模块的类型获取的配置
+    "node_modules",
+    "**/dist",
+    "**/__tests__/**/*",
+    "**/gulpfile.ts",
+    "**/test-helper",
+    "packages/test-utils",
+    "**/*.md"
+  ]
+}

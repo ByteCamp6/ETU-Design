@@ -1,0 +1,21 @@
+{
+  "name": "@etu-design/utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@etu-design/hooks": "^1.0.0",
+    "@etu-design/theme-chalk": "^1.0.0",
+    "hooks": "^0.3.2",
+    "theme-chalk": "^1.0.0-dev.9",
+    "utils": "^0.3.1",
+    "vite": "^4.0.4"
+  }
+}
