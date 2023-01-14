@@ -18,5 +18,13 @@
   },
   "scripts": {
     "test": "node ./__tests__/button.test.js"
+  },
+  "dependencies": {
+    "@etu-design/hooks": "^1.0.0",
+    "@etu-design/theme-chalk": "^1.0.0",
+    "hooks": "^0.3.2",
+    "theme-chalk": "^1.0.0-dev.9",
+    "utils": "^0.3.1",
+    "vite": "^4.0.4"
   }
 }
