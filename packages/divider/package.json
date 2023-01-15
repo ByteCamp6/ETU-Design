@@ -18,5 +18,8 @@
   },
   "scripts": {
     "test": "node ./__tests__/divider.test.js"
+  },
+  "dependencies": {
+    "vue-router": "^4.1.6"
   }
 }

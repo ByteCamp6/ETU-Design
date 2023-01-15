@@ -1,4 +1,4 @@
-import Divider from "./lib/divider.vue";
+import Divider from "./src/divider.vue";
 import type { App } from "vue";
 
 Divider.install = (app: App) => {

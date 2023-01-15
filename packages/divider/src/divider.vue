@@ -17,8 +17,8 @@ import { dividerProps } from './divider'
 import { isUndefined } from '../../utils'
 import type {CSSProperties} from 'vue'
 
-const props = defineProps(dividerProps);
 const bem = useNamespace('divider');
+const props = defineProps(dividerProps);
 
 const style = computed<CSSProperties>(() => {
   return {

@@ -1,0 +1,32 @@
+@use "mixins/mixins" as *;
+@use "mixins/config.scss" as *;
+
+@include b(breadcrumb) {
+  font-size: var(--font-size-default);
+
+  @include e(separator) {
+    margin: 0 var(--space-3);
+    font-weight: 600;
+    color: var(--color-text-3);
+  }
+
+  @include e(inner) {
+    @include when(link) {
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+
+  @include e(item) {
+    &:last-child {
+      .#{$namespace}-breadcrumb__inner {
+        font-weight: normal;
+        cursor: text;
+      }
+
+      .#{$namespace}-breadcrumb__separator {
+        display: none;
+      }
+    }
+  }
+}
