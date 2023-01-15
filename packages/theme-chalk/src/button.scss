@@ -1,6 +1,9 @@
 @use "mixins/mixins" as *;
 
-@include b(button) {
+%base-class {
+  margin: 3px;
+  min-width: 108px;
+  min-height: 36px;
   outline: none;
   position: relative;
   display: inline-block;
@@ -10,10 +13,332 @@
   background-image: none;
   background-color: transparent;
   border: 1px solid transparent;
+  border-radius: 6px 6px;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   user-select: none;
   touch-action: manipulation;
   line-height: 24px;
-  color: rgba(0, 0, 0, 0.88);
+  color: black;
+}
+
+$font-color:white;
+$background-color:inherit;
+
+%base-class--default {
+  @extend %base-class;
+  border: grey solid 1px;
+  background-color: $background-color;
+  @if $background-color == black {
+    $font-color: white;
+  }
+  @else {
+    $font-color: black;
+  }
+  color: $font-color;
+}
+
+%base-animation {
+  transition: all 0.7s;
+  cursor: pointer;
+}
+
+%base-animation--solid {
+  @extend %base-animation;
+  opacity: 0.6;
+}
+
+.etuButton,
+.etuButton-default-solid-Microcurvature-rectangle, {
+  @extend %base-class--default;
+}
+
+.etuButton:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-default-solid-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+  color: dodgerblue;
+}
+
+%base-class--primary {
+  @extend %base-class;
+  border: dodgerblue solid 1px;
+  background-color: dodgerblue;
+}
+
+.etuButton-primary-solid-Microcurvature-rectangle, {
+  @extend %base-class--primary;
+}
+
+.etuButton-primary-solid-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+%base-class--success {
+  @extend %base-class;
+  border: limegreen solid 1px;
+  background-color: limegreen;
+}
+
+.etuButton-success-solid-Microcurvature-rectangle, {
+  @extend %base-class--success;
+}
+
+.etuButton-success-solid-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+%base-class--Info {
+  @extend %base-class;
+  border: grey solid 1px;
+  background-color: grey;
+}
+
+.etuButton-Info-solid-Microcurvature-rectangle, {
+  @extend %base-class--Info;
+}
+
+.etuButton-Info-solid-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+%base-class--warning {
+  @extend %base-class;
+  border: darkorange solid 1px;
+  background-color: darkorange;
+}
+
+.etuButton-warning-solid-Microcurvature-rectangle, {
+  @extend %base-class--warning;
+}
+
+.etuButton-warning-solid-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+%base-class--danger {
+  @extend %base-class;
+  border: #f56c6c solid 1px;
+  background-color: #f56c6c;
+}
+
+.etuButton-danger-solid-Microcurvature-rectangle, {
+  @extend %base-class--danger;
+}
+
+.etuButton-danger-solid-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-default-Hollow-Microcurvature-rectangle, {
+  @extend %base-class--default;
+  border-color: lightblue;
+}
+
+.etuButton-default-Hollow-Microcurvature-rectangle:hover {
+  @extend %base-animation--solid;
+  color: dodgerblue;
+  border-color: dodgerblue;
+}
+
+%base-class--primary--Hollow {
+  @extend %base-class;
+  border: dodgerblue solid 1px;
+  background-color: dodgerblue;
+  opacity: 0.3;
+}
+
+.etuButton-primary-Hollow-Microcurvature-rectangle, {
+  @extend %base-class--primary--Hollow;
+}
+
+.etuButton-primary-Hollow-Microcurvature-rectangle:hover {
+  @extend %base-animation;
+  opacity: 1;
+  color: white;
+}
+
+%base-class--success--Hollow {
+  @extend %base-class;
+  border: limegreen solid 1px;
+  background-color: limegreen;
+  opacity: 0.3;
+}
+
+.etuButton-success-Hollow-Microcurvature-rectangle, {
+  @extend %base-class--success--Hollow;
+}
+
+.etuButton-success-Hollow-Microcurvature-rectangle:hover {
+  @extend %base-animation;
+  opacity: 1;
+  color: white;
+}
+
+%base-class--Info--Hollow {
+  @extend %base-class;
+  border: grey solid 1px;
+  background-color: grey;
+  opacity: 0.3;
+}
+
+.etuButton-Info-Hollow-Microcurvature-rectangle, {
+  @extend %base-class--Info--Hollow;
+}
+
+.etuButton-Info-Hollow-Microcurvature-rectangle:hover {
+  @extend %base-animation;
+  opacity: 1;
+  color: white;
+}
+
+%base-class--warning--Hollow {
+  @extend %base-class;
+  border: darkorange solid 1px;
+  background-color: darkorange;
+  opacity: 0.3;
+}
+
+.etuButton-warning-Hollow-Microcurvature-rectangle, {
+  @extend %base-class--warning--Hollow;
+}
+
+.etuButton-warning-Hollow-Microcurvature-rectangle:hover {
+  @extend %base-animation;
+  opacity: 1;
+  color: white;
+}
+
+%base-class--danger--Hollow {
+  @extend %base-class;
+  border: #f56c6c solid 1px;
+  background-color: #f56c6c;
+  opacity: 0.3;
+}
+
+.etuButton-danger-Hollow-Microcurvature-rectangle, {
+  @extend %base-class--danger--Hollow;
+}
+
+.etuButton-danger-Hollow-Microcurvature-rectangle:hover {
+  @extend %base-animation;
+  opacity: 1;
+  color: white;
+}
+// --------
+.etuButton-default-solid-curved-rectangle, {
+  @extend %base-class--default;
+  border-radius: 18px 18px;
+}
+
+.etuButton-default-solid-curved-rectangle:hover {
+  @extend %base-animation--solid;
+  color: dodgerblue;
+}
+
+.etuButton-primary-solid-curved-rectangle, {
+  @extend %base-class--primary;
+  border-radius: 18px 18px;
+}
+
+.etuButton-primary-solid-curved-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-success-solid-curved-rectangle, {
+  @extend %base-class--success;
+  border-radius: 18px 18px;
+}
+
+.etuButton-success-solid-curved-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-Info-solid-curved-rectangle, {
+  @extend %base-class--Info;
+  border-radius: 18px 18px;
+}
+
+.etuButton-Info-solid-curved-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-warning-solid-curved-rectangle, {
+  @extend %base-class--warning;
+  border-radius: 18px 18px;
+}
+
+.etuButton-warning-solid-curved-rectangle:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-danger-solid-curved-rectangle, {
+  @extend %base-class--danger;
+  border-radius: 18px 18px;
+}
+
+.etuButton-danger-solid-curved-rectangle:hover {
+  @extend %base-animation--solid;
+}
+// -------
+.etuButton-default-solid-curved-rotundity, {
+  @extend %base-class--default;
+  border-radius: 50% 50%;
+  aspect-ratio: 1/1;
+}
+
+.etuButton-default-solid-curved-rotundity:hover {
+  @extend %base-animation--solid;
+  color: dodgerblue;
+}
+
+.etuButton-primary-solid-curved-rotundity, {
+  @extend %base-class--primary;
+  border-radius: 50% 50%;
+  aspect-ratio: 1/1;
+}
+
+.etuButton-primary-solid-curved-rotundity:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-success-solid-curved-rotundity, {
+  @extend %base-class--success;
+  border-radius: 50% 50%;
+  aspect-ratio: 1/1;
+}
+
+.etuButton-success-solid-curved-rotundity:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-Info-solid-curved-rotundity, {
+  @extend %base-class--Info;
+  border-radius: 50% 50%;
+  aspect-ratio: 1/1;
+}
+
+.etuButton-Info-solid-curved-rotundity:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-warning-solid-curved-rotundity, {
+  @extend %base-class--warning;
+  border-radius: 50% 50%;
+  aspect-ratio: 1/1;
+}
+
+.etuButton-warning-solid-curved-rotundity:hover {
+  @extend %base-animation--solid;
+}
+
+.etuButton-danger-solid-curved-rotundity, {
+  @extend %base-class--danger;
+  border-radius: 50% 50%;
+  aspect-ratio: 1/1;
+}
+
+.etuButton-danger-solid-curved-rotundity:hover {
+  @extend %base-animation--solid;
 }
