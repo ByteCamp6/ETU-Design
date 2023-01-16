@@ -47,8 +47,10 @@
 
 // 传入一个数组,将名称组合在一起
 // joinVarName(('button', 'text-color')) => '--etu-button-text-color'
-@function joinVarName($list) {
-  $name: '--' + config.$namespace;
+@function joinVarName($list, $name: '') {
+  @if $name == '' {
+    $name: '--' + config.$namespace;
+  }
   @each $item in $list {
     @if $item != '' {
       $name: $name + '-' + $item;
@@ -67,6 +69,12 @@
 // getCssVar('button', 'text-color') => var(--etu-button-text-color)
 @function getCssVar($args...) {
   @return var(#{joinVarName($args)});
+}
+
+// 获取Root上的css变量
+// getRootCssVar('color', 'primary-light') => var(--color-primary-light)
+@function getRootCssVar($args...) {
+  @return var(#{joinVarName($args,'-')});
 }
 
 // 获取css变量，当无法获取到该变量时，使用默认值
