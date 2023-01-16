@@ -47,16 +47,31 @@ $background-color:inherit;
   opacity: 0.6;
 }
 
-.etuButton,
-.etuButton-default-solid-Microcurvature-rectangle, {
+%base-rainbow--solid {
+  @extend %base-class;
+  background-image: linear-gradient(
+      45deg,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      aqua,
+      purple
+  );
+  color: white;
+}
+
+.etu-Button,
+.etu-Button-default__solid--Microcurvature, {
   @extend %base-class--default;
 }
 
-.etuButton:hover {
+.etu-Button:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-default-solid-Microcurvature-rectangle:hover {
+.etu-Button-default__solid--Microcurvature:hover {
   @extend %base-animation--solid;
   color: dodgerblue;
 }
@@ -67,11 +82,11 @@ $background-color:inherit;
   background-color: dodgerblue;
 }
 
-.etuButton-primary-solid-Microcurvature-rectangle, {
+.etu-Button-primary__solid--Microcurvature, {
   @extend %base-class--primary;
 }
 
-.etuButton-primary-solid-Microcurvature-rectangle:hover {
+.etu-Button-primary__solid--Microcurvature:hover {
   @extend %base-animation--solid;
 }
 
@@ -81,11 +96,11 @@ $background-color:inherit;
   background-color: limegreen;
 }
 
-.etuButton-success-solid-Microcurvature-rectangle, {
+.etu-Button-success__solid--Microcurvature, {
   @extend %base-class--success;
 }
 
-.etuButton-success-solid-Microcurvature-rectangle:hover {
+.etu-Button-success__solid--Microcurvature:hover {
   @extend %base-animation--solid;
 }
 
@@ -95,11 +110,11 @@ $background-color:inherit;
   background-color: grey;
 }
 
-.etuButton-Info-solid-Microcurvature-rectangle, {
+.etu-Button-Info__solid--Microcurvature, {
   @extend %base-class--Info;
 }
 
-.etuButton-Info-solid-Microcurvature-rectangle:hover {
+.etu-Button-Info__solid--Microcurvature:hover {
   @extend %base-animation--solid;
 }
 
@@ -109,11 +124,11 @@ $background-color:inherit;
   background-color: darkorange;
 }
 
-.etuButton-warning-solid-Microcurvature-rectangle, {
+.etu-Button-warning__solid--Microcurvature, {
   @extend %base-class--warning;
 }
 
-.etuButton-warning-solid-Microcurvature-rectangle:hover {
+.etu-Button-warning__solid--Microcurvature:hover {
   @extend %base-animation--solid;
 }
 
@@ -123,20 +138,28 @@ $background-color:inherit;
   background-color: #f56c6c;
 }
 
-.etuButton-danger-solid-Microcurvature-rectangle, {
+.etu-Button-danger__solid--Microcurvature, {
   @extend %base-class--danger;
 }
 
-.etuButton-danger-solid-Microcurvature-rectangle:hover {
+.etu-Button-danger__solid--Microcurvature:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-default-Hollow-Microcurvature-rectangle, {
+.etu-Button-rainbow__solid--Microcurvature {
+  @extend %base-rainbow--solid;
+}
+
+.etu-Button-rainbow__solid--Microcurvature:hover {
+  @extend %base-animation--solid;
+}
+
+.etu-Button-default__Hollow--Microcurvature, {
   @extend %base-class--default;
   border-color: lightblue;
 }
 
-.etuButton-default-Hollow-Microcurvature-rectangle:hover {
+.etu-Button-default__Hollow--Microcurvature:hover {
   @extend %base-animation--solid;
   color: dodgerblue;
   border-color: dodgerblue;
@@ -149,11 +172,11 @@ $background-color:inherit;
   opacity: 0.3;
 }
 
-.etuButton-primary-Hollow-Microcurvature-rectangle, {
+.etu-Button-primary__Hollow--Microcurvature, {
   @extend %base-class--primary--Hollow;
 }
 
-.etuButton-primary-Hollow-Microcurvature-rectangle:hover {
+.etu-Button-primary__Hollow--Microcurvature:hover {
   @extend %base-animation;
   opacity: 1;
   color: white;
@@ -166,11 +189,11 @@ $background-color:inherit;
   opacity: 0.3;
 }
 
-.etuButton-success-Hollow-Microcurvature-rectangle, {
+.etu-Button-success__Hollow--Microcurvature, {
   @extend %base-class--success--Hollow;
 }
 
-.etuButton-success-Hollow-Microcurvature-rectangle:hover {
+.etu-Button-success__Hollow--Microcurvature:hover {
   @extend %base-animation;
   opacity: 1;
   color: white;
@@ -183,11 +206,11 @@ $background-color:inherit;
   opacity: 0.3;
 }
 
-.etuButton-Info-Hollow-Microcurvature-rectangle, {
+.etu-Button-Info__Hollow--Microcurvature, {
   @extend %base-class--Info--Hollow;
 }
 
-.etuButton-Info-Hollow-Microcurvature-rectangle:hover {
+.etu-Button-Info__Hollow--Microcurvature:hover {
   @extend %base-animation;
   opacity: 1;
   color: white;
@@ -200,11 +223,11 @@ $background-color:inherit;
   opacity: 0.3;
 }
 
-.etuButton-warning-Hollow-Microcurvature-rectangle, {
+.etu-Button-warning__Hollow--Microcurvature, {
   @extend %base-class--warning--Hollow;
 }
 
-.etuButton-warning-Hollow-Microcurvature-rectangle:hover {
+.etu-Button-warning__Hollow--Microcurvature:hover {
   @extend %base-animation;
   opacity: 1;
   color: white;
@@ -217,128 +240,102 @@ $background-color:inherit;
   opacity: 0.3;
 }
 
-.etuButton-danger-Hollow-Microcurvature-rectangle, {
+.etu-Button-danger__Hollow--Microcurvature {
   @extend %base-class--danger--Hollow;
 }
 
-.etuButton-danger-Hollow-Microcurvature-rectangle:hover {
+.etu-Button-danger__Hollow--Microcurvature:hover {
+  @extend %base-animation;
+  opacity: 1;
+  color: white;
+}
+
+%base-class--rainbow--Hollow {
+  @extend %base-class;
+  border: #f56c6c solid 1px;
+  background-image: linear-gradient(
+      45deg,
+      red,
+      orange,
+      yellow,
+      green,
+      blue,
+      aqua,
+      purple
+  );
+  opacity: 0.3;
+}
+
+.etu-Button-rainbow__Hollow--Microcurvature {
+  @extend %base-class--rainbow--Hollow;
+}
+
+.etu-Button-rainbow__Hollow--Microcurvature:hover {
   @extend %base-animation;
   opacity: 1;
   color: white;
 }
 // --------
-.etuButton-default-solid-curved-rectangle, {
+.etu-Button-default__solid--curved, {
   @extend %base-class--default;
   border-radius: 18px 18px;
 }
 
-.etuButton-default-solid-curved-rectangle:hover {
+.etu-Button-default__solid--curved:hover {
   @extend %base-animation--solid;
   color: dodgerblue;
 }
 
-.etuButton-primary-solid-curved-rectangle, {
+.etu-Button-primary__solid--curved, {
   @extend %base-class--primary;
   border-radius: 18px 18px;
 }
 
-.etuButton-primary-solid-curved-rectangle:hover {
+.etu-Button-primary__solid--curved:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-success-solid-curved-rectangle, {
+.etu-Button-success__solid--curved, {
   @extend %base-class--success;
   border-radius: 18px 18px;
 }
 
-.etuButton-success-solid-curved-rectangle:hover {
+.etu-Button-success__solid--curved:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-Info-solid-curved-rectangle, {
+.etu-Button-Info__solid--curved, {
   @extend %base-class--Info;
   border-radius: 18px 18px;
 }
 
-.etuButton-Info-solid-curved-rectangle:hover {
+.etu-Button-Info__solid--curved:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-warning-solid-curved-rectangle, {
+.etu-Button-warning__solid--curved, {
   @extend %base-class--warning;
   border-radius: 18px 18px;
 }
 
-.etuButton-warning-solid-curved-rectangle:hover {
+.etu-Button-warning__solid--curved:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-danger-solid-curved-rectangle, {
+.etu-Button-danger__solid--curved, {
   @extend %base-class--danger;
   border-radius: 18px 18px;
 }
 
-.etuButton-danger-solid-curved-rectangle:hover {
-  @extend %base-animation--solid;
-}
-// -------
-.etuButton-default-solid-curved-rotundity, {
-  @extend %base-class--default;
-  border-radius: 50% 50%;
-  aspect-ratio: 1/1;
-}
-
-.etuButton-default-solid-curved-rotundity:hover {
-  @extend %base-animation--solid;
-  color: dodgerblue;
-}
-
-.etuButton-primary-solid-curved-rotundity, {
-  @extend %base-class--primary;
-  border-radius: 50% 50%;
-  aspect-ratio: 1/1;
-}
-
-.etuButton-primary-solid-curved-rotundity:hover {
+.etu-Button-danger__solid--curved:hover {
   @extend %base-animation--solid;
 }
 
-.etuButton-success-solid-curved-rotundity, {
-  @extend %base-class--success;
-  border-radius: 50% 50%;
-  aspect-ratio: 1/1;
+.etu-Button-rainbow__solid--curved, {
+  @extend %base-rainbow--solid;
+  border-radius: 18px 18px;
 }
 
-.etuButton-success-solid-curved-rotundity:hover {
-  @extend %base-animation--solid;
-}
-
-.etuButton-Info-solid-curved-rotundity, {
-  @extend %base-class--Info;
-  border-radius: 50% 50%;
-  aspect-ratio: 1/1;
-}
-
-.etuButton-Info-solid-curved-rotundity:hover {
-  @extend %base-animation--solid;
-}
-
-.etuButton-warning-solid-curved-rotundity, {
-  @extend %base-class--warning;
-  border-radius: 50% 50%;
-  aspect-ratio: 1/1;
-}
-
-.etuButton-warning-solid-curved-rotundity:hover {
-  @extend %base-animation--solid;
-}
-
-.etuButton-danger-solid-curved-rotundity, {
-  @extend %base-class--danger;
-  border-radius: 50% 50%;
-  aspect-ratio: 1/1;
-}
-
-.etuButton-danger-solid-curved-rotundity:hover {
+.etu-Button-rainbow__solid--curved:hover {
   @extend %base-animation--solid;
 }

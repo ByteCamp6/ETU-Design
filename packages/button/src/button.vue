@@ -1,13 +1,13 @@
 <template>
   <button :class="tClass">
-    <slot></slot>
+    <slot> </slot>
   </button>
 </template>
 
 <script setup lang="ts" name="EtuButton">
 import { useNamespace } from "../../hooks";
 
-const bem = useNamespace("button");
+const bem = useNamespace("Button");
 import { computed } from "vue";
 
 const porps = defineProps({
@@ -28,13 +28,18 @@ const porps = defineProps({
     default: "rectangle",
   },
 });
-const tClass = computed(() => {
-  return [
-    "etuButton",
-    // porps.type === "" ? "" : `baseButton-${porps.type}`,
-    // porps.Hollow === "" ? "" : `baseButton-${porps.type}-${porps.Hollow}`
-    `etuButton-${porps.type}-${porps.Hollow}-${porps.Curvature}-${porps.shape}`,
-  ];
-});
+// const tClass = computed(() => {
+//   return [
+//     "etuButton",
+//     `etuButton-${porps.type}-${porps.Hollow}-${porps.Curvature}-${porps.shape}`,
+//   ];
+// });
+const tClass = bem.bem(porps.type, porps.Hollow, porps.Curvature);
 console.log(tClass);
+</script>
+
+<script lang="ts">
+export default {
+  name: "EtuButton",
+};
 </script>
