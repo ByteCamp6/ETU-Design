@@ -1,0 +1,12 @@
+{
+  "name": "tokens",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "voilt-sourse <2503063984@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "index.ts",
+  "dependencies": {
+    "vue-router": "^4.1.6"
+  }
+}
