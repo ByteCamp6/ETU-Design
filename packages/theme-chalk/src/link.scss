@@ -1,0 +1,5 @@
+@use "mixins/mixins" as *;
+
+@include b(link) {
+  color: red;
+}
