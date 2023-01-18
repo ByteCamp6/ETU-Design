@@ -22,7 +22,7 @@ const classes = computed(() => {
     ns.m(type),
     ns.m(size),
     ns.m(effect),
-    ns.is("-round", round),
+    ns.is("round", round),
   ];
 });
 
