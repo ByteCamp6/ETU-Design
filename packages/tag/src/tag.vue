@@ -6,7 +6,7 @@
   </span>
 </template>
 
-<script setup lang="ts" name="ETUTag">
+<script setup lang="ts" name="EtuTag">
 import { computed } from "vue";
 import { useNamespace } from "../../hooks";
 import { tagEmits, tagProps } from "./tag.ts";
