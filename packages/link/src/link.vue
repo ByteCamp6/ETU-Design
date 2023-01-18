@@ -6,7 +6,7 @@
   >
     <!-- <etu-icon v-if="icon"><component :is="icon" /></etu-icon> -->
     <span v-if="$slots.default" :class="bem.e('inner')">
-      {{ $slots.default }}
+      <!-- {{ $slots.default }} -->
       <slot />
     </span>
     <!-- <slot v-if="$slots.icon" name="icon" /> -->
@@ -31,15 +31,7 @@ const props = defineProps({
   // },
 });
 const bem = useNamespace("link");
-let linkKls = [
-  bem.b(),
-  // bem.e("e"),
-  bem.m(props.type),
-  // bem.be("b", "e"),
-  // bem.bm("b", "m"),
-  // bem.em("e", "m"),
-  // bem.bem("b", "e", "m"),
-];
+let linkKls = [bem.b(), bem.m(props.type), bem.is("disabled", props.disabled)];
 console.log(linkKls);
 console.log(props);
 // console.log(this.$slots);

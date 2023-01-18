@@ -1,10 +1,10 @@
 <template>
   <etu-link
-    type="primary"
+    type="success"
     :underline="false"
-    :disabled="fasle"
+    :disabled="true"
     href="https://juejin.cn/"
-    >测试测试</etu-link
+    >测试测试???</etu-link
   >
 </template>
 
