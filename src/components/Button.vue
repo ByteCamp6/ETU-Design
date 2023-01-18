@@ -1,5 +1,5 @@
 <template>
-  <etu-button>1</etu-button>
+  <EtuLink>1</EtuLink>
 </template>
 
 <script lang="ts">
