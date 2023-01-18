@@ -39,10 +39,12 @@
   //     }
   //   }
 
-  @include when(disabled) {
-    color: var("--jjext-color-thirdly");
-    // cursor: not-allowed;
-  }
+//   @include when(disabled) {
+//     color: var("--jjext-color-thirdly");
+//     // cursor: not-allowed;
+//   }
+
+    
 
   //   & [class*="#{$namespace}-icon-"] {
   //     & + span {
