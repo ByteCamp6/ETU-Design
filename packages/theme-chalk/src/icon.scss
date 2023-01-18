@@ -1,4 +1,5 @@
 @use 'mixins/mixins' as *;
+@use "var" as *;
 @include b(icon) {
   --color: inherit;
   height: 1em;
@@ -17,3 +18,62 @@
     width: 1em;
   }
 }
+@font-face {
+  font-family: "etu-icons"; /* Project id 3866756 */
+  src: url('./fonts/iconfont.woff2') format('woff2'),
+       url('./fonts/iconfont.woff') format('woff'),
+       url('./fonts/iconfont.ttf') format('truetype');
+}
+
+[class^='etu-i'] {
+  font-family: "etu-icons" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.etu-i-cart:before {
+  content: "\e634";
+}
+
+.etu-i-check:before {
+  content: "\e637";
+}
+
+.etu-i-chevron-left:before {
+  content: "\e638";
+}
+
+.etu-i-chevron-down:before {
+  content: "\e639";
+}
+
+.etu-i-chevron-right:before {
+  content: "\e63a";
+}
+
+.etu-i-edit:before {
+  content: "\e63c";
+}
+
+.etu-i-fullscreen-exit:before {
+  content: "\e643";
+}
+
+.etu-i-fullsreen:before {
+  content: "\e644";
+}
+
+.etu-i-search:before {
+  content: "\e65b";
+}
+
+.etu-i-tools:before {
+  content: "\e661";
+}
+
+
+
+
+
