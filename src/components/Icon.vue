@@ -1,4 +1,4 @@
 <template>
-  <i class="etu-i-edit"></i>
-  <etu-icon name="fullsreen"></etu-icon>
+  <i class="etu-i-3column"></i>
+  <etu-icon name="sorting"></etu-icon>
 </template>
