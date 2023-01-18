@@ -1,4 +1,5 @@
 <template>
+  <Tag type="success" round>22222</Tag>
   <etu-link
     type="success"
     :underline="false"
@@ -9,10 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import {} from "vue";
-const clickLink = () => {
-  console.log("点击了");
-};
+import Tag from "../packages/tag/src/tag.vue";
 </script>
 
 <style scoped></style>
