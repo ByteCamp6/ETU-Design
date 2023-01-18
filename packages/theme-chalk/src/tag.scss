@@ -1,0 +1,142 @@
+@use 'sass:map';
+
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+
+//type
+$types: primary, success, warning, danger, info;
+
+$tag: () !default;
+$tag: map.merge(
+    (
+      'font-size': 12px,
+      'border-radius': 4px,
+      'border-radius-rounded': 9999px,
+    ),
+    $tag
+);
+
+$border-width: 1px;
+$tag-height: () !default;
+$tag-height: map.merge(
+    (
+      'large': 32px,
+      'default': 24px,
+      'small': 20px,
+    ),
+    $tag-height
+);
+
+$tag-padding: () !default;
+$tag-padding: map.merge(
+    (
+      'large': 12px,
+      'default': 10px,
+      'small': 8px,
+    ),
+    $tag-padding
+);
+$tag-border-width: 1px;
+
+$tag-icon-size: () !default;
+$tag-icon-size: map.merge(
+    (
+      'large': 16px,
+      'default': 14px,
+      'small': 12px,
+    ),
+    $tag-icon-size
+);
+
+$tag-icon-span-gap: () !default;
+$tag-icon-span-gap: map.merge(
+    (
+      'large': 8px,
+      'default': 6px,
+      'small': 4px,
+    ),
+    $tag-icon-span-gap
+);
+
+@function returnVarList($var, $type: 'primary') {
+  $list: ('fill-color', 'blank');
+  @if $var != false {
+    $list: ('color', $type, $var);
+  }
+  @return $list;
+}
+
+@include b(tag) {
+  //@include genTheme('light', 'light-8', '');
+  background-color: getCssVar('tag-bg-color');
+  border-color: getCssVar('tag-border-color');
+  color: getCssVar('tag-text-color');
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  height: map.get($tag-height, 'default');
+  padding: 0 map.get($tag-padding, 'default') - $border-width;
+
+  font-size: getCssVar('tag-font-size');
+  line-height: 1;
+  border-width: $tag-border-width;
+  border-style: solid;
+  border-radius: getCssVar('tag-border-radius');
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  &.is-closable {
+    padding-right: map.get($tag-icon-span-gap, 'default') - $border-width;
+  }
+
+  //@debug $tag;
+  @each $attribute, $value in $tag {
+    @include set-css-var-value(('tag',$attribute), $value);
+  }
+
+  @include when(round) {
+    border-radius: getCssVar('tag', 'border-radius-rounded');
+  }
+
+  @each $type in $types {
+    &.#{bem('tag', '', $type)} {
+      @include set-css-var-value(('tag-bg-color'),getRootCssVar('color', $type, 'light'));
+      @include set-css-var-value(('tag-border-color'),getRootCssVar('color', $type, 'light-hover'));
+      @include set-css-var-value(('tag-text-color'),getRootCssVar('color', $type));
+      @include set-css-var-value(('tag-hover-color'),getRootCssVar('color', $type));
+    }
+  }
+
+  @include m(dark) {
+    @each $type in $types {
+      &.#{bem('tag', '', $type)} {
+        @include set-css-var-value(('tag-bg-color'),getRootCssVar('color', $type));
+        @include set-css-var-value(('tag-border-color'),getRootCssVar('color', $type));
+        @include set-css-var-value(('tag-text-color'),getRootCssVar('color', 'white' ));
+        @include set-css-var-value(('tag-hover-color'),getRootCssVar('color', 'light-hover'));
+      }
+    }
+  }
+
+  @include m(plain) {
+    @each $type in $types {
+      &.#{bem('tag', '', $type)} {
+        @include set-css-var-value(('tag-bg-color'),getRootCssVar('color', 'white'));
+        @include set-css-var-value(('tag-border-color'),getRootCssVar('color', $type, 'light-active'));
+        @include set-css-var-value(('tag-text-color'),getRootCssVar('color', $type ));
+        @include set-css-var-value(('tag-hover-color'),getRootCssVar('color', $type));
+      }
+    }
+  }
+
+  @each $size in (large, small) {
+    @include m($size) {
+      padding: 0 map.get($tag-padding, $size) - $tag-border-width;
+      height: map.get($tag-height, $size);
+    }
+  }
+}
