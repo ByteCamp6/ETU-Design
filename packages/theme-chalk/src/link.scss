@@ -1,5 +1,4 @@
 @use "mixins/mixins" as *;
-@use "mixins/var" as *;
 @use "mixins/config" as *;
 @use "sass:map";
 // @include b(link) {
@@ -39,12 +38,10 @@
   //     }
   //   }
 
-//   @include when(disabled) {
-//     color: var("--jjext-color-thirdly");
-//     // cursor: not-allowed;
-//   }
-
-    
+  //   @include when(disabled) {
+  //     color: var("--jjext-color-thirdly");
+  //     // cursor: not-allowed;
+  //   }
 
   //   & [class*="#{$namespace}-icon-"] {
   //     & + span {
@@ -58,15 +55,15 @@
   //     }
   //   }
 
-  @include e(inner) {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
+  //   @include e(inner) {
+  //     display: inline-flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
 
-  @each $type in $types {
-    &.#{$namespace}-link--#{$type} {
-      color: map.get($colors, $type, "base");
-    }
-  }
+  //   @each $type in $types {
+  //     &.#{$namespace}-link--#{$type} {
+  //       color: map.get($colors, $type, "base");
+  //     }
+  //   }
 }

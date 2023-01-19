@@ -1,10 +1,9 @@
 @use "config" as *;
 @use "function" as *;
-@use "var" as *;
 
 @mixin b($block) {
   $B: $namespace + "-" + $block !global;
-  
+
   .#{$B} {
     @content;
   }
