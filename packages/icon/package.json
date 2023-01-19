@@ -1,0 +1,29 @@
+{
+  "name": "icon",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "jiaze <1244153559@qq.com>",
+  "homepage": "https://github.com/ByteCamp6/ETU-Design#readme",
+  "license": "ISC",
+  "main": "lib/icon.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.taobao.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByteCamp6/ETU-Design.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/icon.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ByteCamp6/ETU-Design/issues"
+  }
+}

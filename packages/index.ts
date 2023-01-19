@@ -5,13 +5,15 @@ import Link from "./link/index";
 import Divider from "./divider/index";
 import breadcrumb from "./breadcrumb/index";
 
+import Icon from "./icon/index";
+
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 
 // 全部引入
 
-const components = [Divider, Breadcrumb, BreadcrumbItem, Link];
+const components = [Divider, Breadcrumb, BreadcrumbItem, Icon, Link];
 
 // 全局动态添加
 const install = (app: App) => {
