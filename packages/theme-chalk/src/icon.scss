@@ -31,12 +31,9 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-@font-face {
-  font-family: "etu-font"; /* Project id 3867408 */
-  src: url('iconfont.woff2?t=1674050671686') format('woff2'),
-       url('iconfont.woff?t=1674050671686') format('woff'),
-       url('iconfont.ttf?t=1674050671686') format('truetype');
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
 }
 
 .etu-i-3column:before {

@@ -4,7 +4,7 @@
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
   <router-view></router-view>
-  <Tag type="success" round>22222</Tag>
+  <Tag type="success" round><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i></Tag>
 </template>
 
 <script setup lang="ts">
