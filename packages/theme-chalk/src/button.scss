@@ -1,9 +1,21 @@
 @use "mixins/mixins" as *;
 
-%base-class {
-  margin: 3px;
-  min-width: 108px;
-  min-height: 36px;
+$fontColor:white;
+$backgroundColor:inherit;
+
+@mixin setStyle($c,$bc,$br) {
+  color: $c;
+  background-color: $bc;
+  border: $br solid 1px;
+}
+
+@mixin setSize($w,$h,$a) {
+  width: $w;
+  height: $h;
+  aspect-ratio: $a;
+}
+
+%base {
   outline: none;
   position: relative;
   display: inline-block;
@@ -11,34 +23,35 @@
   white-space: nowrap;
   text-align: center;
   background-image: none;
-  background-color: transparent;
-  border: 1px solid transparent;
+  margin: 3px;
   border-radius: 6px 6px;
   cursor: pointer;
   user-select: none;
   touch-action: manipulation;
   line-height: 24px;
-  color: black;
 }
 
-$font-color:white;
-$background-color:inherit;
+%base-class {
+  @extend %base;
+  @include setSize(108px,36px,inherit);
+  @include setStyle(black,transparent,transparent);
+}
 
 %base-class--default {
   @extend %base-class;
   border: grey solid 1px;
-  background-color: $background-color;
-  @if $background-color == black {
+  background-color: $backgroundColor;
+  @if $backgroundColor == black {
     $font-color: white;
   }
   @else {
     $font-color: black;
   }
-  color: $font-color;
+  color: $fontColor;
 }
 
 %base-animation {
-  transition: all 0.7s;
+  transition: all 0.3s;
   cursor: pointer;
 }
 
@@ -65,189 +78,169 @@ $background-color:inherit;
 .etu-Button,
 .etu-Button-default__solid--Microcurvature, {
   @extend %base-class--default;
+  color: #181818;
+  &:hover {
+    @extend %base-animation--solid;
+    color: dodgerblue;
+  }
 }
 
 .etu-Button:hover {
   @extend %base-animation--solid;
 }
 
-.etu-Button-default__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
-  color: dodgerblue;
-}
-
 %base-class--primary {
   @extend %base-class;
-  border: dodgerblue solid 1px;
-  background-color: dodgerblue;
+  @include setStyle(white,dodgerblue,dodgerblue);
 }
 
 .etu-Button-primary__solid--Microcurvature, {
   @extend %base-class--primary;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
-.etu-Button-primary__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
-}
+
 
 %base-class--success {
   @extend %base-class;
-  border: limegreen solid 1px;
-  background-color: limegreen;
+  @include setStyle(white,limegreen,limegreen);
 }
 
 .etu-Button-success__solid--Microcurvature, {
   @extend %base-class--success;
-}
-
-.etu-Button-success__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 %base-class--Info {
   @extend %base-class;
-  border: grey solid 1px;
-  background-color: grey;
+  @include setStyle(white,grey,grey);
 }
 
 .etu-Button-Info__solid--Microcurvature, {
   @extend %base-class--Info;
-}
-
-.etu-Button-Info__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 %base-class--warning {
   @extend %base-class;
-  border: darkorange solid 1px;
-  background-color: darkorange;
+  @include setStyle(white,darkorange,darkorange);
 }
 
 .etu-Button-warning__solid--Microcurvature, {
   @extend %base-class--warning;
-}
-
-.etu-Button-warning__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 %base-class--danger {
   @extend %base-class;
-  border: #f56c6c solid 1px;
-  background-color: #f56c6c;
+  @include setStyle(white,#f56c6c,#f56c6c);
 }
 
 .etu-Button-danger__solid--Microcurvature, {
   @extend %base-class--danger;
-}
-
-.etu-Button-danger__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 .etu-Button-rainbow__solid--Microcurvature {
   @extend %base-rainbow--solid;
-}
-
-.etu-Button-rainbow__solid--Microcurvature:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 .etu-Button-default__Hollow--Microcurvature, {
   @extend %base-class--default;
-  border-color: lightblue;
-}
-
-.etu-Button-default__Hollow--Microcurvature:hover {
-  @extend %base-animation--solid;
-  color: dodgerblue;
-  border-color: dodgerblue;
+  @include setStyle(black,white,lightblue);
+  &:hover {
+    @extend %base-animation--solid;
+    color: dodgerblue;
+    border-color: dodgerblue;
+  }
 }
 
 %base-class--primary--Hollow {
   @extend %base-class;
-  border: dodgerblue solid 1px;
-  background-color: dodgerblue;
-  opacity: 0.3;
+  @include setStyle(white,dodgerblue,dodgerblue);
+  opacity: 0.6;
 }
 
 .etu-Button-primary__Hollow--Microcurvature, {
   @extend %base-class--primary--Hollow;
-}
-
-.etu-Button-primary__Hollow--Microcurvature:hover {
-  @extend %base-animation;
-  opacity: 1;
-  color: white;
+  &:hover {
+    @extend %base-animation;
+    opacity: 1;
+    color: white;
+  }
 }
 
 %base-class--success--Hollow {
   @extend %base-class;
-  border: limegreen solid 1px;
-  background-color: limegreen;
-  opacity: 0.3;
+  @include setStyle(white,limegreen,limegreen);
+  opacity: 0.6;
 }
 
 .etu-Button-success__Hollow--Microcurvature, {
   @extend %base-class--success--Hollow;
-}
-
-.etu-Button-success__Hollow--Microcurvature:hover {
-  @extend %base-animation;
-  opacity: 1;
-  color: white;
+  &:hover {
+    @extend %base-animation;
+    opacity: 1;
+    color: white;
+  }
 }
 
 %base-class--Info--Hollow {
   @extend %base-class;
-  border: grey solid 1px;
-  background-color: grey;
-  opacity: 0.3;
+  @include setStyle(white,grey,grey);
+  opacity: 0.6;
 }
 
 .etu-Button-Info__Hollow--Microcurvature, {
   @extend %base-class--Info--Hollow;
-}
-
-.etu-Button-Info__Hollow--Microcurvature:hover {
-  @extend %base-animation;
-  opacity: 1;
-  color: white;
+  &:hover {
+    @extend %base-animation;
+    opacity: 1;
+    color: white;
+  }
 }
 
 %base-class--warning--Hollow {
   @extend %base-class;
-  border: darkorange solid 1px;
-  background-color: darkorange;
-  opacity: 0.3;
+  @include setStyle(white,darkorange,darkorange);
+  opacity: 0.6;
 }
 
 .etu-Button-warning__Hollow--Microcurvature, {
   @extend %base-class--warning--Hollow;
-}
-
-.etu-Button-warning__Hollow--Microcurvature:hover {
-  @extend %base-animation;
-  opacity: 1;
-  color: white;
+  &:hover {
+    @extend %base-animation;
+    opacity: 1;
+    color: white;
+  }
 }
 
 %base-class--danger--Hollow {
   @extend %base-class;
-  border: #f56c6c solid 1px;
-  background-color: #f56c6c;
-  opacity: 0.3;
+  @include setStyle(white,#f56c6c,#f56c6c);
+  opacity: 0.6;
 }
 
 .etu-Button-danger__Hollow--Microcurvature {
   @extend %base-class--danger--Hollow;
-}
-
-.etu-Button-danger__Hollow--Microcurvature:hover {
-  @extend %base-animation;
-  opacity: 1;
-  color: white;
+  &:hover {
+    @extend %base-animation;
+    opacity: 1;
+    color: white;
+  }
 }
 
 %base-class--rainbow--Hollow {
@@ -263,36 +256,35 @@ $background-color:inherit;
       aqua,
       purple
   );
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .etu-Button-rainbow__Hollow--Microcurvature {
   @extend %base-class--rainbow--Hollow;
+  &:hover {
+    @extend %base-animation;
+    opacity: 1;
+    color: white;
+  }
 }
 
-.etu-Button-rainbow__Hollow--Microcurvature:hover {
-  @extend %base-animation;
-  opacity: 1;
-  color: white;
-}
 // --------
 .etu-Button-default__solid--curved, {
   @extend %base-class--default;
   border-radius: 18px 18px;
-}
-
-.etu-Button-default__solid--curved:hover {
-  @extend %base-animation--solid;
-  color: dodgerblue;
+  color: black;
+  &:hover {
+    @extend %base-animation--solid;
+    color: dodgerblue;
+  }
 }
 
 .etu-Button-primary__solid--curved, {
   @extend %base-class--primary;
   border-radius: 18px 18px;
-}
-
-.etu-Button-primary__solid--curved:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 .etu-Button-success__solid--curved, {
@@ -307,35 +299,32 @@ $background-color:inherit;
 .etu-Button-Info__solid--curved, {
   @extend %base-class--Info;
   border-radius: 18px 18px;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
-.etu-Button-Info__solid--curved:hover {
-  @extend %base-animation--solid;
-}
 
 .etu-Button-warning__solid--curved, {
   @extend %base-class--warning;
   border-radius: 18px 18px;
-}
-
-.etu-Button-warning__solid--curved:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 .etu-Button-danger__solid--curved, {
   @extend %base-class--danger;
   border-radius: 18px 18px;
-}
-
-.etu-Button-danger__solid--curved:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
 
 .etu-Button-rainbow__solid--curved, {
   @extend %base-rainbow--solid;
   border-radius: 18px 18px;
-}
-
-.etu-Button-rainbow__solid--curved:hover {
-  @extend %base-animation--solid;
+  &:hover {
+    @extend %base-animation--solid;
+  }
 }
