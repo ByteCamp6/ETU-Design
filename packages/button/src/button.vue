@@ -4,7 +4,6 @@
   </button>
 </template>
 
-
 <script setup lang="ts" name="EtuButton">
 import { useNamespace } from "../../hooks";
 
@@ -28,6 +27,14 @@ const porps = defineProps({
     shape: String,
     default: "rectangle",
   },
+  circle: {
+    disable: String,
+    default: "false",
+  },
+  size: {
+    size: String,
+    default: "normal",
+  },
 });
 // const tClass = computed(() => {
 //   return [
@@ -35,7 +42,12 @@ const porps = defineProps({
 //     `etuButton-${porps.type}-${porps.Hollow}-${porps.Curvature}-${porps.shape}`,
 //   ];
 // });
-const tClass = bem.bem(porps.type, porps.Hollow, porps.Curvature);
+const tClass = computed(() => {
+  return [
+    bem.be(porps.circle, porps.size),
+    bem.bem(porps.type, porps.Hollow, porps.Curvature),
+  ];
+});
 console.log(tClass);
 </script>
 

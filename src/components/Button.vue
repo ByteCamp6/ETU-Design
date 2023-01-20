@@ -22,6 +22,9 @@
   <etu-button type="warning" Curvature="curved">按钮</etu-button>
   <etu-button type="danger" Curvature="curved">按钮</etu-button>
   <etu-button type="rainbow" Curvature="curved">按钮</etu-button>
+  <!-- 还可以指定size指定尺寸和circle来指定按钮的圆形方形 -->
+  <etu-button type="primary" Hollow="Hollow" size="large">按钮</etu-button>
+  <etu-button type="success" Hollow="Hollow" circle="true">圆</etu-button>
 </template>
 
 <style lang="scss"></style>

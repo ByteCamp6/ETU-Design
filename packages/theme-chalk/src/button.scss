@@ -33,8 +33,39 @@ $backgroundColor:inherit;
 
 %base-class {
   @extend %base;
-  @include setSize(108px,36px,inherit);
   @include setStyle(black,transparent,transparent);
+}
+
+.etu-Button-false__normal {
+  @include setSize(108px,36px,inherit);
+}
+
+.etu-Button-false__large {
+  @include setSize(130px,43px,inherit);
+}
+
+.etu-Button-false__small {
+  @include setSize(90px,35px,inherit);
+}
+
+%base-circle {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.etu-Button-true__normal {
+  @include setSize(36px,36px,inherit);
+  @extend %base-circle;
+}
+
+.etu-Button-true__large {
+  @include setSize(48px,48px,inherit);
+  @extend %base-circle;
+}
+
+.etu-Button-true__small {
+  @include setSize(24px,24px,inherit);
+  @extend %base-circle;
 }
 
 %base-class--default {
