@@ -2,12 +2,14 @@
 import Button from "./button/index";
 import Divider from "./divider/index";
 import breadcrumb from "./breadcrumb/index";
+import Icon from "./icon/index";
+import Tag from "./tag/index";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 
 // 全部引入
-const components = [Button, Divider, Breadcrumb, BreadcrumbItem];
+const components = [Button, Divider, Breadcrumb, BreadcrumbItem, Icon, Tag];
 
 // 全局动态添加
 const install = (app: App) => {
