@@ -2,7 +2,7 @@ import { computed, inject, ref, toRaw } from "vue";
 import type { ComponentInternalInstance } from "vue";
 import type { CheckboxProps } from "../checkbox";
 import type { CheckboxModel } from "./use-checkbox-model";
-import { checkboxGroupContextKey } from "../../../tokens/checkbox";
+import { checkboxGroupContextKey } from "@etu-design/tokens";
 import { isArray } from "@etu-design/utils";
 
 export const useCheckboxStatus = (

@@ -25,6 +25,11 @@ export const checkboxGroupProps = {
    * @description 选中复选框的最大数量
    */
   max: Number,
+  size: {
+    type: String,
+    values: ["large", "default", "small"],
+    default: "default",
+  },
 } as const;
 
 export const checkboxGroupEmits = {

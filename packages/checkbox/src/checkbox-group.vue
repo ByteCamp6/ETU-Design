@@ -14,7 +14,7 @@ export default {
 import { computed, nextTick, provide, toRefs } from "vue";
 import { checkboxGroupEmits, checkboxGroupProps } from "./checkbox-group.ts";
 import { useNamespace } from "@etu-design/hooks";
-import { checkboxGroupContextKey } from "tokens/checkbox";
+import { checkboxGroupContextKey } from "@etu-design/tokens";
 import type { CheckboxGroupValueType } from "./checkbox-group.ts";
 
 const props = defineProps(checkboxGroupProps);

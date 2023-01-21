@@ -1,5 +1,5 @@
 import { computed, getCurrentInstance, inject, ref } from "vue";
-import { checkboxGroupContextKey } from "../../../tokens/checkbox";
+import { checkboxGroupContextKey } from "@etu-design/tokens";
 import { isUndefined, isArray } from "@etu-design/utils";
 
 import type { CheckboxProps } from "../checkbox";

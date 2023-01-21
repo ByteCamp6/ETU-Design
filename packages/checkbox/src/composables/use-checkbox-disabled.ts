@@ -1,9 +1,9 @@
 import { computed, inject } from "vue";
 import { isUndefined, isArray } from "@etu-design/utils";
-import { checkboxGroupContextKey } from "../../../tokens/checkbox";
+import { checkboxGroupContextKey } from "@etu-design/tokens";
 import type { CheckboxStatus } from "./use-checkbox-status";
 import type { CheckboxModel } from "./use-checkbox-model";
-import { useDisabled } from "@etu-design/hooks/use-common-props";
+import { useDisabled } from "@etu-design/hooks";
 
 export const useCheckboxDisabled = ({
   model,
