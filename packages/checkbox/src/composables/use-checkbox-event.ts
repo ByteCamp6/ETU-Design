@@ -17,6 +17,7 @@ export const useCheckboxEvent = (
 ) => {
   const { emit } = getCurrentInstance()!;
 
+  // handleChange是一个函数，传递事件，如果组件是在正常状态下（没有选择过多的选项），则发送事件
   function handleChange(e: Event) {
     if (isLimitExceeded.value) return;
 

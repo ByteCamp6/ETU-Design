@@ -21,13 +21,7 @@
   </label>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuRadio",
-};
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuRadio">
 import { useNamespace } from "@etu-design/hooks";
 import { computed, nextTick } from "vue";
 import { useRadio } from "./use-radio";

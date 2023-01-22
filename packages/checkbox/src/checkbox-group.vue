@@ -4,13 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuCheckboxGroup",
-};
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuCheckboxGroup">
 import { computed, nextTick, provide, toRefs } from "vue";
 import { checkboxGroupEmits, checkboxGroupProps } from "./checkbox-group.ts";
 import { useNamespace } from "@etu-design/hooks";

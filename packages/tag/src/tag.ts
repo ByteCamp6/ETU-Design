@@ -7,8 +7,6 @@ export const tagProps = {
     values: ["success", "info", "warning", "danger", "primary"],
     default: "primary",
   },
-  // hit: Boolean,
-  // disableTransitions: Boolean,
   color: {
     type: String,
     default: "",
@@ -26,7 +24,7 @@ export const tagProps = {
   round: Boolean,
 } as const;
 
-export type TagProps = ExtractPropTypes<typeof tagProps>
+export type TagProps = ExtractPropTypes<typeof tagProps>;
 
 export const tagEmits = {
   close: (evt: MouseEvent) => evt instanceof MouseEvent,

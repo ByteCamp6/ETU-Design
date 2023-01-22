@@ -13,7 +13,11 @@ export const useCheckboxModel = (props: CheckboxProps) => {
   const checkboxGroup = inject(checkboxGroupContextKey, undefined);
   const isGroup = computed(() => isUndefined(checkboxGroup) === false);
   const isLimitExceeded = ref(false);
-  // model为多选组时是group绑定的值，否则为checkbox绑定的值
+  /**
+   * @description model都是一个很重要的数据，如果当前checkbox是否在checkbox组中的话，
+   * 那么当前的modelValue就是checkbox组绑定的value，否则就是checkbox绑定的值，如果没有绑定就是selfModel的值，
+   * 而这个model和input所绑定，当组件发生点击事件时进行修改
+   */
   const model = computed({
     get() {
       return isGroup.value

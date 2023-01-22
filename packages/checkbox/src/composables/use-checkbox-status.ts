@@ -14,7 +14,10 @@ export const useCheckboxStatus = (
   const checkboxGroup = inject(checkboxGroupContextKey, undefined);
   // isFocused通过hook暴露给外部，触发失焦和聚焦等操作，从而修改样式，在useCheckbox中不会对其有任何修改
   const isFocused = ref(false);
-  // isChecked表示checkbox当前的样式，通过model来获取，当为组时判断是否在组里，不为组时判断其本身是否为真
+  /**
+   * @description isChecked表示checkbox当前的状态，通过model来获取，当为组时判断是否在组里，
+   * 不为组时判断其本身是否为真，和model的区别是这是一个布尔变量，相比于model我们可以更加方便的知道组件的状态
+   */
   const isChecked = computed<boolean>(() => {
     const value = model.value;
     if (isArray(value)) {

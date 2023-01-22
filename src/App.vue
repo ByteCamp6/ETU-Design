@@ -4,8 +4,10 @@
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
   <Tag></Tag>
-  <checkbox></checkbox>
-  <router-view></router-view>
+  <Checkbox></Checkbox>
+  <Divider></Divider>
+  <Radio></Radio>
+<!--  <router-view></router-view>-->
 </template>
 
 <script setup lang="ts">
@@ -15,6 +17,7 @@ import Breadcrumb from "./components/breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Tag from "./components/Tag.vue";
 import Checkbox from "./components/Checkbox.vue";
+import Radio from "./components/Radio.vue";
 </script>
 
 <style scoped></style>

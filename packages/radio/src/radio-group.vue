@@ -4,13 +4,7 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuRadioGroup",
-};
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuRadioGroup">
 import { nextTick, provide, toRefs } from "vue";
 import { radioGroupKey } from "@etu-design/tokens";
 import { radioGroupEmits, radioGroupProps } from "./radio-group.ts";

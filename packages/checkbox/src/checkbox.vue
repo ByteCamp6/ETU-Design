@@ -20,13 +20,8 @@
   </label>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuCheckbox",
-};
-</script>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuCheckbox">
 import { checkboxProps, checkboxEmits } from "./checkbox.ts";
 import { useCheckbox } from "./composables";
 import { computed, useSlots } from "vue";
