@@ -7,6 +7,7 @@
   <Checkbox></Checkbox>
   <Divider></Divider>
   <Radio></Radio>
+  <Empty></Empty>
 <!--  <router-view></router-view>-->
 </template>
 
@@ -18,6 +19,7 @@ import Icon from "./components/Icon.vue";
 import Tag from "./components/Tag.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
+import Empty from "./components/Empty.vue";
 </script>
 
 <style scoped></style>

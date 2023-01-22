@@ -6,6 +6,7 @@ import Icon from "./icon/index";
 import Tag from "./tag/index";
 import checkbox from "./checkbox";
 import radio from "./radio";
+import Empty from "./empty";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -24,6 +25,7 @@ const components = [
   CheckboxGroup,
   Radio,
   RadioGroup,
+  Empty,
 ];
 
 // 全局动态添加
