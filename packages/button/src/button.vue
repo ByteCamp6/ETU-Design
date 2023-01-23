@@ -5,8 +5,13 @@
   </button>
 </template>
 
+<script lang="ts">
+export default {
+  name: "EtuButton",
+};
+</script>
 
-<script setup lang="ts" name="EtuButton">
+<script setup lang="ts">
 import { useNamespace } from "../../hooks";
 
 const bem = useNamespace("button");
