@@ -1,6 +1,9 @@
 @use "config" as *;
 @use "function" as *;
 
+// etu-$block{
+    
+// }
 @mixin b($block) {
   $B: $namespace + "-" + $block !global;
 

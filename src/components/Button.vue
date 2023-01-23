@@ -1,6 +1,4 @@
-<template>
-  <EtuLink>1</EtuLink>
-</template>
+<template>1</template>
 
 <script lang="ts">
 import { reactive, toRefs, onBeforeMount, onMounted } from "vue";

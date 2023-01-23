@@ -1,10 +1,13 @@
-@use "mixins/mixins" as *;
-@use "mixins/config" as *;
 @use "sass:map";
+
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+@use "mixins/config" as *;
 // @include b(link) {
 //   @include set-component-css-var("link", $link);
 // }
-
 @include b(link) {
   display: inline-flex;
   flex-direction: row;
@@ -16,54 +19,54 @@
   outline: none;
   cursor: pointer;
   padding: 0;
+  font-size: getRootCssVar("font", "default");
+  color: getCssVar("link", "text-color");
 
-  //   font-size: getCssVar("link", "font-size");
-  //   font-weight: getCssVar("link", "font-weight");
+  &:hover {
+    color: getCssVar("link", "hover-text-color");
+  }
 
-  //   color: getCssVar("link", "text-color");
+  @include when(underline) {
+    &:hover:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 0;
+      bottom: 0;
+      border-bottom: 1px solid getCssVar("link", "text-color");
+    }
+  }
 
-  //   &:hover {
-  //     color: getCssVar("link", "hover-text-color");
-  //   }
+  @include when(disabled) {
+    color: getCssVar("link", "disabled-text-color");
+    cursor: not-allowed;
+  }
 
-  //   @include when(underline) {
-  //     &:hover:after {
-  //       content: "";
-  //       position: absolute;
-  //       left: 0;
-  //       right: 0;
-  //       height: 0;
-  //       bottom: 0;
-  //       border-bottom: 1px solid getCssVar("link", "hover-text-color");
-  //     }
-  //   }
+  @each $type in $types {
+    &.#{$namespace}-link--#{$type} {
+      @include set-css-var-value(
+        ("link", "text-color"),
+        getRootCssVar("color", $type)
+      );
+      @include set-css-var-value(
+        ("link", "hover-text-color"),
+        getRootCssVar("color", $type, "light-hover")
+      );
+      @include set-css-var-value(
+        ("link", "disabled-text-color"),
+        getRootCssVar("color", $type, "disabled")
+      );
 
-  //   @include when(disabled) {
-  //     color: var("--jjext-color-thirdly");
-  //     // cursor: not-allowed;
-  //   }
+      // &:after {
+      //   border-color: getCssVar("link", "text-color");
+      // }
 
-  //   & [class*="#{$namespace}-icon-"] {
-  //     & + span {
-  //       margin-left: 5px;
-  //     }
-  //   }
-
-  //   &.#{$namespace}-link--default {
-  //     &:after {
-  //       border-color: getCssVar("link", "hover-text-color");
-  //     }
-  //   }
-
-  //   @include e(inner) {
-  //     display: inline-flex;
-  //     justify-content: center;
-  //     align-items: center;
-  //   }
-
-  //   @each $type in $types {
-  //     &.#{$namespace}-link--#{$type} {
-  //       color: map.get($colors, $type, "base");
-  //     }
-  //   }
+      // @include when(underline) {
+      //   &:hover:after {
+      //     border-color: getCssVar("link", "text-color");
+      //   }
+      // }
+    }
+  }
 }
