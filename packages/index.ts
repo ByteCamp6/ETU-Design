@@ -7,13 +7,15 @@ import breadcrumb from "./breadcrumb/index";
 
 import Icon from "./icon/index";
 
+import Tag from "./tag/index";
+
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 
 // 全部引入
 
-const components = [Divider, Breadcrumb, BreadcrumbItem, Icon, Link];
+const components = [Divider, Breadcrumb, BreadcrumbItem, Icon, Tag, Link];
 
 // 全局动态添加
 const install = (app: App) => {

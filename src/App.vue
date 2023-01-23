@@ -3,7 +3,7 @@
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
-  <Tag type="primary" round>22222</Tag>
+  <Tag></Tag>
   <Link />
   <router-view></router-view>
 </template>
@@ -13,8 +13,8 @@ import Button from "./components/Button.vue";
 import Divider from "./components/Divider.vue";
 import Breadcrumb from "./components/breadcrumb.vue";
 import Icon from "./components/Icon.vue";
-import Tag from "../packages/tag/src/tag.vue";
 import Link from "./components/Link.vue";
+import Tag from "./components/Tag.vue";
 </script>
 
 <style scoped></style>
