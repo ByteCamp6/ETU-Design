@@ -1,7 +1,8 @@
 // typography
 :root {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
-    Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC,
+    Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
   --font-size-small-extra: 12px;
   --font-size-small: 13px;
   --font-size-default: 14px;
@@ -46,9 +47,12 @@
 // shadow
 :root {
   --shadow-none: none;
-  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.14), 0px 0px 1px 0px rgba(0, 0, 0, 0.16);
-  --shadow-2: 0px 4px 6px 0px rgba(0, 0, 0, 0.1), 0px 0px 1px 0px rgba(0, 0, 0, 0.3);
-  --shadow-3: 0px 0px 1px 0px rgba(0, 0, 0, 0.3), 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+  --shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.14),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.16);
+  --shadow-2: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  --shadow-3: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 14px 0px rgba(0, 0, 0, 0.1);
 }
 
 // color
@@ -111,6 +115,122 @@
   --color-link-hover: rgba(var(--color-grey-6), 1);
   --color-link-active: rgba(var(--color-grey-7), 1);
   --color-link-visited: rgba(var(--color-grey-5), 1);
+}
+
+// typography
+:root {
+  --etu-font-size-small-extra: 12px;
+  --etu-font-size-small: 13px;
+  --etu-font-size-default: 14px;
+  --etu-font-size-medium: 16px;
+  --etu-font-size-large: 18px;
+  --etu-font-size-large-extra: 20px;
+  --etu-font-size-header-1: 32px;
+  --etu-font-size-header-2: 28px;
+  --etu-font-size-header-3: 24px;
+  --etu-font-size-header-4: 20px;
+  --etu-font-size-header-5: 18px;
+  --etu-font-size-header-6: 16px;
+}
+
+//border
+:root {
+  --etu-border-default: 1px solid rgba(var(--color-grey-2), 1);
+  --etu-border-dotted: 1px dotted rgba(var(--color-grey-2), 1);
+  --etu-border-inset: 1px inset rgba(var(--color-grey-2), 1);
+  --etu-border-dashed: 1px dashed rgba(var(--color-grey-2), 1);
+  --etu-border-radius-full: 9999px;
+  --etu-border-radius-large: 12px;
+  --etu-border-radius-small: 3px;
+  --etu-border-radius-circle: 50%;
+  --etu-border-radius-medium: 6px;
+}
+
+// space
+:root {
+  --etu-space-0: 0px;
+  --etu-space-1: 2px;
+  --etu-space-2: 4px;
+  --etu-space-3: 8px;
+  --etu-space-4: 12px;
+  --etu-space-5: 16px;
+  --etu-space-6: 20px;
+  --etu-space-7: 24px;
+  --etu-space-8: 32px;
+  --etu-space-9: 40px;
+}
+
+// shadow
+:root {
+  --etu-shadow-none: none;
+  --etu-shadow-1: 0px 2px 4px 0px rgba(0, 0, 0, 0.14),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.16);
+  --etu-shadow-2: 0px 4px 6px 0px rgba(0, 0, 0, 0.1),
+    0px 0px 1px 0px rgba(0, 0, 0, 0.3);
+  --etu-shadow-3: 0px 0px 1px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+}
+
+// color
+:root {
+  --etu-color-black: rgba(0, 0, 0, 1);
+  --etu-color-white: rgba(255, 255, 255, 1);
+  --etu-color-focus: rgba(var(--color-primary-5), 1);
+  --etu-color-border: rgba(var(--color-grey-9), 1);
+  --etu-color-text-0: rgba(var(--color-grey-9), 1);
+  --etu-color-text-1: rgba(var(--color-grey-9), 0.8);
+  --etu-color-text-2: rgba(var(--color-grey-9), 0.6);
+  --etu-color-text-3: rgba(var(--color-grey-9), 0.35);
+  --etu-color-fill-0: rgba(var(--color-grey-9), 0.05);
+  --etu-color-fill-1: rgba(var(--color-grey-9), 0.09);
+  --etu-color-fill-2: rgba(var(--color-grey-9), 0.13);
+  --etu-color-fill-3: rgba(var(--color-grey-9), 0.2);
+  --etu-color-default: rgba(var(--color-grey-0), 1);
+  --etu-color-default-hover: rgba(var(--color-grey-1), 1);
+  --etu-color-default-active: rgba(var(--color-grey-2), 1);
+  --etu-color-primary: rgba(var(--color-blue-5), 1);
+  --etu-color-primary-hover: rgba(var(--color-blue-6), 1);
+  --etu-color-primary-active: rgba(var(--color-blue-7), 1);
+  --etu-color-primary-disabled: rgba(var(--color-blue-2), 1);
+  --etu-color-primary-light: rgba(var(--color-blue-0), 1);
+  --etu-color-primary-light-hover: rgba(var(--color-blue-1), 1);
+  --etu-color-primary-light-active: rgba(var(--color-blue-2), 1);
+  --etu-color-success: rgba(var(--color-green-5), 1);
+  --etu-color-success-hover: rgba(var(--color-green-6), 1);
+  --etu-color-success-active: rgba(var(--color-green-7), 1);
+  --etu-color-success-disabled: rgba(var(--color-green-2), 1);
+  --etu-color-success-light: rgba(var(--color-green-0), 1);
+  --etu-color-success-light-hover: rgba(var(--color-green-1), 1);
+  --etu-color-success-light-active: rgba(var(--color-green-2), 1);
+  --etu-color-danger: rgba(var(--color-red-5), 1);
+  --etu-color-danger-hover: rgba(var(--color-red-6), 1);
+  --etu-color-danger-active: rgba(var(--color-red-7), 1);
+  --etu-color-danger-disabled: rgba(var(--color-red-2), 1);
+  --etu-color-danger-light: rgba(var(--color-red-0), 1);
+  --etu-color-danger-light-hover: rgba(var(--color-red-1), 1);
+  --etu-color-danger-light-active: rgba(var(--color-red-2), 1);
+  --etu-color-warning: rgba(var(--color-orange-5), 1);
+  --etu-color-warning-hover: rgba(var(--color-orange-6), 1);
+  --etu-color-warning-active: rgba(var(--color-orange-7), 1);
+  --etu-color-warning-disabled: rgba(var(--color-orange-2), 1);
+  --etu-color-warning-light: rgba(var(--color-orange-0), 1);
+  --etu-color-warning-light-hover: rgba(var(--color-orange-1), 1);
+  --etu-color-warning-light-active: rgba(var(--color-orange-2), 1);
+  --etu-color-info: rgba(var(--color-grey-5), 1);
+  --etu-color-info-hover: rgba(var(--color-grey-6), 1);
+  --etu-color-info-active: rgba(var(--color-grey-7), 1);
+  --etu-color-info-disabled: rgba(var(--color-grey-2), 1);
+  --etu-color-info-light: rgba(var(--color-grey-0), 1);
+  --etu-color-info-light-hover: rgba(var(--color-grey-1), 1);
+  --etu-color-info-light-active: rgba(var(--color-grey-2), 1);
+  --etu-color-disabled-bg: rgba(var(--color-grey-1), 1);
+  --etu-color-disabled-fill: rgba(var(--color-grey-8), 1);
+  --etu-color-disabled-text: rgba(var(--color-grey-9), 1);
+  --etu-color-disabled-border: rgba(var(--color-grey-1), 1);
+  --etu-color-link: rgba(var(--color-grey-5), 1);
+  --etu-color-link-hover: rgba(var(--color-grey-6), 1);
+  --etu-color-link-active: rgba(var(--color-grey-7), 1);
+  --etu-color-link-visited: rgba(var(--color-grey-5), 1);
 }
 
 :root {
