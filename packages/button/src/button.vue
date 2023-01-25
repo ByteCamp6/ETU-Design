@@ -36,12 +36,6 @@ const porps = defineProps({
     default: "normal",
   },
 });
-// const tClass = computed(() => {
-//   return [
-//     "etuButton",
-//     `etuButton-${porps.type}-${porps.Hollow}-${porps.Curvature}-${porps.shape}`,
-//   ];
-// });
 const tClass = computed(() => {
   return [
     bem.be(porps.circle, porps.size),
