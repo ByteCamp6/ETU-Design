@@ -1,0 +1,106 @@
+@use "sass:map";
+
+@use "mixins/mixins" as *;
+@use "mixins/_var" as *;
+@use "mixins/function" as *;
+@use "mixins/config" as *;
+
+@include b(message) {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: getCssVar("message-border-color");
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: getCssVar("message-bg-color");
+  transition: opacity 0.3s, transform 0.4s, top 0.4s;
+  padding: 15px 19px;
+  display: flex;
+  align-items: center;
+
+  @include when(center) {
+    justify-content: center;
+  }
+
+  @include when(closable) {
+    .#{bem("message","content")} {
+      padding-right: 31px;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  @each $type in (success, info, warning, error) {
+    $temp: $type;
+    @if $type == error {
+      $temp: danger
+    }
+    @include m($type) {
+      @include set-css-var-value(
+        ("message-bg-color"),
+        getRootCssVar("color", $temp, "light")
+      );
+      @include set-css-var-value(
+        ("message-border-color"),
+        getRootCssVar("color", $temp, "light-hover")
+      );
+      @include set-css-var-value(
+        ("message-text-color"),
+        getRootCssVar("color", $temp)
+      );
+
+      .#{bem("message","content")} {
+        color: getCssVar("message-text-color");
+        overflow-wrap: anywhere;
+      }
+    }
+
+    & .#{$namespace}-message-icon--#{$type} {
+      color: getCssVar("message-text-color");
+    }
+  }
+
+  @include e(icon) {
+    margin-right: 10px;
+  }
+
+  @include e(content) {
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+    &:focus {
+      outline-width: 0;
+    }
+  }
+
+  & .#{bem("message","closeBtn")} {
+    position: absolute;
+    top: 50%;
+    right: 19px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: getRootCssVar("color-text-3");
+    font-size: 16px;
+
+    &:focus {
+      outline-width: 0;
+    }
+    &:hover {
+      color: getRootCssVar("color-text-2");
+    }
+  }
+}
+
+// transition动画
+.#{$namespace}-message-fade-enter-from,
+.#{$namespace}-message-fade-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

@@ -12,13 +12,7 @@
   </span>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuTag",
-};
-</script>
-
-<script setup lang="ts">
+<script setup lang="ts" name="EtuTag">
 import { computed } from "vue";
 import EtuIcon from "@etu-design/icon";
 import { useNamespace } from "../../hooks";
