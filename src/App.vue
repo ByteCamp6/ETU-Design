@@ -8,6 +8,7 @@
   <Divider></Divider>
   <Radio></Radio>
   <Empty></Empty>
+  <Message></Message>
 <!--  <router-view></router-view>-->
 </template>
 
@@ -20,6 +21,7 @@ import Tag from "./components/Tag.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
 import Empty from "./components/Empty.vue";
+import Message from "./components/Message.vue";
 </script>
 
 <style scoped></style>
