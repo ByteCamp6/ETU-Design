@@ -1,6 +1,6 @@
 // 整合所有组件
 import Link from "./link/index";
-// import Button from "./button/index";
+import Button from "./button/index";
 import Divider from "./divider/index";
 import breadcrumb from "./breadcrumb/index";
 import Icon from "./icon/index";
@@ -27,6 +27,7 @@ const components = [
   RadioGroup,
   Empty,
   Link,
+  Button,
 ];
 
 // 全局动态添加
