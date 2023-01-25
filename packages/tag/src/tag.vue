@@ -16,7 +16,7 @@
 import { computed } from "vue";
 import EtuIcon from "@etu-design/icon";
 import { useNamespace } from "../../hooks";
-import { tagEmits, tagProps } from "./tag.ts";
+import { tagEmits, tagProps } from "./tag";
 
 const props = defineProps(tagProps);
 const emit = defineEmits(tagEmits);

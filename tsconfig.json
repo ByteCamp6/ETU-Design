@@ -5,7 +5,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "esModuleInterop": true, // 支持模块转化
-    "skipLibCheck": true,  // 跳过类库检测
+    "skipLibCheck": true, // 跳过类库检测
     "forceConsistentCasingInFileNames": true, // 强制区分大小写
     "moduleResolution": "node", // 模块解析方式
     "jsx": "preserve", // 不转化jsx

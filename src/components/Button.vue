@@ -1,6 +1,4 @@
-<template>
-  <etu-button>1</etu-button>
-</template>
+<template>1</template>
 
 <script lang="ts">
 import { reactive, toRefs, onBeforeMount, onMounted } from "vue";
