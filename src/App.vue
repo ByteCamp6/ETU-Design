@@ -8,9 +8,9 @@
   <Divider></Divider>
   <Radio></Radio>
   <Empty></Empty>
-  <Message></Message
+  <Message></Message>
   <Link />
-  <router-view></router-view
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">

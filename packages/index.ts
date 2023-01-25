@@ -1,14 +1,13 @@
 // 整合所有组件
-
 import Link from "./link/index";
 // import Button from "./button/index";
 import Divider from "./divider/index";
-import breadcrumb from "./breadcrumb/index"
-import Icon from "./icon/index"
-import Tag from "./tag/index"
+import breadcrumb from "./breadcrumb/index";
+import Icon from "./icon/index";
+import Tag from "./tag/index";
 import checkbox from "./checkbox";
 import radio from "./radio";
-import Empty from "./empty"
+import Empty from "./empty";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -17,7 +16,6 @@ const { Radio, RadioGroup } = radio;
 
 // 全部引入
 const components = [
-  Button,
   Divider,
   Breadcrumb,
   BreadcrumbItem,
@@ -28,7 +26,8 @@ const components = [
   Radio,
   RadioGroup,
   Empty,
-]
+  Link,
+];
 
 // 全局动态添加
 const install = (app: App) => {
