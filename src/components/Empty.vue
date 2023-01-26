@@ -1,8 +1,6 @@
 <template>
-  <div style="width: 100px; height: 100px">
-    <etu-empty>
-      <template #image>222</template>
-    </etu-empty>
+  <div style="width: 200px; height: 300px">
+    <etu-empty></etu-empty>
   </div>
 </template>
 

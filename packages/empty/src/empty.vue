@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<script setup name="EtuEmpty">
+<script setup lang="ts" name="EtuEmpty">
 import { computed } from "vue";
 
 import { useNamespace } from "@etu-design/hooks";

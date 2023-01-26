@@ -9,6 +9,6 @@ export const emptyProps = {
     type: String,
   },
   imageSize: Number,
-}
+};
 
-export type EmptyProps = ExtractPropTypes<typeof emptyProps>
+export type EmptyProps = ExtractPropTypes<typeof emptyProps>;
