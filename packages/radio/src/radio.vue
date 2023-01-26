@@ -34,8 +34,6 @@ const emit = defineEmits(radioEmits);
 
 const { radioRef, focus, size, disabled, modelValue } = useRadio(props);
 
-console.log(disabled.value);
-
 const labelClass = computed(() => {
   return [
     ns.b(),
