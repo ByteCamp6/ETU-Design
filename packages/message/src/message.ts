@@ -1,4 +1,5 @@
-import type { ExtractPropTypes } from "vue";
+import type { Component, ExtractPropTypes, VNode } from "vue";
+import { definePropType } from "@etu-design/utils";
 
 export const messageTypes = ["success", "info", "warning", "error"] as const;
 export type messageType = (typeof messageTypes)[number];
@@ -19,7 +20,11 @@ export const messageProps = {
     default: "",
   },
   message: {
-    type: [String, Object, Function],
+    type: definePropType<string | VNode | (() => VNode)>([
+      String,
+      Object,
+      Function,
+    ]),
     default: "",
   },
   type: {
@@ -36,7 +41,7 @@ export const messageProps = {
     required: false,
   },
   icon: {
-    type: [String, Object, Function],
+    type: definePropType<string | Component>([String, Object, Function]),
     default: "",
   },
   duration: {
