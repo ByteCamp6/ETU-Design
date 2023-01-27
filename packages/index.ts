@@ -8,6 +8,7 @@ import Tag from "./tag/index";
 import checkbox from "./checkbox";
 import radio from "./radio";
 import Empty from "./empty";
+import Upload from "./upload";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -28,6 +29,7 @@ const components = [
   Empty,
   Link,
   Button,
+  Upload,
 ];
 
 // 全局动态添加
