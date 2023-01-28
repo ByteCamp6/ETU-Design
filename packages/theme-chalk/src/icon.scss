@@ -1,6 +1,6 @@
 @use 'mixins/mixins' as *;
 @use "var" as *;
-@include b(icon) {
+@include b(i) {
   --color: inherit;
   height: 1em;
   width: 1em;
