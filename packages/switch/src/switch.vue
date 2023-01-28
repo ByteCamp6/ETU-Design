@@ -101,8 +101,6 @@ const inClass = computed(() => {
 //     : props.activeValue;
 // });
 let checkedValue = ref(false);
-let val = activeValue;
-console.log(val.value);
 // watch(checkedValue, () => {
 //   if (checkedValue.value === true) {
 //     console.log("true changed");
@@ -113,6 +111,7 @@ console.log(val.value);
 //   }
 // });
 let demo = ref();
+let val = demo;
 const handleChange = (): void => {
   const v = checkedValue.value ? props.inactiveValue : props.activeValue;
   emits("change", v);
