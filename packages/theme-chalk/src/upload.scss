@@ -1,5 +1,6 @@
 @use "sass:map";
 
+@use "mixins/_var.scss" as *;
 @use "mixins/mixins" as *;
 @use "mixins/function" as *;
 @use "var" as *;
@@ -61,7 +62,7 @@
       display: none;
 
       &:hover {
-        color: getRootCssVar("color-primary");;
+        color: getRootCssVar("color-primary");
       }
     }
 
@@ -116,6 +117,48 @@
     align-items: center;
 
     padding: 0 4px;
+  }
+}
+
+@include b(upload-dragger) {
+  @include set-css-var-value("upload-dragger-padding-horizontal", 40px);
+  @include set-css-var-value("upload-dragger-padding-vertical", 10px);
+}
+
+@include b(upload-dragger) {
+  padding: getCssVar("upload-dragger-padding-horizontal")
+    getCssVar("upload-dragger-padding-vertical");
+  background-color: getRootCssVar("color-white");
+  border: 1px dashed getRootCssVar("color-border");
+  border-radius: 6px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: getRootCssVar("color-primary");
+  }
+
+  .#{bem("upload", "icon-upload")} {
+    font-size: 67px;
+    color: getRootCssVar("color-border");
+    margin-bottom: 16px;
+    line-height: 50px;
+  }
+
+  .#{bem("upload", "text")} {
+    color: getRootCssVar("color-border");
+    font-size: 14px;
+    text-align: center;
+  }
+
+  @include when(dragover) {
+    padding: calc(#{getCssVar("upload-dragger-padding-horizontal")} - 1px)
+      calc(#{getCssVar("upload-dragger-padding-vertical")} - 1px);
+    background-color: getRootCssVar("color-primary-light");
+    border: 2px dashed getRootCssVar("color-primary");
   }
 }
 

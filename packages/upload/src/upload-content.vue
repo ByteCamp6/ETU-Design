@@ -1,9 +1,9 @@
 <template>
   <div :class="classes" @click="handleClick">
     <template v-if="props.drag">
-<!--      <upload-dragger :disabled="disabled" @file="uploadFiles">-->
-<!--        <slot />-->
-<!--      </upload-dragger>-->
+      <upload-dragger :disabled="disabled" @file="uploadFiles">
+        <slot />
+      </upload-dragger>
     </template>
     <template v-else>
       <slot />
@@ -26,6 +26,7 @@ import { useNamespace } from "@etu-design/hooks";
 import { uploadContentProps } from "./upload-content.ts";
 import { computed } from "vue";
 import { useUploadContent } from "./use-upload-content";
+import UploadDragger from "./upload-dragger.vue";
 
 const props = defineProps(uploadContentProps);
 const ns = useNamespace("upload");
