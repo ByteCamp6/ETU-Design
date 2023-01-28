@@ -43,6 +43,8 @@ export const selectProps = {
   },
   disabled: booleanType,
   filterable: booleanType,
+  clearable: booleanType,
+  multiple: booleanType,
 } as const;
 
 export const selectEmits = {

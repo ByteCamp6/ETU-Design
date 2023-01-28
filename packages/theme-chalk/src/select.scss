@@ -27,6 +27,7 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+  gap: getRootCssVar("space-6");
   padding: getCssVar("select", "padding");
   min-width: 220px;
   background-color: getCssVar("select", "bg-color");
@@ -56,11 +57,22 @@
     width: 100%;
     height: getCssVar("select", "inner-height");
     line-height: getCssVar("select", "inner-height");
+    color: getRootCssVar("color", "text-2");
+    border: 0;
+    outline: none;
+    background-color: transparent;
     text-align: left;
-    @include when(selected) {
-      color: getRootCssVar("color", "text-2");
-      user-select: none;
-    }
+  }
+
+  @include e(tag) {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: getRootCssVar("space-2");
+    width: 100%;
+    height: getCssVar("select", "inner-height");
+    line-height: getCssVar("select", "inner-height");
+    text-align: left;
   }
 
   @include when(disabled) {
@@ -146,6 +158,11 @@
       &:hover {
         background-color: getRootCssVar("color", "white");
       }
+    }
+
+    @include when(selected) {
+      color: getRootCssVar("color", "primary");
+      font-weight: 600;
     }
   }
 }

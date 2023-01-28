@@ -1,5 +1,5 @@
 <template>
-  <etu-select v-model="value" placeholder="请选择内容" disabled>
+  <etu-select v-model="value" placeholder="请选择内容" multiple clearable>
     <etu-option
       v-for="item in listData"
       :key="item.label"
