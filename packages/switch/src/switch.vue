@@ -1,18 +1,17 @@
 <template>
-  <input
-    id="checkBox"
-    ref="input"
-    type="checkbox"
-    class="RealCheck"
-    :true-value="activeValue"
-    :false-value="inactiveValue"
-    :checked="checkedValue"
-    v-model="demo"
-    :value="val"
-    @change="handleChange"
-    :disabled="state"
-  />
-  <label for="checkBox" :class="tClass">
+  <label :class="tClass">
+    <input
+      ref="input"
+      type="checkbox"
+      class="RealCheck"
+      :true-value="activeValue"
+      :false-value="inactiveValue"
+      :checked="checkedValue"
+      v-model="demo"
+      :value="val"
+      @change="handleChange"
+      :disabled="state"
+    />
     <div class="etu-Switch-inBox"></div>
     <slot></slot>
   </label>
@@ -22,7 +21,7 @@
 import { useNamespace } from "../../hooks";
 import "../../theme-chalk/src/switch.scss";
 const bem = useNamespace("Switch");
-import { computed, ref, watch, defineEmits } from "vue";
+import { computed, ref, watch, defineEmits, nextTick } from "vue";
 
 // const emit = defineEmits(switchEmits);
 const emits = defineEmits<{
@@ -117,7 +116,9 @@ let demo = ref();
 const handleChange = (): void => {
   const v = checkedValue.value ? props.inactiveValue : props.activeValue;
   emits("change", v);
-  checkedValue.value = !checkedValue.value;
+  nextTick(() => {
+    checkedValue.value = !checkedValue.value;
+  });
 };
 </script>
 

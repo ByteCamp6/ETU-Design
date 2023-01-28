@@ -5,7 +5,6 @@
     activeValue="100"
     inactiveValue="0"
     @change="handleChange(true)"
-    disabled="true"
     size="normal"
   ></etu-switch>
 </template>
