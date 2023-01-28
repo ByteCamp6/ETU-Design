@@ -10,6 +10,7 @@
   <Empty></Empty>
   <Message></Message>
   <Link />
+  <Switch></Switch>
   <router-view></router-view>
 </template>
 
@@ -24,6 +25,7 @@ import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
 import Empty from "./components/Empty.vue";
 import Message from "./components/Message.vue";
+import Switch from "./components/Switch.vue";
 </script>
 
 <style scoped></style>

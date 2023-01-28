@@ -42,7 +42,6 @@ const tClass = computed(() => {
     bem.bem(porps.type, porps.Hollow, porps.Curvature),
   ];
 });
-console.log(tClass);
 </script>
 
 <script lang="ts">
