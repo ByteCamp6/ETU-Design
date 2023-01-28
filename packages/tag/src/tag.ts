@@ -7,8 +7,6 @@ export const tagProps = {
     values: ["success", "info", "warning", "danger", "primary"],
     default: "primary",
   },
-  // hit: Boolean,
-  // disableTransitions: Boolean,
   color: {
     type: String,
     default: "",
