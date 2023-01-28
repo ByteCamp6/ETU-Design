@@ -1,9 +1,10 @@
 <template>
-  <Button></Button>
+  <!-- <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
-  <Tag></Tag>
+  <Tag></Tag> -->
+  <Select></Select>
   <router-view></router-view>
 </template>
 
@@ -13,6 +14,7 @@ import Divider from "./components/Divider.vue";
 import Breadcrumb from "./components/Breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Tag from "./components/Tag.vue";
+import Select from "./components/Select.vue";
 </script>
 
 <style scoped></style>

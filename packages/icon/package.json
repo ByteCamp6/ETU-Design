@@ -1,4 +1,7 @@
 {
   "name": "@etu-design/icon",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  }
 }

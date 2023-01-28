@@ -22,6 +22,7 @@
   "dependencies": {
     "@etu-design/hooks": "^1.0.0",
     "@etu-design/theme-chalk": "^1.0.0",
+    "animate.css": "^4.1.1",
     "hooks": "^0.3.2",
     "theme-chalk": "^1.0.0-dev.9",
     "utils": "^0.3.1",
