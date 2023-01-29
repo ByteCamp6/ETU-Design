@@ -20,6 +20,10 @@ $types: primary, success, warning, danger, error, info;
   --font-size-header-6: 16px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 //border
 :root {
   --border-default: 1px solid rgba(var(--color-grey-2), 1);
@@ -72,6 +76,12 @@ $types: primary, success, warning, danger, error, info;
   --color-fill-1: rgba(var(--color-grey-9), 0.09);
   --color-fill-2: rgba(var(--color-grey-9), 0.13);
   --color-fill-3: rgba(var(--color-grey-9), 0.2);
+  --color-fill-4: rgba(var(--color-grey-9), 0.35);
+  --color-fill-5: rgba(var(--color-grey-9), 0.5);
+  --color-fill-6: rgba(var(--color-grey-9), 0.6);
+  --color-fill-7: rgba(var(--color-grey-9), 0.7);
+  --color-fill-8: rgba(var(--color-grey-9), 0.8);
+  --color-fill-9: rgba(var(--color-grey-9), 0.9);
   --color-default: rgba(var(--color-grey-0), 1);
   --color-default-hover: rgba(var(--color-grey-1), 1);
   --color-default-active: rgba(var(--color-grey-2), 1);

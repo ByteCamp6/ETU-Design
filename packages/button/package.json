@@ -20,6 +20,7 @@
     "test": "node ./__tests__/divider.test.js"
   },
   "dependencies": {
+    "@etu-design/directives": "^0.0.0",
     "vue-router": "^4.1.6"
   }
 }

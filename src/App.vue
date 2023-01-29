@@ -4,6 +4,8 @@
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
   <Tag></Tag>
+  <Select></Select>
+  <Tag></Tag>
   <Checkbox></Checkbox>
   <Divider></Divider>
   <Radio></Radio>
@@ -12,20 +14,22 @@
   <Link />
   <Upload></Upload>
   <Switch></Switch>
+  <Upload></Upload>
   <router-view></router-view>
 </template>
 
 <script setup lang="ts">
 import Button from "./components/Button.vue";
 import Divider from "./components/Divider.vue";
-import Breadcrumb from "./components/breadcrumb.vue";
+import Breadcrumb from "./components/Breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
+import Select from "./components/Select.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
-import Empty from "./components/Empty.vue";
-import Message from "./components/Message.vue";
+// import Empty from "./components/Empty.vue";
+// import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";
 import Switch from "./components/Switch.vue";
 </script>

@@ -1,11 +1,11 @@
 {
-  "name": "divider",
+  "name": "select",
   "version": "0.0.0",
-  "description": "> TODO: description",
+  "description": "",
   "author": "voilt-sourse <2503063984@qq.com>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/divider.js",
+  "main": "lib/select.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -17,11 +17,10 @@
     "registry": "https://registry.npmmirror.com/"
   },
   "scripts": {
-    "test": "node ./__tests__/divider.test.js"
+    "test": "node ./__tests__/select.test.js"
   },
   "dependencies": {
     "@etu-design/directives": "^0.0.0",
-    "animate.css": "^4.1.1",
-    "vue-router": "^4.1.6"
+    "animate.css": "^4.1.1"
   }
 }

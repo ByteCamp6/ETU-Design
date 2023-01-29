@@ -5,6 +5,7 @@ import Divider from "./divider/index";
 import breadcrumb from "./breadcrumb/index";
 import Icon from "./icon/index";
 import Tag from "./tag/index";
+import select from "./select/index";
 import checkbox from "./checkbox";
 import radio from "./radio";
 import Switch from "./switch/index";
@@ -15,6 +16,7 @@ import type { App } from "vue";
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
 const { Radio, RadioGroup } = radio;
+const { Select, Option, OptionGroup } = select;
 
 // 全部引入
 const components = [
@@ -23,6 +25,9 @@ const components = [
   BreadcrumbItem,
   Icon,
   Tag,
+  Select,
+  Option,
+  OptionGroup,
   Checkbox,
   CheckboxGroup,
   Radio,
