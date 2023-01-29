@@ -9,13 +9,14 @@
 | type      | default,primary,Info,danger,warnning,rainbow | 分别对应默认，主要按钮，灰色按钮，危险按钮，警告按钮,彩虹按钮 |
 | Hollow    | solid,Hollow                                 | 实心，空心, 默认实心                     |
 | Curvature | Microcurvature , curved                      | 微曲和大曲度，默认微曲                     |
-| circle | true , false | 指定按钮是否为圆，默认false |
-| size | large , normal , small | 按钮尺寸的大中小，默认是normal |
+| circle    | true , false | 指定按钮是否为圆，默认false |
+| size      | large , normal , small | 按钮尺寸的大中小，默认是normal |
+| disabled  | true , false | 按钮状态是否禁用，默认为false,不禁用 |
 
 ## demo
 ```
   <etu-button>按钮</etu-button>
-  <etu-button type="primary">按钮</etu-button>
+  <etu-button type="primary" @click="show" disabled="true">按钮</etu-button>
   <etu-button type="success">按钮</etu-button>
   <etu-button type="Info">按钮</etu-button>
   <etu-button type="warning">按钮</etu-button>

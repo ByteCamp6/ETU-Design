@@ -31,6 +31,19 @@ $backgroundColor:inherit;
   @extend %base;
   @include setStyle(black,transparent,transparent);
 }
+@mixin setState($s) {
+  @if($s == true) {
+    opacity: 0.6;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+@each $state in (true,false) {
+  .etu-Button__#{$state} {
+    @include setState($state);
+  }
+}
 .etu-Button-false__normal {
   @include setSize(108px,36px,inherit);
 }
@@ -70,7 +83,6 @@ $backgroundColor:inherit;
 }
 %base-animation {
   transition: all 0.3s;
-  cursor: pointer;
 }
 %base-animation--solid {
   @extend %base-animation;

@@ -1,5 +1,5 @@
 <template>
-  <button :class="tClass">
+  <button :class="tClass" :disabled="state">
     <slot> </slot>
   </button>
 </template>
@@ -8,12 +8,15 @@
 import { useNamespace } from "../../hooks";
 
 const bem = useNamespace("Button");
-import { computed } from "vue";
-
+import { computed, ref } from "vue";
 const porps = defineProps({
   type: {
     type: String,
     default: "default",
+  },
+  disabled: {
+    state: Boolean,
+    default: false,
   },
   Hollow: {
     Hollow: String,
@@ -36,10 +39,12 @@ const porps = defineProps({
     default: "normal",
   },
 });
+const state = ref(porps.disabled);
 const tClass = computed(() => {
   return [
     bem.be(porps.circle, porps.size),
     bem.bem(porps.type, porps.Hollow, porps.Curvature),
+    bem.e(porps.disabled),
   ];
 });
 </script>
