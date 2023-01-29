@@ -1,16 +1,15 @@
-import { isString } from "../../utils/";
+import { isString, isNumber, isArray, isBoolean, isObject } from "../../utils/";
 import type { ExtractPropTypes } from "vue";
 import type Select from "./select.vue";
 
 const booleanType = {
   type: Boolean,
-  values: [true, false],
   default: false,
 };
 
 export const selectProps = {
   modelValue: {
-    type: String,
+    type: [String, Number, Boolean, Object, Array],
   },
   size: {
     type: String,
@@ -38,6 +37,7 @@ export const selectProps = {
     ],
     default: "bottom-start",
   },
+  remoteMethod: Function,
   placeholder: {
     type: String,
   },
@@ -48,6 +48,12 @@ export const selectProps = {
 } as const;
 
 export const selectEmits = {
+  "update:modelValue": (val: string | number | Array<any> | boolean | object) =>
+    isString(val) ||
+    isNumber(val) ||
+    isArray(val) ||
+    isObject(val) ||
+    isBoolean(val),
   change: (val: string) => isString(val),
   visibleChange: (val: string) => isString(val),
   blur: (event: FocusEvent) => event instanceof FocusEvent,

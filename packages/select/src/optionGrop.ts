@@ -1,9 +1,6 @@
 import type { ExtractPropTypes } from "vue";
 
-export const optionProps = {
-  value: {
-    type: [String, Number, Boolean, Object],
-  },
+export const optionGroupProps = {
   label: {
     type: [String, Number],
   },
@@ -13,4 +10,4 @@ export const optionProps = {
   },
 };
 
-export type Props = ExtractPropTypes<typeof optionProps>;
+export type Props = ExtractPropTypes<typeof optionGroupProps>;

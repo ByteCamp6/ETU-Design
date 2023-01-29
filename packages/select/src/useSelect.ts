@@ -1,63 +1,112 @@
-import { reactive } from "vue";
+import { ref, reactive, computed, watch, onMounted } from "vue";
+import { _debounce } from "@etu-design/utils";
+import { useNamespace } from "../../hooks";
 
-export type SelectItem = {
-  value: number | string;
-  label: string;
-};
-
-const map = new Map();
-const store = reactive({
-  state: {
-    currentValue: new Set(),
-    isSelected: false,
-  },
-});
-
-const state = store.state;
-
-const addValue = async (item) => {
-  if (map.has(item.value)) {
-    removeValue(item);
-    return;
-  }
-  map.set(item.value, 1);
-  state.currentValue.add(item);
-  state.isSelected = true;
-};
-
-const removeValue = async (key) => {
-  state.currentValue.forEach((item) => {
-    if (item.value === key.value) {
-      state.currentValue.delete(item);
-      map.delete(item.value);
-    }
+export function useSelectStates(props) {
+  return reactive({
+    caches: new Map(),
+    selected: [],
+    currentLable: "",
+    currentIndex: -1,
+    visible: false,
+    hover: false,
+    filterable: false,
+    empty: false,
+    interval: 200,
+    originValue: props.modelValue,
   });
-  if (state.currentValue.size === 0) {
-    state.isSelected = false;
-  }
-};
+}
 
-const clear = () => {
-  state.isSelected = false;
-  state.currentValue.clear();
-  map.clear();
-};
+type States = ReturnType<typeof useSelectStates>;
 
-const getCurrentValue: () => Set<SelectItem> = () => {
-  return state.currentValue;
-};
+export const useSelect = (states: States, props, emit) => {
+  const handlerClickOption = (item) => {
+    if (props.multiple) {
+      if (states.caches.has(item.value)) {
+        states.caches.delete(item.value);
+        deleteArrItem(states.selected, item.label);
+        return;
+      }
+      states.selected.push(item.label);
+      states.caches.set(item.value, item.label);
+      emit && emit("update:modelValue", [...states.selected]);
+    } else {
+      if (states.caches.has(item.value)) {
+        resetStates();
+        return;
+      }
+      states.currentIndex !== -1 && states.caches.delete(states.currentIndex);
+      states.currentLable = item.label;
+      states.caches.set(item.value, item.label);
+      states.currentIndex = item.value;
+      emit && emit("update:modelValue", item.value);
+      hideMenu();
+    }
+  };
 
-const getIsSelectd = () => {
-  return state.isSelected;
-};
+  const deleteArrItem = (arr, item) => {
+    const idx = arr.findIndex((val) => val === item);
+    arr.splice(idx, 1);
+    emit && emit("update:modelValue", [...states.selected]);
+  };
 
-export const useSelect = () => {
+  const resetStates = () => {
+    emit && emit("update:modelValue", states.originValue);
+    states.currentLable = "";
+    states.selected.length = 0;
+    states.caches.clear();
+    hideMenu();
+  };
+
+  const isSelected = (key) => {
+    return states.caches.has(key);
+  };
+
+  const toggleMenu = () => {
+    if (props.filterable) {
+      states.filterable = true;
+    } else {
+      states.visible = !states.visible;
+    }
+  };
+
+  const hideMenu = () => {
+    states.visible = false;
+    states.filterable = false;
+  };
+
+  const onHover = () => {
+    if (!props.clearable) return;
+    states.hover = true;
+  };
+
+  const onUnHover = () => {
+    states.hover = false;
+  };
+
+  const debounceremoteMethod = _debounce(props.remoteMethod, states.interval);
+
+  watch(
+    () => states.currentLable,
+    (val) => {
+      if (!props.filterable || !states.filterable) return;
+      if (val === "") {
+        hideMenu();
+        return;
+      }
+
+      debounceremoteMethod(val);
+      states.visible = true;
+    },
+  );
+
   return {
-    state,
-    addValue,
-    removeValue,
-    clear,
-    getIsSelectd,
-    getCurrentValue,
+    toggleMenu,
+    hideMenu,
+    handlerClickOption,
+    onHover,
+    onUnHover,
+    isSelected,
+    resetStates,
   };
 };

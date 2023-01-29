@@ -1,5 +1,6 @@
 import Select from "./src/select.vue";
 import Option from "./src/option.vue";
+import OptionGroup from "./src/optionGrop.vue";
 
 import type { App } from "vue";
 
@@ -12,7 +13,11 @@ Option.install = (app: App) => {
   app.component(Option.name, Option);
 };
 
-export default { Select, Option };
+OptionGroup.install = (app: App) => {
+  app.component(OptionGroup.name, OptionGroup);
+};
+
+export default { Select, Option, OptionGroup };
 
 export * from "./src/option";
 export * from "./src/select";

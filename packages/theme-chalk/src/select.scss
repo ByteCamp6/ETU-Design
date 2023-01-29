@@ -7,6 +7,8 @@
   @include set-component-css-var(
     select,
     (
+      "width": 180px,
+      "height": 45px,
       "inner-height": 30px,
       "text-color": getRootCssVar("color", "text-1"),
       "font-size": getRootCssVar("font", "size-default"),
@@ -29,7 +31,7 @@
   justify-content: center;
   gap: getRootCssVar("space-6");
   padding: getCssVar("select", "padding");
-  min-width: 220px;
+  min-width: getCssVar("select", "width");
   background-color: getCssVar("select", "bg-color");
   border-radius: getCssVar("select", "border-radius");
   border: 1px solid getCssVar("select", "border-color");
@@ -40,6 +42,12 @@
 
   &:hover {
     border: 1px solid getCssVar("select", "border-color-hover");
+  }
+
+  &:focus {
+    @include e(select-dropdown) {
+      visibility: visible;
+    }
   }
 
   &:active {
@@ -54,25 +62,36 @@
   }
 
   @include e(inner) {
-    width: 100%;
+    width: getCssVar("select", "width");
     height: getCssVar("select", "inner-height");
     line-height: getCssVar("select", "inner-height");
-    color: getRootCssVar("color", "text-2");
+    color: getRootCssVar("color", "text-0");
     border: 0;
     outline: none;
     background-color: transparent;
     text-align: left;
+    &:placeholder-shown {
+      color: getRootCssVar("color", "text-5");
+    }
   }
 
   @include e(tag) {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     flex-flow: row wrap;
     gap: getRootCssVar("space-2");
+    width: getCssVar("select", "width");
+    min-height: getCssVar("select", "inner-height");
+    line-height: getCssVar("select", "inner-height");
+    text-align: left;
+  }
+
+  @include e(empty) {
+    display: inline-block;
     width: 100%;
     height: getCssVar("select", "inner-height");
     line-height: getCssVar("select", "inner-height");
-    text-align: left;
+    text-align: center;
   }
 
   @include when(disabled) {
@@ -95,6 +114,7 @@
         "font-size": getCssVar("font", "size-small-extra"),
         "padding": 1px 8px,
         "inner-height": 24px,
+        "height": 35px,
       )
     );
   }
@@ -105,21 +125,44 @@
       (
         "padding": 3px 15px,
         "inner-height": 35px,
+        "height": 55px,
       )
     );
   }
 }
 
+@include b(select-option-group) {
+  text-align: center;
+
+  @include e(title) {
+    display: inline-block;
+    padding: 0 32px 0 20px;
+    width: 100%;
+    height: getCssVar("select", "inner-height");
+    line-height: getCssVar("select", "inner-height");
+    color: getRootCssVar("color", "text-2");
+    font-size: getRootCssVar("font-size", "small-extra");
+    text-align: left;
+    cursor: text;
+  }
+
+  @include e(line) {
+    display: inline-block;
+    width: 85%;
+    margin: 0 auto;
+    border-top: 1px solid getCssVar("select", "border-color");
+  }
+}
+
 @include b(select-dropdown) {
   position: absolute;
-  bottom: -160px;
+  top: getCssVar("select", "height");
   width: 100%;
-  min-height: getCssVar("select", "inner-height");
-  background: getRootCssVar("color", "white");
   box-shadow: getRootCssVar("shadow-3");
   border-radius: getCssVar("select", "border-radius");
-  padding: 5px 0;
+  padding: 5px 1px;
   transition: 0.3s ease;
+
   z-index: 9999;
   &::before {
     content: "";
@@ -137,32 +180,54 @@
     box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.1);
     z-index: 9999;
   }
+  @include e(wrapper) {
+    min-height: getCssVar("select", "inner-height");
+    max-height: 200px;
+    background: getRootCssVar("color", "white");
+    overflow-y: auto;
 
-  @include when(hide) {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  @include e(item) {
-    padding: 0 32px 0 20px;
-    height: 34px;
-    line-height: getCssVar("select", "inner-height");
-    background-color: getRootCssVar("color", "white");
-    transition: 0.1s ease;
-    &:hover {
-      background-color: getRootCssVar("color", "fill-0");
+    @include when(hide) {
+      visibility: hidden;
+      opacity: 0;
     }
-    @include when(disabled) {
-      color: getRootCssVar("color", "text-3");
-      cursor: not-allowed;
+
+    @include e(item) {
+      padding: 0 32px 0 20px;
+      height: 34px;
+      line-height: getCssVar("select", "inner-height");
+      background-color: getRootCssVar("color", "white");
+      transition: 0.1s ease;
+      text-align: left;
       &:hover {
-        background-color: getRootCssVar("color", "white");
+        background-color: getRootCssVar("color", "fill-0");
+      }
+      @include when(disabled) {
+        color: getRootCssVar("color", "text-3");
+        cursor: not-allowed;
+        &:hover {
+          background-color: getRootCssVar("color", "white");
+        }
+      }
+
+      @include when(selected) {
+        color: getRootCssVar("color", "primary");
+        font-weight: 600;
       }
     }
-
-    @include when(selected) {
-      color: getRootCssVar("color", "primary");
-      font-weight: 600;
-    }
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0003;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
