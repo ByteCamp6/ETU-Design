@@ -1,6 +1,6 @@
 <template>
   <etu-button>按钮</etu-button>
-  <etu-button type="primary">按钮</etu-button>
+  <etu-button type="primary" @click="show" disabled="true">按钮</etu-button>
   <etu-button type="success">按钮</etu-button>
   <etu-button type="Info">按钮</etu-button>
   <etu-button type="warning">按钮</etu-button>
@@ -29,5 +29,8 @@
 
 <style lang="scss"></style>
 
-<script setup lang="ts"></script>
-<script></script>
+<script setup lang="ts">
+function show() {
+  console.log("show");
+}
+</script>

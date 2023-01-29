@@ -7,6 +7,7 @@ import Icon from "./icon/index";
 import Tag from "./tag/index";
 import checkbox from "./checkbox";
 import radio from "./radio";
+import Switch from "./switch/index";
 import Empty from "./empty";
 import Upload from "./upload";
 import type { App } from "vue";
@@ -30,6 +31,7 @@ const components = [
   Link,
   Button,
   Upload,
+  Switch,
 ];
 
 // 全局动态添加

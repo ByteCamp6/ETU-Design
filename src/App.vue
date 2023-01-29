@@ -11,6 +11,7 @@
   <Message></Message>
   <Link />
   <Upload></Upload>
+  <Switch></Switch>
   <router-view></router-view>
 </template>
 
@@ -26,6 +27,7 @@ import Radio from "./components/Radio.vue";
 import Empty from "./components/Empty.vue";
 import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";
+import Switch from "./components/Switch.vue";
 </script>
 
 <style scoped></style>
