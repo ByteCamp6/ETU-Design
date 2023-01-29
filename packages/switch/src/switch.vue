@@ -26,6 +26,7 @@ import { computed, ref, watch, defineEmits, nextTick } from "vue";
 // const emit = defineEmits(switchEmits);
 const emits = defineEmits<{
   (e: "change", v: any): void; // 函数类型
+  (e: "dataVal", v: any): void;
 }>();
 const props = defineProps({
   type: {
@@ -115,6 +116,7 @@ let val = demo;
 const handleChange = (): void => {
   const v = checkedValue.value ? props.inactiveValue : props.activeValue;
   emits("change", v);
+  emits("dataVal", val.value);
   nextTick(() => {
     checkedValue.value = !checkedValue.value;
   });
