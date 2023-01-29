@@ -2,5 +2,8 @@
   "name": "@etu-design/tag",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@etu-design/directives": "^0.0.0"
+  }
 }

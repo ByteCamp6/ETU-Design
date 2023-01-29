@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@etu-design/directives": "^0.0.0",
     "@etu-design/hooks": "^1.0.0",
     "animate.css": "^4.1.1",
     "hooks": "^0.3.2",

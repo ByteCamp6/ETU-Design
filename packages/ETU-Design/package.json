@@ -20,6 +20,7 @@
     "test": "node ./__tests__/ETU-Design.test.js"
   },
   "dependencies": {
+    "@etu-design/directives": "^0.0.0",
     "@etu-design/hooks": "^1.0.0",
     "@etu-design/theme-chalk": "^1.0.0",
     "animate.css": "^4.1.1",

@@ -2,6 +2,7 @@
   "name": "@etu-design/icon",
   "version": "0.0.0",
   "dependencies": {
+    "@etu-design/directives": "^0.0.0",
     "animate.css": "^4.1.1"
   }
 }

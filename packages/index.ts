@@ -15,7 +15,7 @@ import type { App } from "vue";
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
 const { Radio, RadioGroup } = radio;
-const { Select, Option } = select;
+const { Select, Option, OptionGroup } = select;
 
 // 全部引入
 const components = [
@@ -26,6 +26,7 @@ const components = [
   Tag,
   Select,
   Option,
+  OptionGroup,
   Checkbox,
   CheckboxGroup,
   Radio,
