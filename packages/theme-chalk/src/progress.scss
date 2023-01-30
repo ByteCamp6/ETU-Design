@@ -1,0 +1,74 @@
+@use "./mixins/mixins.scss" as *;
+@use "./mixins/var" as *;
+@use "./mixins/function.scss" as *;
+
+@include b(progress) {
+  @include set-component-css-var(
+    progress,
+    (
+      "color": getRootCssVar("color", "primary"),
+    )
+  );
+}
+
+@include b(progress) {
+  position: relative;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+
+  @include e(text) {
+    font-size: 14px;
+    color: getCssVar("color", "text-0");
+    margin-left: 5px;
+    min-width: 50px;
+    line-height: 1;
+  }
+
+  @include e(icon) {
+    color: getCssVar("progress", "color");
+  }
+
+  @each $state in (success, danger, warning, info) {
+    @include m($state) {
+      @include set-component-css-var(
+        progress,
+        (
+          "color": getRootCssVar("color", #{$state}),
+        )
+      );
+    }
+  }
+}
+
+@include b(progress-bar) {
+  flex-grow: 1;
+  box-sizing: border-box;
+
+  @include e(outer) {
+    height: 6px;
+    border-radius: 100px;
+    background-color: getRootCssVar("color", "fill-0");
+  }
+
+  @include e(inner) {
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: getCssVar("progress", "color");
+    text-align: right;
+    border-radius: 100px;
+    line-height: 1;
+    white-space: nowrap;
+    transition: width 0.6s ease;
+  }
+
+  @include e(innerText) {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 12px;
+    margin: 0 5px;
+  }
+}

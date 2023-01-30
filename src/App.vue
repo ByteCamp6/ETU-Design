@@ -1,5 +1,6 @@
 <template>
-  <Button></Button>
+  <Progress></Progress>
+  <!-- <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
@@ -12,9 +13,7 @@
   <Empty></Empty>
   <Message></Message>
   <Link />
-  <Upload></Upload>
-  <Switch></Switch>
-  <Upload></Upload>
+  <Upload></Upload> -->
   <router-view></router-view>
 </template>
 
@@ -28,6 +27,7 @@ import Tag from "./components/Tag.vue";
 import Select from "./components/Select.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
+import Progress from "./components/Progress.vue";
 // import Empty from "./components/Empty.vue";
 // import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";

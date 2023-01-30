@@ -11,6 +11,7 @@ import radio from "./radio";
 import Switch from "./switch/index";
 import Empty from "./empty";
 import Upload from "./upload";
+import Progress from "./progress";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -32,6 +33,7 @@ const components = [
   CheckboxGroup,
   Radio,
   RadioGroup,
+  Progress,
   Empty,
   Link,
   Button,
