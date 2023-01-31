@@ -1,0 +1,11 @@
+{
+  "name": "drawer",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Polaris-6625 <2281487673@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "vitest ./__tests__/drawer.test.ts"
+  }
+}

@@ -11,6 +11,7 @@ import radio from "./radio";
 import Switch from "./switch/index";
 import Empty from "./empty";
 import Upload from "./upload";
+import Drawer from "./drawer";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -37,6 +38,7 @@ const components = [
   Button,
   Upload,
   Switch,
+  Drawer,
 ];
 
 // 全局动态添加

@@ -54,3 +54,6 @@ export default {
   name: "EtuButton",
 };
 </script>
+<style scoped lang="scss">
+@use "./theme-chalk/src/button";
+</style>

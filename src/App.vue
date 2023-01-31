@@ -8,6 +8,7 @@
   <Tag></Tag>
   <Checkbox></Checkbox>
   <Divider></Divider>
+  <Drawer></Drawer>
   <Radio></Radio>
   <Empty></Empty>
   <Message></Message>
@@ -32,6 +33,7 @@ import Radio from "./components/Radio.vue";
 // import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";
 import Switch from "./components/Switch.vue";
+import Drawer from "./components/Drawer.vue";
 </script>
 
 <style scoped></style>
