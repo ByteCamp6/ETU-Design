@@ -194,7 +194,7 @@
     "minimatch" "^3.1.2"
     "strip-json-comments" "^3.1.1"
 
-"@etu-design/hooks@^1.0.0", "@etu-design/hooks@file:D:\\ETU-Design\\packages\\hooks":
+"@etu-design/hooks@^1.0.0", "@etu-design/hooks@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\hooks":
   "resolved" "file:packages/hooks"
   "version" "1.0.0"
   dependencies:
@@ -205,11 +205,11 @@
     "vite" "^4.0.4"
     "vue-router" "^4.1.6"
 
-"@etu-design/icon@file:D:\\ETU-Design\\packages\\icon":
+"@etu-design/icon@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\icon":
   "resolved" "file:packages/icon"
   "version" "0.0.0"
 
-"@etu-design/theme-chalk@^1.0.0", "@etu-design/theme-chalk@file:D:\\ETU-Design\\packages\\theme-chalk":
+"@etu-design/theme-chalk@^1.0.0", "@etu-design/theme-chalk@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\theme-chalk":
   "resolved" "file:packages/theme-chalk"
   "version" "1.0.0"
   dependencies:
@@ -220,7 +220,7 @@
     "vite" "^4.0.4"
     "vue-router" "^4.1.6"
 
-"@etu-design/utils@file:D:\\ETU-Design\\packages\\utils":
+"@etu-design/utils@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\utils":
   "resolved" "file:packages/utils"
   "version" "1.0.0"
   dependencies:
@@ -1995,7 +1995,7 @@
   dependencies:
     "fill-range" "^7.0.1"
 
-"breadcrumb@file:D:\\ETU-Design\\packages\\breadcrumb":
+"breadcrumb@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\breadcrumb":
   "resolved" "file:packages/breadcrumb"
   "version" "0.0.0"
   dependencies:
@@ -2604,7 +2604,7 @@
   dependencies:
     "path-type" "^4.0.0"
 
-"divider@file:D:\\ETU-Design\\packages\\divider":
+"divider@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\divider":
   "resolved" "file:packages/divider"
   "version" "0.0.0"
   dependencies:
@@ -2975,18 +2975,6 @@
   "integrity" "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g=="
   "resolved" "https://registry.npmmirror.com/esutils/-/esutils-2.0.3.tgz"
   "version" "2.0.3"
-
-"etu-design@file:D:\\ETU-Design\\packages\\ETU-Design":
-  "resolved" "file:packages/ETU-Design"
-  "version" "0.0.0"
-  dependencies:
-    "@etu-design/hooks" "^1.0.0"
-    "@etu-design/theme-chalk" "^1.0.0"
-    "hooks" "^0.3.2"
-    "theme-chalk" "^1.0.0-dev.9"
-    "utils" "^0.3.1"
-    "vite" "^4.0.4"
-    "vue-router" "^4.1.6"
 
 "eventemitter3@^4.0.4":
   "integrity" "sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw=="
@@ -3702,6 +3690,10 @@
     "semver" "^7.3.5"
     "validate-npm-package-license" "^3.0.4"
     "validate-npm-package-name" "^4.0.0"
+
+"input@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\input":
+  "resolved" "file:packages/input"
+  "version" "0.0.0"
 
 "inquirer@^8.2.4":
   "integrity" "sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ=="
@@ -6287,7 +6279,7 @@
   dependencies:
     "is-number" "^7.0.0"
 
-"tokens@file:D:\\ETU-Design\\packages\\tokens":
+"tokens@file:E:\\byteCamp\\ETU\\ETU-Design\\packages\\tokens":
   "resolved" "file:packages/tokens"
   "version" "0.0.0"
   dependencies:

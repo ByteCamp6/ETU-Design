@@ -5,6 +5,7 @@
   <Icon></Icon>
   <Tag></Tag>
   <Link />
+  <Input />
   <router-view></router-view>
 </template>
 
@@ -15,6 +16,7 @@ import Breadcrumb from "./components/breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
+import Input from "./components/Input.vue";
 </script>
 
 <style scoped></style>
