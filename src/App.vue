@@ -1,7 +1,7 @@
 <template>
   <Collapse></Collapse>
   <!-- <Progress></Progress> -->
-  <!-- <Button></Button>
+  <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
@@ -10,11 +10,13 @@
   <Tag></Tag>
   <Checkbox></Checkbox>
   <Divider></Divider>
+  <Drawer></Drawer>
+  <OverLay></OverLay>
   <Radio></Radio>
   <Empty></Empty>
   <Message></Message>
   <Link />
-  <Upload></Upload> -->
+  <Upload></Upload>
   <router-view></router-view>
 </template>
 
@@ -34,6 +36,8 @@ import Progress from "./components/Progress.vue";
 import Upload from "./components/Upload.vue";
 import Switch from "./components/Switch.vue";
 import Collapse from "./components/Collapse.vue";
+import Drawer from "./components/Drawer.vue";
+import OverLay from "./components/OverLay.vue";
 </script>
 
 <style scoped></style>

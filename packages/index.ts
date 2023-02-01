@@ -13,6 +13,8 @@ import Empty from "./empty";
 import Upload from "./upload";
 import Progress from "./progress";
 import collapse from "./collapse";
+import Drawer from "./drawer";
+import Overlay from "./overlay";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -43,6 +45,8 @@ const components = [
   Switch,
   Collapse,
   CollapseItem,
+  Drawer,
+  Overlay,
 ];
 
 // 全局动态添加

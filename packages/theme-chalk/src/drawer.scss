@@ -1,0 +1,88 @@
+@use "mixins/mixins" as *;
+
+@mixin setPos($w,$h) {
+  height: $h;
+  width: $w;
+  z-index: 100000000001;
+  position: absolute;
+}
+%base-Mask-Layer {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 100000000000;
+  top: 0px;
+  bottom: 0px;
+  position: absolute;
+  transition: all 0.3s;
+}
+// .el-drawer-white__false--Right
+
+@keyframes BtoT {
+  from {transform: translateY(100%);}
+  to{transform: translateY(0%);}
+}
+
+@keyframes TtoB {
+  from {transform: translateY(-100%);}
+  to{transform: translateY(0%);}
+}
+
+@keyframes LtoR {
+  from {transform: translateX(-100%);}
+  to{transform: translateX(0%);}
+}
+
+@keyframes RtoL {
+  from {transform: translateX(100%);}
+  to{transform: translateX(0%);}
+}
+
+@each $bg in (white , dodgerblue) {
+  @each $state in (true , false) {
+    @each $direction in (Left , Right , Up , Down) {
+      @if(#{$direction} == "Right") {
+        .etu-Drawer-#{$bg+""}__#{$state}--#{$direction} {
+          background-color: #{$bg};
+          @include setPos(30%,100%);
+          top: 0;
+          right: 0;
+          animation: RtoL 0.5s;
+        }
+      }
+      @else if(#{$direction} == "Up") {
+        .etu-Drawer-#{$bg+""}__#{$state}--#{$direction} {
+          background-color: #{$bg};
+          @include setPos(100%,30%);
+          top: 0;
+          left: 0;
+          right: 0;
+          animation: TtoB 0.5s;
+        }
+      }
+      @else if(#{$direction} == "Left") {
+        .etu-Drawer-#{$bg+""}__#{$state}--#{$direction} {
+          background-color: #{$bg};
+          @include setPos(30%,100%);
+          top: 0;
+          left: 0;
+          animation: LtoR 0.5s;
+        }
+      }
+      @else if(#{$direction} == "Down") {
+        .etu-Drawer-#{$bg+""}__#{$state}--#{$direction} {
+          background-color: #{$bg};
+          @include setPos(100%,30%);
+          animation: BtoT 0.5s;
+          bottom: 0;
+        }
+      }
+    }
+  }
+}
+.close_Icon {
+  text-align: right;
+  &:hover {
+    cursor: pointer;
+  }
+}
