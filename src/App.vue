@@ -1,5 +1,6 @@
 <template>
-  <Progress></Progress>
+  <Collapse></Collapse>
+  <!-- <Progress></Progress> -->
   <!-- <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
@@ -32,6 +33,7 @@ import Progress from "./components/Progress.vue";
 // import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";
 import Switch from "./components/Switch.vue";
+import Collapse from "./components/Collapse.vue";
 </script>
 
 <style scoped></style>

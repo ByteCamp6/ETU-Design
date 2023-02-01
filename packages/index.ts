@@ -12,12 +12,14 @@ import Switch from "./switch/index";
 import Empty from "./empty";
 import Upload from "./upload";
 import Progress from "./progress";
+import collapse from "./collapse";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
 const { Radio, RadioGroup } = radio;
 const { Select, Option, OptionGroup } = select;
+const { Collapse, CollapseItem } = collapse;
 
 // 全部引入
 const components = [
@@ -39,6 +41,8 @@ const components = [
   Button,
   Upload,
   Switch,
+  Collapse,
+  CollapseItem,
 ];
 
 // 全局动态添加
