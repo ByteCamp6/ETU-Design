@@ -12,6 +12,8 @@ import Switch from "./switch/index";
 import Empty from "./empty";
 import Upload from "./upload";
 import Progress from "./progress";
+import Drawer from "./drawer";
+import Overlay from "./overlay";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -39,6 +41,8 @@ const components = [
   Button,
   Upload,
   Switch,
+  Drawer,
+  Overlay,
 ];
 
 // 全局动态添加
