@@ -1,22 +1,17 @@
 <template>
-  <teleport to="body">
-    <Transition name="slide-fade">
-      <div v-if="isShow">
-        <div class="Mask-Layer" @click="changeIsShow"></div>
-        <div :class="tClass">
-          <div class="close_Icon" @click="changeIsShow">
-            <etu-icon name="close"></etu-icon>
-          </div>
-          <h1>
-            {{ Tittle }}
-          </h1>
-          <div>
-            <slot></slot>
-          </div>
-        </div>
+  <etu-overlay v-model="isShow">
+    <div :class="tClass">
+      <div class="close_Icon" @click="changeIsShow">
+        <etu-icon name="close"></etu-icon>
       </div>
-    </Transition>
-  </teleport>
+      <h1>
+        {{ Tittle }}
+      </h1>
+      <div>
+        <slot></slot>
+      </div>
+    </div>
+  </etu-overlay>
 </template>
 
 <script setup lang="ts" name="EtuDrawer">

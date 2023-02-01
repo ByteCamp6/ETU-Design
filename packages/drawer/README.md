@@ -7,9 +7,9 @@
 | 键名称 | 可选值                | 描述                                      |
 | ---- |--------------------|-----------------------------------------|
 | bgColor | white , dodgerblue | 对应两种背景色                                 |
-| v-model="" | true               | 绑定布尔值，接下来操作布尔值的值,true时为抽屉打开,false时为抽屉关闭 |
+| v-model="" | true  , false      | 绑定布尔值，接下来操作布尔值的值,true时为抽屉打开,false时为抽屉关闭 |
 | direction    | Up,Down,Left,Right | 分别对应抽屉的位置，上下左右，默认为Right                 |
-| Tittle | string | 输入一段自定义的标题 |
+| Tittle | string             | 输入一段自定义的标题 |
 
 同时内部还提供了插槽，可以向抽屉内部加入一些东西。
 

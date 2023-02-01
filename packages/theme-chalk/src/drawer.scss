@@ -41,15 +41,6 @@
 @each $bg in (white , dodgerblue) {
   @each $state in (true , false) {
     @each $direction in (Left , Right , Up , Down) {
-      @if(#{$state} == "false") {
-        body {
-          overflow: hidden;
-          margin: 0;
-        }
-        .Mask-Layer {
-          @extend %base-Mask-Layer;
-        }
-      }
       @if(#{$direction} == "Right") {
         .etu-Drawer-#{$bg+""}__#{$state}--#{$direction} {
           background-color: #{$bg};
