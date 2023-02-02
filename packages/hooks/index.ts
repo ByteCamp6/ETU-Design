@@ -4,3 +4,6 @@ export * from "./use-timout";
 export * from "./use-vmodel";
 export * from "./use-resize-observe";
 export * from "./use-z-index";
+export * from "./use-same-target";
+export * from "./use-lockscreen";
+export * from "./use-draggable";

@@ -1,5 +1,5 @@
 <template>
-  <etu-overlay v-model="isShow">
+  <etu-overlay v-show="isShow">
     <div :class="tClass">
       <div class="close_Icon" @click="changeIsShow">
         <etu-icon name="close"></etu-icon>
@@ -15,8 +15,11 @@
 </template>
 
 <script setup lang="ts" name="EtuDrawer">
-import { useNamespace } from "../../hooks";
+import { useNamespace } from "@etu-design/hooks";
+import EtuIcon from "@etu-design/icon";
+import EtuOverlay from "@etu-design/overlay";
 import { computed, ref, watch } from "vue";
+
 const props = defineProps({
   type: {
     type: String,
@@ -80,17 +83,3 @@ function changeIsShow() {
   isShow.value = !isShow.value;
 }
 </script>
-
-<script lang="ts">
-export default {
-  name: "EtuDrawer",
-};
-</script>
-
-<style>
-html,
-head,
-body {
-  margin: 0;
-}
-</style>

@@ -1,4 +1,5 @@
 <template>
+  <Dialog></Dialog>
   <Collapse></Collapse>
   <!-- <Progress></Progress> -->
   <Button></Button>
@@ -31,13 +32,14 @@ import Select from "./components/Select.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
 import Progress from "./components/Progress.vue";
-// import Empty from "./components/Empty.vue";
-// import Message from "./components/Message.vue";
+import Empty from "./components/Empty.vue";
+import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";
 import Switch from "./components/Switch.vue";
 import Collapse from "./components/Collapse.vue";
 import Drawer from "./components/Drawer.vue";
 import OverLay from "./components/OverLay.vue";
+import Dialog from "./components/Dialog.vue";
 </script>
 
 <style scoped></style>

@@ -1,68 +1,39 @@
 <template>
-  <teleport to="body">
-    <Transition name="slide-fade">
-      <div
-        v-if="isShow"
-        @mousewheel.prevent="rollImg"
-        @keyup.up.stop
-        @keydown.down="showkey"
-        @keyup.left.stop
-        @keyup.right.stop
-      >
-        <div :class="tClass" @click="changeIsShow"></div>
-        <!--        上面是遮罩层，点击遮罩层改变isShow的值，完成退出 -->
-        <slot></slot>
-      </div>
-    </Transition>
-  </teleport>
+  <div
+    v-show="props.modelValue"
+    :class="tClass"
+    :style="tStyle"
+    @click="overlayEvent.onClick"
+    @mousedown="overlayEvent.onMousedown"
+    @mouseup="overlayEvent.onMouseup"
+  >
+    <slot></slot>
+  </div>
 </template>
 
 <script setup lang="ts" name="EtuOverlay">
-import { useNamespace } from "../../hooks";
-import { computed, ref, watch } from "vue";
+import { useNamespace, useSameTarget } from "@etu-design/hooks";
+import { computed } from "vue";
+import { overlayEmits, overlayProps } from "./overlay.ts";
 
-const props = defineProps({
-  modelValue: {
-    type: [Boolean],
-    default: false,
-  },
-  value: {
-    type: [Boolean, String, Number],
-    default: false,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-});
-const isShow = ref(props.modelValue);
-watch(
-  () => props.modelValue,
-  () => {
-    isShow.value = props.modelValue;
-  },
-);
-function changeIsShow() {
-  isShow.value = !isShow.value;
-}
+const props = defineProps(overlayProps);
+const emit = defineEmits(overlayEmits);
+
 const bem = useNamespace("overlay");
-// el-overlay
+
+const onMaskClick = (e: MouseEvent) => {
+  emit("click", e);
+};
+
+const overlayEvent = useSameTarget(props.maskEvent ? undefined : onMaskClick);
+
 const tClass = computed(() => {
   return [bem.b()];
 });
-</script>
 
-<script lang="ts">
-export default {
-  name: "EtuOverlay",
-};
+const tStyle = computed(() => {
+  return {
+    zIndex: props.zIndex,
+  };
+});
 </script>
-
-<style>
-/* 不设置margin遮罩层遮罩的有间隙 */
-html,
-head,
-body {
-  margin: 0;
-}
-</style>
