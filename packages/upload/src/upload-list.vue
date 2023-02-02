@@ -16,6 +16,10 @@
               {{ file.name }}
             </span>
           </div>
+          <etu-progress
+            v-if="file.status === 'uploading'"
+            :percentage="Number(file.percentage)"
+          ></etu-progress>
         </div>
         <label :class="ns.be('list', 'item-status-label')">
           <etu-icon
@@ -40,6 +44,7 @@
 import { useDisabled, useNamespace } from "@etu-design/hooks";
 import { computed } from "vue";
 import EtuIcon from "@etu-design/icon";
+import EtuProgress from "@etu-design/progress";
 import { uploadListEmits, uploadListProps } from "./upload-list.ts";
 import type { UploadFile } from "./upload.ts";
 

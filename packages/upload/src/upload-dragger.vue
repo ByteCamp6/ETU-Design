@@ -29,7 +29,6 @@ const disabled = useDisabled();
  * @description 通过拖拽事件获取上传的文件，并对文件格式进行检验
  */
 const onDrop = (e: DragEvent) => {
-  console.log(2);
   if (disabled.value) return;
   dragover.value = false;
 
