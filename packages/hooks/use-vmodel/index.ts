@@ -1,4 +1,5 @@
 import { ref, watch, getCurrentInstance } from "vue";
+import type { UnwrapRef } from "vue";
 
 type Emit = (event: string, ...args: any[]) => void;
 
@@ -15,8 +16,16 @@ export function useVmodel<P extends object, K extends keyof P>(
   const event = `update:${key!.toString()}`;
   const proxy = ref(props[key]);
   watch(
+    () => props[key!],
+    (v) => (proxy.value = v as UnwrapRef<P[K]>),
+  );
+  watch(
     () => proxy.value,
-    (v) => _emit!(event, v),
+    (v) => {
+      if (v !== props[key!]) {
+        _emit!(event, v);
+      }
+    },
   );
   return proxy;
 }
