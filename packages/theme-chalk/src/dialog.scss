@@ -1,0 +1,96 @@
+@use "mixins/_var.scss" as *;
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "var" as *;
+@use "mixins/config" as *;
+
+@include b(dialog) {
+  @include set-css-var-value(
+    ("dialog", "bg-color"),
+    getRootCssVar("color-white")
+  );
+  @include set-css-var-value(("dialog", "border-radius"), 4px);
+  @include set-css-var-value(("dialog", "width"), 50%);
+}
+
+@include b(dialog) {
+  position: relative;
+  background: getCssVar("dialog", "bg-color");
+  border-radius: getCssVar("dialog", "border-radius");
+  box-shadow: getCssVar("dialog", "box-shadow");
+  box-sizing: border-box;
+  width: getCssVar("dialog", "width");
+  margin: getCssVar("dialog","margin-top") auto 50px;
+
+  @include e(header) {
+    padding: 20px 20px 10px;
+    margin-right: 16px;
+    word-break: break-all;
+  }
+
+  @include e(headerbtn) {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    padding: 0;
+    width: 54px;
+    height: 54px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  @include e(title) {
+    line-height: 24px;
+    font-size: 18px;
+    color: getRootCssVar("color-text-0");
+  }
+
+  @include e(body) {
+    padding: 30px 20px;
+    color: getRootCssVar("color-text-1");
+    font-size: 14px;
+    word-break: break-all;
+  }
+
+  @include e(footer) {
+    padding: 10px 20px 20px;
+    text-align: right;
+  }
+
+  @include when(align-center) {
+    margin: auto;
+  }
+
+  @include e(wrapper) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    margin: 0;
+  }
+
+  @include when(draggable) {
+    @include e(header) {
+      cursor: move;
+      user-select: none;
+    }
+  }
+}
+
+@include b(overlay-dialog) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.dialog-fade-enter-from,
+.dialog-fade-leave-to {
+  opacity: 0;
+}
