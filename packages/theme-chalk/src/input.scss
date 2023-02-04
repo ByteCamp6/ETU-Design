@@ -4,6 +4,7 @@
 @use "mixins/_var.scss" as *;
 @use "var" as *;
 @use "mixins/config" as *;
+
 @include b(input) {
   font-size: 14px;
   display: inline-block;
@@ -61,6 +62,25 @@
 @include e(prepend){
   @extend %append_prepend;
 }
+
+// 文本域
+@include b(textarea){
+  @include e(inner){
+    display: block;
+    padding: 5px 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: inherit;
+    color: #606266;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    outline: none
+  }
+}
+
 // 出现复合输入框属性时
 %head_append_prepend {
   line-height: normal;

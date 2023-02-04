@@ -1,5 +1,15 @@
 <template>
+  <div :class="bemArea.b()" v-if="type === 'textarea'">
+    <textarea
+      :class="bemArea.e('inner')"
+      ref="textarea"
+      :value="inputProps.modelValue"
+      @input="changeInputVal"
+    />
+  </div>
+  <!-- 输入框 -->
   <div
+    v-else
     :class="headClass"
     @mouseenter="isEnter = true"
     @mouseleave="isEnter = false"
@@ -114,6 +124,7 @@ const isShowPrefixIcon = computed(() => {
 });
 
 const bem = useNamespace("input");
+const bemArea = useNamespace("textarea");
 
 const classes = computed(() => {
   const { type, size } = inputProps;
