@@ -28,7 +28,7 @@ const props = defineProps(iconProps);
 // });
 const classes = computed(() => {
   const { name } = props;
-  return `${bem.b()}-${name}`;
+  return [bem.b(name), bem.b()];
 });
 // console.log(classes);
 </script>

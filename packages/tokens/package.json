@@ -7,6 +7,8 @@
   "license": "ISC",
   "main": "index.ts",
   "dependencies": {
+    "@etu-design/directives": "^0.0.0",
+    "animate.css": "^4.1.1",
     "vue-router": "^4.1.6"
   }
 }

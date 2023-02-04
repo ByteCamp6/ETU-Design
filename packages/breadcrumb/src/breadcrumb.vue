@@ -1,6 +1,6 @@
 <template>
   <div ref="breadcrumb" :class="bem.b()">
-    <slot/>
+    <slot />
   </div>
 </template>
 
@@ -11,15 +11,13 @@ export default {
 </script>
 
 <script setup lang="ts" name="EtuBreadcrumb">
-import { ref, provide } from 'vue';
-import { useNamespace } from '../../hooks';
-import { breadcrumbProps } from './breadcrumb'
-import { breadcrumbKey } from '../../tokens';
+import { ref, provide } from "vue";
+import { useNamespace } from "../../hooks";
+import { breadcrumbProps } from "./breadcrumb";
+import { breadcrumbKey } from "../../tokens";
 
-const bem = useNamespace('breadcrumb');
+const bem = useNamespace("breadcrumb");
 const props = defineProps(breadcrumbProps);
 
 provide(breadcrumbKey, props);
-
 </script>
-
