@@ -1,10 +1,7 @@
+import { withInstall } from "@etu-design/utils";
 import Link from "./src/link.vue";
-export * from "./src/link";
-import type { App } from "vue";
-console.log(Link, "???");
-Link.install = (app: App) => {
-  // 注册组件
-  app.component(Link.name, Link);
-};
 
-export default Link;
+export const EtuLink = withInstall(Link);
+
+export default EtuLink;
+export * from "./src/link";

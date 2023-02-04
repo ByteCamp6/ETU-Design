@@ -12,8 +12,10 @@
     "declaration": true, // 生成声明文件
     "sourceMap": true, // 生成映射文件
     "baseUrl": ".",
+    "types": ["node"],
     "paths": {
       "@/*": ["./src/*"]
+      // "@etu-design/*": ["./packages/*"]
     }
   },
 

@@ -4,8 +4,9 @@
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
   <Tag></Tag>
-  <Link />
-  <router-view></router-view>
+  <Link></Link>
+  <!-- <router-view></router-view> -->
+  <Popper />
 </template>
 
 <script setup lang="ts">
@@ -15,6 +16,7 @@ import Breadcrumb from "./components/breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
+import Popper from "./components/Popper.vue";
 </script>
 
 <style scoped></style>

@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts" name="EtuLink">
-import { useNamespace } from "../../hooks/index";
+import { useNamespace } from "@etu-design/hooks";
 import { linkEmits, linkProps } from "./link";
 
 const props = defineProps(linkProps);

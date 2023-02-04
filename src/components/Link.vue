@@ -4,6 +4,7 @@
     :underline="true"
     :disabled="false"
     href="https://juejin.cn/"
-    >这是一个Link</etu-link
   >
+    这是一个链接
+  </etu-link>
 </template>

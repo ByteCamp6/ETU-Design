@@ -220,6 +220,12 @@
     "vite" "^4.0.4"
     "vue-router" "^4.1.6"
 
+"@etu-design/tokens@file:D:\\ETU-Design\\packages\\tokens":
+  "resolved" "file:packages/tokens"
+  "version" "0.0.0"
+  dependencies:
+    "vue-router" "^4.1.6"
+
 "@etu-design/utils@file:D:\\ETU-Design\\packages\\utils":
   "resolved" "file:packages/utils"
   "version" "1.0.0"
@@ -1251,6 +1257,11 @@
   "version" "4.1.1"
   dependencies:
     "esquery" "^1.0.1"
+
+"@popperjs/core@npm:@sxzz/popperjs-es@^2.11.7":
+  "integrity" "sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ=="
+  "resolved" "https://registry.npmmirror.com/@sxzz/popperjs-es/-/popperjs-es-2.11.7.tgz"
+  "version" "2.11.7"
 
 "@rushstack/eslint-patch@^1.1.4":
   "integrity" "sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg=="
@@ -3703,6 +3714,10 @@
     "validate-npm-package-license" "^3.0.4"
     "validate-npm-package-name" "^4.0.0"
 
+"input-number@file:D:\\ETU-Design\\packages\\input-number":
+  "resolved" "file:packages/input-number"
+  "version" "0.0.0"
+
 "inquirer@^8.2.4":
   "integrity" "sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ=="
   "resolved" "https://registry.npmmirror.com/inquirer/-/inquirer-8.2.5.tgz"
@@ -5422,6 +5437,12 @@
     "mlly" "^1.0.0"
     "pathe" "^1.0.0"
 
+"popper@file:D:\\ETU-Design\\packages\\popper":
+  "resolved" "file:packages/popper"
+  "version" "0.0.0"
+  dependencies:
+    "token" "0.1.0"
+
 "postcss-selector-parser@^6.0.9":
   "integrity" "sha512-zbARubNdogI9j7WY4nQJBiNqQf3sLS3wCP4WfOidu+p28LofJqDH1tcXypGrcmMHhDk2t9wGhCsYe/+szLTy1g=="
   "resolved" "https://registry.npmmirror.com/postcss-selector-parser/-/postcss-selector-parser-6.0.11.tgz"
@@ -5938,6 +5959,10 @@
   "resolved" "https://registry.npmmirror.com/slash/-/slash-3.0.0.tgz"
   "version" "3.0.0"
 
+"slider@file:D:\\ETU-Design\\packages\\slider":
+  "resolved" "file:packages/slider"
+  "version" "0.0.0"
+
 "smart-buffer@^4.2.0":
   "integrity" "sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg=="
   "resolved" "https://registry.npmmirror.com/smart-buffer/-/smart-buffer-4.2.0.tgz"
@@ -6287,11 +6312,10 @@
   dependencies:
     "is-number" "^7.0.0"
 
-"tokens@file:D:\\ETU-Design\\packages\\tokens":
-  "resolved" "file:packages/tokens"
-  "version" "0.0.0"
-  dependencies:
-    "vue-router" "^4.1.6"
+"token@0.1.0":
+  "integrity" "sha512-/q/8GFfSPu4LTIIOjXkDxKl20yoBkY5ZJzfBs57BnZlw99YQiVw+CV3NgPO59pwjjxn1dMjEBM7+5mMOSRajAQ=="
+  "resolved" "https://registry.npmmirror.com/token/-/token-0.1.0.tgz"
+  "version" "0.1.0"
 
 "tough-cookie@^4.1.2":
   "integrity" "sha512-G9fqXWoYFZgTc2z8Q5zaHy/vJMjm+WV0AkAeHxVCQiEB1b+dGvWzFW6QV07cY5jQ5gRkeid2qIkzkxUnmoQZUQ=="

@@ -1,7 +1,6 @@
-// eslint-disable-next-line vue/prefer-import-from-vue
-import { isArray, isObject } from "@vue/shared";
+import { isArray, isObject, isString } from "@vue/shared";
 import { isNil } from "lodash-unified";
-
+console.log(isNil);
 export {
   isArray,
   isFunction,
@@ -10,7 +9,6 @@ export {
   isDate,
   isPromise,
   isSymbol,
-  // eslint-disable-next-line vue/prefer-import-from-vue
 } from "@vue/shared";
 export { isBoolean, isNumber } from "@vueuse/core";
 export { isVNode } from "vue";
@@ -29,4 +27,11 @@ export const isElement = (e: unknown): e is Element => {
 
 export const isPropAbsent = (prop: unknown): prop is null | undefined => {
   return isNil(prop);
+};
+
+export const isStringNumber = (val: string): boolean => {
+  if (!isString(val)) {
+    return false;
+  }
+  return !Number.isNaN(Number(val));
 };

@@ -14,7 +14,6 @@ describe("Tag.vue", () => {
     });
     expect(wrapper.text()).toEqual("222");
     const vm = wrapper.vm;
-
     expect(vm.$el.classList.contains("etu-tag")).toEqual(true);
     expect(vm.$el.classList.contains("etu-tag__close")).toEqual(false);
     expect(vm.$el.classList.contains("is-closeable")).toEqual(false);
