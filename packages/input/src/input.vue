@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="bem.b()"
+    :class="headClass"
     @mouseenter="isEnter = true"
     @mouseleave="isEnter = false"
   >
@@ -114,15 +114,23 @@ const isShowPrefixIcon = computed(() => {
 });
 
 const bem = useNamespace("input");
+
 const classes = computed(() => {
   const { type, size } = inputProps;
-  // console.log(classes);
   return [
     bem.e("inner"),
     bem.m(type),
     bem.m(size),
     bem.is("prefix", !!inputProps.prefixIcon),
     bem.is("disabled", inputProps.disabled),
+  ];
+});
+
+const headClass = computed(() => {
+  return [
+    bem.b(),
+    bem.is("prepend", !!slots.prepend),
+    bem.is("append", !!slots.append),
   ];
 });
 </script>

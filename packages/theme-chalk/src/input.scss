@@ -1,16 +1,14 @@
 @use "sass:map";
-
 @use "mixins/mixins" as *;
 @use "mixins/function" as *;
 @use "mixins/_var.scss" as *;
 @use "var" as *;
 @use "mixins/config" as *;
-
 @include b(input) {
   font-size: 14px;
   display: inline-block;
   position: relative;
-  @include e(inner){
+  @include e(inner) {
     display: inline-block;
     background-color: #fff;
     border-radius: 4px;
@@ -27,68 +25,71 @@
       width: inherit;
       cursor: not-allowed;
     }
-    @include when(prefix){
+    @include when(prefix) {
       padding-left: 25px;
     }
   }
-  @include m(large){
+  @include m(large) {
     height: 36px;
   }
-  @include m(medium){
+  @include m(medium) {
     height: 32px;
   }
-  @include m(small){
+  @include m(small) {
     height: 28px;
   }
-  @include e(suffix){
-    position: absolute;
-    right: 10px;
-    height: 100%;
-    top: 0;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: #c0c4cc;
-    font-size: 15px;
+  @include e(suffix) {
+    @extend %suffix;
   }
-  @include e(prefix){
-    position: absolute;
-    right: 10px;
+  @include e(prefix) {
+    @extend %suffix;
     left: 5px;
-    top: 0;
-    display: flex;
-    align-items: center;
-
     width: 20px;
-    height: 100%;
-    cursor: pointer;
-    color: #c0c4cc;
-    font-size: 15px;
+  }
+  // 出现前置或者后置(复合输入框)属性时
+  @include when(append) {
+    @extend %head_append_prepend;
+  }
+  @include when(prepend) {
+    @extend %head_append_prepend;
   }
 }
-
-  //复合输入框
-  @include e(prepend){
-    background-color: #f5f7fa;
-    color: #909399;
-    vertical-align: middle;
-    display: table-cell;
-    position: relative;
-    border: 1px solid #dcdfe6;
-    border-radius: 4 0px 0px 4px;
-    padding: 0 20px;
-    width: 1px;
-    white-space: nowrap;
-  }
-  @include e(append){
-    background-color: #f5f7fa;
-    color: #909399;
-    vertical-align: middle;
-    display: table-cell;
-    position: relative;
-    border: 1px solid #dcdfe6;
-    border-radius: 4 0px 0px 4px;
-    padding: 0 20px;
-    width: 1px;
-    white-space: nowrap;
-  }
+//复合输入框
+@include e(append){
+  @extend %append_prepend;
+}
+@include e(prepend){
+  @extend %append_prepend;
+}
+// 出现复合输入框属性时
+%head_append_prepend {
+  line-height: normal;
+  display: inline-table;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+//复合输入框
+%append_prepend{
+  background-color: #f5f7fa;
+  color: #909399;
+  vertical-align: middle;
+  display: table-cell;
+  position: relative;
+  border: 1px solid #dcdfe6;
+  border-radius: 4 0px 0px 4px;
+  padding: 0 20px;
+  width: 1px;
+  white-space: nowrap;
+}
+// 前置或者后置
+%suffix {
+  position: absolute;
+  right: 10px;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #c0c4cc;
+  font-size: 15px;
+}
