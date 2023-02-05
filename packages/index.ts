@@ -16,6 +16,7 @@ import collapse from "./collapse";
 import Drawer from "./drawer";
 import Overlay from "./overlay";
 import Avatar from "./avatar";
+import Dialog from "./dialog";import Input from "./input/index";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -26,11 +27,17 @@ const { Collapse, CollapseItem } = collapse;
 
 // 全部引入
 const components = [
+
   Divider,
+
   Breadcrumb,
+
   BreadcrumbItem,
+
   Icon,
+
   Tag,
+
   Select,
   Option,
   OptionGroup,
@@ -41,6 +48,8 @@ const components = [
   Progress,
   Empty,
   Link,
+  Input,
+,
   Button,
   Upload,
   Switch,
@@ -49,6 +58,7 @@ const components = [
   Drawer,
   Overlay,
   Avatar,
+  Dialog,
 ];
 
 // 全局动态添加

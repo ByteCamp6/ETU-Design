@@ -13,7 +13,7 @@ hero:
       link: /introduce
     - theme: alt
       text: GitHub地址
-      link: https://github.com/vuejs/vitepress
+      link: https://github.com/ByteCamp6/ETU-Design
 features:
   - icon: 🛠️
     title: 丰富的功能
@@ -23,7 +23,7 @@ features:
     details: 拿你想要的，减少打包体积。
   - icon: 💡
     title: 先进的技术栈
-    details: vite3、vitepress、vitest、vue3
+    details: vue3、vite4、vitepress、vitest
   - icon: 🎨
     title: 风格百变
     details: 修改主题组合搭配，可实现数百种不同风格的界面
@@ -39,6 +39,6 @@ features:
 <style>
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe, #41d1ff);
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #9c34fe, #41d1ff);
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <Avatar></Avatar>
+  <Dialog></Dialog>
   <Collapse></Collapse>
   <!-- <Progress></Progress> -->
   <Button></Button>
@@ -18,6 +19,7 @@
   <Message></Message>
   <Link />
   <Upload></Upload>
+  <Input />
   <router-view></router-view>
 </template>
 
@@ -28,18 +30,20 @@ import Breadcrumb from "./components/Breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
+import Input from "./components/Input.vue";
 import Select from "./components/Select.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
 import Progress from "./components/Progress.vue";
-// import Empty from "./components/Empty.vue";
-// import Message from "./components/Message.vue";
+import Empty from "./components/Empty.vue";
+import Message from "./components/Message.vue";
 import Upload from "./components/Upload.vue";
 import Switch from "./components/Switch.vue";
 import Collapse from "./components/Collapse.vue";
 import Drawer from "./components/Drawer.vue";
 import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
+import Dialog from "./components/Dialog.vue";
 </script>
 
 <style scoped></style>

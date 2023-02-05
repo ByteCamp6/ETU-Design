@@ -6,6 +6,9 @@ import type {
 
 import { UploadAjaxError } from "./upload";
 
+/**
+ * @description 有相应值返回响应，没响应返回status
+ */
 function getError(
   action: string,
   option: UploadRequestOptions,
@@ -64,12 +67,12 @@ export const ajaxUpload: UploadRequestHandler = (option) => {
   }
   formData.append(option.filename, option.file, option.file.name);
 
-  // 侦测error事件，触发用户的onError回调
+  // 侦测error事件，触发upload-content的handleError回调
   xhr.addEventListener("error", () => {
     option.onError(getError(action, option, xhr));
   });
 
-  // 侦测load事件，触发用户的onSuccess回调
+  // 侦测load事件，触发upload-content的handleSuccess回调
   xhr.addEventListener("load", () => {
     // 返回的状态为2xx
     if (xhr.status < 200 || xhr.status >= 300) {

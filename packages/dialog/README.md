@@ -1,11 +1,11 @@
-# `overlay`
+# `dialog`
 
 > TODO: description
 
 ## Usage
 
 ```
-const overlay = require('overlay');
+const dialog = require('dialog');
 
 // TODO: DEMONSTRATE API
 ```

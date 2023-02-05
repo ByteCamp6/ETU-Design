@@ -1,5 +1,5 @@
 <template>
-  <etu-overlay v-model="isShow">
+  <etu-overlay v-show="isShow" @click="changeIsShow">
     <div :class="tClass">
       <div class="close_Icon" @click="changeIsShow">
         <etu-icon name="close"></etu-icon>
@@ -15,8 +15,11 @@
 </template>
 
 <script setup lang="ts" name="EtuDrawer">
-import { useNamespace } from "../../hooks";
+import { useNamespace, useVmodel } from "@etu-design/hooks";
+import EtuIcon from "@etu-design/icon";
+import EtuOverlay from "@etu-design/overlay";
 import { computed, ref, watch } from "vue";
+
 const props = defineProps({
   type: {
     type: String,
@@ -59,7 +62,6 @@ const props = defineProps({
     default: "标题",
   },
 });
-const isShow = ref(props.modelValue);
 const Tittle = ref(props.Tittle);
 const bem = useNamespace("Drawer");
 // el-drawer-white__false--Right
@@ -69,28 +71,8 @@ const tClass = computed(() => {
     bem.bem(props.bgColor, String(props.disabled), props.direction),
   ];
 });
-watch(
-  () => props.modelValue,
-  () => {
-    isShow.value = props.modelValue;
-    console.log("isShow is " + isShow.value);
-  },
-);
+const isShow = useVmodel(props);
 function changeIsShow() {
   isShow.value = !isShow.value;
 }
 </script>
-
-<script lang="ts">
-export default {
-  name: "EtuDrawer",
-};
-</script>
-
-<style>
-html,
-head,
-body {
-  margin: 0;
-}
-</style>

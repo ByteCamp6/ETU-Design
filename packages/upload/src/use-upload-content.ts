@@ -134,13 +134,16 @@ export const useUploadContent = (props: UploadContentProps) => {
       method,
       filename,
       action,
+      // 执行handleProgress
       onProgress: (evt) => {
         onProgress(evt, rawFile);
       },
+      // 执行handleSuccess
       onSuccess: (res) => {
         onSuccess(res, rawFile);
         delete requests.value[uid];
       },
+      // 执行handleError
       onError: (err) => {
         onError(err, rawFile);
         delete requests.value[uid];
@@ -148,6 +151,7 @@ export const useUploadContent = (props: UploadContentProps) => {
     };
     const request = httpRequest(options);
     requests.value[uid] = request;
+    // 如果为用户自定义的axios等Promise请求，则成功后执行handleSuccess，失败执行handleError
     if (request instanceof Promise) {
       request.then(options.onSuccess, options.onError);
     }
