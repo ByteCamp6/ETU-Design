@@ -2,6 +2,7 @@
   <div :class="bemArea.b()" v-if="type === 'textarea'">
     <textarea
       :class="bemArea.e('inner')"
+      v-bind="attrs"
       ref="textarea"
       :value="inputProps.modelValue"
       @input="changeInputVal"
@@ -22,6 +23,7 @@
     <input
       ref="inputRef"
       :class="classes"
+      v-bind="attrs"
       :value="inputProps.modelValue"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -66,6 +68,7 @@ import { computed, ref, useAttrs } from "vue";
 import { useNamespace } from "../../hooks/index";
 import { InputProps } from "./input";
 import { useSlots } from "vue";
+const attrs = useAttrs();
 //复合输入框
 const slots = useSlots();
 
