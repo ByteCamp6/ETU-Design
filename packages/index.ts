@@ -15,6 +15,7 @@ import Progress from "./progress";
 import collapse from "./collapse";
 import Drawer from "./drawer";
 import Overlay from "./overlay";
+import Avatar from "./avatar";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -47,6 +48,7 @@ const components = [
   CollapseItem,
   Drawer,
   Overlay,
+  Avatar,
 ];
 
 // 全局动态添加
