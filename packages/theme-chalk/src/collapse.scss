@@ -1,0 +1,78 @@
+@use "mixins/mixins.scss" as *;
+@use "mixins/function.scss" as *;
+@use "mixins/var" as *;
+
+@include b(collapse) {
+  @include set-component-css-var(
+    collapse,
+    (
+      "height": 48px,
+      "border-color": getRootCssVar("color", "fill-2"),
+      "text-color": getRootCssVar("color", "text-0"),
+      "font-size": getRootCssVar("font", "size-default"),
+    )
+  );
+}
+
+@keyframes open {
+  from {
+    height: 0;
+    visibility: hidden;
+  }
+  to {
+    height: 100px;
+    visibility: visible;
+  }
+}
+
+@include b(collapse-item) {
+  position: relative;
+  transition: all 0.35s ease;
+  @include when(focus) {
+    @include e(title) {
+      border-bottom: 1px solid transparent;
+    }
+
+    @include e(icon) {
+      transform: rotate(90deg);
+    }
+
+    @include e(content) {
+      visibility: visible;
+    }
+  }
+
+  @include e(title) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: getCssVar("collapse", "height");
+    line-height: getCssVar("collapse", "height");
+    color: getCssVar("collapse", "text-color");
+    font-size: getCssVar("collapse", "font-size");
+    cursor: pointer;
+    border-bottom: 1px solid getCssVar("collapse", "border-color");
+    outline: none;
+    transition: border-color 0.35s ease;
+  }
+
+  @include e(icon) {
+    margin-right: getRootCssVar("space-5");
+    color: getRootCssVar("color", "fill-5");
+    transition: transform 0.35s ease;
+  }
+
+  &:first-child {
+    @include e(title) {
+      border-top: 1px solid getCssVar("collapse", "border-color");
+    }
+  }
+
+  @include e(content) {
+    transition: height 0.5s ease;
+    border-bottom: 1px solid getCssVar("collapse", "border-color");
+    @include e(inner) {
+      margin: 20px 0;
+    }
+  }
+}

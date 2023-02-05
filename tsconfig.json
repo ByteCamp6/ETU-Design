@@ -9,6 +9,8 @@
     "forceConsistentCasingInFileNames": true, // 强制区分大小写
     "moduleResolution": "node", // 模块解析方式
     "jsx": "preserve", // 不转化jsx
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
     "declaration": true, // 生成声明文件
     "sourceMap": true, // 生成映射文件
     "baseUrl": ".",

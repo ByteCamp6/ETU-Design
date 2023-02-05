@@ -1,7 +1,7 @@
 // import { createRouter, createWebHistory } from "vue-router";
 import { createApp } from "vue";
 import App from "./App.vue";
-import "@etu-design/theme-chalk/src/index.scss";
+import "../packages/theme-chalk/src/index.scss";
 
 // const router = createRouter({
 //   history: createWebHistory(),

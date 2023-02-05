@@ -1,0 +1,216 @@
+@use 'sass:map';
+
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use "mixins/function" as *;
+
+$radio: () !default;
+$radio: map.merge(
+    (
+      'font-size': getCssVar('font-size-base'),
+      'text-color': getCssVar('text-color-regular'),
+      'font-weight': getCssVar('font-weight-primary'),
+      'input-height': 14px,
+      'input-width': 14px,
+      'input-border-radius': getCssVar('border-radius-circle'),
+      'input-bg-color': getCssVar('fill-color', 'blank'),
+      'input-border': getCssVar('border'),
+      'input-border-color': getCssVar('border-color'),
+      'input-border-color-hover': getCssVar('color-primary'),
+    ),
+    $radio
+);
+
+$common-component-size: () !default;
+$common-component-size: map.merge(
+    (
+      'large': 40px,
+      'default': 32px,
+      'small': 24px,
+    ),
+    $common-component-size
+);
+
+$radio-height: () !default;
+$radio-height: map.merge($common-component-size, $radio-height);
+
+$radio-button: () !default;
+$radio-button: map.merge(
+    (
+      'checked-bg-color': getCssVar('color-primary'),
+      'checked-text-color': getCssVar('color-white'),
+      'checked-border-color': getCssVar('color-primary'),
+      'disabled-checked-fill': getCssVar('border-color-extra-light'),
+    ),
+    $radio-button
+);
+
+$radio-disabled: () !default;
+$radio-disabled: map.merge(
+    (
+      'input-border-color': getCssVar('disabled-border-color'),
+      'input-fill': getCssVar('disabled-bg-color'),
+      'icon-color': getCssVar('disabled-bg-color'),
+      'checked-input-border-color': getCssVar('disabled-border-color'),
+      'checked-input-fill': getCssVar('disabled-bg-color'),
+      'checked-icon-color': getCssVar('text-color-placeholder'),
+    ),
+    $radio-disabled
+);
+
+$radio-bordered-input-height: () !default;
+$radio-bordered-input-height: map.merge(
+    (
+      'large': 14px,
+      'default': 12px,
+      'small': 12px,
+    ),
+    $radio-bordered-input-height
+);
+
+$radio-bordered-input-width: () !default;
+$radio-bordered-input-width: map.merge(
+    (
+      'large': 14px,
+      'default': 12px,
+      'small': 12px,
+    ),
+    $radio-bordered-input-width
+);
+
+$radio-font-size: () !default;
+$radio-font-size: map.merge(
+    (
+      'large': 14px,
+      'small': 12px,
+    ),
+    $radio-font-size
+);
+@include b(radio) {
+  @include set-css-var-value(('radio-bg-color'), white);
+  @include set-css-var-value(('radio-text-color'), getRootCssVar('color-text-1'));
+  @include set-css-var-value(('radio-font-weight'), 500);
+  @include set-css-var-value(('radio-font-size'), 14px);
+  @include set-css-var-value(('radio-input-width'), 14px);
+  @include set-css-var-value(('radio-input-height'), 14px);
+  @include set-css-var-value(('radio-input-border'), getRootCssVar('border-default'));
+  @include set-css-var-value(('radio-border-radius'), getRootCssVar('border-radius-full'));
+  @include set-css-var-value(('radio-border-color'), getRootCssVar('color-primary'));
+  @include set-css-var-value(('disabled-text-color'), getRootCssVar('color-text-3'));
+  @include set-css-var-value(('radio-disabled-input-fill'), getRootCssVar('color-fill-0'));
+  @include set-css-var-value(('radio-disabled-border-color'), getRootCssVar('color-text-3'));
+}
+
+@include b(radio) {
+  color: getCssVar('radio-text-color');
+  font-weight: getCssVar('radio-font-weight');
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  font-size: getCssVar('radio-font-size');
+  user-select: none;
+  margin-right: 32px;
+
+  @include e(input) {
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-flex;
+    position: relative;
+    vertical-align: middle;
+
+    @include when(checked) {
+      .#{bem('radio','inner')} {
+        border-color: getCssVar('radio-border-color');
+        background: getCssVar('radio-border-color');
+
+        &::after {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      & + .#{bem('radio','label')} {
+        color: getCssVar('radio-border-color');
+      }
+    }
+
+    @include when(disabled) {
+      .#{bem('radio', 'inner')} {
+        background-color: getCssVar('radio-disabled-input-fill');
+        border-color: getCssVar('radio-disabled-border-color');
+        cursor: not-allowed;
+
+        &::after {
+          cursor: not-allowed;
+          border-color: getCssVar('disabled-text-color');
+        }
+      }
+
+      &.is-checked {
+        .#{bem('radio', 'inner')} {
+          background-color: getCssVar('radio-disabled-input-fill');
+          border-color: getCssVar('radio-disabled-border-color');
+
+          &::after {
+            background-color: getCssVar('radio-disabled-border-color');
+            border-color: getCssVar('disabled-text-color');
+          }
+        }
+      }
+
+      & + span.#{bem('radio','label')} {
+        color: getCssVar('disabled-text-color');
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @include e(inner) {
+    border: getCssVar('radio-input-border');
+    border-radius: getCssVar('radio-border-radius');
+    width: getCssVar('radio-input-width');
+    height: getCssVar('radio-input-height');
+    background-color: getCssVar('radio-bg-color');
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+
+    &:hover {
+      border-color: getCssVar('radio-border-color');
+    }
+
+    &::after {
+      width: 4px;
+      height: 4px;
+      border-radius: getCssVar('radio-border-radius');
+      background-color: white;
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.15s ease-in;
+    }
+  }
+
+  @include e(original) {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+  }
+
+  @include e(label) {
+    font-size: getCssVar('radio-font-size');
+    padding-left: 8px;
+  }
+}
