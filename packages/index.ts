@@ -15,6 +15,7 @@ import Progress from "./progress";
 import collapse from "./collapse";
 import Drawer from "./drawer";
 import Overlay from "./overlay";
+import Avatar from "./avatar";
 import Dialog from "./dialog";import Input from "./input/index";
 import type { App } from "vue";
 
@@ -56,6 +57,7 @@ const components = [
   CollapseItem,
   Drawer,
   Overlay,
+  Avatar,
   Dialog,
 ];
 

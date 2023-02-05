@@ -1,4 +1,5 @@
 <template>
+  <Avatar></Avatar>
   <Dialog></Dialog>
   <Collapse></Collapse>
   <!-- <Progress></Progress> -->
@@ -41,6 +42,7 @@ import Switch from "./components/Switch.vue";
 import Collapse from "./components/Collapse.vue";
 import Drawer from "./components/Drawer.vue";
 import OverLay from "./components/OverLay.vue";
+import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 </script>
 
