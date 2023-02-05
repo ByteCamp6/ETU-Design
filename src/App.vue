@@ -18,6 +18,7 @@
   <Message></Message>
   <Link />
   <Upload></Upload>
+  <Input />
   <router-view></router-view>
 </template>
 
@@ -28,6 +29,7 @@ import Breadcrumb from "./components/Breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
+import Input from "./components/Input.vue";
 import Select from "./components/Select.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
