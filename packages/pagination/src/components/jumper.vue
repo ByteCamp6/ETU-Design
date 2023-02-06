@@ -3,6 +3,8 @@
     <span :class="[ns.e('goto')]">跳转至</span>
     <etu-input
       :class="[ns.e('editor'), ns.is('in-pagination')]"
+      :min="1"
+      :max="pageCount"
       :disabled="disabled"
       :model-value="innerValue"
       type="number"

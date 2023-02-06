@@ -117,6 +117,31 @@
       color: getCssVar('pagination-disabled-color');
     }
   }
+
+  @include e(jump) {
+    display: flex;
+    align-items: center;
+    margin-left: getCssVar('pagination-item-gap');
+    font-weight: normal;
+    color: getCssVar('pagination-text-color');
+
+    &[disabled='true'] {
+      color: getCssVar('pagination-disabled-color');
+    }
+
+    @include e(goto) {
+      margin-right: 8px;
+    }
+
+    @include e(editor) {
+      text-align: center;
+      box-sizing: border-box;
+
+      &.#{$namespace}-input {
+        width: 56px;
+      }
+    }
+  }
 }
 
 @include b(pager) {

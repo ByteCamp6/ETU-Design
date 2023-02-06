@@ -1,6 +1,6 @@
 <template>
   <etu-pagination
-    layout="prev, pager, next, total, sizes"
+    layout="prev, pager, next, total, sizes, jumper"
     :total="1000"
     :disabled="isDisabled"
     v-model:page-size="pageSize"
