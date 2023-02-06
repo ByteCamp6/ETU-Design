@@ -54,8 +54,8 @@ export const selectEmits = {
     isArray(val) ||
     isObject(val) ||
     isBoolean(val),
+  "visible-change": (val: boolean) => isBoolean(val),
   change: (val: string) => isString(val),
-  visibleChange: (val: string) => isString(val),
   blur: (event: FocusEvent) => event instanceof FocusEvent,
   focus: (event: FocusEvent) => event instanceof FocusEvent,
 };
