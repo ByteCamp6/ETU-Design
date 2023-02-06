@@ -1,5 +1,5 @@
 <template>
-  <etu-select v-model="value" placeholder="请选择内容" clearable>
+  <etu-select v-model="value1" placeholder="请选择内容" clearable>
     <etu-option-group
       v-for="item of options1"
       :key="item.label"
@@ -81,7 +81,8 @@ interface ListItem {
 
 const list = ref<ListItem[]>([]);
 const options = ref<ListItem[]>([]);
-const value = ref<string[]>([]);
+const value1 = ref("Beijing");
+const value = ref<string[]>(["Shanghai"]);
 const loading = ref(false);
 
 watch(

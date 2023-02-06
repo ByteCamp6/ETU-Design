@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="optionClass"
-    @click.stop="updateValue($event, props.value, props.label)"
-  >
+  <div :class="optionClass" @click.stop="updateValue(props.value, props.label)">
     <span>{{ props.label }}</span>
   </div>
 </template>
@@ -14,7 +11,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, provide, watch, reactive, computed, nextTick } from "vue";
+import { inject, computed, onMounted } from "vue";
 import { useNamespace } from "../../hooks";
 import { optionProps } from "./option";
 import { selectKey } from "../../tokens";
@@ -22,7 +19,7 @@ import { selectKey } from "../../tokens";
 const props = defineProps(optionProps);
 const select = inject(selectKey);
 
-const updateValue = (e, value, label) => {
+const updateValue = (value, label) => {
   if (props.disabled) return;
   select.handlerClickOption({ value, label });
 };
@@ -33,4 +30,18 @@ const optionClass = computed(() => [
   nc.is("disabled", props.disabled),
   nc.is("selected", select.isSelected(props.value)),
 ]);
+
+onMounted(() => {
+  if (select.props.modelValue) {
+    if (!select.props.multiple) {
+      if (select.props.modelValue === props.value) {
+        updateValue(props.value, props.label);
+      }
+    } else {
+      if (select.props.modelValue.contains(props.value)) {
+        updateValue(props.value, props.label);
+      }
+    }
+  }
+});
 </script>

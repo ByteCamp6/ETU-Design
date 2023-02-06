@@ -20,7 +20,9 @@ export function useSelectStates(props) {
 type States = ReturnType<typeof useSelectStates>;
 
 export const useSelect = (states: States, props, emit) => {
+
   const handlerClickOption = (item) => {
+    if (props.disabled) return;
     if (props.multiple) {
       if (states.caches.has(item.value)) {
         states.caches.delete(item.value);
@@ -63,6 +65,7 @@ export const useSelect = (states: States, props, emit) => {
   };
 
   const toggleMenu = () => {
+    if (props.disabled) return;
     if (props.filterable) {
       states.filterable = true;
     } else {

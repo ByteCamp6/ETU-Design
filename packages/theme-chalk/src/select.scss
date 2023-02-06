@@ -97,6 +97,9 @@
   @include when(disabled) {
     background-color: getRootCssVar("color", "fill-0");
     cursor: not-allowed;
+    @include e(inner) {
+      cursor: not-allowed;
+    }
     &:hover {
       border: 1px solid getCssVar("select", "border-color");
     }
