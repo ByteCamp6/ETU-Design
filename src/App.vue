@@ -1,5 +1,6 @@
 <template>
   <Avatar></Avatar>
+  <Pagination></Pagination>
   <Dialog></Dialog>
   <Collapse></Collapse>
   <!-- <Progress></Progress> -->
@@ -44,6 +45,7 @@ import Drawer from "./components/Drawer.vue";
 import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
+import Pagination from "./components/Pagination.vue";
 </script>
 
 <style scoped></style>

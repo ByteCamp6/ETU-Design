@@ -4,3 +4,4 @@ export * from "./checkbox";
 export * from "./radio";
 export * from "./dialog";
 export * from "./collapse";
+export * from "./pagination";
