@@ -1,5 +1,6 @@
 import type { ExtractPropTypes } from "vue";
-export const InputProps = {
+import { definePropType, isString } from "@etu-design/utils";
+export const inputProps = {
   placeholder: {
     type: String,
     default: "",
@@ -14,7 +15,7 @@ export const InputProps = {
     default: "off",
   },
   modelValue: {
-    type: String,
+    type: definePropType<string | number | null | undefined>([String, Number]),
     default: "",
   },
   clearable: {
@@ -43,6 +44,27 @@ export const InputProps = {
     type: String,
     default: "",
   },
+  formatter: {
+    type: Function,
+  },
+  parser: {
+    type: Function,
+  },
+  readonly: {
+    type: Boolean,
+  },
 } as const;
 
-// export type InputProps = ExtractPropTypes<typeof inputProps1>;
+export type InputProps = ExtractPropTypes<typeof inputProps>;
+
+export const inputEmits = {
+  "update:modelValue": (value: string) => isString(value),
+  input: (value: string) => isString(value),
+  change: (value: string) => isString(value),
+  clear: () => true,
+  mouseleave: (evt: MouseEvent) => evt instanceof MouseEvent,
+  mouseenter: (evt: MouseEvent) => evt instanceof MouseEvent,
+};
+
+//组件发送事件类型
+export type InputEmits = typeof inputEmits;

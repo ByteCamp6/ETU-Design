@@ -1,11 +1,19 @@
 <template>
-  <div :class="bemArea.b()" v-if="type === 'textarea'">
+  <div
+    :class="bemArea.b()"
+    v-if="type === 'textarea'"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <textarea
       :class="bemArea.e('inner')"
       v-bind="attrs"
-      ref="textarea"
-      :value="inputProps.modelValue"
-      @input="changeInputVal"
+      ref="textareaRef"
+      :value="props.modelValue"
+      @input="handleInput"
+      @change="handleChange"
+      @compositionstart="handleCompositionStart"
+      @compositionend="handleCompositionEnd"
     />
   </div>
   <!-- 输入框 -->
@@ -24,10 +32,14 @@
       ref="inputRef"
       :class="classes"
       v-bind="attrs"
-      :value="inputProps.modelValue"
+      :value="props.modelValue"
+      :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
       :placeholder="placeholder"
-      :disabled="disabled"
-      @input="changeInputVal"
+      :disabled="inputDisabled"
+      @input="handleInput"
+      @change="handleChange"
+      @compositionstart="handleCompositionStart"
+      @compositionend="handleCompositionEnd"
     />
     <!-- 后置插槽 -->
     <div :class="bem.e('append')" v-if="slots.append">
@@ -35,108 +47,75 @@
     </div>
     <!-- 是否可清除 -->
     <div
-      @click="clearValue"
-      v-if="inputProps.clearable && isClearAbled"
+      @click="clear"
+      v-if="isClearable"
       v-show="isEnter"
       :class="bem.e('suffix')"
     >
       <i class="etu-i-close"></i>
     </div>
     <!-- 是否显示密码 -->
-    <div :class="bem.e('suffix')" v-show="isShowEye">
+    <div :class="bem.e('suffix')" v-show="isPwdVisible">
       <etu-icon :name="eyeIcon" @click="changeType"></etu-icon>
     </div>
 
     <!-- 首尾icon图标 -->
     <div :class="bem.e('prefix')" v-if="isShowPrefixIcon">
-      <etu-icon :name="inputProps.prefixIcon" />
+      <etu-icon :name="props.prefixIcon" />
     </div>
     <div :class="bem.e('suffix')" v-if="isShowSuffixIcon">
-      <etu-icon :name="inputProps.suffixIcon" />
+      <etu-icon :name="props.suffixIcon" />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuInput",
-};
-</script>
-
-<script lang="ts" setup>
-import { computed, ref, useAttrs } from "vue";
+<script lang="ts" setup name="EtuInput">
+import { computed, useAttrs } from "vue";
 import { useNamespace } from "../../hooks/index";
-import { InputProps } from "./input";
+import { inputEmits, inputProps } from "./input.ts";
+import EtuIcon from "@etu-design/icon";
 import { useSlots } from "vue";
+import { useInput } from "./composables";
 const attrs = useAttrs();
 //复合输入框
 const slots = useSlots();
 
-const inputProps = defineProps(InputProps);
-const inputEmits = defineEmits<InputEmits>();
-
-//清除input value
-const isEnter = ref(false);
-const isClearAbled = ref(false);
-const clearValue = () => {
-  inputEmits("update:modelValue", "");
-};
-// 密码框显示与隐藏
-const inputRef = ref();
-Promise.resolve().then(() => {
-  if (inputProps.showPassword) {
-    inputRef.value.type = "password";
-  }
-});
-const eyeIcon = ref("browse");
-const isShowEye = computed(() => {
-  return (
-    inputProps.showPassword && inputProps.modelValue && !inputProps.clearable
-  );
-});
-const changeType = () => {
-  if (inputRef.value.type === "password") {
-    eyeIcon.value = "hide";
-    inputRef.value.type = "text";
-    return;
-  }
-  inputRef.value.type = "password";
-  eyeIcon.value = "browse";
-};
-
-//组件发送事件类型
-type InputEmits = {
-  (e: "update:modelValue", value: string): void;
-};
-
-const changeInputVal = (event: Event) => {
-  (event.target as HTMLInputElement).value
-    ? (isClearAbled.value = true)
-    : (isClearAbled.value = false);
-  inputEmits("update:modelValue", (event.target as HTMLInputElement).value);
-};
-
-//带Icon输入框
-const isShowSuffixIcon = computed(() => {
-  return (
-    inputProps.suffixIcon && !inputProps.clearable && !inputProps.showPassword
-  );
-});
-const isShowPrefixIcon = computed(() => {
-  return inputProps.prefixIcon;
-});
+const props = defineProps(inputProps);
+defineEmits(inputEmits);
 
 const bem = useNamespace("input");
 const bemArea = useNamespace("textarea");
 
+const {
+  inputRef,
+  textareaRef,
+  aimRef,
+  inputDisabled,
+  handleInput,
+  handleChange,
+  handleCompositionStart,
+  handleCompositionEnd,
+  isEnter,
+  isClearable,
+  handleMouseEnter,
+  handleMouseLeave,
+  clearValue: clear,
+  isPwdVisible,
+  passwordVisible,
+  eyeIcon,
+  changeType,
+  isShowPrefixIcon,
+  isShowSuffixIcon,
+} = useInput(props);
+
 const classes = computed(() => {
-  const { type, size } = inputProps;
+  const { type, size } = props;
   return [
     bem.e("inner"),
     bem.m(type),
     bem.m(size),
-    bem.is("prefix", !!inputProps.prefixIcon),
-    bem.is("disabled", inputProps.disabled),
+    bem.is("prefix", !!props.prefixIcon),
+    bem.is("disabled", inputDisabled.value),
   ];
 });
 
@@ -146,5 +125,12 @@ const headClass = computed(() => {
     bem.is("prepend", !!slots.prepend),
     bem.is("append", !!slots.append),
   ];
+});
+
+defineExpose({
+  inputRef,
+  textareaRef,
+  aimRef,
+  clear,
 });
 </script>

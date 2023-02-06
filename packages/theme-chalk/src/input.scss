@@ -54,6 +54,24 @@
   @include when(prepend) {
     @extend %head_append_prepend;
   }
+
+  // 清除默认的密码/数字显示框
+  input::-ms-reveal {
+    display: none;
+  }
+  input::-ms-clear{
+    display: none;
+  }
+  input::-o-clear{
+    display: none;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 }
 //复合输入框
 @include e(append){
