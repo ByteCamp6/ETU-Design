@@ -27,17 +27,11 @@ const { Collapse, CollapseItem } = collapse;
 
 // 全部引入
 const components = [
-
   Divider,
-
   Breadcrumb,
-
   BreadcrumbItem,
-
   Icon,
-
   Tag,
-
   Select,
   Option,
   OptionGroup,
@@ -49,7 +43,6 @@ const components = [
   Empty,
   Link,
   Input,
-,
   Button,
   Upload,
   Switch,
