@@ -1,16 +1,16 @@
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
 @use "mixins/mixins" as *;
 
-%base-Mask-Layer {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  z-index: 100000000000;
-  top: 0px;
-  bottom: 0px;
-  position: absolute;
-  transition: all 0.3s;
-}
 // 这里遮罩层的出现与否是通过overlay.vue中的 Transition + v-if来决定是否渲染出来遮罩层的
-.etu-overlay {
-  @extend %base-Mask-Layer;
+@include b(overlay) {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  transition: all 0.3s;
+  overflow: auto;
 }

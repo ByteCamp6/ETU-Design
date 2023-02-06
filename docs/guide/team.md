@@ -43,13 +43,6 @@ const members = [
     links: [
       { icon: 'github', link: 'https://github.com/233333-doge' }
     ]
-  },
-  {
-    avatar: 'https://avatars.githubusercontent.com/u/122537127?s=96&v=4',
-    name: 'wangzonghui1184',
-    links: [
-      { icon: 'github', link: 'https://github.com/wangzonghui1184' }
-    ]
   }
 ]
 </script>
