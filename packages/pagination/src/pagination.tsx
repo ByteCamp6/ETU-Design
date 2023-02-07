@@ -2,7 +2,6 @@ import {
   computed,
   defineComponent,
   getCurrentInstance,
-  nextTick,
   provide,
   ref,
   watch,
@@ -29,7 +28,7 @@ export default defineComponent({
 
   setup(props, { emit }) {
     const ns = useNamespace("pagination");
-    // 获取在vnode上的事件，判断是Current还是PageSize
+    // 获取在vnode上的事件，判断是Current和PageSize是否有双向绑定
     const vnodeProps = getCurrentInstance()!.vnode.props || {};
     const hasCurrentPageListener =
       "onUpdate:currentPage" in vnodeProps ||
@@ -141,13 +140,9 @@ export default defineComponent({
 
     // 点击下一页
     function next() {
-      console.log(currentPageBridge.value);
       if (props.disabled) return;
       currentPageBridge.value += 1;
       emit("next-click", currentPageBridge.value);
-      nextTick(() => {
-        console.log(currentPageBridge.value);
-      });
     }
 
     function handleCurrentChange(val: number) {
@@ -182,7 +177,7 @@ export default defineComponent({
 
     return () => {
       if (!assertValidUsage.value) {
-        console.log("检验有问题，请检查参数是否存在和双向绑定");
+        console.warn("检验有问题，请检查参数是否存在和双向绑定");
         return null;
       }
       if (!props.layout) return null;

@@ -32,6 +32,7 @@ const ns = useNamespace("pagination");
 const pagination = usePagination();
 const innerPageSize = ref(props.pageSize!);
 
+// pageSizes改变，观察是否有匹配的pageSize
 watch(
   () => props.pageSizes,
   (newVal, oldVal) => {
@@ -56,7 +57,6 @@ watch(
 const innerPageSizes = computed(() => props.pageSizes);
 
 function handleChange(val: number) {
-  console.log(345612);
   if (val !== innerPageSize.value) {
     innerPageSize.value = val;
     pagination.handleSizeChange?.(Number(val));

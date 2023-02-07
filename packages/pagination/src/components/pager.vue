@@ -75,10 +75,13 @@ const pagers = computed(() => {
   // 举个例子，当页面为5时比7-3大，此时showPrevMore为true
   let showPrevMore = false;
   let showNextMore = false;
+  // 只有总页数比最大页码按钮数大时，才会显现showPrevMore和showNextMore
   if (pageCount > pagerCount) {
+    // 一个页面最多显示pagerCount个按钮，currentPage在中间时前面有(pagerCount - 1) / 2个按钮，因此需要设置前面的...
     if (currentPage > pagerCount - halfPagerCount) {
       showPrevMore = true;
     }
+    // currentPage在中间时后面有(pagerCount - 1) / 2个按钮，因此需要设置后面的...
     if (currentPage < pageCount - halfPagerCount) {
       showNextMore = true;
     }
@@ -91,7 +94,7 @@ const pagers = computed(() => {
     for (let i = startPage; i < pageCount; i++) {
       array.push(i);
     }
-  } //在分页前面时，显示前5页
+  } //在分页前面时，显示前5页，2，3，4，5，6
   else if (!showPrevMore && showNextMore) {
     for (let i = 2; i < pagerCount; i++) {
       array.push(i);

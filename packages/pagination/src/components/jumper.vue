@@ -15,7 +15,7 @@
   </span>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuPaginationJumper">
 import { computed, ref } from "vue";
 import { usePagination } from "../use-pagination";
 import { useNamespace } from "@etu-design/hooks";
