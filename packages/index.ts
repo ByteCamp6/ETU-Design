@@ -16,7 +16,9 @@ import collapse from "./collapse";
 import Drawer from "./drawer";
 import Overlay from "./overlay";
 import Avatar from "./avatar";
-import Dialog from "./dialog";import Input from "./input/index";
+import Dialog from "./dialog";
+import Input from "./input/index";
+import scrollbar from "./scrollbar";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -24,6 +26,7 @@ const { Checkbox, CheckboxGroup } = checkbox;
 const { Radio, RadioGroup } = radio;
 const { Select, Option, OptionGroup } = select;
 const { Collapse, CollapseItem } = collapse;
+const { Scrollbar } = scrollbar;
 
 // 全部引入
 const components = [
@@ -52,6 +55,7 @@ const components = [
   Overlay,
   Avatar,
   Dialog,
+  Scrollbar,
 ];
 
 // 全局动态添加
