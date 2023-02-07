@@ -1,4 +1,5 @@
 <template>
+  <Scrollbar></Scrollbar>
   <Avatar></Avatar>
   <Pagination></Pagination>
   <Dialog></Dialog>
@@ -46,6 +47,7 @@ import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
+import Scrollbar from "./components/Scrollbar.vue";
 </script>
 
 <style scoped></style>
