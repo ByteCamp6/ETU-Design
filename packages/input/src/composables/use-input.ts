@@ -8,7 +8,9 @@ import { useDisabled } from "@etu-design/hooks";
 export const useInput = (props: InputProps) => {
   const inputRef = ref<HTMLInputElement>();
   const textareaRef = ref<HTMLTextAreaElement>();
+  // inputRef或者textareaRef
   const aimRef = computed(() => inputRef.value || textareaRef.value);
+  // input是否被禁用
   const inputDisabled = useDisabled();
 
   const {
