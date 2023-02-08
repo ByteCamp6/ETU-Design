@@ -1,6 +1,6 @@
 {
   "name": "etu-design",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": "jiaze <1244153559@qq.com>",
   "homepage": "",
@@ -20,9 +20,9 @@
     "test": "node ./__tests__/ETU-Design.test.js"
   },
   "dependencies": {
-    "@etu-design/directives": "^0.0.2",
-    "@etu-design/hooks": "^0.0.2",
-    "@etu-design/theme-chalk": "^0.0.2",
+    "@etu-design/directives": "^0.1.0",
+    "@etu-design/hooks": "^0.1.0",
+    "@etu-design/theme-chalk": "^0.1.0",
     "animate.css": "^4.1.1",
     "hooks": "^0.3.2",
     "theme-chalk": "^1.0.0-dev.9",

@@ -1,6 +1,6 @@
 {
   "name": "button",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Polaris-6625 <2281487673@qq.com>",
   "homepage": "",
@@ -20,7 +20,7 @@
     "test": "node ./__tests__/divider.test.js"
   },
   "dependencies": {
-    "@etu-design/directives": "^0.0.2",
+    "@etu-design/directives": "^0.1.0",
     "vue-router": "^4.1.6"
   },
   "gitHead": "6e1986c8dba2395465b6e83c5800bc71e4701d21"
