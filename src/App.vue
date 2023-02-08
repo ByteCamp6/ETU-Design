@@ -10,7 +10,6 @@
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
   <Tag></Tag>
-  <Link></Link>
   <Popper />
   <Select></Select>
   <Tag></Tag>
@@ -48,12 +47,9 @@ import Drawer from "./components/Drawer.vue";
 import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
-<<<<<<< HEAD
 import Popper from "./components/Popper.vue";
-=======
 import Pagination from "./components/Pagination.vue";
 import Scrollbar from "./components/Scrollbar.vue";
->>>>>>> d2b4b4eeadc2b1cda92fecdd0496653a5b35a226
 </script>
 
 <style scoped></style>

@@ -22,9 +22,7 @@
     "@vue/test-utils": "^2.2.7",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vitepress": "^1.0.0-alpha.38",
-    "vue": "^3.2.45",
-    "lodash-unified": "^1.0.2",
-    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.7"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",
