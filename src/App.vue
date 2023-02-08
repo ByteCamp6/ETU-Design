@@ -22,6 +22,7 @@
   <Link />
   <Upload></Upload>
   <Input />
+  <Tree></Tree>
   <router-view></router-view>
 </template>
 
@@ -48,6 +49,7 @@ import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
 import Scrollbar from "./components/Scrollbar.vue";
+import Tree from "./components/Tree.vue";
 </script>
 
 <style scoped></style>

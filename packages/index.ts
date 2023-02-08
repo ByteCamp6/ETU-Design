@@ -19,6 +19,7 @@ import Avatar from "./avatar";
 import Dialog from "./dialog";
 import Input from "./input/index";
 import scrollbar from "./scrollbar";
+import Tree from "./tree";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -56,6 +57,7 @@ const components = [
   Avatar,
   Dialog,
   Scrollbar,
+  Tree,
 ];
 
 // 全局动态添加
