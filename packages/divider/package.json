@@ -1,6 +1,6 @@
 {
   "name": "divider",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "> TODO: description",
   "author": "voilt-sourse <2503063984@qq.com>",
   "homepage": "",
@@ -20,7 +20,7 @@
     "test": "node ./__tests__/divider.test.js"
   },
   "dependencies": {
-    "@etu-design/directives": "^0.0.0",
+    "@etu-design/directives": "^0.0.1",
     "animate.css": "^4.1.1",
     "vue-router": "^4.1.6"
   }
