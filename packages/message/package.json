@@ -5,5 +5,6 @@
   "module": "index.ts",
   "dependencies": {
     "@etu-design/directives": "^0.0.1"
-  }
+  },
+  "gitHead": "6e1986c8dba2395465b6e83c5800bc71e4701d21"
 }
