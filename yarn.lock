@@ -440,26 +440,26 @@
 
 "@etu-design/avatar@file:D:\\ETU-Design\\packages\\avatar":
   "resolved" "file:packages/avatar"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/collapse@file:D:\\ETU-Design\\packages\\collapse":
   "resolved" "file:packages/collapse"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/dialog@file:D:\\ETU-Design\\packages\\dialog":
   "resolved" "file:packages/dialog"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
-"@etu-design/directives@^0.0.2", "@etu-design/directives@file:D:\\ETU-Design\\packages\\directives":
+"@etu-design/directives@^0.1.0", "@etu-design/directives@file:D:\\ETU-Design\\packages\\directives":
   "resolved" "file:packages/directives"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
-"@etu-design/hooks@^0.0.2", "@etu-design/hooks@file:D:\\ETU-Design\\packages\\hooks":
+"@etu-design/hooks@^0.1.0", "@etu-design/hooks@file:D:\\ETU-Design\\packages\\hooks":
   "resolved" "file:packages/hooks"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
-    "@etu-design/theme-chalk" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
+    "@etu-design/theme-chalk" "^0.0.2"
     "animate.css" "^4.1.1"
     "hooks" "^0.3.2"
     "theme-chalk" "^1.0.0-dev.9"
@@ -469,49 +469,49 @@
 
 "@etu-design/icon@file:D:\\ETU-Design\\packages\\icon":
   "resolved" "file:packages/icon"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
     "animate.css" "^4.1.1"
 
 "@etu-design/input@file:D:\\ETU-Design\\packages\\input":
   "resolved" "file:packages/input"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/message@file:D:\\ETU-Design\\packages\\message":
   "resolved" "file:packages/message"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
 
 "@etu-design/overlay@file:D:\\ETU-Design\\packages\\overlay":
   "resolved" "file:packages/overlay"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/pagination@file:D:\\ETU-Design\\packages\\pagination":
   "resolved" "file:packages/pagination"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/progress@file:D:\\ETU-Design\\packages\\progress":
   "resolved" "file:packages/progress"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/select@file:D:\\ETU-Design\\packages\\select":
   "resolved" "file:packages/select"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "@etu-design/tag@file:D:\\ETU-Design\\packages\\tag":
   "resolved" "file:packages/tag"
-  "version" "0.0.2"
-  dependencies:
-    "@etu-design/directives" "^0.0.1"
-
-"@etu-design/theme-chalk@^0.0.2", "@etu-design/theme-chalk@file:D:\\ETU-Design\\packages\\theme-chalk":
-  "resolved" "file:packages/theme-chalk"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
     "@etu-design/directives" "^0.0.2"
-    "@etu-design/hooks" "^0.0.2"
+
+"@etu-design/theme-chalk@^0.1.0", "@etu-design/theme-chalk@file:D:\\ETU-Design\\packages\\theme-chalk":
+  "resolved" "file:packages/theme-chalk"
+  "version" "0.1.0"
+  dependencies:
+    "@etu-design/directives" "^0.1.0"
+    "@etu-design/hooks" "^0.1.0"
     "animate.css" "^4.1.1"
     "hooks" "^0.3.2"
     "theme-chalk" "^1.0.0-dev.9"
@@ -521,19 +521,19 @@
 
 "@etu-design/tokens@file:D:\\ETU-Design\\packages\\tokens":
   "resolved" "file:packages/tokens"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
     "animate.css" "^4.1.1"
     "vue-router" "^4.1.6"
 
 "@etu-design/utils@file:D:\\ETU-Design\\packages\\utils":
   "resolved" "file:packages/utils"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
-    "@etu-design/hooks" "^0.0.1"
-    "@etu-design/theme-chalk" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
+    "@etu-design/hooks" "^0.0.2"
+    "@etu-design/theme-chalk" "^0.0.2"
     "animate.css" "^4.1.1"
     "hooks" "^0.3.2"
     "theme-chalk" "^1.0.0-dev.9"
@@ -2380,9 +2380,9 @@
 
 "breadcrumb@file:D:\\ETU-Design\\packages\\breadcrumb":
   "resolved" "file:packages/breadcrumb"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
     "animate.css" "^4.1.1"
     "vue-router" "^4.1.6"
 
@@ -2423,9 +2423,9 @@
 
 "button@file:D:\\ETU-Design\\packages\\button":
   "resolved" "file:packages/button"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
     "vue-router" "^4.1.6"
 
 "byte-size@^7.0.0":
@@ -3023,9 +3023,9 @@
 
 "divider@file:D:\\ETU-Design\\packages\\divider":
   "resolved" "file:packages/divider"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/directives" "^0.0.1"
+    "@etu-design/directives" "^0.0.2"
     "animate.css" "^4.1.1"
     "vue-router" "^4.1.6"
 
@@ -3064,7 +3064,7 @@
 
 "drawer@file:D:\\ETU-Design\\packages\\drawer":
   "resolved" "file:packages/drawer"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "duplexer@^0.1.1":
   "integrity" "sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg=="
@@ -3406,10 +3406,12 @@
 
 "etu-design@file:D:\\ETU-Design\\packages\\ETU-Design":
   "resolved" "file:packages/ETU-Design"
-  "version" "0.0.2"
+  "version" "0.1.0"
   dependencies:
-    "@etu-design/hooks" "^1.0.0"
-    "@etu-design/theme-chalk" "^1.0.0"
+    "@etu-design/directives" "^0.0.2"
+    "@etu-design/hooks" "^0.0.2"
+    "@etu-design/theme-chalk" "^0.0.2"
+    "animate.css" "^4.1.1"
     "hooks" "^0.3.2"
     "theme-chalk" "^1.0.0-dev.9"
     "utils" "^0.3.1"
@@ -4148,7 +4150,7 @@
 
 "input-number@file:D:\\ETU-Design\\packages\\input-number":
   "resolved" "file:packages/input-number"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "inquirer@^8.2.4":
   "integrity" "sha512-QAgPDQMEgrDssk1XiwwHoOGYF9BAbUcc1+j+FhEvaOt8/cKRqyLn0U5qA6F74fGhTMGxf92pOvPBeh29jQJDTQ=="
@@ -6296,7 +6298,7 @@
 
 "scrollbar@file:D:\\ETU-Design\\packages\\scrollbar":
   "resolved" "file:packages/scrollbar"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "semver@^5.5.0":
   "integrity" "sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ=="
@@ -6413,7 +6415,7 @@
 
 "slider@file:D:\\ETU-Design\\packages\\slider":
   "resolved" "file:packages/slider"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "smart-buffer@^4.2.0":
   "integrity" "sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg=="
@@ -6667,7 +6669,7 @@
 
 "switch@file:D:\\ETU-Design\\packages\\switch":
   "resolved" "file:packages/switch"
-  "version" "0.0.2"
+  "version" "0.1.0"
 
 "symbol-tree@^3.2.4":
   "integrity" "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw=="
