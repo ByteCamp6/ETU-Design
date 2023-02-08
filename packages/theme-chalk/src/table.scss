@@ -1,0 +1,154 @@
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+@use "mixins/config" as *;
+
+@include b(table) {
+  @include set-css-var-value(("table-bg-color"),getRootCssVar("color-white"));
+  @include set-css-var-value(("table-text-color"),getRootCssVar("color-text-0"));
+  @include set-css-var-value(("table-border-color"),getRootCssVar("color-border"));
+  @include set-css-var-value(("table-border"),getRootCssVar("border-default"));
+  @include set-css-var-value(("table-header-text-color"),getRootCssVar("color-text-1"));
+}
+
+@include b(table) {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: fit-content;
+  width: 100%;
+  max-width: 100%;
+  background-color: getCssVar('table-bg-color');
+  font-size: 14px;
+  color: getCssVar('table-text-color');
+
+  @include e(inner-wrapper) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: getCssVar("color-border");
+      z-index: 3;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+    }
+  }
+
+  @include e(inner-wrapper) {
+    border-right: none;
+    border-bottom: none;
+  }
+
+  @include e((header-wrapper, body-wrapper)) {
+    width: 100%;
+    tr {
+      td,
+      th {
+        &.#{$namespace}-table-fixed-column--left,
+        &.#{$namespace}-table-fixed-column--right {
+          position: sticky !important;
+          z-index: 2;
+          background: getCssVar('bg-color');
+          &.is-last-column,
+          &.is-first-column {
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              width: 10px;
+              bottom: -1px;
+              overflow-x: hidden;
+              overflow-y: hidden;
+              box-shadow: none;
+              touch-action: none;
+              pointer-events: none;
+            }
+          }
+          &.is-first-column {
+            &::before {
+              left: -10px;
+            }
+          }
+          &.is-last-column {
+            &::before {
+              right: -10px;
+              box-shadow: none;
+            }
+          }
+        }
+        &.#{$namespace}-table__fixed-right-patch {
+          position: sticky !important;
+          z-index: 2;
+          background: #fff;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  @include e((header-wrapper, body-wrapper)) {
+    .#{$namespace}-table-column--selection {
+      > .cell {
+        display: inline-flex;
+        align-items: center;
+        height: 23px;
+      }
+      .#{$namespace}-checkbox {
+        height: unset;
+      }
+    }
+  }
+
+  @include e(body-wrapper) {
+    overflow: hidden;
+    position: relative;
+    flex: 1;
+    .#{$namespace}-scrollbar__bar {
+      z-index: 2;
+    }
+
+  }
+
+  @include e(cell) {
+    padding: 8px 0;
+    min-width: 0;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+    z-index: 1;
+  }
+
+  @include e(row) {
+    transition: background-color .25s ease;
+    &:hover {
+      background-color: getRootCssVar("color-fill-1");
+    }
+  }
+  thead {
+    color: getCssVar('table-header-text-color');
+    font-weight: 500;
+  }
+
+  .cell {
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+    line-height: 23px;
+    padding: 0 12px;
+  }
+
+  th.#{$namespace}-table__cell,
+  td.#{$namespace}-table__cell {
+    border-bottom: getCssVar('table-border');
+  }
+}
