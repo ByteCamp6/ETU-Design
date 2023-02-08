@@ -8,3 +8,4 @@ export * from "./use-z-index";
 export * from "./use-same-target";
 export * from "./use-lockscreen";
 export * from "./use-draggable";
+export * from "./use-cursor";

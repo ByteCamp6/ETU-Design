@@ -1,0 +1,33 @@
+@use "./mixins/mixins.scss" as *;
+@use "./mixins/var" as *;
+@use "./mixins/function.scss" as *;
+
+@include b(avatar) {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  width: getCssVar("avatar", "size");
+  height: getCssVar("avatar", "size");
+  line-height: getCssVar("avatar", "size");
+  background: getRootCssVar("color", "fill-3");
+  color: getRootCssVar("color", "white");
+  font-size: 14px;
+  border-radius: getRootCssVar("border", "radius-small");
+
+  img {
+    width: getCssVar("avatar", "size");
+    height: getCssVar("avatar", "size");
+  }
+
+  @include e(icon) {
+    font-size: getCssVar("avatar", "size");
+    color: getRootCssVar("color", "white");
+  }
+
+  @include e(circle) {
+    border-radius: getRootCssVar("border", "radius-circle");
+  }
+}

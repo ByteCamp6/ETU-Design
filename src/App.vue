@@ -1,4 +1,7 @@
 <template>
+  <Scrollbar></Scrollbar>
+  <Avatar></Avatar>
+  <Pagination></Pagination>
   <Dialog></Dialog>
   <Collapse></Collapse>
   <!-- <Progress></Progress> -->
@@ -20,6 +23,7 @@
   <Message></Message>
   <Link />
   <Upload></Upload>
+  <Input />
   <router-view></router-view>
 </template>
 
@@ -30,6 +34,7 @@ import Breadcrumb from "./components/Breadcrumb.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
+import Input from "./components/Input.vue";
 import Select from "./components/Select.vue";
 import Checkbox from "./components/Checkbox.vue";
 import Radio from "./components/Radio.vue";
@@ -41,8 +46,14 @@ import Switch from "./components/Switch.vue";
 import Collapse from "./components/Collapse.vue";
 import Drawer from "./components/Drawer.vue";
 import OverLay from "./components/OverLay.vue";
+import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
+<<<<<<< HEAD
 import Popper from "./components/Popper.vue";
+=======
+import Pagination from "./components/Pagination.vue";
+import Scrollbar from "./components/Scrollbar.vue";
+>>>>>>> d2b4b4eeadc2b1cda92fecdd0496653a5b35a226
 </script>
 
 <style scoped></style>
