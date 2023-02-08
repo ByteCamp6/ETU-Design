@@ -14,6 +14,8 @@
       type="text"
       :placeholder="props.placeholder"
       :disabled="!props.filterable"
+      @blur="onBlur"
+      @focus="onFocus"
     />
     <span :class="nc.e('tag')" v-else>
       <etu-tag v-for="item in selected" :key="item">{{ item }}</etu-tag>
@@ -90,6 +92,14 @@ const {
 provide(selectKey, reactive({ props, handlerClickOption, isSelected, caches }));
 
 const nc = useNamespace("select");
+
+const onBlur = (e) => {
+  emit && emit("blur", e);
+};
+
+const onFocus = (e) => {
+  emit && emit("focus", e);
+};
 
 const selectClass = computed(() => {
   return [

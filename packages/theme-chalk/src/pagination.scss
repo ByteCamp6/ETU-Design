@@ -1,0 +1,159 @@
+@use 'sass:map';
+
+@use 'mixins/mixins' as *;
+@use 'mixins/var' as *;
+@use "mixins/function" as *;
+@use "mixins/config.scss" as *;
+
+@mixin pagination-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: getCssVar('pagination-font-size');
+  min-width: getCssVar('pagination-button-width');
+  height: getCssVar('pagination-button-height');
+  line-height: getCssVar('pagination-button-height');
+  color: getCssVar('pagination-button-color');
+  background: getCssVar('pagination-bg-color');
+  padding: 0 4px;
+  border: none;
+  border-radius: getCssVar('pagination-border-radius');
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: getCssVar('pagination-hover-color');
+  }
+
+  &.is-active {
+    color: getCssVar('pagination-hover-color');
+    cursor: default;
+    font-weight: bold;
+
+    &.is-disabled {
+      font-weight: bold;
+      color: getCssVar('pagination-disabled-color');
+    }
+  }
+
+  &:disabled,
+  &.is-disabled {
+    color: getCssVar('pagination-disabled-color');
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 1px solid getCssVar('pagination-hover-color');
+    outline-offset: -1px;
+  }
+}
+
+@include b(pagination) {
+  @include set-css-var-value(("pagination-text-color"),getRootCssVar("color-text-0"));
+  @include set-css-var-value(("pagination-font-size"),14px);
+  @include set-css-var-value(("pagination-button-width"),32px);
+  @include set-css-var-value(("pagination-button-height"),32px);
+  @include set-css-var-value(("ppagination-button-color"),getRootCssVar("color-text-0"));
+  @include set-css-var-value(("pagination-bg-color"),getRootCssVar("color-white"));
+  @include set-css-var-value(("pagination-border-radius"),2px);
+  @include set-css-var-value(("pagination-hover-color"),getRootCssVar("color-primary-hover"));
+  @include set-css-var-value(("pagination-disabled-color"),getRootCssVar("color-text-3"));
+  @include set-css-var-value(("pagination-item-gap"),16px);
+  @include set-css-var-value(("pagination-bg-color"),getRootCssVar("color-white"));
+  @include set-css-var-value(("pagination-bg-color"),getRootCssVar("color-white"));
+  @include set-css-var-value(("pagination-bg-color"),getRootCssVar("color-white"));
+}
+
+@include b(pagination) {
+  white-space: nowrap;
+  color: getCssVar("pagination-text-color");
+  font-size: getCssVar('pagination-font-size');
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+
+
+  button {
+    @include pagination-button
+  }
+
+  .btn-prev,
+  .btn-next {
+    .#{$namespace}-icon {
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      width: inherit;
+    }
+  }
+
+  & > * {
+    @include when(first) {
+      margin-left: 0 !important;
+    }
+  }
+
+  .btn-prev {
+    margin-left: getCssVar('pagination-item-gap');
+  }
+
+  @include e(sizes) {
+    margin-left: getCssVar('pagination-item-gap');
+    font-weight: normal;
+    color: getCssVar('pagination-disabled-color');
+  }
+
+  @include e(total) {
+    margin-left: getCssVar('pagination-item-gap');
+    font-weight: normal;
+    color: getCssVar('pagination-text-color');
+
+    &[disabled='true'] {
+      color: getCssVar('pagination-disabled-color');
+    }
+  }
+
+  @include e(jump) {
+    display: flex;
+    align-items: center;
+    margin-left: getCssVar('pagination-item-gap');
+    font-weight: normal;
+    color: getCssVar('pagination-text-color');
+
+    &[disabled='true'] {
+      color: getCssVar('pagination-disabled-color');
+    }
+
+    @include e(goto) {
+      margin-right: 8px;
+    }
+
+    @include e(editor) {
+      text-align: center;
+      box-sizing: border-box;
+
+      &.#{$namespace}-input {
+        width: 56px;
+      }
+    }
+  }
+}
+
+@include b(pager) {
+  user-select: none;
+  list-style: none;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+
+  li {
+    @include pagination-button;
+  }
+}

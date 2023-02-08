@@ -3,7 +3,7 @@
   <button @click="EtuMessage.closeAll()">close</button>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import EtuMessage from "@etu-design/message";
 
 const test = () => {

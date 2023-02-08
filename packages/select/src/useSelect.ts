@@ -21,6 +21,8 @@ type States = ReturnType<typeof useSelectStates>;
 
 export const useSelect = (states: States, props, emit) => {
   const handlerClickOption = (item) => {
+    if (props.disabled) return;
+    emit && emit("change", item.value);
     if (props.multiple) {
       if (states.caches.has(item.value)) {
         states.caches.delete(item.value);
@@ -52,6 +54,7 @@ export const useSelect = (states: States, props, emit) => {
 
   const resetStates = () => {
     emit && emit("update:modelValue", states.originValue);
+    emit && emit("visible-change", states.visible);
     states.currentLable = "";
     states.selected.length = 0;
     states.caches.clear();
@@ -63,15 +66,19 @@ export const useSelect = (states: States, props, emit) => {
   };
 
   const toggleMenu = () => {
+    if (props.disabled) return;
     if (props.filterable) {
       states.filterable = true;
     } else {
       states.visible = !states.visible;
+      emit && emit("visible-change", states.visible);
     }
   };
 
   const hideMenu = () => {
+    const flag = states.visible;
     states.visible = false;
+    flag !== states.visible && emit && emit("visible-change", states.visible);
     states.filterable = false;
   };
 

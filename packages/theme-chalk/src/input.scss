@@ -1,0 +1,133 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+@use "mixins/config" as *;
+
+@include b(input) {
+  font-size: 14px;
+  display: inline-block;
+  position: relative;
+  @include e(inner) {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: #606266;
+    font-size: inherit;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+    padding: 0 10px;
+    width: 100%;
+    @include when(disabled) {
+      width: inherit;
+      cursor: not-allowed;
+    }
+    @include when(prefix) {
+      padding-left: 25px;
+    }
+  }
+  @include m(large) {
+    height: 36px;
+  }
+  @include m(medium) {
+    height: 32px;
+  }
+  @include m(small) {
+    height: 28px;
+  }
+  @include e(suffix) {
+    @extend %suffix;
+  }
+  @include e(prefix) {
+    @extend %suffix;
+    left: 5px;
+    width: 20px;
+  }
+  // 出现前置或者后置(复合输入框)属性时
+  @include when(append) {
+    @extend %head_append_prepend;
+  }
+  @include when(prepend) {
+    @extend %head_append_prepend;
+  }
+
+  // 清除默认的密码/数字显示框
+  input::-ms-reveal {
+    display: none;
+  }
+  input::-ms-clear{
+    display: none;
+  }
+  input::-o-clear{
+    display: none;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+//复合输入框
+@include e(append){
+  @extend %append_prepend;
+}
+@include e(prepend){
+  @extend %append_prepend;
+}
+
+// 文本域
+@include b(textarea){
+  @include e(inner){
+    display: block;
+    padding: 5px 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: inherit;
+    color: #606266;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    outline: none
+  }
+}
+
+// 出现复合输入框属性时
+%head_append_prepend {
+  line-height: normal;
+  display: inline-table;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+//复合输入框
+%append_prepend{
+  background-color: #f5f7fa;
+  color: #909399;
+  vertical-align: middle;
+  display: table-cell;
+  position: relative;
+  border: 1px solid #dcdfe6;
+  border-radius: 4 0px 0px 4px;
+  padding: 0 20px;
+  width: 1px;
+  white-space: nowrap;
+}
+// 前置或者后置
+%suffix {
+  position: absolute;
+  right: 10px;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #c0c4cc;
+  font-size: 15px;
+}
