@@ -41,12 +41,7 @@ export const useInputText = (
     // 只有在中文输入完后才触发
     if (isComposing.value) return;
 
-    if (value === nativeInputValue.value) {
-      setNativeInputValue();
-      return;
-    }
-
-    // 只有在和原来值不同时才发送变更事件
+    // 发送变更事件
     emit("update:modelValue", value);
     emit("input", value);
 
