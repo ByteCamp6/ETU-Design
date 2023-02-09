@@ -3,6 +3,8 @@
     <span :class="[ns.e('goto')]">跳转至</span>
     <etu-input
       :class="[ns.e('editor'), ns.is('in-pagination')]"
+      :min="1"
+      :max="pageCount"
       :disabled="disabled"
       :model-value="innerValue"
       type="number"
@@ -13,7 +15,7 @@
   </span>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuPaginationJumper">
 import { computed, ref } from "vue";
 import { usePagination } from "../use-pagination";
 import { useNamespace } from "@etu-design/hooks";

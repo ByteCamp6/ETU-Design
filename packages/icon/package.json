@@ -1,8 +1,8 @@
 {
   "name": "@etu-design/icon",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {
-    "@etu-design/directives": "^0.0.0",
+    "@etu-design/directives": "^0.0.1",
     "animate.css": "^4.1.1"
   }
 }
