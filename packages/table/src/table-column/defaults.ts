@@ -1,4 +1,5 @@
 import type { VNodeChild } from "vue";
+import type { ClassName } from "../table";
 
 export interface TableSortable<T> {
   sorter: (a: T, b: T) => number;
@@ -35,9 +36,16 @@ export interface TableColumnCtx<T> {
     rowIndex: number;
     columnIndex: number;
   }) => VNodeChild;
-}
-
-export interface TableData {
-  key: string;
-  [otherKey: string]: any;
+  headerCellClass?:
+    | ClassName
+    | ((data: { column: TableColumnCtx<T>; columnIndex: number }) => any);
+  bodyCellClass?:
+    | ClassName
+    | ((data: {
+        cellData: any;
+        record: T;
+        column: TableColumnCtx<T>;
+        rowIndex: number;
+        columnIndex: number;
+      }) => any);
 }

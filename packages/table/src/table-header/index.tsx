@@ -2,6 +2,8 @@ import { defineComponent } from "vue";
 import EtuCheckbox from "@etu-design/checkbox";
 import { useTable } from "../use-table";
 import { useNamespace } from "@etu-design/hooks";
+import { isArray, isFunction } from "@etu-design/utils";
+import { combineClass } from "../utils";
 
 export default defineComponent({
   name: "ElTableHeader",
@@ -9,7 +11,7 @@ export default defineComponent({
     EtuCheckbox,
   },
 
-  setup(props, { emit }) {
+  setup() {
     const ns = useNamespace("table");
     const { originColumns } = useTable()!;
     return () => {
@@ -20,12 +22,19 @@ export default defineComponent({
               return (
                 <th
                   key={column.prop}
-                  class={[
-                    ns.e("cell"),
-                    column.headerAlign
-                      ? ns.is(column.headerAlign)
-                      : ns.is(column.align!),
-                  ]}
+                  class={combineClass(
+                    [
+                      ns.e("cell"),
+                      column.headerAlign
+                        ? ns.is(column.headerAlign)
+                        : ns.is(column.align!),
+                    ],
+                    column?.headerCellClass,
+                    {
+                      column: column,
+                      columnIndex: columnIndex,
+                    },
+                  )}
                 >
                   <div class={"cell"}>
                     {column.headerRender

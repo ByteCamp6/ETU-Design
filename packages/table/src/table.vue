@@ -88,14 +88,16 @@ watch(
     emit("selection-change", newValue);
   },
 );
+const hasKey = computed(() => {
+  return props.columns?.some((column) => column.prop === props.rowKey);
+});
 
 const selectionColumn = computed<TableColumnCtx<any> | undefined>(() => {
-  if (!props.columns?.some((column) => column.prop === props.rowKey)) {
+  if (!hasKey.value) {
     return undefined;
   }
   if (props.rowSelection) {
     const rowSelection = props.rowSelection as TableRowSelection;
-    console.log(rowSelection);
     const selectRender: TableColumnCtx<any> = {
       label: "",
       prop: "selection",
@@ -150,7 +152,6 @@ const selectionColumn = computed<TableColumnCtx<any> | undefined>(() => {
         const rowKey = record[props.rowKey];
         const onChange = () => {
           selectRadioData.value = rowKey;
-          console.log(rowKey, record);
           emit("select-radio", rowKey, record);
         };
         return (
@@ -177,9 +178,11 @@ const originColumns = computed(() => {
   return columns;
 });
 
-//@ts-ignore
+// @ts-ignore
 provide(TableKey, {
+  hasKey,
   originColumns,
   data: props.data,
+  rowClass: props.rowClass,
 });
 </script>
