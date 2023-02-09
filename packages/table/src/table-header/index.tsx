@@ -16,10 +16,25 @@ export default defineComponent({
       return (
         <thead>
           <tr>
-            {originColumns.value.map((column) => {
+            {originColumns.value.map((column, columnIndex) => {
               return (
-                <th key={column.prop} class={ns.e("cell")}>
-                  <div class={"cell"}>{column.label}</div>
+                <th
+                  key={column.prop}
+                  class={[
+                    ns.e("cell"),
+                    column.headerAlign
+                      ? ns.is(column.headerAlign)
+                      : ns.is(column.align!),
+                  ]}
+                >
+                  <div class={"cell"}>
+                    {column.headerRender
+                      ? column.headerRender({
+                          column: column,
+                          columnIndex: columnIndex,
+                        })
+                      : column.label}
+                  </div>
                 </th>
               );
             })}

@@ -29,8 +29,21 @@ export default defineComponent({
               <tr key={rowIndex} class={ns.e("row")}>
                 {originColumns.value.map((column, columnIndex) => {
                   return (
-                    <td key={columnIndex} class={ns.e("cell")}>
-                      <div class={"cell"}>{rowData[column.prop]}</div>
+                    <td
+                      key={columnIndex}
+                      class={[ns.e("cell"), ns.is(column.align!)]}
+                    >
+                      <div class={"cell"}>
+                        {column.cellRender
+                          ? column.cellRender({
+                              cellData: rowData[column.prop],
+                              column: column,
+                              columnIndex: columnIndex,
+                              record: rowData,
+                              rowIndex: rowIndex,
+                            })
+                          : rowData[column.prop]}
+                      </div>
                     </td>
                   );
                 })}

@@ -124,6 +124,13 @@
     position: relative;
     text-align: left;
     z-index: 1;
+    @include when(center) {
+      text-align: center;
+    }
+
+    @include when(right) {
+      text-align: right;
+    }
   }
 
   @include e(row) {

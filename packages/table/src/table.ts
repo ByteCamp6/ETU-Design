@@ -1,4 +1,4 @@
-import type { ExtractPropTypes, PropType } from "vue";
+import type { PropType } from "vue";
 import { definePropType } from "@etu-design/utils";
 import type { TableColumnCtx } from "./table-column/defaults";
 
@@ -24,6 +24,7 @@ export interface TableProps<T> {
 export const tableProps = {
   columns: {
     type: definePropType<TableColumnCtx<any>[]>(Array),
+    default: () => [],
     required: true,
   },
   data: {
@@ -32,7 +33,10 @@ export const tableProps = {
     required: true,
   },
   stripe: Boolean,
-  rowKey: String as PropType<TableProps<any>["rowKey"]>,
+  rowKey: {
+    type: String as PropType<TableProps<any>["rowKey"]>,
+    default: "key",
+  },
   showHeader: {
     type: Boolean,
     default: true,

@@ -21,6 +21,7 @@ export interface TableColumnCtx<T> {
   prop: string;
   width?: string | number;
   align?: "left" | "center" | "right";
+  headerAlign?: "left" | "center" | "right";
   sortable?: TableSortable<T>;
   filterable?: TableFilterable<T>;
   headerRender?: (data: {
