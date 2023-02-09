@@ -20,7 +20,6 @@
   </label>
 </template>
 
-
 <script lang="ts" setup name="EtuCheckbox">
 import { checkboxProps, checkboxEmits } from "./checkbox.ts";
 import { useCheckbox } from "./composables";
