@@ -55,7 +55,7 @@ const wrapperStyle = computed(() => {
     height:
       typeof props.height === "number" ? props.height + "px" : props.height,
     maxHeight:
-      typeof props.height === "number" ? props.height + "px" : props.height,
+      typeof props.maxHeight === "number" ? props.maxHeight + "px" : props.maxHeight,
   };
 });
 

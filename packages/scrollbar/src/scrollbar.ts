@@ -5,12 +5,12 @@ export const scrollbarProps = {
   height: {
     type: [Number, String],
     validator: (val: number | string): boolean =>
-      isNumber(val) && isString(val),
+      isNumber(val) || isString(val),
   },
   maxHeight: {
     type: [Number, String],
     validator: (val: number | string): boolean =>
-      isNumber(val) && isString(val),
+      isNumber(val) || isString(val),
   },
   minSize: {
     type: Number,
