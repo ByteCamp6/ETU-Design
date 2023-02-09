@@ -7248,7 +7248,7 @@ vite-node@0.27.3:
 
 vite-plugin-dts@^1.7.2:
   version "1.7.2"
-  resolved "https://registry.npmjs.org/vite-plugin-dts/-/vite-plugin-dts-1.7.2.tgz"
+  resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-1.7.2.tgz#75c581b5c015a5b437d213454e1fd2bc94223b43"
   integrity sha512-55Jwfv6n8gAlRSVGCpIY13TCqadtaKex9d2mCbaSxMFAU06suMDsFhIch1x55eptpC2RpeiresqbTjhN2HSEtQ==
   dependencies:
     "@microsoft/api-extractor" "^7.33.5"
