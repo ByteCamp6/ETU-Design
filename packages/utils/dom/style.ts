@@ -2,7 +2,8 @@ import { isNumber, isObject, isString } from "../types";
 import type { CSSProperties } from "vue";
 import { camelize } from "vue";
 
-export const keysOf = <T>(arr: T) => Object.keys(arr) as Array<keyof T>;
+export const keysOf = <T extends CSSProperties | keyof CSSProperties>(arr: T) =>
+  Object.keys(arr) as Array<keyof T>;
 
 export const classNameToArray = (cls = "") =>
   cls.split(" ").filter((item) => !!item.trim());
