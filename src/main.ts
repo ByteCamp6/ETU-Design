@@ -19,7 +19,7 @@ import "../packages/theme-chalk/src/index.scss";
 //   ],
 // });
 
-import ETU from "../es/packages;
+import ETU from "../packages";
 // import "./assets/main.css";
 
 const app = createApp(App);
