@@ -4,7 +4,7 @@
   <Pagination></Pagination>
   <Dialog></Dialog>
   <Collapse></Collapse>
-  <!-- <Progress></Progress> -->
+  <Progress></Progress>
   <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
@@ -22,7 +22,7 @@
   <Link />
   <Upload></Upload>
   <Input />
-  <router-view></router-view>
+  <!-- <router-view></router-view> -->
 </template>
 
 <script setup lang="ts">

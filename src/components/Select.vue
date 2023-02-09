@@ -3,24 +3,22 @@
     v-model="value1"
     placeholder="请选择内容"
     clearable
+    filterable
     @change="fun"
     @visible-change="fun"
     @blur="fun"
     @focus="fun"
   >
-    <etu-option-group
-      v-for="item of options1"
+    <template #prefix>
+      <etu-icon name="time"></etu-icon>
+    </template>
+    <etu-option
+      v-for="item in options1"
       :key="item.label"
       :label="item.label"
-    >
-      <etu-option
-        v-for="option in item.options"
-        :key="option.label"
-        :label="option.label"
-        :value="option.value"
-        :disabled="option.disabled"
-      ></etu-option>
-    </etu-option-group>
+      :value="item.value"
+      :disabled="item.disabled"
+    ></etu-option>
   </etu-select>
 
   <etu-select
@@ -45,11 +43,34 @@
 import { onMounted, ref, watch } from "vue";
 
 function fun(res: any) {
-  console.log("自定义事件");
-  console.log(res);
+  // console.log("自定义事件");
+  // console.log(res);
 }
 
 const options1 = [
+  {
+    value: "Option1",
+    label: "Option1",
+  },
+  {
+    value: "Option2",
+    label: "Option2",
+  },
+  {
+    value: "Option3",
+    label: "Option3",
+  },
+  {
+    value: "Option4",
+    label: "Option4",
+  },
+  {
+    value: "Option5",
+    label: "Option5",
+  },
+];
+
+const optionsGroup = [
   {
     label: "Popular cities",
     options: [

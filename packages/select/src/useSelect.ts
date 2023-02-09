@@ -1,10 +1,13 @@
-import { ref, reactive, computed, watch, onMounted } from "vue";
+import { ref, reactive, computed, watch, onMounted, nextTick } from "vue";
 import { _debounce } from "@etu-design/utils";
 import { useNamespace } from "../../hooks";
+import { selectEmits, selectProps } from "./select";
 
 export function useSelectStates(props) {
   return reactive({
     caches: new Map(),
+    originList: [],
+    list: new Set(),
     selected: [],
     currentLable: "",
     currentIndex: -1,
@@ -19,7 +22,11 @@ export function useSelectStates(props) {
 
 type States = ReturnType<typeof useSelectStates>;
 
-export const useSelect = (states: States, props, emit) => {
+export const useSelect = (
+  states: States,
+  props: selectProps,
+  emit: selectEmits,
+) => {
   const handlerClickOption = (item) => {
     if (props.disabled) return;
     emit && emit("change", item.value);
@@ -37,7 +44,9 @@ export const useSelect = (states: States, props, emit) => {
         resetStates();
         return;
       }
-      states.currentIndex !== -1 && states.caches.delete(states.currentIndex);
+      states.currentIndex !== -1 &&
+        states.caches.delete(states.currentIndex) &&
+        (states.currentIndex = -1);
       states.currentLable = item.label;
       states.caches.set(item.value, item.label);
       states.currentIndex = item.value;
@@ -46,30 +55,48 @@ export const useSelect = (states: States, props, emit) => {
     }
   };
 
-  const deleteArrItem = (arr, item) => {
+  const deleteArrItem = (
+    arr: Array<string | number>,
+    item: string | number,
+  ) => {
     const idx = arr.findIndex((val) => val === item);
     arr.splice(idx, 1);
     emit && emit("update:modelValue", [...states.selected]);
+  };
+
+  const addValue = (item: string) => {
+    states.list.add(item);
+    states.originList = [...states.list];
   };
 
   const resetStates = () => {
     emit && emit("update:modelValue", states.originValue);
     emit && emit("visible-change", states.visible);
     states.currentLable = "";
+    states.currentIndex = -1;
     states.selected.length = 0;
     states.caches.clear();
     hideMenu();
   };
 
-  const isSelected = (key) => {
+  const isSelected = (key: string | number) => {
     return states.caches.has(key);
+  };
+
+  const isShow = (label: string) => {
+    return states.list.has(label);
   };
 
   const toggleMenu = () => {
     if (props.disabled) return;
-    if (props.filterable) {
-      states.filterable = true;
-    } else {
+    if (!props.remote) {
+      if (props.filterable) {
+        if (states.currentIndex !== -1) {
+          nextTick(() => {
+            states.list = new Set(states.originList);
+          });
+        }
+      }
       states.visible = !states.visible;
       emit && emit("visible-change", states.visible);
     }
@@ -79,7 +106,8 @@ export const useSelect = (states: States, props, emit) => {
     const flag = states.visible;
     states.visible = false;
     flag !== states.visible && emit && emit("visible-change", states.visible);
-    states.filterable = false;
+    if (props.filterable && states.currentLable === "")
+      states.currentLable = "";
   };
 
   const onHover = () => {
@@ -96,14 +124,29 @@ export const useSelect = (states: States, props, emit) => {
   watch(
     () => states.currentLable,
     (val) => {
-      if (!props.filterable || !states.filterable) return;
+      if ((!props.remote && !props.filterable) || !states.visible) return;
       if (val === "") {
-        hideMenu();
-        return;
+        if (props.filterable) {
+          states.list = new Set(states.originList);
+        }
+        if (props.remote) {
+          hideMenu();
+          return;
+        }
       }
-
-      debounceremoteMethod(val);
-      states.visible = true;
+      if (props.remote) {
+        debounceremoteMethod(val);
+        states.visible = true;
+        emit && emit("visible-change", states.visible);
+      } else {
+        const arr = [...states.list];
+        const temp = arr.filter((item: strig) => {
+          return item.toUpperCase().includes(states.currentLable.toUpperCase());
+        });
+        nextTick(() => {
+          states.list = new Set(temp);
+        });
+      }
     },
   );
 
@@ -113,7 +156,9 @@ export const useSelect = (states: States, props, emit) => {
     handlerClickOption,
     onHover,
     onUnHover,
+    isShow,
     isSelected,
     resetStates,
+    addValue,
   };
 };
