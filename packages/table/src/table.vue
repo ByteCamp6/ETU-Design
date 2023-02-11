@@ -1,10 +1,16 @@
 <template>
-  <div :class="[ns.b()]">
-    <div :class="ns.e('inner-wrapper')">
+  <div
+    :class="[
+      ns.b(),
+      ns.is(`scrolling-${scrollingPosition}`),
+      ns.m('enable-row-hover'),
+    ]"
+  >
+    <div :class="ns.e('inner-wrapper')" :style="tableInnerStyle">
       <div ref="hiddenColumns" class="hidden-columns">
         <slot />
       </div>
-      <div :class="ns.e('header-wrapper')">
+      <div :class="ns.e('header-wrapper')" ref="headerWrapper">
         <table
           :class="ns.e('header')"
           border="0"
@@ -15,168 +21,112 @@
             tableLayout: 'fixed',
           }"
         >
-          <table-colgroup></table-colgroup>
-          <table-header></table-header>
+          <TableColgroup></TableColgroup>
+          <TableHeader></TableHeader>
         </table>
       </div>
-      <div :class="ns.e('body-wrapper')">
-        <!--        <el-scrollbar>-->
-        <table
-          :class="ns.e('body')"
-          cellspacing="0"
-          cellpadding="0"
-          border="0"
-          :style="{
-            width: '100%',
-            tableLayout: 'fixed',
-          }"
+      <div ref="bodyWrapper" :class="ns.e('body-wrapper')">
+        <EtuScrollbar
+          ref="scrollBarRef"
+          :height="scrollbarHeight"
+          :maxHeight="scrollbarMaxHeight"
+          @scroll="bindScroll"
         >
-          <table-colgroup></table-colgroup>
-          <table-body></table-body>
-        </table>
-        <!--        </el-scrollbar>-->
+          <table
+            ref="tableBodyNativeRef"
+            :class="ns.e('body')"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            :style="{
+              width: '100%',
+              tableLayout: 'fixed',
+            }"
+          >
+            <TableColgroup></TableColgroup>
+            <TableBody></TableBody>
+          </table>
+        </EtuScrollbar>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="tsx" setup name="EtuTable">
+<script lang="ts" setup name="EtuTable">
 import { useNamespace } from "@etu-design/hooks";
 import TableColgroup from "./tableColgroup.vue";
-import { tableProps, TableRowSelection } from "./table.ts";
-import { computed, FunctionalComponent, provide, ref, watch } from "vue";
+import { tableProps } from "./table.ts";
+import { computed, provide, ref } from "vue";
 import { TableKey } from "@etu-design/tokens";
 import TableHeader from "./table-header";
 import TableBody from "./table-body";
-import type { TableColumnCtx } from "./table-column/defaults";
-import etuCheckbox from "@etu-design/checkbox";
-import etuRadio from "@etu-design/radio";
+import etuScrollbar from "@etu-design/scrollbar";
+import { useTableColumn } from "./table-column";
+import { useTableStyle } from "./use-table-style";
+import type { TableColumnCtx } from "./table-column";
 
-const { Checkbox: EtuCheckbox } = etuCheckbox;
-const { Radio: EtuRadio } = etuRadio;
+const { Scrollbar: EtuScrollbar } = etuScrollbar;
 
+type Row = (typeof props.data)[number];
 const props = defineProps(tableProps);
-const emit = defineEmits([
-  "select",
-  "select-all",
-  "selection-change",
-  "select-radio",
-]);
+defineEmits(["select", "select-all", "selection-change", "select-radio"]);
 const ns = useNamespace("table");
 
-const SelectionCell: FunctionalComponent = ({
-  value,
-  intermediate = false,
-  onChange,
-}) => {
-  return (
-    <EtuCheckbox
-      onChange={onChange}
-      modelValue={value}
-      indeterminate={intermediate}
-    />
-  );
-};
-
-const selectData = ref({});
-const selectCheckboxData = ref<(string | number)[]>([]);
-const selectRadioData = ref("");
-
-watch(
-  () => selectCheckboxData.value,
-  (newValue) => {
-    emit("selection-change", newValue);
-  },
-);
 const hasKey = computed(() => {
   return props.columns?.some((column) => column.prop === props.rowKey);
 });
 
-const selectionColumn = computed<TableColumnCtx<any> | undefined>(() => {
-  if (!hasKey.value) {
-    return undefined;
-  }
-  if (props.rowSelection) {
-    const rowSelection = props.rowSelection as TableRowSelection;
-    const selectRender: TableColumnCtx<any> = {
-      label: "",
-      prop: "selection",
-      width: props.rowSelection.width ?? 50,
-    };
-    if (rowSelection.type === "checkbox") {
-      selectRender.cellRender = ({ record }) => {
-        const rowKey = record[props.rowKey];
-        const onChange = (value) => {
-          selectData.value[rowKey] = value;
-          selectCheckboxData.value = Object.keys(selectData.value).filter(
-            (selectKey) => {
-              return selectData.value[selectKey];
-            },
-          );
-          emit("select", selectCheckboxData.value, value, rowKey, record);
-        };
-        return (
-          <SelectionCell value={selectData.value[rowKey]} onChange={onChange} />
-        );
-      };
-      if (rowSelection?.showCheckedAll) {
-        selectRender.headerRender = () => {
-          const _data = props.data!;
-          const onChange = (value) => {
-            _data.map((record) => {
-              selectData.value[record[props.rowKey]] = value;
-            });
-            value
-              ? (selectCheckboxData.value = Object.keys(selectData.value))
-              : (selectCheckboxData.value = []);
-            emit("select-all", selectCheckboxData.value, value);
-          };
-          const allSelected = _data.every(
-            (record) => selectData.value[record[props.rowKey]],
-          );
-          const containsChecked = _data.some(
-            (record) => selectData.value[record[props.rowKey]],
-          );
+const { selectionColumn } = useTableColumn(props, hasKey);
 
-          return (
-            <SelectionCell
-              value={allSelected}
-              intermediate={containsChecked && !allSelected}
-              onChange={onChange}
-            />
-          );
-        };
-      }
-    } else if (rowSelection.type === "radio") {
-      selectRender.cellRender = ({ record }) => {
-        const rowKey = record[props.rowKey];
-        const onChange = () => {
-          selectRadioData.value = rowKey;
-          emit("select-radio", rowKey, record);
-        };
-        return (
-          <EtuRadio
-            modelValue={selectRadioData.value}
-            onChange={onChange}
-            label={rowKey}
-          >
-            <span></span>
-          </EtuRadio>
-        );
-      };
-    }
-    return selectRender;
+const leftFixedColumns = computed<TableColumnCtx<Row>[]>(() => {
+  let styleOffsetWidth = 0;
+  const columns = props.columns!.filter((column) => column?.fixed === "left");
+  if (selectionColumn.value && props.rowSelection!.fixed) {
+    columns.unshift(selectionColumn.value!);
   }
-  return undefined;
+  columns.forEach((column) => {
+    column.styleOffsetWidth = styleOffsetWidth;
+    styleOffsetWidth += column.width!;
+  });
+  columns[columns.length - 1].stylePosition = "last";
+  return columns;
 });
-
-const originColumns = computed(() => {
-  const columns = props.columns!;
-  if (selectionColumn.value) {
+const noFixedColumns = computed<TableColumnCtx<Row>[]>(() => {
+  const columns = props.columns!.filter((column) => column.fixed === undefined);
+  if (selectionColumn.value && !props.rowSelection!.fixed) {
     columns.unshift(selectionColumn.value!);
   }
   return columns;
 });
+const rightFixedColumns = computed<TableColumnCtx<Row>[]>(() => {
+  let styleOffsetWidth = 0;
+  const columns = props.columns!.filter((column) => column?.fixed === "right");
+  columns.reverse();
+  columns.forEach((column) => {
+    column.styleOffsetWidth = styleOffsetWidth;
+    styleOffsetWidth += column.width!;
+  });
+  columns[columns.length - 1].stylePosition = "first";
+  columns.reverse();
+  return columns;
+});
+
+const originColumns = computed<TableColumnCtx<Row>[]>(() => {
+  let columns = [];
+  const LeftFixedColumns = leftFixedColumns.value;
+  const NoFixedColumns = noFixedColumns.value;
+  const RightFixedColumns = rightFixedColumns.value;
+  return columns.concat(LeftFixedColumns, NoFixedColumns, RightFixedColumns);
+});
+
+const {
+  tableInnerStyle,
+  scrollbarHeight,
+  scrollBarRef,
+  scrollingPosition,
+  bindScroll,
+  scrollbarMaxHeight,
+} = useTableStyle(props);
 
 // @ts-ignore
 provide(TableKey, {

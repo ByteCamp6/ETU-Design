@@ -4,9 +4,10 @@ import EtuRadio from "@etu-design/radio";
 import { useTable } from "../use-table";
 import { useNamespace } from "@etu-design/hooks";
 import { combineClass } from "../utils";
+import { addClass, removeClass } from "@etu-design/utils";
 
 export default defineComponent({
-  name: "ElTableHeader",
+  name: "ElTableBody",
   components: {
     EtuCheckbox,
     EtuRadio,
@@ -33,13 +34,30 @@ export default defineComponent({
                   record: rowData,
                   rowIndex: rowIndex,
                 })}
+                onMouseenter={($event) => {
+                  const el = $event.currentTarget as Element;
+                  addClass(el, "hover-row");
+                }}
+                onMouseleave={($event) => {
+                  const el = $event.currentTarget as Element;
+                  removeClass(el, "hover-row");
+                }}
               >
                 {originColumns.value.map((column, columnIndex) => {
                   return (
                     <td
                       key={columnIndex}
                       class={combineClass(
-                        [ns.e("cell"), ns.is(column.align!)],
+                        [
+                          ns.e("cell"),
+                          ns.is(column.align!),
+                          ns.bm("fixed-column", column.fixed),
+                          ns.is("last-column", column.stylePosition === "last"),
+                          ns.is(
+                            "first-column",
+                            column.stylePosition === "first",
+                          ),
+                        ],
                         column?.bodyCellClass,
                         {
                           cellData: rowData[column.prop],
@@ -49,6 +67,13 @@ export default defineComponent({
                           rowIndex: rowIndex,
                         },
                       )}
+                      style={
+                        column?.fixed === "left"
+                          ? { left: `${column.styleOffsetWidth}px` }
+                          : column?.fixed === "right"
+                          ? { right: `${column.styleOffsetWidth}px` }
+                          : undefined
+                      }
                     >
                       <div class={"cell"}>
                         {column.cellRender

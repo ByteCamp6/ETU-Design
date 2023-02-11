@@ -28,6 +28,9 @@ export default defineComponent({
                       column.headerAlign
                         ? ns.is(column.headerAlign)
                         : ns.is(column.align!),
+                      ns.bm("fixed-column", column.fixed),
+                      ns.is("last-column", column.stylePosition === "last"),
+                      ns.is("first-column", column.stylePosition === "first"),
                     ],
                     column?.headerCellClass,
                     {
@@ -35,6 +38,13 @@ export default defineComponent({
                       columnIndex: columnIndex,
                     },
                   )}
+                  style={
+                    column?.fixed === "left"
+                      ? { left: `${column.styleOffsetWidth}px` }
+                      : column?.fixed === "right"
+                      ? { right: `${column.styleOffsetWidth}px` }
+                      : undefined
+                  }
                 >
                   <div class={"cell"}>
                     {column.headerRender

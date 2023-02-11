@@ -1,7 +1,8 @@
 <template>
-  <Scrollbar></Scrollbar>
   <Avatar></Avatar>
+  <scrollbar></scrollbar>
   <Pagination></Pagination>
+  <Table></Table>
   <Dialog></Dialog>
   <Collapse></Collapse>
   <Progress></Progress>
@@ -47,6 +48,7 @@ import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
+import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
 </script>
 

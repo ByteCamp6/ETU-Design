@@ -20,7 +20,11 @@ export interface TableFilterable<T> {
 export interface TableColumnCtx<T> {
   label: string;
   prop: string;
-  width?: string | number;
+  id?: string;
+  width?: number;
+  fixed?: "left" | "right";
+  styleOffsetWidth?: number;
+  stylePosition?: "first" | "last";
   align?: "left" | "center" | "right";
   headerAlign?: "left" | "center" | "right";
   sortable?: TableSortable<T>;

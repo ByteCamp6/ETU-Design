@@ -5,11 +5,16 @@
 @use "mixins/config" as *;
 
 @include b(table) {
+  @include set-css-var-value(("bg-color"),getRootCssVar("color-white"));
   @include set-css-var-value(("table-bg-color"),getRootCssVar("color-white"));
   @include set-css-var-value(("table-text-color"),getRootCssVar("color-text-0"));
   @include set-css-var-value(("table-border-color"),getRootCssVar("color-border"));
   @include set-css-var-value(("table-border"),getRootCssVar("border-default"));
   @include set-css-var-value(("table-header-text-color"),getRootCssVar("color-text-1"));
+  @include set-css-var-value(("table-fixed-right-column"),inset -10px 0 10px -10px rgb(0 0 0 / 15%));
+  @include set-css-var-value(("table-fixed-left-column"),inset 10px 0 10px -10px rgb(0 0 0 / 15%));
+  @include set-css-var-value(("table-header-bg-color"),getRootCssVar("color-white"));
+  @include set-css-var-value(("table-row-hover-bg-color"),#f5f7fa)
 }
 
 @include b(table) {
@@ -43,6 +48,18 @@
   @include e(inner-wrapper) {
     border-right: none;
     border-bottom: none;
+  }
+
+  @include e(header-wrapper) {
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & tbody td.#{$namespace}-table__cell {
+      background-color: getCssVar('table-row-hover-bg-color');
+      color: getCssVar('table-text-color');
+    }
   }
 
   @include e((header-wrapper, body-wrapper)) {
@@ -135,9 +152,9 @@
 
   @include e(row) {
     transition: background-color .25s ease;
-    &:hover {
-      background-color: getRootCssVar("color-fill-1");
-    }
+    //&:hover {
+    //  background-color: getRootCssVar("color-fill-1");
+    //}
   }
   thead {
     color: getCssVar('table-header-text-color');
@@ -157,5 +174,100 @@
   th.#{$namespace}-table__cell,
   td.#{$namespace}-table__cell {
     border-bottom: getCssVar('table-border');
+  }
+
+  @include when(scrolling-left) {
+    .#{$namespace}-table-fixed-column--right.is-first-column {
+      &::before {
+        box-shadow: getCssVar('table-fixed-right-column');
+      }
+    }
+    &.#{$namespace}-table--border {
+      .#{$namespace}-table-fixed-column--left {
+        &.is-last-column {
+          &.#{$namespace}-table__cell {
+            border-right: getCssVar('table-border');
+          }
+        }
+      }
+    }
+    th.#{$namespace}-table-fixed-column--left {
+      background-color: getCssVar('table-header-bg-color');
+    }
+  }
+
+  @include when(scrolling-right) {
+    .#{$namespace}-table-fixed-column--left.is-last-column {
+      &::before {
+        box-shadow: getCssVar('table-fixed-left-column');
+      }
+    }
+    .#{$namespace}-table-fixed-column--left.is-last-column.#{$namespace}-table__cell {
+      border-right: none;
+    }
+    th.#{$namespace}-table-fixed-column--right {
+      background-color: getCssVar('table-header-bg-color');
+    }
+  }
+
+  @include when(scrolling-middle) {
+    .#{$namespace}-table-fixed-column--left.is-last-column.#{$namespace}-table__cell {
+      border-right: none;
+    }
+    .#{$namespace}-table-fixed-column--right.is-first-column {
+      &::before {
+        box-shadow: getCssVar('table-fixed-right-column');
+      }
+    }
+    .#{$namespace}-table-fixed-column--left.is-last-column {
+      &::before {
+        box-shadow: getCssVar('table-fixed-left-column');
+      }
+    }
+  }
+
+  @include when(scrolling-none) {
+    .#{$namespace}-table-fixed-column--left,
+    .#{$namespace}-table-fixed-column--right {
+      &.is-first-column,
+      &.is-last-column {
+        &::before {
+          box-shadow: none;
+        }
+      }
+    }
+
+    th.#{$namespace}-table-fixed-column--left,
+    th.#{$namespace}-table-fixed-column--right {
+      background-color: getCssVar('table-header-bg-color');
+    }
+  }
+
+  //@include m(enable-row-hover) {
+  //  .#{$namespace}-table__body tr:hover > td.#{$namespace}-table__cell {
+  //    background-color: getCssVar('table-row-hover-bg-color');
+  //  }
+  //}
+
+  tr {
+    background-color: getCssVar('table-tr-bg-color');
+
+    input[type='checkbox'] {
+      margin: 0;
+    }
+  }
+
+  @include e(body) {
+    tr.hover-row {
+      &,
+      &.#{$namespace}-table__row--striped {
+        &,
+        &.current-row {
+          > td.#{$namespace}-table__cell {
+            background-color: getCssVar('table-row-hover-bg-color');
+          }
+        }
+      }
+    }
   }
 }
