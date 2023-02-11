@@ -34,7 +34,7 @@
   height: 100%;
 
   @include e(wrapper) {
-    overflow: auto;
+    overflow: overlay;
     height: 100%;
     scroll-behavior: smooth;
     @include m(hidden-default) {
