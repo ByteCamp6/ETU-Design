@@ -1,5 +1,5 @@
 <template>
-  <etu-scrollbar :height="400">
+  <etu-scrollbar :max-height="400">
     <div
       v-for="item in 20"
       :key="item"
