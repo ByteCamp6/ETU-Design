@@ -37,6 +37,20 @@ const columns: TableColumnCtx<User>[] = [
     label: "姓名",
     prop: "name",
     width: 100,
+    sortable: {
+      sortDirections: ["ascend", "descend"],
+      sorter: (a, b) => {
+        let a1 = a.name.split("").reverse().join("");
+        let b1 = b.name.split("").reverse().join("");
+        if (a1 > b1) {
+          return 1;
+        } else if (a1 < b1) {
+          return -1;
+        } else {
+          return 0;
+        }
+      },
+    },
     headerRender: () => {
       return <etu-tag>姓名</etu-tag>;
     },
@@ -49,6 +63,9 @@ const columns: TableColumnCtx<User>[] = [
     prop: "age",
     width: 100,
     align: "center",
+    sortable: {
+      sortDirections: ["ascend", "descend"],
+    },
   },
   {
     label: "地址",
@@ -74,7 +91,7 @@ const columns: TableColumnCtx<User>[] = [
 const tableData = ref<any[]>([]);
 const tableIndex = ref(6);
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < tableIndex.value; i++) {
   tableData.value.push({
     date: "2016-05-03",
     name: `Tom${i}`,
@@ -86,8 +103,8 @@ for (let i = 0; i < 100; i++) {
 const addData = () => {
   tableData.value.push({
     date: "2016-05-03",
-    name: `Tom${tableIndex.value++}`,
-    age: 12 + tableIndex.value,
+    name: `Tom${tableIndex.value++ + Math.floor(Math.random() * 100)}`,
+    age: 12 + tableIndex.value + Math.floor(Math.random() * 100),
     address: "No. 189, Grove St, Los Angeles",
   });
 };

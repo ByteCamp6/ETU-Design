@@ -56,7 +56,7 @@
 import { useNamespace } from "@etu-design/hooks";
 import TableColgroup from "./tableColgroup.vue";
 import { tableProps } from "./table.ts";
-import { computed, provide, ref } from "vue";
+import { computed, provide, ref, unref } from "vue";
 import { TableKey } from "@etu-design/tokens";
 import TableHeader from "./table-header";
 import TableBody from "./table-body";
@@ -64,6 +64,8 @@ import etuScrollbar from "@etu-design/scrollbar";
 import { useTableColumn } from "./table-column";
 import { useTableStyle } from "./use-table-style";
 import type { TableColumnCtx } from "./table-column";
+import { cloneDeep, isEqual } from "lodash-unified";
+import type { SortingColumn } from "./table-column";
 
 const { Scrollbar: EtuScrollbar } = etuScrollbar;
 
@@ -119,6 +121,63 @@ const originColumns = computed<TableColumnCtx<Row>[]>(() => {
   return columns.concat(LeftFixedColumns, NoFixedColumns, RightFixedColumns);
 });
 
+let seed = 1;
+
+const originData = computed<Row[]>(() => {
+  const data = props.data;
+  const rowKey = props.rowKey;
+  if (!data) {
+    return [];
+  }
+  if (hasKey.value) {
+    data.forEach((each) => {
+      each.id = each[rowKey];
+    });
+  } else {
+    data.forEach((each) => {
+      each.id = String(seed++);
+    });
+  }
+  return data;
+});
+
+const sortingColumn = ref<SortingColumn>({});
+
+const changeSortingColumn = (data: SortingColumn) => {
+  sortingColumn.value = isEqual(sortingColumn.value, data) ? {} : data;
+};
+
+const sortedData = computed<Row[]>(() => {
+  if (sortingColumn.value.column) {
+    const columns = props.columns!;
+    const sortColumn = columns.find(
+      (column) => sortingColumn.value.column === column.prop,
+    );
+    const data = cloneDeep(originData.value);
+    if (sortColumn.sortable?.sorter) {
+      data.sort(sortColumn.sortable.sorter);
+    } else {
+      console.log(sortColumn);
+      data.sort((dataFirst: Row, dataSecond: Row) => {
+        let valueFirst = dataFirst[sortColumn.prop];
+        let valueSecond = dataSecond[sortColumn.prop];
+        if (valueFirst < valueSecond) {
+          return -1;
+        } else if (valueFirst > valueSecond) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+    }
+    if (sortingColumn.value.sortDirections === "descend") {
+      data.reverse();
+    }
+    return data;
+  }
+  return originData.value;
+});
+
 const {
   tableInnerStyle,
   scrollbarHeight,
@@ -132,7 +191,9 @@ const {
 provide(TableKey, {
   hasKey,
   originColumns,
-  data: props.data,
+  data: sortedData,
   rowClass: props.rowClass,
+  sortingColumn,
+  changeSortingColumn,
 });
 </script>

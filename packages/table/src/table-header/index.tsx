@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import EtuCheckbox from "@etu-design/checkbox";
+import EtuIcon from "@etu-design/icon";
 import { useTable } from "../use-table";
 import { useNamespace } from "@etu-design/hooks";
 import { isArray, isFunction } from "@etu-design/utils";
@@ -8,17 +8,18 @@ import { combineClass } from "../utils";
 export default defineComponent({
   name: "ElTableHeader",
   components: {
-    EtuCheckbox,
+    EtuIcon,
   },
 
   setup() {
     const ns = useNamespace("table");
-    const { originColumns } = useTable()!;
+    const { originColumns, changeSortingColumn, sortingColumn } = useTable()!;
     return () => {
       return (
         <thead>
           <tr>
             {originColumns.value.map((column, columnIndex) => {
+              // @ts-ignore
               return (
                 <th
                   key={column.prop}
@@ -31,6 +32,9 @@ export default defineComponent({
                       ns.bm("fixed-column", column.fixed),
                       ns.is("last-column", column.stylePosition === "last"),
                       ns.is("first-column", column.stylePosition === "first"),
+                      sortingColumn.value?.column === column.prop
+                        ? sortingColumn.value.sortDirections
+                        : undefined,
                     ],
                     column?.headerCellClass,
                     {
@@ -53,6 +57,32 @@ export default defineComponent({
                           columnIndex: columnIndex,
                         })
                       : column.label}
+                    {column.sortable && (
+                      <span class={"caret-wrapper"}>
+                        {column.sortable.sortDirections.includes("ascend") && (
+                          <i
+                            class={["etu-i-arrow-up-filling", "sort-caret"]}
+                            onClick={() => {
+                              changeSortingColumn({
+                                column: column.prop,
+                                sortDirections: "ascend",
+                              });
+                            }}
+                          ></i>
+                        )}
+                        {column.sortable.sortDirections.includes("descend") && (
+                          <i
+                            class={["etu-i-arrow-down-filling", "sort-caret"]}
+                            onClick={() => {
+                              changeSortingColumn({
+                                column: column.prop,
+                                sortDirections: "descend",
+                              });
+                            }}
+                          ></i>
+                        )}
+                      </span>
+                    )}
                   </div>
                 </th>
               );

@@ -2,7 +2,7 @@ import type { VNodeChild } from "vue";
 import type { ClassName } from "../table";
 
 export interface TableSortable<T> {
-  sorter: (a: T, b: T) => number;
+  sorter?: (a: T, b: T) => number;
   sortDirections: ("ascend" | "descend")[];
 }
 
@@ -52,4 +52,9 @@ export interface TableColumnCtx<T> {
         rowIndex: number;
         columnIndex: number;
       }) => any);
+}
+
+export interface SortingColumn {
+  column?: string;
+  sortDirections?: "ascend" | "descend";
 }

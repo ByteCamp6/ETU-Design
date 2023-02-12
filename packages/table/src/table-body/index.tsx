@@ -26,10 +26,10 @@ export default defineComponent({
     return () => {
       return (
         <tbody>
-          {data.map((rowData, rowIndex) => {
+          {data.value.map((rowData, rowIndex) => {
             return (
               <tr
-                key={rowIndex}
+                key={rowData.id}
                 class={combineClass([ns.e("row")], rowClass, {
                   record: rowData,
                   rowIndex: rowIndex,
