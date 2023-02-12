@@ -1,28 +1,29 @@
 <template>
-  <Scrollbar></Scrollbar>
-  <Avatar></Avatar>
-  <Pagination></Pagination>
-  <Dialog></Dialog>
-  <Collapse></Collapse>
-  <!-- <Progress></Progress> -->
-  <Button></Button>
-  <Divider></Divider>
-  <Breadcrumb></Breadcrumb>
-  <Icon></Icon>
-  <Tag></Tag>
-  <Select></Select>
-  <Tag></Tag>
-  <Checkbox></Checkbox>
-  <Divider></Divider>
-  <Drawer></Drawer>
-  <OverLay></OverLay>
-  <Radio></Radio>
-  <Empty></Empty>
-  <Message></Message>
-  <Link />
-  <Upload></Upload>
-  <Input />
-  <router-view></router-view>
+<!--  <Scrollbar></Scrollbar>-->
+<!--  <Avatar></Avatar>-->
+<!--  <Pagination></Pagination>-->
+<!--  <Dialog></Dialog>-->
+<!--  <Collapse></Collapse>-->
+<!--  &lt;!&ndash; <Progress></Progress> &ndash;&gt;-->
+<!--  <Button></Button>-->
+<!--  <Divider></Divider>-->
+<!--  <Breadcrumb></Breadcrumb>-->
+<!--  <Icon></Icon>-->
+<!--  <Tag></Tag>-->
+<!--  <Select></Select>-->
+<!--  <Tag></Tag>-->
+<!--  <Checkbox></Checkbox>-->
+<!--  <Divider></Divider>-->
+<!--  <Drawer></Drawer>-->
+<!--  <OverLay></OverLay>-->
+<!--  <Radio></Radio>-->
+<!--  <Empty></Empty>-->
+<!--  <Message></Message>-->
+<!--  <Link />-->
+<!--  <Upload></Upload>-->
+<!--  <Input />-->
+<!--  <router-view></router-view>-->
+  <Menu></Menu>
 </template>
 
 <script setup lang="ts">
@@ -48,6 +49,7 @@ import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
 import Scrollbar from "./components/Scrollbar.vue";
+import Menu from "./components/Menu.vue";
 </script>
 
 <style scoped></style>
