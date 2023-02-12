@@ -24,28 +24,6 @@ export const scrollbarProps = {
     type: Boolean,
     default: true,
   },
-  minSize: {
-    type: Number,
-    default: 20,
-  },
-  native: {
-    type: Boolean,
-    default: true,
-  },
-  always: {
-    type: Boolean,
-    default: true,
-  },
-};
-
-export const scrollbarEmits = {
-  scroll: ({
-    scrollTop,
-    scrollLeft,
-  }: {
-    scrollTop: number;
-    scrollLeft: number;
-  }) => [scrollTop, scrollLeft].every(isNumber),
 };
 
 export const scrollbarEmits = {
