@@ -1,4 +1,5 @@
 <template>
+  <Popper></Popper>
   <Avatar></Avatar>
   <scrollbar></scrollbar>
   <Pagination></Pagination>
@@ -50,6 +51,7 @@ import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
 import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
+import Popper from "./components/Popper.vue";
 </script>
 
 <style scoped></style>

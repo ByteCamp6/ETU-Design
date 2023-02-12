@@ -16,6 +16,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vitepress-demo-preview/component": "^2.1.0",
     "@vitepress-demo-preview/plugin": "^1.1.6",
