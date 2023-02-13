@@ -17,8 +17,8 @@ export function usePopper({
   offsetDistance,
   offsetSkid,
   placement,
-  popperNode,
-  triggerNode,
+  popperRef,
+  triggerRef,
 }: {
   arrowPadding: MaybeUndefinedRef<string>;
   emit: (event: "open:popper" | "close:popper", ...args: any[]) => void;
@@ -26,8 +26,8 @@ export function usePopper({
   offsetDistance: MaybeUndefinedRef<string>;
   offsetSkid: MaybeUndefinedRef<string>;
   placement: MaybeUndefinedRef<string>;
-  popperNode: Ref<HTMLElement>;
-  triggerNode: Ref<HTMLElement>;
+  popperRef: Ref<HTMLElement>;
+  triggerRef: Ref<HTMLElement>;
 }) {
   const state = reactive<{
     isOpen: boolean;
@@ -78,7 +78,7 @@ export function usePopper({
 
   const initializePopper = async () => {
     await nextTick();
-    state.popperInstance = createPopper(triggerNode.value, popperNode.value, {
+    state.popperInstance = createPopper(triggerRef.value, popperRef.value, {
       placement: placement.value as Placement,
       modifiers: [
         preventOverflow,

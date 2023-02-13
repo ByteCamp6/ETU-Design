@@ -3,7 +3,7 @@ import type { Slots, Ref } from "vue";
 
 export function useContent(
   slots: Slots,
-  popperNode: Ref<HTMLElement>,
+  popperRef: Ref<HTMLElement>,
   content: Ref,
 ) {
   let observer: null | MutationObserver = null;
@@ -15,7 +15,7 @@ export function useContent(
     }
 
     observer = new MutationObserver(checkContent);
-    observer.observe(popperNode.value, {
+    observer.observe(popperRef.value, {
       childList: true,
       subtree: true,
     });

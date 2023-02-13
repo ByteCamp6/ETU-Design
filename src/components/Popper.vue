@@ -1,5 +1,5 @@
 <template>
-  <etu-popper content="This is the Popper content 🍿" arrow placement="right">
+  <etu-popper content="This is the Popper content 🍿" arrow placement="right" hover>
     <button>PopperDemo</button>
   </etu-popper>
   <etu-popper arrow>
