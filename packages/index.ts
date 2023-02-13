@@ -22,6 +22,7 @@ import scrollbar from "./scrollbar";
 import Pagination from "./pagination";
 import Table from "./table";
 import Popper from "./popper";
+import Tree from "./tree/index";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -62,6 +63,7 @@ const components = [
   Pagination,
   Table,
   Popper,
+  Tree,
 ];
 
 // 全局动态添加
