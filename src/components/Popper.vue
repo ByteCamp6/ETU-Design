@@ -1,8 +1,8 @@
 <template>
-  <etu-popper content="This is the Popper content 🍿">
+  <etu-popper content="This is the Popper content 🍿" arrow placement="right">
     <button>PopperDemo</button>
   </etu-popper>
-  <etu-popper>
+  <etu-popper arrow>
     <button>PopperDemo</button>
     <template #content>
       <div class="popper-checkbox">

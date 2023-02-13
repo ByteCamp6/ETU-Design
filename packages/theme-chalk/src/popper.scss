@@ -1,0 +1,97 @@
+@use "mixins/mixins" as *;
+@use "mixins/var" as *;
+@use "mixins/function" as *;
+@use "mixins/config" as *;
+
+@include b(popper) {
+  @include set-css-var-value(("popper-padding"), 16px);
+  @include set-css-var-value(("popper-border-radius"), 6px);
+  @include set-css-var-value(("popper-bg-color"),getRootCssVar("color-white"));
+  @include set-css-var-value(("popper-border"),getRootCssVar("border-default"));
+  @include set-css-var-value(("popper-box-shadow"),0 6px 30px -6px rgba(0, 0, 0, 0.25));
+  @include set-css-var-value(("popper-theme-border-width"), 0);
+}
+
+
+@include b(popper) {
+  display: inline-block;
+
+  @include e(content) {
+    transition: background 250ms ease-in-out;
+    background: getCssVar("popper-bg-color");
+    padding: getCssVar("popper-padding");
+    color: inherit;
+    border-radius: getCssVar("popper-border-radius");
+    border: getCssVar("popper-border");
+    box-shadow: getCssVar("popper-box-shadow");
+
+    &:hover,
+    &:hover > .#{$namespace}-popper__arrow::before {
+      background: getCssVar("popper-bg-color");
+    }
+    &[data-popper-placement^="top"] > .#{$namespace}-popper__arrow {
+      bottom: -5px;
+
+      &::before {
+        border-bottom: getCssVar("popper-border");
+        border-right: getCssVar("popper-border");
+      }
+    }
+
+    &[data-popper-placement^="bottom"] > .#{$namespace}-popper__arrow {
+      top: -5px;
+
+      &::before {
+        border-top: getCssVar("popper-border");
+        border-left: getCssVar("popper-border");
+      }
+    }
+
+    &[data-popper-placement^="left"] > .#{$namespace}-popper__arrow {
+      right: -5px;
+
+      &::before {
+        border-top: getCssVar("popper-border");
+        border-right: getCssVar("popper-border");
+      }
+    }
+
+    &[data-popper-placement^="right"] > .#{$namespace}-popper__arrow {
+      left: -5px;
+
+      &::before {
+        border-bottom: getCssVar("popper-border");
+        border-left: getCssVar("popper-border");
+      }
+    }
+  }
+
+  @include e(arrow) {
+    visibility: hidden;
+
+    &,
+    &::before {
+      transition: background 250ms ease-in-out;
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      box-sizing: border-box;
+      background: getCssVar("popper-bg-color")
+    }
+
+    &::before {
+      visibility: visible;
+      content: "";
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.popper-fade-enter-active,
+.popper-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.popper-fade-enter-from,
+.popper-fade-leave-to {
+  opacity: 0;
+}

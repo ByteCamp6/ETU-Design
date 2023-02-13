@@ -1,31 +1,31 @@
 <template>
   <div
-    class="inline-block"
+    :class="[ns.b()]"
     :style="interactiveStyle"
     @mouseleave="hover && closePopper()"
-    ref="popperContainerNode"
+    ref="popperContainerRef"
   >
     <div
-      ref="triggerNode"
+      ref="triggerRef"
       @mouseover="hover && openPopper()"
       @click="togglePopper"
       @focus="openPopper"
       @keyup.esc="closePopper"
     >
-      <!-- The default slot to trigger the popper  -->
       <slot />
     </div>
-    <Transition name="fade">
+    <Transition name="popper-fade">
       <div
         @click="!interactive && closePopper()"
         v-show="shouldShowPopper"
-        class="popper"
-        ref="popperNode"
+        :class="ns.e('content')"
+        :style="{ zIndex: innerZIndex }"
+        ref="popperRef"
       >
         <slot name="content" :close="close" :isOpen="modifiedIsOpen">
           {{ content }}
         </slot>
-        <!--        <Arrow v-if="arrow" />-->
+        <Arrow v-if="arrow" />
       </div>
     </Transition>
   </div>
@@ -43,13 +43,14 @@ import {
 } from "vue";
 import type { Ref } from "vue";
 import { usePopper, useContent, useClickAway } from "./composables";
-// import Arrow from "./Arrow.vue";
-import { useTimeoutFn } from "@etu-design/hooks";
+import Arrow from "./arrow.vue";
+import { useNamespace, useTimeoutFn, useZIndex } from "@etu-design/hooks";
+const ns = useNamespace("popper");
 const emit = defineEmits(["open:popper", "close:popper"]);
 const slots = useSlots();
 const props = defineProps({
   /**
-   * Preferred placement (the "auto" placements will choose the side with most space.)
+   * 首选放置位置("auto"将选择空间最大的一侧。)
    */
   placement: {
     type: String,
@@ -77,113 +78,114 @@ const props = defineProps({
     },
   },
   /**
-   * Disables automatically closing the popover when the user clicks away from it
+   * 禁用当用户单击弹出窗口时自动关闭它
    */
   disableClickAway: {
     type: Boolean,
     default: false,
   },
   /**
-   * Offset in pixels along the trigger element
+   * 沿触发器元素的偏移（以像素为单位）
    */
   offsetSkid: {
     type: String,
     default: "0",
   },
   /**
-   * Offset in pixels away from the trigger element
+   * 距触发元素的偏移（以像素为单位）
    */
   offsetDistance: {
     type: String,
     default: "12",
   },
   /**
-   * Trigger the popper on hover
+   * 悬停时触发弹出按钮
    */
   hover: {
     type: Boolean,
     default: false,
   },
   /**
-   * Manually open/close the Popper, other events are ignored if this prop is set
+   * 手动打开Popper，如果设置了此属性，则忽略其他事件
    */
   show: {
     type: Boolean,
     default: null,
   },
   /**
-   * Disables the Popper. If it was already open, it will be closed.
+   * 禁用Popper。如果它已经打开，它将关闭。
    */
   disabled: {
     type: Boolean,
     default: false,
   },
   /**
-   * Open the Popper after a delay (ms).
+   * 延迟（ms）后打开Popper。
    */
   openDelay: {
     type: Number,
     default: 0,
   },
   /**
-   * Close the Popper after a delay (ms).
+   * 延迟（ms）后关闭Popper。
    */
   closeDelay: {
     type: Number,
     default: 0,
   },
   /**
-   * The z-index of the Popper.
+   * Popper的z-index
    */
   zIndex: {
     type: [Number, String],
-    default: 9999,
   },
   /**
-   * Display an arrow on the popper
+   * 在Popper上显示箭头
    */
   arrow: {
     type: Boolean,
     default: false,
   },
   /**
-   * Stop arrow from reaching the edge of the popper
+   * 箭头到popper的距离
    */
   arrowPadding: {
     type: String,
     default: "0",
   },
   /**
-   * If the Popper should be interactive, it will close when clicked/hovered if false
+   * 如果Popper应该是交互式的，如果为false，则当单击悬停时将关闭
    */
   interactive: {
     type: Boolean,
     default: true,
   },
   /**
-   * Lock the Popper into place, it will not flip dynamically when it runs out of space if true
+   * 是否会自动动态翻转
    */
   locked: {
     type: Boolean,
     default: false,
   },
   /**
-   * If the content is just a simple string, it can be passed in as a prop
+   * 如果内容只是一个简单的字符串，它可以作为prop传入
    */
   content: {
     type: String,
     default: "",
   },
 });
-const popperContainerNode = ref(null) as Ref<HTMLElement>;
-const popperNode = ref(null) as Ref<HTMLElement>;
-const triggerNode = ref(null) as Ref<HTMLElement>;
+const popperContainerRef = ref(null) as Ref<HTMLElement>;
+const popperRef = ref(null) as Ref<HTMLElement>;
+const triggerRef = ref(null) as Ref<HTMLElement>;
 const modifiedIsOpen = ref(false);
+const { nextZIndex } = useZIndex();
+const innerZIndex = ref(props.zIndex ? props.zIndex : nextZIndex());
 onMounted(() => {
   const children = slots.default?.();
   if (children && children.length > 1) {
     return console.error(
-      `[Popper]: The <Popper> component expects only one child element at its root. You passed ${children.length} child nodes.`,
+      `[Popper]: 该Popper组件只能有一个子节点，你传入了${children.length}个节点.`,
     );
   }
 });
@@ -205,10 +207,10 @@ const { isOpen, open, close } = usePopper({
   offsetDistance,
   offsetSkid,
   placement,
-  popperNode,
-  triggerNode,
+  popperRef,
+  triggerRef,
 });
-const { hasContent } = useContent(slots, popperNode, content!);
+const { hasContent } = useContent(slots, popperRef, content!);
 const manualMode = computed(() => props.show !== null);
 const invalid = computed(() => disabled!.value || !hasContent.value);
 const shouldShowPopper = computed(() => isOpen.value && !invalid.value);
@@ -228,11 +230,9 @@ const interactiveStyle = computed(() =>
 let openTimer: (() => void) | undefined = undefined;
 let closeTimer: (() => void) | undefined = undefined;
 const openPopper = () => {
-  console.log(manualMode.value);
   if (invalid.value || manualMode.value) {
     return;
   }
-  console.log(22);
   doOpen();
 };
 const closePopper = () => {
@@ -287,7 +287,7 @@ watch(isOpen, (isOpen) => {
   }
 });
 /**
- * Watch for manual mode.
+ * 观察手动模式.
  */
 watchEffect(() => {
   if (manualMode.value) {
@@ -295,44 +295,17 @@ watchEffect(() => {
   }
 });
 /**
- * Use click away if it should be enabled.
+ * 观察是否允许点击外部关闭.
  */
 watchEffect(() => {
   if (enableClickAway.value) {
-    useClickAway(popperContainerNode, closePopper);
+    useClickAway(popperContainerRef, closePopper);
   }
 });
-</script>
 
-<style scoped>
-.inline-block {
-  display: inline-block;
-}
-.popper {
-  transition: background 250ms ease-in-out;
-  background: #ffffff;
-  padding: 16px;
-  color: inherit;
-  border-radius: 6px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #eeeeee;
-  box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
-  z-index: v-bind(zIndex);
-}
-.popper:hover,
-.popper:hover > #arrow::before {
-  background: #ffffff;
-}
-.inline-block {
-  display: inline-block;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
+defineExpose({
+  popperContainerRef,
+  popperRef,
+  triggerRef,
+});
+</script>
