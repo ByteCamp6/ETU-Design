@@ -1,34 +1,38 @@
 <template>
-  <div
-    :class="[ns.b()]"
-    :style="interactiveStyle"
+  <span
+    ref="triggerRef"
+    @click="togglePopper"
+    @focus="openPopper"
+    @keyup.esc="closePopper"
     @mouseover="hover && openPopper()"
     @mouseleave="hover && closePopper()"
-    ref="popperContainerRef"
   >
+    <slot />
+  </span>
+  <Teleport to="body">
     <div
-      ref="triggerRef"
-      @click="togglePopper"
-      @focus="openPopper"
-      @keyup.esc="closePopper"
+      :class="[ns.b()]"
+      :style="interactiveStyle"
+      @mouseover="hover && openPopper()"
+      @mouseleave="hover && closePopper()"
+      ref="popperContainerRef"
     >
-      <slot />
+      <Transition name="popper-fade">
+        <div
+          @click="!interactive && closePopper()"
+          v-show="shouldShowPopper"
+          :class="ns.e('content')"
+          :style="{ zIndex: innerZIndex }"
+          ref="popperRef"
+        >
+          <slot name="content" :close="close" :isOpen="modifiedIsOpen">
+            {{ content }}
+          </slot>
+          <Arrow v-if="arrow" />
+        </div>
+      </Transition>
     </div>
-    <Transition name="popper-fade">
-      <div
-        @click="!interactive && closePopper()"
-        v-show="shouldShowPopper"
-        :class="ns.e('content')"
-        :style="{ zIndex: innerZIndex }"
-        ref="popperRef"
-      >
-        <slot name="content" :close="close" :isOpen="modifiedIsOpen">
-          {{ content }}
-        </slot>
-        <Arrow v-if="arrow" />
-      </div>
-    </Transition>
-  </div>
+  </Teleport>
 </template>
 
 <script lang="ts" setup name="EtuPopper">
@@ -42,10 +46,16 @@ import {
   onMounted,
 } from "vue";
 import type { Ref } from "vue";
-import { usePopper, useContent, useClickAway, useTimeEvent } from "./composables";
+import {
+  usePopper,
+  useContent,
+  useClickAway,
+  useTimeEvent,
+} from "./composables";
 import Arrow from "./arrow.vue";
 import { useNamespace, useZIndex } from "@etu-design/hooks";
 import { popperProps } from "./popper";
+import type { PopperExpose } from "./popper";
 const ns = useNamespace("popper");
 const emit = defineEmits(["open:popper", "close:popper"]);
 const slots = useSlots();
@@ -152,16 +162,7 @@ watchEffect(() => {
   }
 });
 
-defineExpose<{
-  popperRef: Ref<HTMLElement>;
-  popperContainerRef: Ref<HTMLElement>;
-  triggerRef: Ref<HTMLElement>;
-  open: () => void;
-  close: () => void;
-  doOpen: () => void;
-  doClose: () => void;
-  isOpen: Ref<boolean>;
-}>({
+defineExpose<PopperExpose>({
   popperContainerRef,
   popperRef,
   triggerRef,

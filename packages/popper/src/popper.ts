@@ -1,4 +1,4 @@
-import type { ExtractPropTypes } from "vue";
+import type { ExtractPropTypes, Ref } from "vue";
 
 export const popperProps = {
   /**
@@ -129,3 +129,14 @@ export const popperProps = {
 } as const;
 
 export type PopperProps = ExtractPropTypes<typeof popperProps>;
+
+export interface PopperExpose {
+  popperRef: Ref<HTMLElement>;
+  popperContainerRef: Ref<HTMLElement>;
+  triggerRef: Ref<HTMLElement>;
+  open: () => void;
+  close: () => void;
+  doOpen: () => void;
+  doClose: () => void;
+  isOpen: Ref<boolean>;
+}
