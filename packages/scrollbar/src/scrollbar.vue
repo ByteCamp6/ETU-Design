@@ -55,11 +55,14 @@ const wrapperStyle = computed(() => {
     height:
       typeof props.height === "number" ? props.height + "px" : props.height,
     maxHeight:
-      typeof props.maxHeight === "number" ? props.maxHeight + "px" : props.maxHeight,
+      typeof props.maxHeight === "number"
+        ? props.maxHeight + "px"
+        : props.maxHeight,
   };
 });
 
 const handleScroll = () => {
+  if (props?.native) return;
   if (wrap.value) {
     barRef.value?.handleScroll(wrap.value);
 
@@ -71,7 +74,7 @@ const handleScroll = () => {
 };
 
 const update = () => {
-  if (!wrap.value) return;
+  if (!wrap.value || props?.native) return;
   const offsetHeight = wrap.value.offsetHeight - 4;
   const offsetWidth = wrap.value.offsetWidth - 4;
 

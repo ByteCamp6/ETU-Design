@@ -1,4 +1,6 @@
 <template>
+  <DatePicker></DatePicker>
+  <Scrollbar></Scrollbar>
   <Popper></Popper>
   <Avatar></Avatar>
   <scrollbar></scrollbar>
@@ -53,6 +55,7 @@ import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
 import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
+import DatePicker from "./components/DatePicker.vue";
 import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
 </script>
