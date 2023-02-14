@@ -1,8 +1,11 @@
 <template>
   <DatePicker></DatePicker>
   <Scrollbar></Scrollbar>
+  <Popper></Popper>
   <Avatar></Avatar>
+  <scrollbar></scrollbar>
   <Pagination></Pagination>
+  <Table></Table>
   <Dialog></Dialog>
   <Collapse></Collapse>
   <Progress></Progress>
@@ -24,6 +27,8 @@
   <Upload></Upload>
   <Input />
   <!-- <router-view></router-view> -->
+  <Tree></Tree>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts">
@@ -48,8 +53,11 @@ import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
+import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
 import DatePicker from "./components/DatePicker.vue";
+import Popper from "./components/Popper.vue";
+import Tree from "./components/Tree.vue";
 </script>
 
 <style scoped></style>

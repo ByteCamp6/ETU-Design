@@ -8,9 +8,13 @@ $backgroundColor:inherit;
   border: $br solid 1px;
 }
 @mixin setSize($w,$h,$a) {
-  width: $w;
-  height: $h;
+  max-width: $w;
+  max-height: $h;
   aspect-ratio: $a;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem 1rem 1.5rem;
 }
 %base {
   outline: none;

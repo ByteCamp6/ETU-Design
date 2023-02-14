@@ -1,6 +1,6 @@
-import type { PropType } from "vue";
+import type { ComponentInternalInstance, PropType } from "vue";
 import { definePropType } from "@etu-design/utils";
-import type { TableColumnCtx } from "./table-column/defaults";
+import type { TableColumnCtx } from "./table-column";
 
 export type ClassName = string | any[] | Record<string, any>;
 
@@ -8,6 +8,7 @@ export interface TableRowSelection {
   type: "checkbox" | "radio";
   title?: string;
   width?: number;
+  fixed?: boolean;
   showCheckedAll?: boolean;
 }
 
@@ -46,6 +47,7 @@ export const tableProps = {
   },
   width: [String, Number],
   height: [String, Number],
+  maxHeight: [String, Number],
   rowSelection: {
     type: definePropType<TableRowSelection>(Object),
   },
@@ -61,3 +63,17 @@ export const tableProps = {
     ]),
   },
 } as const;
+
+export interface Table extends ComponentInternalInstance {
+  refs: TableRefs;
+}
+
+export interface TableRefs {
+  tableWrapper: HTMLElement;
+  headerWrapper: HTMLElement;
+  bodyWrapper: HTMLElement;
+  hiddenColumns: HTMLElement;
+  tableBodyNativeRef: HTMLElement;
+  scrollBarRef: HTMLElement;
+  [key: string]: any;
+}

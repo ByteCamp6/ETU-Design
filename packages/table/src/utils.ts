@@ -1,5 +1,6 @@
 import type { ClassName } from "./table";
 import { isArray, isFunction } from "@etu-design/utils";
+import type { TableColumnCtx } from "./table-column";
 
 export function combineClass<T extends Record<string, any>>(
   nativeClass: any[],
@@ -16,4 +17,12 @@ export function combineClass<T extends Record<string, any>>(
       : [...headerCellClassNative, headerCellClassCustom];
   }
   return headerCellClassNative;
+}
+
+export function fixedStyle(column: TableColumnCtx<any>) {
+  return column?.fixed === "left"
+    ? { left: `${column.styleOffsetWidth}px` }
+    : column?.fixed === "right"
+    ? { right: `${column.styleOffsetWidth}px` }
+    : undefined;
 }
