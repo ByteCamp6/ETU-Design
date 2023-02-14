@@ -1,0 +1,91 @@
+@use "./mixins/mixins" as *;
+@use "./mixins/_var" as *;
+@use "./mixins/function.scss" as *;
+
+@mixin hover() {
+  &:hover {
+    color: getCssVar("date-picker", "hover", "text-color");
+  }
+}
+
+@include b("date-table") {
+  table-layout: fixed;
+  width: 100%;
+  font-size: 14px;
+  user-select: none;
+
+  th {
+    font-weight: 400;
+    padding: 10px 5px;
+    border-bottom: 1px solid getCssVar("date-picker", "border-color");
+  }
+
+  td {
+    @include hover;
+    width: 32px;
+    height: 30px;
+    padding: 4px 0;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+  }
+
+  @include e("cell-text") {
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto;
+    line-height: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border-radius: 50%;
+    @include when(current) {
+      &,
+      &:hover,
+      &:active {
+        font-weight: 600;
+        color: getRootCssVar("color-primary");
+      }
+    }
+    @include when(selected) {
+      &,
+      &:hover,
+      &:active {
+        background-color: getRootCssVar("color-primary");
+        color: getRootCssVar("color-white");
+      }
+    }
+  }
+
+  @include m(month) {
+    td {
+      padding: 8px 0;
+    }
+
+    @include e(cell-text) {
+      line-height: 32px;
+      height: 32px;
+      @include when(selected) {
+        &,
+        &:hover,
+        &:active {
+          background-color: getRootCssVar("color-white");
+          color: getRootCssVar("color-primary");
+        }
+      }
+    }
+
+    @include b(date-table-cell) {
+      height: 48px;
+      padding: 6px 0;
+    }
+  }
+}
+
+@include b("date-table-cell") {
+  height: 30px;
+  padding: 3px 0;
+  box-sizing: border-box;
+}

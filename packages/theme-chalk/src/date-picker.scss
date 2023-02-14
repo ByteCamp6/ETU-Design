@@ -1,0 +1,122 @@
+@use "./mixins/mixins" as *;
+@use "./mixins/_var" as *;
+@use "./mixins/function.scss" as *;
+
+@include b(date-picker) {
+  @include set-component-css-var(
+    date-picker,
+    (
+      "width-db": 620px,
+      "width": 300px,
+      "top": 36px,
+      "inner-height": 30px,
+      "text-color": getRootCssVar("color", "text-1"),
+      "hover-text-color": getRootCssVar("color", "primary"),
+      "font-size": getRootCssVar("font", "size-default"),
+      "bg-color": getRootCssVar("color", "white"),
+      "border-radius": getRootCssVar("border", "radius-small"),
+      "border-color": getRootCssVar("color", "fill-3"),
+      "border-color-hover": getRootCssVar("color", "fill-4"),
+      "border-color-active": getRootCssVar("color", "primary"),
+    )
+  );
+}
+
+@mixin hover() {
+  &:hover {
+    color: getCssVar("date-picker", "hover", "text-color");
+  }
+}
+
+@include b(date-picker) {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+
+  @include e(dropdown) {
+    position: absolute;
+    top: getCssVar("date-picker", "top");
+    left: 0;
+    width: getCssVar("date-picker", "width");
+    padding: getRootCssVar("space-5") getRootCssVar("space-4");
+    background-color: getCssVar("date-picker", "bg-color");
+    border-radius: getCssVar("date-picker", "border-radius");
+    box-shadow: getRootCssVar("shadow-3");
+    z-index: 100;
+    @include e("nav") {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: getRootCssVar("space-2");
+      padding: getRootCssVar("space-2");
+      margin-bottom: getRootCssVar("space-5");
+    }
+    @include e("nav-header") {
+      flex: 1;
+      text-align: center;
+    }
+    @include e("nav-icon") {
+      @include hover;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    @include e("nav-title") {
+      display: flex;
+      justify-content: center;
+      gap: getRootCssVar("space-4");
+      font-size: 18px;
+    }
+    @include e("nav-inner") {
+      @include hover;
+      cursor: pointer;
+    }
+    @include m("range") {
+      display: flex;
+      flex-direction: row;
+      width: getCssVar("date-picker", "width-db");
+      @include e(dropdown-wrap) {
+        padding: 0 15px;
+        &:first-child {
+          border-right: 1px solid getCssVar("date-picker", "border-color");
+        }
+      }
+    }
+  }
+
+  @include when(range) {
+    @include e(wrap) {
+      border: 1px solid getCssVar("date-picker", "border-color");
+      border-radius: getCssVar("date-picker", "border-radius");
+      padding: 0 10px;
+      &:hover {
+        border: 1px solid getCssVar("date-picker", "border-color-hover");
+      }
+      &:active,
+      &:focus {
+        border: 1px solid getCssVar("date-picker", "border-color-active");
+      }
+    }
+
+    @include when(focus) {
+      @include e(wrap) {
+        border: 1px solid getCssVar("date-picker", "border-color-active");
+      }
+    }
+  }
+
+  @include e(input) {
+    appearance: none;
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    width: 39%;
+    text-align: center;
+    font-size: 14px;
+    color: getRootCssVar("color", "text-0");
+    background-color: transparent;
+  }
+}

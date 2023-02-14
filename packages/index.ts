@@ -21,6 +21,7 @@ import Input from "./input/index";
 import scrollbar from "./scrollbar";
 import Pagination from "./pagination";
 import Table from "./table";
+import DatePicker from "./date-picker";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -60,6 +61,7 @@ const components = [
   Scrollbar,
   Pagination,
   Table,
+  DatePicker,
 ];
 
 // 全局动态添加
