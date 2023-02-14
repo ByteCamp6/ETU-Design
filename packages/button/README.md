@@ -13,6 +13,8 @@
 | size      | large , normal , small | 按钮尺寸的大中小，默认是normal |
 | disabled  | true , false | 按钮状态是否禁用，默认为false,不禁用 |
 
+## Button属性
+
 ## demo
 ```
   <etu-button>按钮</etu-button>
