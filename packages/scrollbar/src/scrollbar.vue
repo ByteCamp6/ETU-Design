@@ -74,7 +74,7 @@ const handleScroll = () => {
 };
 
 const update = () => {
-  if (!wrap.value) return;
+  if (!wrap.value || props?.native) return;
   const offsetHeight = wrap.value.offsetHeight - 4;
   const offsetWidth = wrap.value.offsetWidth - 4;
 
