@@ -4,23 +4,5 @@
   "description": "> TODO: description",
   "author": "Polaris-6625 <2281487673@qq.com>",
   "homepage": "",
-  "license": "ISC",
-  "main": "lib/button.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmmirror.com/"
-  },
-  "scripts": {
-    "test": "node ./__tests__/divider.test.js"
-  },
-  "dependencies": {
-    "@etu-design/directives": "^0.0.1",
-    "vue-router": "^4.1.6"
-  }
+  "license": "ISC"
 }
