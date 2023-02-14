@@ -10,7 +10,7 @@ title: Tag
 
 由 `type` 属性来选择 tag 的类型。
 
-<preview path="../examples/Tags.vue" title="" description=""></preview>
+<preview path="../examples/tag/basic.vue" title="" description=""></preview>
 
 ## Tag属性
 

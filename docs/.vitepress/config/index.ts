@@ -3,6 +3,7 @@ import nav from './nav';
 import markdown from './markdown';
 import sidebar from './sidebar';
 
+
 export default defineConfig({
   title: 'ETU组件库',
   // description: ' vue-cc-ui 组件库',
@@ -16,5 +17,5 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
     logo: '/logo.svg'
-  }
+  },
 })
