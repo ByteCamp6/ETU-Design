@@ -5,3 +5,5 @@ export * from "./radio";
 export * from "./dialog";
 export * from "./collapse";
 export * from "./pagination";
+export * from "./table";
+export * from "./data-picker";

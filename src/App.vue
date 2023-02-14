@@ -1,10 +1,14 @@
 <template>
+  <DatePicker></DatePicker>
   <Scrollbar></Scrollbar>
+  <Popper></Popper>
   <Avatar></Avatar>
+  <scrollbar></scrollbar>
   <Pagination></Pagination>
+  <Table></Table>
   <Dialog></Dialog>
   <Collapse></Collapse>
-  <!-- <Progress></Progress> -->
+  <Progress></Progress>
   <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
@@ -22,6 +26,8 @@
   <Link />
   <Upload></Upload>
   <Input />
+  <!-- <router-view></router-view> -->
+  <Tree></Tree>
   <router-view></router-view>
   <Tag type="success" round
     ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
@@ -52,8 +58,12 @@ import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
+import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
 import Layer from "./components/layer.vue";
+import DatePicker from "./components/DatePicker.vue";
+import Popper from "./components/Popper.vue";
+import Tree from "./components/Tree.vue";
 </script>
 
 <style scoped></style>

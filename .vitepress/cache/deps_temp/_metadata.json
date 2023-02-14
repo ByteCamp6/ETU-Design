@@ -1,0 +1,53 @@
+{
+  "hash": "94faabf1",
+  "browserHash": "679df5fe",
+  "optimized": {
+    "vue": {
+      "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "1dccabb8",
+      "needsInterop": false
+    },
+    "@vue/shared": {
+      "src": "../../../node_modules/@vue/shared/dist/shared.esm-bundler.js",
+      "file": "@vue_shared.js",
+      "fileHash": "afb372f5",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "24d9e7d8",
+      "needsInterop": false
+    },
+    "dayjs": {
+      "src": "../../../node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "bfa8f964",
+      "needsInterop": true
+    },
+    "dayjs/plugin/isLeapYear": {
+      "src": "../../../node_modules/dayjs/plugin/isLeapYear.js",
+      "file": "dayjs_plugin_isLeapYear.js",
+      "fileHash": "63a705d6",
+      "needsInterop": true
+    },
+    "lodash-unified": {
+      "src": "../../../node_modules/lodash-unified/import.js",
+      "file": "lodash-unified.js",
+      "fileHash": "416b7823",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-G2LOIZIK": {
+      "file": "chunk-G2LOIZIK.js"
+    },
+    "chunk-VGJYVVDL": {
+      "file": "chunk-VGJYVVDL.js"
+    },
+    "chunk-RSJERJUL": {
+      "file": "chunk-RSJERJUL.js"
+    }
+  }
+}
