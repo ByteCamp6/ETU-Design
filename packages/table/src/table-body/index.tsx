@@ -1,21 +1,15 @@
 import { defineComponent } from "vue";
-import EtuCheckbox from "@etu-design/checkbox";
-import EtuRadio from "@etu-design/radio";
 import { useTable } from "../use-table";
 import { useNamespace } from "@etu-design/hooks";
-import { combineClass } from "../utils";
+import { combineClass, fixedStyle } from "../utils";
 import { addClass, removeClass } from "@etu-design/utils";
 
 export default defineComponent({
   name: "ElTableBody",
-  components: {
-    EtuCheckbox,
-    EtuRadio,
-  },
 
   setup() {
     const ns = useNamespace("table");
-    const { data, originColumns, rowClass } = useTable()!;
+    const { data, originColumns, rowClass, emit } = useTable()!;
     return () => {
       return (
         <tbody>
@@ -27,6 +21,9 @@ export default defineComponent({
                   record: rowData,
                   rowIndex: rowIndex,
                 })}
+                onClick={($event) => {
+                  emit("row-click", rowData, $event);
+                }}
                 onMouseenter={($event) => {
                   const el = $event.currentTarget as Element;
                   addClass(el, "hover-row");
@@ -60,13 +57,10 @@ export default defineComponent({
                           rowIndex: rowIndex,
                         },
                       )}
-                      style={
-                        column?.fixed === "left"
-                          ? { left: `${column.styleOffsetWidth}px` }
-                          : column?.fixed === "right"
-                          ? { right: `${column.styleOffsetWidth}px` }
-                          : undefined
-                      }
+                      style={fixedStyle(column)}
+                      onClick={($event) => {
+                        emit("cell-click", rowData, column, $event);
+                      }}
                     >
                       <div class={"cell"}>
                         {column.cellRender

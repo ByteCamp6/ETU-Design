@@ -1,25 +1,21 @@
 import { defineComponent } from "vue";
-import EtuIcon from "@etu-design/icon";
 import FilterPanel from "./filter-panel.vue";
 import { useTable } from "../use-table";
 import { useNamespace } from "@etu-design/hooks";
-import { combineClass } from "../utils";
+import { combineClass, fixedStyle } from "../utils";
 
 export default defineComponent({
   name: "ElTableHeader",
-  components: {
-    EtuIcon,
-  },
 
   setup() {
     const ns = useNamespace("table");
-    const { originColumns, changeSortingColumn, sortingColumn } = useTable()!;
+    const { originColumns, changeSortingColumn, sortingColumn, emit } =
+      useTable()!;
     return () => {
       return (
         <thead>
           <tr>
             {originColumns.value.map((column, columnIndex) => {
-              // @ts-ignore
               return (
                 <th
                   key={column.prop}
@@ -42,13 +38,8 @@ export default defineComponent({
                       columnIndex: columnIndex,
                     },
                   )}
-                  style={
-                    column?.fixed === "left"
-                      ? { left: `${column.styleOffsetWidth}px` }
-                      : column?.fixed === "right"
-                      ? { right: `${column.styleOffsetWidth}px` }
-                      : undefined
-                  }
+                  style={fixedStyle(column)}
+                  onClick={($event) => emit("header-click", column, $event)}
                 >
                   <div class={"cell"}>
                     {column.headerRender

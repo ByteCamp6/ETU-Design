@@ -6,6 +6,7 @@ import type {
 import type { ClassName } from "@etu-design/table/src/table";
 
 export interface TableCtx {
+  emit: (event: string, ...args: any[]) => void;
   hasKey: ComputedRef<boolean>;
   originColumns: ComputedRef<TableColumnCtx<any>[]>;
   data: ComputedRef<any[]>;

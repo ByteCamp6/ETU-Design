@@ -1,6 +1,6 @@
 import type { ComponentInternalInstance, PropType } from "vue";
 import { definePropType } from "@etu-design/utils";
-import type { TableColumnCtx } from "./table-column/defaults";
+import type { TableColumnCtx } from "./table-column";
 
 export type ClassName = string | any[] | Record<string, any>;
 

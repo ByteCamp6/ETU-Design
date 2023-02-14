@@ -1,11 +1,15 @@
 <template>
   <button @click="addData">测试</button>
+  <button @click="transform">转换</button>
   <etu-table
+    ref="tableRef"
     :columns="columns"
     :data="tableData"
     :row-selection="rowSelection"
     :row-class="rowClass"
     :height="600"
+    @filter-change="test1"
+    @sort-change="test1"
     rowKey="name"
     style="width: 900px"
   ></etu-table>
@@ -15,6 +19,16 @@
 import { ref } from "vue";
 import type { TableColumnCtx } from "@etu-design/table/src/table-column/defaults";
 import type { TableProps } from "@etu-design/table/src/table";
+
+const tableRef = ref();
+
+const transform = () => {
+  console.log(tableRef.value.clearFilter());
+};
+
+const test1 = (...args) => {
+  console.log(args);
+};
 
 interface User {
   date: string;
