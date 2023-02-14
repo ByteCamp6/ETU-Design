@@ -1,0 +1,44 @@
+.etu-divider {
+  position: relative;
+}
+.etu-divider__text {
+  position: absolute;
+  background-color: var(--color-white);
+  padding: 0 20px;
+  font-weight: 500;
+  color: var(--color-text-0);
+  font-size: var(--font-size-default);
+}
+.etu-divider__text.is-left {
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.etu-divider__text.is-right {
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.etu-divider__text.is-center {
+  left: 50%;
+  transform: translate(-50%) translateY(-50%);
+}
+
+.etu-divider--horizontal {
+  flex-shrink: 0;
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin: var(--space-7) 0;
+  border-top: 1px var(--color-fill-3) var(--border-style);
+}
+
+.etu-divider--vertical {
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin: 0 var(--space-3);
+  vertical-align: middle;
+  position: relative;
+  border-left: 1px var(--color-fill-3) var(--border-style);
+}

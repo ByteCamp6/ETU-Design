@@ -1,8 +1,8 @@
 // import { createRouter, createWebHistory } from "vue-router";
 import { createApp } from "vue";
 import App from "./App.vue";
-import "../packages/theme-chalk/src/index.scss";
-
+// import "../packages/theme-chalk/src/index.scss";
+import "../theme-chalk/index.css";
 // const router = createRouter({
 //   history: createWebHistory(),
 //   routes: [
@@ -19,7 +19,7 @@ import "../packages/theme-chalk/src/index.scss";
 //   ],
 // });
 
-import ETU from "../packages/index";
+import ETU from "../es/packages/index";
 // import "./assets/main.css";
 
 const app = createApp(App);

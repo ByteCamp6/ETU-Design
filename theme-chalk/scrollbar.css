@@ -1,0 +1,28 @@
+.etu-scrollbar {
+  --etu-scrollbar-opacity: 0.3;
+  --etu-scrollbar-bg-color: var(--color-text-2);
+  --etu-scrollbar-hover-opacity: 0.5;
+  --etu-scrollbar-hover-bg-color: var(--color-text-2);
+}
+.etu-scrollbar ::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+.etu-scrollbar ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+.etu-scrollbar ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.etu-scrollbar {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.etu-scrollbar__wrapper {
+  overflow: auto;
+  height: 100%;
+}

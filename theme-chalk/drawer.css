@@ -1,0 +1,214 @@
+@keyframes BtoT {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes TtoB {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes LtoR {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes RtoL {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+.etu-Drawer-white__true--Left {
+  background-color: white;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: LtoR 0.5s;
+}
+
+.etu-Drawer-white__true--Right {
+  background-color: white;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: RtoL 0.5s;
+}
+
+.etu-Drawer-white__true--Up {
+  background-color: white;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: TtoB 0.5s;
+}
+
+.etu-Drawer-white__true--Down {
+  background-color: white;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  animation: BtoT 0.5s;
+  bottom: 0;
+}
+
+.etu-Drawer-white__false--Left {
+  background-color: white;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: LtoR 0.5s;
+}
+
+.etu-Drawer-white__false--Right {
+  background-color: white;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: RtoL 0.5s;
+}
+
+.etu-Drawer-white__false--Up {
+  background-color: white;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: TtoB 0.5s;
+}
+
+.etu-Drawer-white__false--Down {
+  background-color: white;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  animation: BtoT 0.5s;
+  bottom: 0;
+}
+
+.etu-Drawer-dodgerblue__true--Left {
+  background-color: dodgerblue;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: LtoR 0.5s;
+}
+
+.etu-Drawer-dodgerblue__true--Right {
+  background-color: dodgerblue;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: RtoL 0.5s;
+}
+
+.etu-Drawer-dodgerblue__true--Up {
+  background-color: dodgerblue;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: TtoB 0.5s;
+}
+
+.etu-Drawer-dodgerblue__true--Down {
+  background-color: dodgerblue;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  animation: BtoT 0.5s;
+  bottom: 0;
+}
+
+.etu-Drawer-dodgerblue__false--Left {
+  background-color: dodgerblue;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: LtoR 0.5s;
+}
+
+.etu-Drawer-dodgerblue__false--Right {
+  background-color: dodgerblue;
+  height: 100%;
+  width: 30%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  right: 0;
+  animation: RtoL 0.5s;
+}
+
+.etu-Drawer-dodgerblue__false--Up {
+  background-color: dodgerblue;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: TtoB 0.5s;
+}
+
+.etu-Drawer-dodgerblue__false--Down {
+  background-color: dodgerblue;
+  height: 30%;
+  width: 100%;
+  z-index: 100000000001;
+  position: absolute;
+  animation: BtoT 0.5s;
+  bottom: 0;
+}
+
+.close_Icon {
+  text-align: right;
+}
+.close_Icon:hover {
+  cursor: pointer;
+}

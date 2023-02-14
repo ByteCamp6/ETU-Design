@@ -1,0 +1,27 @@
+.etu-avatar {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  width: var(--etu-avatar-size);
+  height: var(--etu-avatar-size);
+  line-height: var(--etu-avatar-size);
+  background: var(--color-fill-3);
+  color: var(--color-white);
+  font-size: 14px;
+  border-radius: var(--border-radius-small);
+}
+.etu-avatar img {
+  width: var(--etu-avatar-size);
+  height: var(--etu-avatar-size);
+}
+.etu-avatar__icon {
+  font-size: var(--etu-avatar-size);
+  color: var(--color-white);
+}
+
+.etu-avatar__circle {
+  border-radius: var(--border-radius-circle);
+}

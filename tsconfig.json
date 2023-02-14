@@ -1,5 +1,4 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
     "target": "ESNext",
@@ -11,7 +10,10 @@
     "jsx": "preserve", // 不转化jsx
     "jsxFactory": "h",
     "jsxFragmentFactory": "Fragment",
+    "outDir": "lib",
     "declaration": true, // 生成声明文件
+    "declarationDir": ".",
+    "declarationMap": true,
     "sourceMap": true, // 生成映射文件
     "baseUrl": ".",
     "paths": {

@@ -1,0 +1,112 @@
+.etu-radio {
+  --etu-radio-bg-color: white;
+  --etu-radio-text-color: var(--color-text-1);
+  --etu-radio-font-weight: 500;
+  --etu-radio-font-size: 14px;
+  --etu-radio-input-width: 14px;
+  --etu-radio-input-height: 14px;
+  --etu-radio-input-border: var(--border-default);
+  --etu-radio-border-radius: var(--border-radius-full);
+  --etu-radio-border-color: var(--color-primary);
+  --etu-disabled-text-color: var(--color-text-3);
+  --etu-radio-disabled-input-fill: var(--color-fill-0);
+  --etu-radio-disabled-border-color: var(--color-text-3);
+}
+
+.etu-radio {
+  color: var(--etu-radio-text-color);
+  font-weight: var(--etu-radio-font-weight);
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  outline: none;
+  font-size: var(--etu-radio-font-size);
+  user-select: none;
+  margin-right: 32px;
+}
+.etu-radio__input {
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}
+.etu-radio__input.is-checked .etu-radio__inner {
+  border-color: var(--etu-radio-border-color);
+  background: var(--etu-radio-border-color);
+}
+.etu-radio__input.is-checked .etu-radio__inner::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.etu-radio__input.is-checked + .etu-radio__label {
+  color: var(--etu-radio-border-color);
+}
+
+.etu-radio__input.is-disabled .etu-radio__inner {
+  background-color: var(--etu-radio-disabled-input-fill);
+  border-color: var(--etu-radio-disabled-border-color);
+  cursor: not-allowed;
+}
+.etu-radio__input.is-disabled .etu-radio__inner::after {
+  cursor: not-allowed;
+  border-color: var(--etu-disabled-text-color);
+}
+.etu-radio__input.is-disabled.is-checked .etu-radio__inner {
+  background-color: var(--etu-radio-disabled-input-fill);
+  border-color: var(--etu-radio-disabled-border-color);
+}
+.etu-radio__input.is-disabled.is-checked .etu-radio__inner::after {
+  background-color: var(--etu-radio-disabled-border-color);
+  border-color: var(--etu-disabled-text-color);
+}
+.etu-radio__input.is-disabled + span.etu-radio__label {
+  color: var(--etu-disabled-text-color);
+  cursor: not-allowed;
+}
+
+.etu-radio__inner {
+  border: var(--etu-radio-input-border);
+  border-radius: var(--etu-radio-border-radius);
+  width: var(--etu-radio-input-width);
+  height: var(--etu-radio-input-height);
+  background-color: var(--etu-radio-bg-color);
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.etu-radio__inner:hover {
+  border-color: var(--etu-radio-border-color);
+}
+.etu-radio__inner::after {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--etu-radio-border-radius);
+  background-color: white;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s ease-in;
+}
+
+.etu-radio__original {
+  opacity: 0;
+  outline: none;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.etu-radio__label {
+  font-size: var(--etu-radio-font-size);
+  padding-left: 8px;
+}
