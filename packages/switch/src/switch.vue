@@ -19,7 +19,6 @@
 
 <script setup lang="ts">
 import { useNamespace } from "../../hooks";
-import "../../theme-chalk/src/switch.scss";
 const bem = useNamespace("Switch");
 import { computed, ref, watch, defineEmits, nextTick } from "vue";
 
@@ -80,15 +79,7 @@ watch(
     isControlled.value = false;
   },
 );
-// watch(modelValue, () => {
-//   console.log("change");
-// });
 const activeValue = ref(props.activeValue);
-// const modelValue = computed(() => {
-//   return typeof props.modelValue === "boolean"
-//     ? props.modelValue
-//     : props.activeValue;
-// });
 const inactiveValue = ref(props.inactiveValue);
 const tClass = computed(() => {
   return [bem.b(), bem.bem(props.bgColor, String(props.disabled), props.size)];
@@ -96,21 +87,7 @@ const tClass = computed(() => {
 const inClass = computed(() => {
   return [bem.e()];
 });
-// let checkedValue = computed(() => {
-//   return typeof props.modelValue === "boolean"
-//     ? props.modelValue
-//     : props.activeValue;
-// });
 let checkedValue = ref(false);
-// watch(checkedValue, () => {
-//   if (checkedValue.value === true) {
-//     console.log("true changed");
-//     val.value = inactiveValue.value;
-//   } else {
-//     console.log("false changed");
-//     val.value = activeValue.value;
-//   }
-// });
 let demo = ref();
 let val = demo;
 const handleChange = (): void => {
