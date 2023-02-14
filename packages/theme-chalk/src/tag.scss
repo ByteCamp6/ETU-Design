@@ -60,14 +60,6 @@ $tag-icon-span-gap: map.merge(
     $tag-icon-span-gap
 );
 
-@function returnVarList($var, $type: 'primary') {
-  $list: ('fill-color', 'blank');
-  @if $var != false {
-    $list: ('color', $type, $var);
-  }
-  @return $list;
-}
-
 @include b(tag) {
   //@include genTheme('light', 'light-8', '');
   background-color: getCssVar('tag-bg-color');
@@ -88,6 +80,22 @@ $tag-icon-span-gap: map.merge(
   border-radius: getCssVar('tag-border-radius');
   box-sizing: border-box;
   white-space: nowrap;
+
+
+  @include set-css-var-value(('icon-size'),12px);
+  .#{bem('tag', 'close')} {
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: #{getCssVar('icon-size')};
+    height: calc(#{getCssVar('icon-size')} + 2px);
+    width: calc(#{getCssVar('icon-size')} + 2px);
+    margin-left: map.get($tag-icon-span-gap, 'default');
+
+    &:hover {
+      color: getRootCssVar('color', 'white');
+      background-color: getCssVar('tag-hover-color');
+    }
+  }
 
   &.is-closable {
     padding-right: map.get($tag-icon-span-gap, 'default') - $border-width;
@@ -137,6 +145,16 @@ $tag-icon-span-gap: map.merge(
     @include m($size) {
       padding: 0 map.get($tag-padding, $size) - $tag-border-width;
       height: map.get($tag-height, $size);
+
+      @include set-css-var-value('icon-size', #{map.get($tag-icon-size, $size)});
+
+      .#{bem('tag', 'close')} {
+        margin-left: map.get($tag-icon-span-gap, $size);
+      }
+
+      &.is-closable {
+        padding-right: map.get($tag-icon-span-gap, $size) - $border-width;
+      }
     }
   }
 }

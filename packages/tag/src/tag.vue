@@ -3,13 +3,20 @@
     <span :class="ns.e('content')">
       <slot />
     </span>
+    <!-- <etu-icon
+      name="close"
+      v-if="props.closable"
+      :class="ns.e('close')"
+      @click.stop="handleClose"
+    /> -->
   </span>
 </template>
 
-<script setup lang="ts" name="ETUTag">
+<script setup lang="ts" name="EtuTag">
 import { computed } from "vue";
+// import EtuIcon from "@etu-design/icon";
 import { useNamespace } from "../../hooks";
-import { tagEmits, tagProps } from "./tag.ts";
+import { tagEmits, tagProps } from "./tag";
 
 const props = defineProps(tagProps);
 const emit = defineEmits(tagEmits);
@@ -29,6 +36,10 @@ const classes = computed(() => {
 const ns = useNamespace("tag");
 
 const handleClick = (event: MouseEvent) => {
+  emit("click", event);
+};
+
+const handleClose = (event: MouseEvent) => {
   emit("click", event);
 };
 </script>

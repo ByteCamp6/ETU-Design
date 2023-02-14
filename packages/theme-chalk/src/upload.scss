@@ -1,0 +1,169 @@
+@use "sass:map";
+
+@use "mixins/_var.scss" as *;
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "var" as *;
+@use "mixins/config" as *;
+
+@include b(upload) {
+  @include e(tip) {
+    font-size: 12px;
+    color: getRootCssVar("color-text-0");
+    margin-top: 7px;
+  }
+}
+
+@include b(upload) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  outline: none;
+  @include e(input) {
+    display: none;
+  }
+
+  @include e(tip) {
+    font-size: 12px;
+    color: black;
+    margin-top: 7px;
+  }
+
+  iframe {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}
+
+@include b(upload-list) {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+
+  @include e(item) {
+    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+    font-size: 14px;
+    color: black;
+    margin-bottom: 5px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+
+    .#{bem("upload-list","item-status-icon-close")} {
+      display: none;
+
+      &:hover {
+        color: getRootCssVar("color-primary");
+      }
+    }
+
+    .#{bem("upload-list","item-status-icon-success")} {
+      display: none;
+      color: getRootCssVar("color-success");
+    }
+
+    &:hover {
+      background-color: getRootCssVar("color-primary-light");
+      .#{bem("upload-list","item-status-icon-close")} {
+        display: inline-flex;
+        cursor: pointer;
+      }
+    }
+
+    .#{bem("upload-list", "item-info")} {
+      display: inline-flex;
+      justify-content: center;
+      flex-direction: column;
+      width: calc(100% - 30px);
+      margin-left: 4px;
+
+      &:hover {
+        color: getRootCssVar("color-primary-hover");
+      }
+    }
+
+    @include when(success) {
+      .#{bem("upload-list","item-status-icon-success")} {
+        display: inline-flex;
+      }
+
+      &:hover {
+        .#{bem("upload-list","item-status-icon-success")} {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include e(item-file-name) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+
+  @include e(item-name) {
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+
+    padding: 0 4px;
+  }
+}
+
+@include b(upload-dragger) {
+  @include set-css-var-value("upload-dragger-padding-horizontal", 40px);
+  @include set-css-var-value("upload-dragger-padding-vertical", 10px);
+}
+
+@include b(upload-dragger) {
+  padding: getCssVar("upload-dragger-padding-horizontal")
+    getCssVar("upload-dragger-padding-vertical");
+  background-color: getRootCssVar("color-white");
+  border: 1px dashed getRootCssVar("color-border");
+  border-radius: 6px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: getRootCssVar("color-primary");
+  }
+
+  .#{bem("upload", "icon-upload")} {
+    font-size: 67px;
+    color: getRootCssVar("color-border");
+    margin-bottom: 16px;
+    line-height: 50px;
+  }
+
+  .#{bem("upload", "text")} {
+    color: getRootCssVar("color-border");
+    font-size: 14px;
+    text-align: center;
+  }
+
+  @include when(dragover) {
+    padding: calc(#{getCssVar("upload-dragger-padding-horizontal")} - 1px)
+      calc(#{getCssVar("upload-dragger-padding-vertical")} - 1px);
+    background-color: getRootCssVar("color-primary-light");
+    border: 2px dashed getRootCssVar("color-primary");
+  }
+}
+
+.#{$namespace}-upload-enter-from,
+.#{$namespace}-upload-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}

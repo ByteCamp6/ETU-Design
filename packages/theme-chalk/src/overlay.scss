@@ -1,0 +1,16 @@
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "mixins/mixins" as *;
+
+// 这里遮罩层的出现与否是通过overlay.vue中的 Transition + v-if来决定是否渲染出来遮罩层的
+@include b(overlay) {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  transition: all 0.3s;
+  overflow: auto;
+}
