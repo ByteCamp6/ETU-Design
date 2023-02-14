@@ -1,43 +1,25 @@
 <template>
   <etu-row :gutter="10">
-    <etu-col :span="8" title="span=8">
-      <div class="row-demo bg-blue-5">11</div>
-    </etu-col>
-    <etu-col :span="16" title="span=16">
-      <div class="row-demo bg-blue-5">111</div>
-    </etu-col>
+    <etu-col :span="8"><div class="blue">offset</div></etu-col>
+    <etu-col :span="10" offset="5"><div class="blue">5</div></etu-col>
   </etu-row>
 
-  <etu-row :gutter="10">
-    <etu-col :span="3" title="span=3"
-      ><div class="row-demo bg-blue-5">a</div></etu-col
-    >
-    <etu-col :span="10" title="span=10"
-      ><div class="row-demo bg-blue-5">b</div></etu-col
-    >
-    <etu-col :span="11" title="span=11"
-      ><div class="row-demo bg-blue-5">c</div></etu-col
-    >
+  <etu-row :gutter="30" type="flex" justify="space-between">
+    <etu-col :span="2"><div class="blue">flex</div></etu-col>
+    <etu-col :span="10"><div class="blue">space</div></etu-col>
+    <etu-col :span="6"><div class="blue">between</div></etu-col>
   </etu-row>
 
-  <etu-row :gutter="20">
-    <etu-col :span="4" title="span=4">
-      <div class="row-demo bg-blue-5">1</div>
-    </etu-col>
-    <etu-col :span="8" title="span=8"
-      ><div class="row-demo bg-blue-5">2</div></etu-col
-    >
-    <etu-col :span="3" title="span=3"
-      ><div class="row-demo bg-blue-5">3</div></etu-col
-    >
-    <etu-col :span="9" title="span=9"
-      ><div class="row-demo bg-blue-5">4</div></etu-col
-    >
+  <etu-row :gutter="20" type="flex" justify="center">
+    <etu-col :span="4"><div class="blue">flex</div></etu-col>
+    <etu-col :span="8"><div class="blue">center</div></etu-col>
+    <etu-col :span="3"><div class="blue">gutter</div></etu-col>
+    <etu-col :span="5"><div class="blue">20</div></etu-col>
   </etu-row>
 </template>
 
 <style>
-.bg-blue-5 {
+.blue {
   background-color: skyblue;
 }
 </style>

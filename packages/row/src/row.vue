@@ -21,9 +21,8 @@ const rowRef = ref();
 
 const classes = computed(() => {
   const isFlex = props.type === "flex";
-  const temp = isFlex ? "etu-row-flex" : "etu-row";
+  const temp = isFlex ? bem.m("flex") : bem.b();
   const name = [temp];
-
   if (isFlex) {
     name.push(`etu-row-flex-justify-${props.justify}`);
     name.push(`etu-row-flex-align-${props.align}`);

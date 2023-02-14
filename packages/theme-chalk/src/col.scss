@@ -17,14 +17,14 @@ $width : 100%;
 
 
 @for $i from 0 through 24 {
-  // ============= 分栏 ===============
+  // 分栏
   .etu-col-#{$i} {
     width: ($width / 24)* $i;
     display: block;
   }
 
-  // ============= 偏移 ===============
-  .etu-col-offset-#{i} {
-    margin-left: $width / (24 / #{$i});
+  // 偏移
+  .etu-col-offset-#{$i} {
+    margin-left: ($width / 24)* $i;
   }
 }

@@ -9,6 +9,9 @@
   position: relative;
   box-sizing: border-box;
   display: block;
+  @include m(flex){
+    display: flex;
+  }
 }
 
 .etu-row:after,
@@ -22,9 +25,6 @@
 }
 
 // flex 布局
-.etu-row-flex {
-  display: flex;
-}
 
 .etu-row-flex-justify-start {
   justify-content: flex-start;
