@@ -1,5 +1,5 @@
 <template>
-  <etu-tag type="primary">Tag1</etu-tag>
+  <EtuTag type="primary">Tag1</EtuTag>
   <etu-tag class="ml-2" type="success">Tag2</etu-tag>
   <etu-tag class="ml-2" type="info">Tag3</etu-tag>
   <etu-tag class="ml-2" type="warning">Tag4</etu-tag>

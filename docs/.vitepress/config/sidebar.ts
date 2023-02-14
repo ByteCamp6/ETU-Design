@@ -15,6 +15,7 @@ export default {
       text: '组件',
       items: [
         // This shows `/guide/index.md` page.
+        { text: 'Button按钮', link: '/component/button.md' }, // /guide/index.md
         { text: 'Tag标签', link: '/component/tag.md' }, // /guide/index.md
       ]
     }
