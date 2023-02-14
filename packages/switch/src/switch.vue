@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { useNamespace } from "../../hooks";
 const bem = useNamespace("Switch");
-import { computed, ref, watch, defineEmits, nextTick } from "vue";
+import { computed, ref, watch, nextTick } from "vue";
 
 // const emit = defineEmits(switchEmits);
 const emits = defineEmits<{
