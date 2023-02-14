@@ -16,13 +16,6 @@ export default defineComponent({
   setup() {
     const ns = useNamespace("table");
     const { data, originColumns, rowClass } = useTable()!;
-    // const cellData = data.map((rowData) => {
-    //   return originColumns.value.map((column) => {
-    //     return {
-    //       text: rowData[column.prop],
-    //     };
-    //   });
-    // });
     return () => {
       return (
         <tbody>

@@ -1,8 +1,8 @@
 import { defineComponent } from "vue";
 import EtuIcon from "@etu-design/icon";
+import FilterPanel from "./filter-panel.vue";
 import { useTable } from "../use-table";
 import { useNamespace } from "@etu-design/hooks";
-import { isArray, isFunction } from "@etu-design/utils";
 import { combineClass } from "../utils";
 
 export default defineComponent({
@@ -82,6 +82,14 @@ export default defineComponent({
                           ></i>
                         )}
                       </span>
+                    )}
+                    {column.filterable && (
+                      <FilterPanel
+                        placement={
+                          column.filterable?.filterPlacement || "bottom-start"
+                        }
+                        column={column}
+                      ></FilterPanel>
                     )}
                   </div>
                 </th>

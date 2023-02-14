@@ -36,7 +36,7 @@ const columns: TableColumnCtx<User>[] = [
   {
     label: "姓名",
     prop: "name",
-    width: 100,
+    width: 120,
     sortable: {
       sortDirections: ["ascend", "descend"],
       sorter: (a, b) => {
@@ -50,6 +50,18 @@ const columns: TableColumnCtx<User>[] = [
           return 0;
         }
       },
+    },
+    filterable: {
+      filters: [
+        {
+          text: "Tom1",
+          value: "Tom1",
+        },
+        {
+          text: "Tom2",
+          value: "Tom2",
+        },
+      ],
     },
     headerRender: () => {
       return <etu-tag>姓名</etu-tag>;
@@ -65,6 +77,28 @@ const columns: TableColumnCtx<User>[] = [
     align: "center",
     sortable: {
       sortDirections: ["ascend", "descend"],
+    },
+    filterable: {
+      filters: [
+        {
+          text: ">10",
+          value: ">10",
+        },
+        {
+          text: "<50",
+          value: "<50",
+        },
+      ],
+      filter: (value, record) => {
+        if (value === ">10") {
+          return record.age > 10;
+        } else if (value === "<50") {
+          return record.age < 50;
+        } else {
+          return true;
+        }
+      },
+      filterCombine: "and",
     },
   },
   {

@@ -63,9 +63,13 @@ import TableBody from "./table-body";
 import etuScrollbar from "@etu-design/scrollbar";
 import { useTableColumn } from "./table-column";
 import { useTableStyle } from "./use-table-style";
-import type { TableColumnCtx } from "./table-column";
+import type {
+  TableColumnCtx,
+  FilterColumn,
+  SortingColumn,
+} from "./table-column";
 import { cloneDeep, isEqual } from "lodash-unified";
-import type { SortingColumn } from "./table-column";
+import { isEmpty } from "@etu-design/utils";
 
 const { Scrollbar: EtuScrollbar } = etuScrollbar;
 
@@ -157,7 +161,6 @@ const sortedData = computed<Row[]>(() => {
     if (sortColumn.sortable?.sorter) {
       data.sort(sortColumn.sortable.sorter);
     } else {
-      console.log(sortColumn);
       data.sort((dataFirst: Row, dataSecond: Row) => {
         let valueFirst = dataFirst[sortColumn.prop];
         let valueSecond = dataSecond[sortColumn.prop];
@@ -177,6 +180,56 @@ const sortedData = computed<Row[]>(() => {
   }
   return originData.value;
 });
+const filterRules = ref<FilterColumn>({});
+
+const changeFilterRules = (columnProp: string, filtersValue: string[]) => {
+  console.log(filterRules.value[columnProp]);
+  if (!filterRules.value[columnProp]) {
+    filterRules.value[columnProp] = {};
+  }
+  filterRules.value[columnProp].filtersValue = filtersValue;
+};
+
+const filterData = computed(() => {
+  if (!isEmpty(filterRules.value)) {
+    const columns = props.columns!;
+    let data = cloneDeep(sortedData.value);
+    columns.forEach((column) => {
+      const columnFilterRules = filterRules.value[column.prop];
+      if (
+        column.filterable &&
+        !isEmpty(columnFilterRules) &&
+        !isEmpty(columnFilterRules.filtersValue)
+      ) {
+        const filter = column.filterable?.filter;
+        const filterCombine = column.filterable?.filterCombine;
+        const innerFilterFunction = (
+          record: Row,
+          filter: ((value: string, record: any) => boolean) | undefined,
+          filterCombine: "and" | "or" | undefined,
+        ) => {
+          if (!filter) {
+            filter = (value, record) => record[column.prop] === value;
+          }
+          if (filterCombine && filterCombine === "and") {
+            return columnFilterRules.filtersValue.every((value) =>
+              filter?.(value, record),
+            );
+          } else {
+            return columnFilterRules.filtersValue.some((value) =>
+              filter?.(value, record),
+            );
+          }
+        };
+        data = data.filter((record) => {
+          return innerFilterFunction(record, filter, filterCombine);
+        });
+      }
+    });
+    return data;
+  }
+  return sortedData.value;
+});
 
 const {
   tableInnerStyle,
@@ -191,9 +244,10 @@ const {
 provide(TableKey, {
   hasKey,
   originColumns,
-  data: sortedData,
+  data: filterData,
   rowClass: props.rowClass,
   sortingColumn,
   changeSortingColumn,
+  changeFilterRules,
 });
 </script>

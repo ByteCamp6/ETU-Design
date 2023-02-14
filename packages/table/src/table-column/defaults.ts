@@ -13,8 +13,24 @@ export interface TableFilterData {
 
 export interface TableFilterable<T> {
   filters: TableFilterData[];
-  filter: (value: string, record: T) => boolean;
-  multiple: boolean;
+  filter?: (value: string, record: T) => boolean;
+  filterPlacement?:
+    | "auto"
+    | "auto-start"
+    | "auto-end"
+    | "top"
+    | "top-start"
+    | "top-end"
+    | "bottom"
+    | "bottom-start"
+    | "bottom-end"
+    | "right"
+    | "right-start"
+    | "right-end"
+    | "left"
+    | "left-start"
+    | "left-end";
+  filterCombine?: "and" | "or";
 }
 
 export interface TableColumnCtx<T> {
@@ -57,4 +73,10 @@ export interface TableColumnCtx<T> {
 export interface SortingColumn {
   column?: string;
   sortDirections?: "ascend" | "descend";
+}
+
+export interface FilterColumn {
+  [keys: string]: {
+    filtersValue: string[];
+  };
 }
