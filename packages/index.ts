@@ -19,6 +19,8 @@ import Avatar from "./avatar";
 import Dialog from "./dialog";
 import Input from "./input/index";
 import scrollbar from "./scrollbar";
+import Row from "./row/index";
+import Col from "./col/index";
 import Pagination from "./pagination";
 import Table from "./table";
 import DatePicker from "./date-picker";
@@ -61,6 +63,8 @@ const components = [
   Avatar,
   Dialog,
   Scrollbar,
+  Row,
+  Col,
   Pagination,
   Table,
   DatePicker,

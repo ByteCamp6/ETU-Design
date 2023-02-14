@@ -1,0 +1,61 @@
+@use 'sass:map';
+
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+
+@include b(row){
+  position: relative;
+  box-sizing: border-box;
+  display: block;
+  @include m(flex){
+    display: flex;
+  }
+}
+
+.etu-row:after,
+.etu-row:before {
+  display: table;
+  content: ""
+}
+
+.etu-row:after {
+  clear: both
+}
+
+// flex 布局
+
+.etu-row-flex-justify-start {
+  justify-content: flex-start;
+}
+
+.etu-row-flex-justify-end {
+  justify-content: flex-end;
+}
+
+.etu-row-flex-justify-center {
+  justify-content: center;
+}
+
+.etu-row-flex-justify-space-around {
+  justify-content: space-around;
+}
+
+.etu-row-flex-justify-space-between {
+  justify-content: space-between;
+}
+
+.etu-row-flex-justify-space-evenly {
+  justify-content: space-evenly;
+}
+
+.etu-row-flex-align-top {
+  align-items: flex-start;
+}
+.etu-row-flex-align-middle {
+  align-items: center;
+}
+.etu-row-flex-align-bottom {
+  align-items: flex-end;
+}
