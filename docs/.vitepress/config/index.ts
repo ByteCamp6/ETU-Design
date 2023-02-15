@@ -5,6 +5,9 @@ import sidebar from './sidebar';
 
 
 export default defineConfig({
+  head:[
+    ['link', { rel: 'icon', href: '/logo.png' }]
+  ],
   title: 'ETU组件库',
   // description: ' vue-cc-ui 组件库',
   // lastUpdated: true,
@@ -16,6 +19,6 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ],
-    logo: '/logo.svg'
+    logo: '/logo.png'
   },
 })
