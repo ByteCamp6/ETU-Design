@@ -1,11 +1,41 @@
 {
   "hash": "94faabf1",
-  "browserHash": "679df5fe",
+  "browserHash": "3512fd67",
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
       "fileHash": "1dccabb8",
+      "needsInterop": false
+    },
+    "@popperjs/core": {
+      "src": "../../../node_modules/@popperjs/core/lib/index.js",
+      "file": "@popperjs_core.js",
+      "fileHash": "edb92358",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/arrow": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/arrow.js",
+      "file": "@popperjs_core_lib_modifiers_arrow.js",
+      "fileHash": "03f1ec7f",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/flip.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/flip.js",
+      "file": "@popperjs_core_lib_modifiers_flip__js.js",
+      "fileHash": "e749d345",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/offset": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/offset.js",
+      "file": "@popperjs_core_lib_modifiers_offset.js",
+      "fileHash": "3184d269",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/preventOverflow.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
+      "file": "@popperjs_core_lib_modifiers_preventOverflow__js.js",
+      "fileHash": "8a8303e0",
       "needsInterop": false
     },
     "@vue/shared": {
@@ -40,6 +70,30 @@
     }
   },
   "chunks": {
+    "chunk-BXE4SSMW": {
+      "file": "chunk-BXE4SSMW.js"
+    },
+    "chunk-H6YSKBJL": {
+      "file": "chunk-H6YSKBJL.js"
+    },
+    "chunk-WUXKB76K": {
+      "file": "chunk-WUXKB76K.js"
+    },
+    "chunk-ZUVEPBYQ": {
+      "file": "chunk-ZUVEPBYQ.js"
+    },
+    "chunk-OJJNZHSS": {
+      "file": "chunk-OJJNZHSS.js"
+    },
+    "chunk-FOINLP6H": {
+      "file": "chunk-FOINLP6H.js"
+    },
+    "chunk-IP2SUSOQ": {
+      "file": "chunk-IP2SUSOQ.js"
+    },
+    "chunk-IN7D5TZZ": {
+      "file": "chunk-IN7D5TZZ.js"
+    },
     "chunk-G2LOIZIK": {
       "file": "chunk-G2LOIZIK.js"
     },
