@@ -1,0 +1,30 @@
+@use 'sass:map';
+
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+
+[class*= etu-col-] {
+  float: left;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+
+
+// 总宽
+$width : 100%;
+
+
+@for $i from 0 through 24 {
+  // 分栏
+  .etu-col-#{$i} {
+    width: calc($width / 24) * $i;
+    display: block;
+  }
+
+  // 偏移
+  .etu-col-offset-#{$i} {
+    margin-left: calc($width / 24)* $i;
+  }
+}
