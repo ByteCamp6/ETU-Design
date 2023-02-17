@@ -79,13 +79,13 @@ $backgroundColor:inherit;
   @extend %base-class;
   border: grey solid 1px;
   background-color: $backgroundColor;
-  @if $backgroundColor == black {
-    $font-color: white;
-  }
-  @else {
-    $font-color: black;
-  }
-  color: $fontColor;
+  //@if $backgroundColor == black {
+  //  $font-color: white;
+  //}
+  //@else {
+  //  color: black;
+  //}
+  color: inherit;
 }
 %base-animation {
   transition: all 0.3s;
@@ -111,7 +111,6 @@ $backgroundColor:inherit;
 .etu-Button,
 .etu-Button-default__solid--Microcurvature, {
   @extend %base-class--default;
-  color: #181818;
   &:hover {
     @extend %base-animation--solid;
     color: dodgerblue;
@@ -277,7 +276,8 @@ $backgroundColor:inherit;
 .etu-Button-default__solid--curved, {
   @extend %base-class--default;
   border-radius: 18px 18px;
-  color: black;
+  color: inherit;
+  background-color: inherit;
   &:hover {
     @extend %base-animation--solid;
     color: dodgerblue;
