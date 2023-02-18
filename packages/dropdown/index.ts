@@ -15,5 +15,4 @@ DropDownMenu.install = (app: App) => {
   // 注册组件
   app.component(DropDownMenu.name, DropDownMenu);
 };
-
 export default { DropDown, DropDownItem, DropDownMenu };

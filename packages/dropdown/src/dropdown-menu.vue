@@ -1,13 +1,11 @@
 <template>
-  <ul @mousedown="onMousedown">
+  <ul :class="dropdownMenuCls">
     <slot />
   </ul>
 </template>
 
 <script setup lang="ts" name="EtuDropdownMenu">
-import EtuPopper from "@etu-design/popper/index";
-const onMousedown = function () {
-  console.log("onMousedown");
-};
+import { useNamespace } from "@etu-design/hooks/index";
+const ns = useNamespace("dropdown");
+const dropdownMenuCls = [ns.b("menu")];
 </script>
-<style lang="scss" scoped></style>
