@@ -1,28 +1,46 @@
 {
+<<<<<<< HEAD
   "hash": "95b32189",
   "browserHash": "2e80cac7",
+=======
+  "hash": "1c4c7021",
+  "browserHash": "7df2c040",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
+<<<<<<< HEAD
       "fileHash": "dce68e50",
+=======
+      "fileHash": "5eb391d6",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
       "src": "../../../../node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
+<<<<<<< HEAD
       "fileHash": "d79dafe2",
+=======
+      "fileHash": "821cc035",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": false
     },
     "lodash-unified": {
       "src": "../../../../node_modules/lodash-unified/import.js",
       "file": "lodash-unified.js",
+<<<<<<< HEAD
       "fileHash": "fd991aac",
+=======
+      "fileHash": "b1ee96fe",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": false
     },
     "@vue/shared": {
       "src": "../../../../node_modules/@vue/shared/dist/shared.esm-bundler.js",
       "file": "@vue_shared.js",
+<<<<<<< HEAD
       "fileHash": "5acbaf0f",
       "needsInterop": false
     },
@@ -42,11 +60,15 @@
       "src": "../../../../node_modules/@popperjs/core/lib/modifiers/flip.js",
       "file": "@popperjs_core_lib_modifiers_flip__js.js",
       "fileHash": "61bb11a3",
+=======
+      "fileHash": "02e79b8e",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
+<<<<<<< HEAD
       "fileHash": "8e444f28",
       "needsInterop": false
     },
@@ -54,24 +76,63 @@
       "src": "../../../../node_modules/@popperjs/core/lib/modifiers/offset.js",
       "file": "@popperjs_core_lib_modifiers_offset.js",
       "fileHash": "d829f669",
+=======
+      "fileHash": "9e40cfda",
+      "needsInterop": false
+    },
+    "@popperjs/core": {
+      "src": "../../../../node_modules/@popperjs/core/lib/index.js",
+      "file": "@popperjs_core.js",
+      "fileHash": "3938f631",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/preventOverflow.js": {
+      "src": "../../../../node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
+      "file": "@popperjs_core_lib_modifiers_preventOverflow__js.js",
+      "fileHash": "2cdd1138",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/flip.js": {
+      "src": "../../../../node_modules/@popperjs/core/lib/modifiers/flip.js",
+      "file": "@popperjs_core_lib_modifiers_flip__js.js",
+      "fileHash": "29075e30",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/offset": {
+      "src": "../../../../node_modules/@popperjs/core/lib/modifiers/offset.js",
+      "file": "@popperjs_core_lib_modifiers_offset.js",
+      "fileHash": "a010e617",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": false
     },
     "@popperjs/core/lib/modifiers/arrow": {
       "src": "../../../../node_modules/@popperjs/core/lib/modifiers/arrow.js",
       "file": "@popperjs_core_lib_modifiers_arrow.js",
+<<<<<<< HEAD
       "fileHash": "ca817bde",
+=======
+      "fileHash": "6f98efdd",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": false
     },
     "dayjs": {
       "src": "../../../../node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
+<<<<<<< HEAD
       "fileHash": "ed6b0119",
+=======
+      "fileHash": "30471698",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": true
     },
     "dayjs/plugin/isLeapYear": {
       "src": "../../../../node_modules/dayjs/plugin/isLeapYear.js",
       "file": "dayjs_plugin_isLeapYear.js",
+<<<<<<< HEAD
       "fileHash": "46e440c7",
+=======
+      "fileHash": "9ce764fe",
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
       "needsInterop": true
     }
   },
@@ -106,6 +167,33 @@
     "chunk-HQUR2J2E": {
       "file": "chunk-HQUR2J2E.js"
     },
+<<<<<<< HEAD
+=======
+    "chunk-UCI4V7CI": {
+      "file": "chunk-UCI4V7CI.js"
+    },
+    "chunk-BS4JQVKO": {
+      "file": "chunk-BS4JQVKO.js"
+    },
+    "chunk-AS5R2LZO": {
+      "file": "chunk-AS5R2LZO.js"
+    },
+    "chunk-ARNFD3DL": {
+      "file": "chunk-ARNFD3DL.js"
+    },
+    "chunk-JSGAY6FE": {
+      "file": "chunk-JSGAY6FE.js"
+    },
+    "chunk-P2YO6AJV": {
+      "file": "chunk-P2YO6AJV.js"
+    },
+    "chunk-AE77TWOT": {
+      "file": "chunk-AE77TWOT.js"
+    },
+    "chunk-XNBF6CWL": {
+      "file": "chunk-XNBF6CWL.js"
+    },
+>>>>>>> 8c3eb3e0de68ec20d6cbc56270803867282b9a70
     "chunk-RSJERJUL": {
       "file": "chunk-RSJERJUL.js"
     }

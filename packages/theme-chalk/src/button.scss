@@ -8,13 +8,11 @@ $backgroundColor:inherit;
   border: $br solid 1px;
 }
 @mixin setSize($w,$h,$a) {
-  max-width: $w;
-  max-height: $h;
   aspect-ratio: $a;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 1.5rem 1rem 1.5rem;
+  padding: $w $h $w $h;
 }
 %base {
   outline: none;
@@ -28,6 +26,7 @@ $backgroundColor:inherit;
   border-radius: 6px 6px;
   cursor: pointer;
   user-select: none;
+  -webkit-user-select: none;
   touch-action: manipulation;
   line-height: 24px;
 }
@@ -49,41 +48,44 @@ $backgroundColor:inherit;
   }
 }
 .etu-Button-false__normal {
-  @include setSize(108px,36px,inherit);
+  @include setSize(0.4rem,1.5rem,inherit);
 }
 .etu-Button-false__large {
-  @include setSize(130px,43px,inherit);
+  @include setSize(0.6rem,2rem,inherit);
 }
 .etu-Button-false__small {
-  @include setSize(90px,35px,inherit);
+  @include setSize(0.2rem,1rem,inherit);
 }
 %base-circle {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
 }
 .etu-Button-true__normal {
-  @include setSize(36px,36px,inherit);
-  @extend %base-circle;
+  @include setSize(0.4rem,1.5rem,inherit);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 .etu-Button-true__large {
   @include setSize(48px,48px,inherit);
-  @extend %base-circle;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 .etu-Button-true__small {
-  @include setSize(24px,24px,inherit);
-  @extend %base-circle;
+  @include setSize(0.2rem,1rem,inherit);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
 }
 %base-class--default {
   @extend %base-class;
   border: grey solid 1px;
   background-color: $backgroundColor;
-  @if $backgroundColor == black {
-    $font-color: white;
-  }
-  @else {
-    $font-color: black;
-  }
-  color: $fontColor;
+  //@if $backgroundColor == black {
+  //  $font-color: white;
+  //}
+  //@else {
+  //  color: black;
+  //}
+  color: inherit;
 }
 %base-animation {
   transition: all 0.3s;
@@ -109,7 +111,6 @@ $backgroundColor:inherit;
 .etu-Button,
 .etu-Button-default__solid--Microcurvature, {
   @extend %base-class--default;
-  color: #181818;
   &:hover {
     @extend %base-animation--solid;
     color: dodgerblue;
@@ -275,7 +276,8 @@ $backgroundColor:inherit;
 .etu-Button-default__solid--curved, {
   @extend %base-class--default;
   border-radius: 18px 18px;
-  color: black;
+  color: inherit;
+  background-color: inherit;
   &:hover {
     @extend %base-animation--solid;
     color: dodgerblue;
