@@ -32,8 +32,8 @@
   <Tag type="success" round
     ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
   ></Tag>
-  <br />
   <Layer></Layer>
+  <Form></Form>
 </template>
 
 <script setup lang="ts">
@@ -60,10 +60,11 @@ import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
 import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
-import Layer from "./components/layer.vue";
+import Layer from "./components/Layer.vue";
 import DatePicker from "./components/DatePicker.vue";
 import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
+import Form from "./components/Form.vue";
 </script>
 
 <style scoped></style>

@@ -26,6 +26,7 @@ import Table from "./table";
 import DatePicker from "./date-picker";
 import Popper from "./popper";
 import Tree from "./tree";
+import Form from "./form";
 import type { App } from "vue";
 
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -70,6 +71,7 @@ const components = [
   DatePicker,
   Popper,
   Tree,
+  Form,
 ];
 
 // 全局动态添加
