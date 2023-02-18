@@ -1,6 +1,6 @@
 <template>
   <li v-if="divided" role="separator" :class="liCls" v-bind="$attrs" />
-  <li :class="dropdownItemCls">
+  <li :class="dropdownItemCls" @mouseover="">
     <slot />
   </li>
 </template>

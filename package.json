@@ -13,7 +13,8 @@
     "coverage": "vitest run --coverage",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",

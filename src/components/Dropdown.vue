@@ -1,6 +1,6 @@
 <template>
   <etu-dropdown>
-    <span><etu-icon name="close"></etu-icon>下拉菜单</span>
+    <span>下拉菜单</span>
 
     <template #dropdown>
       <etu-dropdown-menu>
