@@ -1,4 +1,5 @@
-import type { ExtractPropTypes } from "vue";
+import type { ExtractPropTypes, InjectionKey } from "vue";
+import type { FormItemContext } from "./form-item";
 
 export const formProps = {
   model: {
@@ -16,3 +17,8 @@ export const formProps = {
 } as const;
 
 export type FormProps = ExtractPropTypes<typeof formProps>;
+
+export interface FormContext extends FormProps {
+  addField: (field: FormItemContext) => void;
+}
+// export const FormContextKey: InjectionKey<FormContext> = Symbol();

@@ -18,7 +18,7 @@ export default {
 
 <script lang="ts" setup>
 // npm i async-validator
-import { computed, ref, provide, inject } from "vue";
+import { computed, ref, provide, inject, onMounted } from "vue";
 import { useNamespace } from "../../hooks";
 import { formItemProps, formItemContextKey } from "./form-item";
 import AsyncValdaitor from "async-validator";
@@ -55,6 +55,7 @@ const validate = async (trigger, callback?) => {
     })
     .catch((err) => {
       validateFailed(err);
+      return Promise.reject(err);
     });
 };
 
@@ -111,11 +112,10 @@ let formItemClass = computed(() => {
 });
 
 provide("form-item", context);
+
+onMounted(() => {
+  FormContext?.addField(context);
+});
 </script>
 
-<style scoped lang="scss">
-.errors {
-  color: red;
-  font-size: 12px;
-}
-</style>
+<style scoped lang="scss"></style>

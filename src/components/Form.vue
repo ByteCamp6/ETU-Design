@@ -1,21 +1,25 @@
 <template>
   <div>
     <h2>form组件</h2>
-    <etu-form ref="form" :model="formData" :rules="rules">
-      <etu-form-item label="名称" prop="name" :rules="rules.name">
+    <etu-form ref="formRef" :model="formData" :rules="rules">
+      <etu-form-item label="名称1" prop="name" :rules="rules.name">
         <etu-input v-model="formData.name"></etu-input>
       </etu-form-item>
+      <etu-form-item label="名称2" prop="name1" :rules="rules.name1">
+        <etu-input v-model="formData.name1"></etu-input>
+      </etu-form-item>
       <etu-form-item>
-        <etu-button @click="onSubmit">提交</etu-button>
+        <etu-button @click.prevent="onSubmit">提交</etu-button>
       </etu-form-item>
     </etu-form>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, getCurrentInstance } from "vue";
+import { reactive, ref } from "vue";
 
-const formData = reactive({ name: "" });
+const formRef = ref();
+const formData = reactive({ name: "", name1: "" });
 const rules = {
   name: [
     { required: "true", message: "请输入名称", trigger: "blur" },
@@ -26,14 +30,21 @@ const rules = {
       trigger: ["blur", "change"],
     },
   ],
+  name1: [
+    { required: "true", message: "请输入名称", trigger: "blur" },
+    {
+      min: 3,
+      max: 6,
+      message: "长度最大6位最小3位",
+      trigger: ["blur", "change"],
+    },
+  ],
 };
-// @ts-ignore
-const { proxy } = getCurrentInstance();
 
-const onSubmit = (e) => {
-  e.preventDefault();
-  proxy.$refs.form.validate((valid) => {
-    console.log("valid", valid);
+const onSubmit = () => {
+  const form = formRef.value;
+  form?.validate((validate, errors) => {
+    // console.log(validate, errors);
   });
 };
 </script>
