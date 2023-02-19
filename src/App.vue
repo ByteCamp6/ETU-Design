@@ -1,4 +1,5 @@
 <template>
+  <DropDown></DropDown>
   <DatePicker></DatePicker>
   <Scrollbar></Scrollbar>
   <Popper></Popper>
@@ -26,6 +27,7 @@
   <Link />
   <Upload></Upload>
   <Input />
+  <Switch></Switch>
   <!-- <router-view></router-view> -->
   <Tree></Tree>
   <router-view></router-view>
@@ -65,6 +67,7 @@ import DatePicker from "./components/DatePicker.vue";
 import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
 import Form from "./components/Form.vue";
+import DropDown from "./components/Dropdown.vue";
 </script>
 
 <style scoped></style>

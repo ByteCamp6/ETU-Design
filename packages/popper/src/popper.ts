@@ -126,6 +126,10 @@ export const popperProps = {
     type: String,
     default: "",
   },
+  canclePadding: {
+    type: Boolean,
+    default: false,
+  },
 } as const;
 
 export type PopperProps = ExtractPropTypes<typeof popperProps>;

@@ -17,7 +17,7 @@ export default defineConfig({
     sidebar,
     nav,
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/ByteCamp6/ETU-Design' }
     ],
     logo: '/logo.png'
   },

@@ -21,7 +21,7 @@
         <div
           @click="!interactive && closePopper()"
           v-show="shouldShowPopper"
-          :class="ns.e('content')"
+          :class="contentCls"
           :style="{ zIndex: innerZIndex }"
           ref="popperRef"
         >
@@ -57,7 +57,7 @@ import { useNamespace, useZIndex } from "@etu-design/hooks";
 import { popperProps } from "./popper";
 import type { PopperExpose } from "./popper";
 const ns = useNamespace("popper");
-const emit = defineEmits(["open:popper", "close:popper"]);
+const emit = defineEmits(["open", "close"]);
 const slots = useSlots();
 const props = defineProps(popperProps);
 const popperContainerRef = ref(null) as Ref<HTMLElement>;
@@ -66,6 +66,10 @@ const triggerRef = ref(null) as Ref<HTMLElement>;
 const modifiedIsOpen = ref(false);
 const { nextZIndex } = useZIndex();
 const innerZIndex = ref(props.zIndex ? props.zIndex : nextZIndex());
+const contentCls = computed(() => {
+  return [ns.e("content"), ns.is("canclePadding", props.canclePadding)];
+});
+console.log(contentCls, "??contentCls");
 onMounted(() => {
   const children = slots.default?.();
   if (children && children.length > 1) {

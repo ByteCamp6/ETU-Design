@@ -7,7 +7,7 @@
       :true-value="activeValue"
       :false-value="inactiveValue"
       :checked="checkedValue"
-      v-model="demo"
+      v-model="mValue"
       :value="val"
       @change="handleChange"
       :disabled="state"
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { useNamespace } from "../../hooks";
+import { useNamespace, useVmodel } from "../../hooks";
 const bem = useNamespace("Switch");
 import { computed, ref, watch, nextTick } from "vue";
 
@@ -27,6 +27,7 @@ const emits = defineEmits<{
   (e: "change", v: any): void; // 函数类型
   (e: "dataVal", v: any): void;
 }>();
+let mValue = useVmodel(props.modelValue);
 const props = defineProps({
   type: {
     type: String,
@@ -75,8 +76,9 @@ watch(
 );
 watch(
   () => props.value,
-  () => {
+  (data) => {
     isControlled.value = false;
+    data = !data;
   },
 );
 const activeValue = ref(props.activeValue);
@@ -96,6 +98,8 @@ const handleChange = (): void => {
   emits("dataVal", val.value);
   nextTick(() => {
     checkedValue.value = !checkedValue.value;
+    demo.value = !props.modelValue;
+    mValue.value = !mValue.value;
   });
 };
 </script>

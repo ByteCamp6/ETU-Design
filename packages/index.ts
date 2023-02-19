@@ -28,14 +28,15 @@ import Popper from "./popper";
 import Tree from "./tree";
 import { Form } from "./form";
 import { FormItem } from "./form";
+import dropdown from "./dropdown";
 import type { App } from "vue";
-
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
 const { Radio, RadioGroup } = radio;
 const { Select, Option, OptionGroup } = select;
 const { Collapse, CollapseItem } = collapse;
 const { Scrollbar } = scrollbar;
+const { DropDown, DropDownItem, DropDownMenu } = dropdown;
 
 // 全部引入
 const components = [
@@ -74,6 +75,9 @@ const components = [
   Tree,
   Form,
   FormItem,
+  DropDown,
+  DropDownItem,
+  DropDownMenu,
 ];
 
 // 全局动态添加
