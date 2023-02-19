@@ -2,10 +2,10 @@
 layout: home
 hero:
   name: ETU组件库
-  text: 一个使用 vue3、vite的组件库
+  text: 一个vue3组件库
   tagline: 看过星辰大海，才明白自己渺小如沙
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: cc ui
   actions:
     - theme: brand
@@ -39,6 +39,6 @@ features:
 <style>
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #9c34fe, #41d1ff);
+  --vp-home-hero-name-background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff)
 }
 </style>
