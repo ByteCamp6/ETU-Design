@@ -4,6 +4,7 @@ import etuRadio from "@etu-design/radio";
 import type { TableColumnCtx } from "./defaults";
 import type { TableProps, TableRowSelection } from "../table";
 import type { ComputedRef, FunctionalComponent } from "vue";
+import { isEmpty } from "@etu-design/utils";
 
 const { Checkbox: EtuCheckbox } = etuCheckbox;
 const { Radio: EtuRadio } = etuRadio;
@@ -158,7 +159,10 @@ export const useTableColumn = (
     });
 
     // 最后一列添加last，方便添加阴影
-    columns[columns.length - 1].stylePosition = "last";
+    if (!isEmpty(columns)) {
+      columns[columns.length - 1].stylePosition = "last";
+    }
+
     return columns;
   });
 
@@ -186,7 +190,10 @@ export const useTableColumn = (
       column.styleOffsetWidth = styleOffsetWidth;
       styleOffsetWidth += column.width!;
     });
-    columns[columns.length - 1].stylePosition = "first";
+    if (!isEmpty(columns)) {
+      columns[columns.length - 1].stylePosition = "first";
+    }
+
     columns.reverse();
     return columns;
   });
