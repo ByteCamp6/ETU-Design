@@ -15,6 +15,9 @@ export default defineConfig({
       "@": fileURLToPath(new URL(import.meta.url)),
     },
   },
+  define: {
+    "process.env": {},
+  },
   test: {
     globals: true,
     environment: "jsdom",
