@@ -27,6 +27,7 @@
   <Link />
   <Upload></Upload>
   <Input />
+  <Switch></Switch>
   <!-- <router-view></router-view> -->
   <Tree></Tree>
   <router-view></router-view>
