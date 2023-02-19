@@ -57,7 +57,7 @@ import { useNamespace, useZIndex } from "@etu-design/hooks";
 import { popperProps } from "./popper";
 import type { PopperExpose } from "./popper";
 const ns = useNamespace("popper");
-const emit = defineEmits(["open:popper", "close:popper"]);
+const emit = defineEmits(["open", "close"]);
 const slots = useSlots();
 const props = defineProps(popperProps);
 const popperContainerRef = ref(null) as Ref<HTMLElement>;

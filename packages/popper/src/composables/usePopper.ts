@@ -50,7 +50,7 @@ export function usePopper({
     }
 
     state.isOpen = false;
-    emit("close:popper");
+    emit("close");
   };
 
   const open = () => {
@@ -59,7 +59,7 @@ export function usePopper({
     }
 
     state.isOpen = true;
-    emit("open:popper");
+    emit("open");
   };
 
   // When isOpen or placement change
