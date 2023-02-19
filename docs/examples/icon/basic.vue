@@ -62,6 +62,8 @@
 </style>
 
 <script lang="ts" setup>
+import EtuMessage from "@etu-design/message";
+
 const copy = (text: any) => {
   // text是复制文本
   // 创建input元素
@@ -77,7 +79,7 @@ const copy = (text: any) => {
   document.execCommand("copy");
   // 删除input元素
   document.body.removeChild(el);
-  alert("复制成功"); //TODO 换成EtuMessage
+  EtuMessage.success(text + "复制成功");
 };
 
 const iconList = [
