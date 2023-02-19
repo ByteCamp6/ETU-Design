@@ -61,17 +61,17 @@ $backgroundColor:inherit;
   border-radius: 50%;
 }
 .etu-Button-true__normal {
-  @include setSize(0.4rem,1.5rem,inherit);
+  @include setSize(0.4rem,1rem,inherit);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
 }
 .etu-Button-true__large {
-  @include setSize(48px,48px,inherit);
+  @include setSize(0.4rem,1.5rem,inherit);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
 }
 .etu-Button-true__small {
-  @include setSize(0.2rem,1rem,inherit);
+  @include setSize(0.2rem,0.5rem,inherit);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
 }
