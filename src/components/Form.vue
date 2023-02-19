@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>表单form组件</h2>
+    <h2>form组件</h2>
     <etu-form ref="form" :model="formData" :rules="rules">
       <etu-form-item label="名称" prop="name" :rules="rules.name">
         <etu-input v-model="formData.name"></etu-input>
@@ -20,9 +20,9 @@ const rules = {
   name: [
     { required: "true", message: "请输入名称", trigger: "blur" },
     {
-      min: 2,
+      min: 3,
       max: 6,
-      message: "长度最大6位最小2位",
+      message: "长度最大6位最小3位",
       trigger: ["blur", "change"],
     },
   ],

@@ -72,12 +72,13 @@
 </template>
 
 <script lang="ts" setup name="EtuInput">
-import { computed, useAttrs } from "vue";
+import { computed, inject, useAttrs, watch } from "vue";
 import { useNamespace } from "../../hooks/index";
-import { inputEmits, inputProps } from "./input.ts";
+import { inputEmits, inputProps } from "./input";
 import EtuIcon from "@etu-design/icon";
 import { useSlots } from "vue";
 import { useInput } from "./composables";
+import { formItemContextKey } from "../../form/src/form-item";
 const attrs = useAttrs();
 //复合输入框
 const slots = useSlots();
@@ -87,6 +88,17 @@ defineEmits(inputEmits);
 
 const bem = useNamespace("input");
 const bemArea = useNamespace("textarea");
+
+// 获取form表单上下文
+const formItemContext: any = inject("form-item");
+// 监控value
+watch(
+  () => props.modelValue,
+  () => {
+    // console.log(formItemContext);
+    formItemContext?.validate("change");
+  },
+);
 
 const {
   inputRef,

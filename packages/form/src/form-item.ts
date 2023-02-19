@@ -1,4 +1,4 @@
-import type { PropType } from "vue";
+import type { InjectionKey, PropType } from "vue";
 import type { ExtractPropTypes } from "vue";
 import type { RuleItem } from "async-validator";
 
@@ -23,3 +23,11 @@ export const formItemProps = {
 
 // Partial选填
 export type FormItemProps = Partial<ExtractPropTypes<typeof formItemProps>>;
+
+export interface FormItemContext extends FormItemProps {
+  validate: (
+    trigger: string,
+    callback?: (isValid: boolean) => void,
+  ) => Promise<void>;
+}
+export const formItemContextKey: InjectionKey<FormItemContext> = Symbol("");

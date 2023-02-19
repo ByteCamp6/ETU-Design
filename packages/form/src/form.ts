@@ -9,6 +9,10 @@ export const formProps = {
     type: Object,
     default: () => ({}),
   },
+  showMessage: {
+    type: Boolean,
+    default: true,
+  },
 } as const;
 
-export type ColProps = ExtractPropTypes<typeof formProps>;
+export type FormProps = ExtractPropTypes<typeof formProps>;

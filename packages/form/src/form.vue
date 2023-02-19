@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form :class="formClass">
     <slot></slot>
   </form>
 </template>
@@ -11,28 +11,20 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { provide, reactive, toRefs } from "vue";
+import { provide, reactive, toRefs, computed } from "vue";
 import { formProps } from "./form";
+import { useNamespace } from "../../hooks";
 
 const props = defineProps(formProps);
+const bem = useNamespace("form");
+
 const etuForm = reactive({
   ...toRefs(props),
 });
-const fields: any = reactive([]);
 
-// import mitt from "mitt";
-// const emitter = mitt();
-
-const validate = (e) => {
-  // 调用子组件form-item的校验方法
-  const tasks = fields.map((item) => item.validate());
-  Promise.all(tasks)
-    .then(() => e(true))
-    .catch(() => {
-      console.log("catch-false");
-      e(false);
-    });
-};
+let formClass = computed(() => {
+  return [bem.b()];
+});
 
 // 用于提供可以被后代组件注入的值。
 provide("etuForm", etuForm);
