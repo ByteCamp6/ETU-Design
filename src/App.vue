@@ -1,4 +1,5 @@
 <template>
+  <DropDown></DropDown>
   <DatePicker></DatePicker>
   <Scrollbar></Scrollbar>
   <Popper></Popper>
@@ -64,6 +65,7 @@ import Layer from "./components/layer.vue";
 import DatePicker from "./components/DatePicker.vue";
 import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
+import DropDown from "./components/Dropdown.vue";
 </script>
 
 <style scoped></style>
