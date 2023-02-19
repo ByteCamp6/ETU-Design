@@ -1,9 +1,5 @@
 import { toRefs, watch, nextTick, onBeforeUnmount, reactive } from "vue";
 import { createPopper } from "@popperjs/core";
-import preventOverflow from "@popperjs/core/lib/modifiers/preventOverflow.js";
-import flip from "@popperjs/core/lib/modifiers/flip.js";
-import offset from "@popperjs/core/lib/modifiers/offset";
-import arrow from "@popperjs/core/lib/modifiers/arrow";
 import type { Ref } from "vue";
 import type { MaybeUndefinedRef } from "./typing";
 import type { Instance, Placement } from "@popperjs/core";
@@ -81,20 +77,16 @@ export function usePopper({
     state.popperInstance = createPopper(triggerRef.value, popperRef.value, {
       placement: placement.value as Placement,
       modifiers: [
-        preventOverflow,
-        flip,
         {
           name: "flip",
           enabled: !locked.value,
         },
-        arrow,
         {
           name: "arrow",
           options: {
             padding: toInt(arrowPadding.value),
           },
         },
-        offset,
         {
           name: "offset",
           options: {
