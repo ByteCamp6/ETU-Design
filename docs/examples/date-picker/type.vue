@@ -1,6 +1,6 @@
 <template>
   <div
-    style="height: 350px; display: flex; justify-content: space-around: gap: 20px"
+    style="display: flex; justify-content: space-around: gap: 20px"
   >
     <div style="width: 100%">
       <div>year:</div>

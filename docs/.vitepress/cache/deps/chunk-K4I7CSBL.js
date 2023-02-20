@@ -25,6 +25,7 @@ import {
   isOn,
   isPlainObject,
   isPromise,
+  isRegExp,
   isReservedProp,
   isSVGTag,
   isSet,
@@ -33,6 +34,7 @@ import {
   isSymbol,
   looseEqual,
   looseIndexOf,
+  looseToNumber,
   makeMap,
   normalizeClass,
   normalizeStyle,
@@ -40,7 +42,7 @@ import {
   toHandlerKey,
   toNumber,
   toRawType
-} from "./chunk-HQUR2J2E.js";
+} from "./chunk-2D2BEOV3.js";
 
 // node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js
 function warn(msg, ...args) {
@@ -50,7 +52,7 @@ var activeEffectScope;
 var EffectScope = class {
   constructor(detached = false) {
     this.detached = detached;
-    this.active = true;
+    this._active = true;
     this.effects = [];
     this.cleanups = [];
     this.parent = activeEffectScope;
@@ -58,8 +60,11 @@ var EffectScope = class {
       this.index = (activeEffectScope.scopes || (activeEffectScope.scopes = [])).push(this) - 1;
     }
   }
+  get active() {
+    return this._active;
+  }
   run(fn) {
-    if (this.active) {
+    if (this._active) {
       const currentEffectScope = activeEffectScope;
       try {
         activeEffectScope = this;
@@ -86,7 +91,7 @@ var EffectScope = class {
     activeEffectScope = this.parent;
   }
   stop(fromParent) {
-    if (this.active) {
+    if (this._active) {
       let i, l;
       for (i = 0, l = this.effects.length; i < l; i++) {
         this.effects[i].stop();
@@ -107,7 +112,7 @@ var EffectScope = class {
         }
       }
       this.parent = void 0;
-      this.active = false;
+      this._active = false;
     }
   }
 };
@@ -305,7 +310,7 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
   if (type === "clear") {
     deps = [...depsMap.values()];
   } else if (key === "length" && isArray(target)) {
-    const newLength = toNumber(newValue);
+    const newLength = Number(newValue);
     depsMap.forEach((dep, key2) => {
       if (key2 === "length" || key2 >= newLength) {
         deps.push(dep);
@@ -389,11 +394,15 @@ function triggerEffect(effect2, debuggerEventExtraInfo) {
     }
   }
 }
+function getDepFromReactive(object, key) {
+  var _a2;
+  return (_a2 = targetMap.get(object)) === null || _a2 === void 0 ? void 0 : _a2.get(key);
+}
 var isNonTrackableKeys = makeMap(`__proto__,__v_isRef,__isVue`);
 var builtInSymbols = new Set(
   Object.getOwnPropertyNames(Symbol).filter((key) => key !== "arguments" && key !== "caller").map((key) => Symbol[key]).filter(isSymbol)
 );
-var get = createGetter();
+var get$1 = createGetter();
 var shallowGet = createGetter(false, true);
 var readonlyGet = createGetter(true);
 var shallowReadonlyGet = createGetter(true, true);
@@ -424,6 +433,11 @@ function createArrayInstrumentations() {
   });
   return instrumentations;
 }
+function hasOwnProperty(key) {
+  const obj = toRaw(this);
+  track(obj, "has", key);
+  return obj.hasOwnProperty(key);
+}
 function createGetter(isReadonly2 = false, shallow = false) {
   return function get2(target, key, receiver) {
     if (key === "__v_isReactive") {
@@ -436,8 +450,13 @@ function createGetter(isReadonly2 = false, shallow = false) {
       return target;
     }
     const targetIsArray = isArray(target);
-    if (!isReadonly2 && targetIsArray && hasOwn(arrayInstrumentations, key)) {
-      return Reflect.get(arrayInstrumentations, key, receiver);
+    if (!isReadonly2) {
+      if (targetIsArray && hasOwn(arrayInstrumentations, key)) {
+        return Reflect.get(arrayInstrumentations, key, receiver);
+      }
+      if (key === "hasOwnProperty") {
+        return hasOwnProperty;
+      }
     }
     const res = Reflect.get(target, key, receiver);
     if (isSymbol(key) ? builtInSymbols.has(key) : isNonTrackableKeys(key)) {
@@ -458,7 +477,7 @@ function createGetter(isReadonly2 = false, shallow = false) {
     return res;
   };
 }
-var set = createSetter();
+var set$1 = createSetter();
 var shallowSet = createSetter(true);
 function createSetter(shallow = false) {
   return function set2(target, key, value, receiver) {
@@ -497,7 +516,7 @@ function deleteProperty(target, key) {
   }
   return result;
 }
-function has(target, key) {
+function has$1(target, key) {
   const result = Reflect.has(target, key);
   if (!isSymbol(key) || !builtInSymbols.has(key)) {
     track(target, "has", key);
@@ -509,10 +528,10 @@ function ownKeys(target) {
   return Reflect.ownKeys(target);
 }
 var mutableHandlers = {
-  get,
-  set,
+  get: get$1,
+  set: set$1,
   deleteProperty,
-  has,
+  has: has$1,
   ownKeys
 };
 var readonlyHandlers = {
@@ -539,7 +558,7 @@ var shallowReadonlyHandlers = extend({}, readonlyHandlers, {
 });
 var toShallow = (value) => value;
 var getProto = (v) => Reflect.getPrototypeOf(v);
-function get$1(target, key, isReadonly2 = false, isShallow3 = false) {
+function get(target, key, isReadonly2 = false, isShallow3 = false) {
   target = target[
     "__v_raw"
     /* ReactiveFlags.RAW */
@@ -562,7 +581,7 @@ function get$1(target, key, isReadonly2 = false, isShallow3 = false) {
     target.get(key);
   }
 }
-function has$1(key, isReadonly2 = false) {
+function has(key, isReadonly2 = false) {
   const target = this[
     "__v_raw"
     /* ReactiveFlags.RAW */
@@ -596,7 +615,7 @@ function add(value) {
   }
   return this;
 }
-function set$1(key, value) {
+function set(key, value) {
   value = toRaw(value);
   const target = toRaw(this);
   const { has: has2, get: get2 } = getProto(target);
@@ -699,41 +718,41 @@ function createReadonlyMethod(type) {
 function createInstrumentations() {
   const mutableInstrumentations2 = {
     get(key) {
-      return get$1(this, key);
+      return get(this, key);
     },
     get size() {
       return size(this);
     },
-    has: has$1,
+    has,
     add,
-    set: set$1,
+    set,
     delete: deleteEntry,
     clear,
     forEach: createForEach(false, false)
   };
   const shallowInstrumentations2 = {
     get(key) {
-      return get$1(this, key, false, true);
+      return get(this, key, false, true);
     },
     get size() {
       return size(this);
     },
-    has: has$1,
+    has,
     add,
-    set: set$1,
+    set,
     delete: deleteEntry,
     clear,
     forEach: createForEach(false, true)
   };
   const readonlyInstrumentations2 = {
     get(key) {
-      return get$1(this, key, true);
+      return get(this, key, true);
     },
     get size() {
       return size(this, true);
     },
     has(key) {
-      return has$1.call(this, key, true);
+      return has.call(this, key, true);
     },
     add: createReadonlyMethod(
       "add"
@@ -755,13 +774,13 @@ function createInstrumentations() {
   };
   const shallowReadonlyInstrumentations2 = {
     get(key) {
-      return get$1(this, key, true, true);
+      return get(this, key, true, true);
     },
     get size() {
       return size(this, true);
     },
     has(key) {
-      return has$1.call(this, key, true);
+      return has.call(this, key, true);
     },
     add: createReadonlyMethod(
       "add"
@@ -951,16 +970,17 @@ function trackRefValue(ref2) {
 }
 function triggerRefValue(ref2, newVal) {
   ref2 = toRaw(ref2);
-  if (ref2.dep) {
+  const dep = ref2.dep;
+  if (dep) {
     if (true) {
-      triggerEffects(ref2.dep, {
+      triggerEffects(dep, {
         target: ref2,
         type: "set",
         key: "value",
         newValue: newVal
       });
     } else {
-      triggerEffects(ref2.dep);
+      triggerEffects(dep);
     }
   }
 }
@@ -1064,18 +1084,21 @@ var ObjectRefImpl = class {
   set value(newVal) {
     this._object[this._key] = newVal;
   }
+  get dep() {
+    return getDepFromReactive(toRaw(this._object), this._key);
+  }
 };
 function toRef(object, key, defaultValue) {
   const val = object[key];
   return isRef(val) ? val : new ObjectRefImpl(object, key, defaultValue);
 }
-var _a;
+var _a$1;
 var ComputedRefImpl = class {
   constructor(getter, _setter, isReadonly2, isSSR) {
     this._setter = _setter;
     this.dep = void 0;
     this.__v_isRef = true;
-    this[_a] = false;
+    this[_a$1] = false;
     this._dirty = true;
     this.effect = new ReactiveEffect(getter, () => {
       if (!this._dirty) {
@@ -1103,7 +1126,7 @@ var ComputedRefImpl = class {
     this._setter(newValue);
   }
 };
-_a = "__v_isReadonly";
+_a$1 = "__v_isReadonly";
 function computed(getterOrOptions, debugOptions, isSSR = false) {
   let getter;
   let setter;
@@ -1124,9 +1147,9 @@ function computed(getterOrOptions, debugOptions, isSSR = false) {
   }
   return cRef;
 }
-var _a$1;
+var _a;
 var tick = Promise.resolve();
-_a$1 = "__v_isReadonly";
+_a = "__v_isReadonly";
 
 // node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
 var stack = [];
@@ -1222,6 +1245,17 @@ function formatProp(key, value, raw) {
   } else {
     value = toRaw(value);
     return raw ? value : [`${key}=`, value];
+  }
+}
+function assertNumber(val, type) {
+  if (false)
+    return;
+  if (val === void 0) {
+    return;
+  } else if (typeof val !== "number") {
+    warn2(`${type} is not a valid number - got ${JSON.stringify(val)}.`);
+  } else if (isNaN(val)) {
+    warn2(`${type} is NaN - the duration expression might be incorrect.`);
   }
 }
 var ErrorTypeStrings = {
@@ -1675,7 +1709,7 @@ function tryWrap(fn) {
 var devtools;
 var buffer = [];
 var devtoolsNotInstalled = false;
-function emit(event, ...args) {
+function emit$1(event, ...args) {
   if (devtools) {
     devtools.emit(event, ...args);
   } else if (!devtoolsNotInstalled) {
@@ -1714,7 +1748,7 @@ function setDevtoolsHook(hook, target) {
   }
 }
 function devtoolsInitApp(app, version2) {
-  emit("app:init", app, version2, {
+  emit$1("app:init", app, version2, {
     Fragment,
     Text,
     Comment,
@@ -1722,7 +1756,7 @@ function devtoolsInitApp(app, version2) {
   });
 }
 function devtoolsUnmountApp(app) {
-  emit("app:unmount", app);
+  emit$1("app:unmount", app);
 }
 var devtoolsComponentAdded = createDevtoolsComponentHook(
   "component:added"
@@ -1744,7 +1778,7 @@ var devtoolsComponentRemoved = (component) => {
 };
 function createDevtoolsComponentHook(hook) {
   return (component) => {
-    emit(hook, component.appContext.app, component.uid, component.parent ? component.parent.uid : void 0, component);
+    emit$1(hook, component.appContext.app, component.uid, component.parent ? component.parent.uid : void 0, component);
   };
 }
 var devtoolsPerfStart = createDevtoolsPerformanceHook(
@@ -1757,13 +1791,13 @@ var devtoolsPerfEnd = createDevtoolsPerformanceHook(
 );
 function createDevtoolsPerformanceHook(hook) {
   return (component, type, time) => {
-    emit(hook, component.appContext.app, component.uid, component, type, time);
+    emit$1(hook, component.appContext.app, component.uid, component, type, time);
   };
 }
 function devtoolsComponentEmit(component, event, params) {
-  emit("component:emit", component.appContext.app, component, event, params);
+  emit$1("component:emit", component.appContext.app, component, event, params);
 }
-function emit$1(instance, event, ...rawArgs) {
+function emit(instance, event, ...rawArgs) {
   if (instance.isUnmounted)
     return;
   const props = instance.vnode.props || EMPTY_OBJ;
@@ -1795,7 +1829,7 @@ function emit$1(instance, event, ...rawArgs) {
       args = rawArgs.map((a) => isString(a) ? a.trim() : a);
     }
     if (number) {
-      args = rawArgs.map(toNumber);
+      args = rawArgs.map(looseToNumber);
     }
   }
   if (true) {
@@ -2303,7 +2337,10 @@ function createSuspenseBoundary(vnode, parent, parentComponent, container, hidde
     console[console.info ? "info" : "log"](`<Suspense> is an experimental feature and its API will likely change.`);
   }
   const { p: patch, m: move, um: unmount, n: next, o: { parentNode, remove: remove2 } } = rendererInternals;
-  const timeout = toNumber(vnode.props && vnode.props.timeout);
+  const timeout = vnode.props ? toNumber(vnode.props.timeout) : void 0;
+  if (true) {
+    assertNumber(timeout, `Suspense timeout`);
+  }
   const suspense = {
     vnode,
     parent,
@@ -2628,7 +2665,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = EM
   const warnInvalidSource = (s) => {
     warn2(`Invalid watch source: `, s, `A watch source can only be a getter/effect function, a ref, a reactive object, or an array of these types.`);
   };
-  const instance = currentInstance;
+  const instance = getCurrentScope() === (currentInstance === null || currentInstance === void 0 ? void 0 : currentInstance.scope) ? currentInstance : null;
   let getter;
   let forceTrigger = false;
   let isMultiSource = false;
@@ -3334,7 +3371,7 @@ var KeepAliveImpl = {
     }
     function pruneCacheEntry(key) {
       const cached = cache.get(key);
-      if (!current || cached.type !== current.type) {
+      if (!current || !isSameVNodeType(cached, current)) {
         unmount(cached);
       } else if (current) {
         resetShapeFlag(current);
@@ -3363,7 +3400,7 @@ var KeepAliveImpl = {
       cache.forEach((cached) => {
         const { subTree, suspense } = instance;
         const vnode = getInnerChild(subTree);
-        if (cached.type === vnode.type) {
+        if (cached.type === vnode.type && cached.key === vnode.key) {
           resetShapeFlag(vnode);
           const da = vnode.component.da;
           da && queuePostRenderEffect(da, suspense);
@@ -3433,7 +3470,7 @@ function matches(pattern, name) {
     return pattern.some((p2) => matches(p2, name));
   } else if (isString(pattern)) {
     return pattern.split(",").includes(name);
-  } else if (pattern.test) {
+  } else if (isRegExp(pattern)) {
     return pattern.test(name);
   }
   return false;
@@ -4659,8 +4696,8 @@ function validatePropName(key) {
   return false;
 }
 function getType(ctor) {
-  const match = ctor && ctor.toString().match(/^\s*function (\w+)/);
-  return match ? match[1] : ctor === null ? "null" : "";
+  const match = ctor && ctor.toString().match(/^\s*(function|class) (\w+)/);
+  return match ? match[2] : ctor === null ? "null" : "";
 }
 function isSameType(a, b) {
   return getType(a) === getType(b);
@@ -4876,7 +4913,7 @@ function createAppContext() {
     emitsCache: /* @__PURE__ */ new WeakMap()
   };
 }
-var uid = 0;
+var uid$1 = 0;
 function createAppAPI(render2, hydrate2) {
   return function createApp2(rootComponent, rootProps = null) {
     if (!isFunction(rootComponent)) {
@@ -4890,7 +4927,7 @@ function createAppAPI(render2, hydrate2) {
     const installedPlugins = /* @__PURE__ */ new Set();
     let isMounted = false;
     const app = context.app = {
-      _uid: uid++,
+      _uid: uid$1++,
       _component: rootComponent,
       _props: rootProps,
       _container: null,
@@ -5544,6 +5581,7 @@ function baseCreateRenderer(options, createHydrationFns) {
     if (dirs) {
       invokeDirectiveHook(vnode, null, parentComponent, "created");
     }
+    setScopeId(el, vnode, vnode.scopeId, slotScopeIds, parentComponent);
     if (props) {
       for (const key in props) {
         if (key !== "value" && !isReservedProp(key)) {
@@ -5557,7 +5595,6 @@ function baseCreateRenderer(options, createHydrationFns) {
         invokeVNodeHook(vnodeHook, parentComponent, vnode);
       }
     }
-    setScopeId(el, vnode, vnode.scopeId, slotScopeIds, parentComponent);
     if (true) {
       Object.defineProperty(el, "__vnode", {
         value: vnode,
@@ -6877,7 +6914,8 @@ function cloneVNode(vnode, extraProps, mergeRef = false) {
     ssFallback: vnode.ssFallback && cloneVNode(vnode.ssFallback),
     el: vnode.el,
     anchor: vnode.anchor,
-    ctx: vnode.ctx
+    ctx: vnode.ctx,
+    ce: vnode.ce
   };
   return cloned;
 }
@@ -6994,12 +7032,12 @@ function invokeVNodeHook(hook, instance, vnode, prevVNode = null) {
   ]);
 }
 var emptyAppContext = createAppContext();
-var uid$1 = 0;
+var uid = 0;
 function createComponentInstance(vnode, parent, suspense) {
   const type = vnode.type;
   const appContext = (parent ? parent.appContext : vnode.appContext) || emptyAppContext;
   const instance = {
-    uid: uid$1++,
+    uid: uid++,
     vnode,
     type,
     parent,
@@ -7074,7 +7112,7 @@ function createComponentInstance(vnode, parent, suspense) {
     instance.ctx = { _: instance };
   }
   instance.root = parent ? parent.root : instance;
-  instance.emit = emit$1.bind(null, instance);
+  instance.emit = emit.bind(null, instance);
   if (vnode.ce) {
     vnode.ce(instance);
   }
@@ -7276,8 +7314,23 @@ function createAttrsProxy(instance) {
 }
 function createSetupContext(instance) {
   const expose = (exposed) => {
-    if (instance.exposed) {
-      warn2(`expose() should be called only once per setup().`);
+    if (true) {
+      if (instance.exposed) {
+        warn2(`expose() should be called only once per setup().`);
+      }
+      if (exposed != null) {
+        let exposedType = typeof exposed;
+        if (exposedType === "object") {
+          if (isArray(exposed)) {
+            exposedType = "array";
+          } else if (isRef(exposed)) {
+            exposedType = "ref";
+          }
+        }
+        if (exposedType !== "object") {
+          warn2(`expose() should be passed a plain object, received ${exposedType}.`);
+        }
+      }
     }
     instance.exposed = exposed || {};
   };
@@ -7670,7 +7723,7 @@ function isMemoSame(cached, memo) {
   }
   return true;
 }
-var version = "3.2.45";
+var version = "3.2.47";
 var _ssrUtils = {
   createComponentInstance,
   setupComponent,
@@ -7767,15 +7820,15 @@ function patchStyle(el, prev, next) {
   const style = el.style;
   const isCssString = isString(next);
   if (next && !isCssString) {
-    for (const key in next) {
-      setStyle(style, key, next[key]);
-    }
     if (prev && !isString(prev)) {
       for (const key in prev) {
         if (next[key] == null) {
           setStyle(style, key, "");
         }
       }
+    }
+    for (const key in next) {
+      setStyle(style, key, next[key]);
     }
   } else {
     const currentDisplay = style.display;
@@ -8422,16 +8475,10 @@ function normalizeDuration(duration) {
 }
 function NumberOf(val) {
   const res = toNumber(val);
-  if (true)
-    validateDuration(res);
-  return res;
-}
-function validateDuration(val) {
-  if (typeof val !== "number") {
-    warn2(`<transition> explicit duration is not a valid number - got ${JSON.stringify(val)}.`);
-  } else if (isNaN(val)) {
-    warn2(`<transition> explicit duration is NaN - the duration expression might be incorrect.`);
+  if (true) {
+    assertNumber(res, "<transition> explicit duration");
   }
+  return res;
 }
 function addTransitionClass(el, cls) {
   cls.split(/\s+/).forEach((c) => c && el.classList.add(c));
@@ -8602,6 +8649,8 @@ var TransitionGroupImpl = {
     };
   }
 };
+var removeMode = (props) => delete props.mode;
+removeMode(TransitionGroupImpl.props);
 var TransitionGroup = TransitionGroupImpl;
 function callPendingCbs(c) {
   const el = c.el;
@@ -8668,7 +8717,7 @@ var vModelText = {
         domValue = domValue.trim();
       }
       if (castToNumber) {
-        domValue = toNumber(domValue);
+        domValue = looseToNumber(domValue);
       }
       el._assign(domValue);
     });
@@ -8698,7 +8747,7 @@ var vModelText = {
       if (trim && el.value.trim() === value) {
         return;
       }
-      if ((number || el.type === "number") && toNumber(el.value) === value) {
+      if ((number || el.type === "number") && looseToNumber(el.value) === value) {
         return;
       }
     }
@@ -8779,7 +8828,7 @@ var vModelSelect = {
   created(el, { value, modifiers: { number } }, vnode) {
     const isSetModel = isSet(value);
     addEventListener(el, "change", () => {
-      const selectedVal = Array.prototype.filter.call(el.options, (o) => o.selected).map((o) => number ? toNumber(getValue(o)) : getValue(o));
+      const selectedVal = Array.prototype.filter.call(el.options, (o) => o.selected).map((o) => number ? looseToNumber(getValue(o)) : getValue(o));
       el._assign(el.multiple ? isSetModel ? new Set(selectedVal) : selectedVal : selectedVal[0]);
     });
     el._assign = getModelAssigner(vnode);
@@ -9147,6 +9196,7 @@ export {
   toRefs,
   toRef,
   warn2 as warn,
+  assertNumber,
   callWithErrorHandling,
   callWithAsyncErrorHandling,
   handleError,
@@ -9259,4 +9309,4 @@ export {
   initDirectivesForSSR,
   compile2 as compile
 };
-//# sourceMappingURL=chunk-GPKUFA23.js.map
+//# sourceMappingURL=chunk-K4I7CSBL.js.map

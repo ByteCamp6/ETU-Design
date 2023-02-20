@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 165px">
+  <div >
     <etu-select v-model="value" clearable placeholder="please select a option">
       <etu-option
         v-for="item in options"

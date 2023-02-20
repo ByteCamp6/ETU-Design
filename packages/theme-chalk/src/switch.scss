@@ -17,7 +17,7 @@
   height: $L;
   aspect-ratio: 1 / 1;
   background-color: white;
-  border-radius: 50%;
+  border-radius: 9999px;
   &:hover {
     cursor: pointer;
   }
@@ -39,9 +39,9 @@
   display: none;
 }
 .etu-Switch {
-  @include baseFunction(90px * 0.8, 50px * 0.8);
+  @include baseFunction(50px * 0.8, 25px * 0.8);
 }
-$Len: 50px;
+$Len: 25px;
 @each $bgc in (crimson, limegreen, dodgerblue, mediumpurple) {
   @each $sz in (large, normal, small) {
     @each $state in (true, false) {
@@ -50,7 +50,7 @@ $Len: 50px;
         @include setState($state, true);
 
         @if (#{$sz} == large) {
-          $Len: 50px;
+          $Len: 25px;
           .etu-Switch-inBox {
             @include inBox($Len);
             transition: margin-left 0.3s;
@@ -58,13 +58,13 @@ $Len: 50px;
           }
           @include when(checked) {
             .etu-Switch-inBox {
-              @include setMarginLeft(90px, 50px);
+              @include setMarginLeft(50px, 25px);
             }
           }
-          @include baseFunction(90px, 50px);
+          @include baseFunction(50px, 25px);
         } @else if(#{$sz} == normal) {
           @extend .etu-Switch;
-          $Len: 50px * 0.8;
+          $Len: 25px * 0.8;
           .etu-Switch-inBox {
             @include inBox($Len);
             transition: margin-left 0.3s;
@@ -72,12 +72,12 @@ $Len: 50px;
           }
           @include when(checked) {
             .etu-Switch-inBox {
-              @include setMarginLeft(90px * 0.8, 50px * 0.8);
+              @include setMarginLeft(50px * 0.8, 25px * 0.8);
             }
           }
         } @else {
-          @include baseFunction(90px * 0.8 * 0.8, 50px * 0.8 * 0.8);
-          $Len: 50px * 0.8 * 0.8;
+          @include baseFunction(50px * 0.8 * 0.8, 25px * 0.8 * 0.8);
+          $Len: 25px * 0.8 * 0.8;
           .etu-Switch-inBox {
             @include inBox($Len);
             transition: margin-left 0.3s;
@@ -85,7 +85,7 @@ $Len: 50px;
           }
           @include when(checked) {
             .etu-Switch-inBox {
-              @include setMarginLeft(90px * 0.8 * 0.8, 50px * 0.8 * 0.8);
+              @include setMarginLeft(50px * 0.8 * 0.8, 25px * 0.8 * 0.8);
             }
           }
         }

@@ -5,8 +5,7 @@
       class="RealCheck"
       :true-value="activeValue"
       :false-value="inactiveValue"
-      :value="valueBridge"
-      @change="handleChange"
+      v-model="valueBridge"
       :disabled="isDisabled"
     />
     <div class="etu-Switch-inBox"></div>
@@ -18,7 +17,7 @@
 import { useDisabled, useNamespace } from "../../hooks";
 const bem = useNamespace("Switch");
 import { computed, ref } from "vue";
-import { isBoolean, isPropAbsent, isUndefined } from "@etu-design/utils";
+import { isBoolean, isPropAbsent } from "@etu-design/utils";
 
 // const emit = defineEmits(switchEmits);
 const emits = defineEmits<{
@@ -60,8 +59,17 @@ const props = defineProps({
   },
 });
 const innerValue = ref<boolean | string | number>(false);
-const valueBridge = computed(() => {
-  return !isPropAbsent(props.modelValue) ? props.modelValue : innerValue.value;
+const valueBridge = computed<boolean | string | number>({
+  get() {
+    return !isPropAbsent(props.modelValue)
+      ? props.modelValue
+      : innerValue.value;
+  },
+  set(v) {
+    emits("change", v);
+    emits("update:modelValue", v);
+    innerValue.value = v;
+  },
 });
 const isCheck = computed<boolean>(() => {
   if (isBoolean(valueBridge.value)) {
@@ -78,20 +86,4 @@ const tClass = computed(() => {
     bem.is("checked", isCheck.value),
   ];
 });
-const handleChange = (e: Event): void => {
-  console.log(3);
-  const target = e.target as HTMLInputElement;
-  const checked = target.checked;
-  const value = checked
-    ? isPropAbsent(props.activeValue)
-      ? checked
-      : props.activeValue
-    : isPropAbsent(props.inactiveValue)
-    ? checked
-    : props.inactiveValue;
-  console.log(value);
-  emits("change", value);
-  emits("update:modelValue", value);
-  innerValue.value = value;
-};
 </script>
