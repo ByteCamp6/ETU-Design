@@ -1,6 +1,6 @@
 <template>
-  <!-- <DropDown></DropDown> -->
-  <!-- <DatePicker></DatePicker>
+  <DropDown></DropDown>
+  <DatePicker></DatePicker>
   <Scrollbar></Scrollbar>
   <Popper></Popper>
   <Avatar></Avatar>
@@ -14,9 +14,9 @@
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
   <Icon></Icon>
-  <Tag></Tag> -->
+  <Tag></Tag>
   <Select></Select>
-  <!-- <Tag></Tag>
+  <Tag></Tag>
   <Checkbox></Checkbox>
   <Divider></Divider>
   <Drawer></Drawer>
@@ -26,15 +26,16 @@
   <Message></Message>
   <Link />
   <Upload></Upload>
-  <Input /> -->
-  <!-- <router-view></router-view> -->
-  <!-- <Tree></Tree> -->
+  <Input />
+  <Switch></Switch>
+  <Tree></Tree>
   <router-view></router-view>
-  <!-- <Tag type="success" round
+  <Tag type="success" round
     ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
   ></Tag>
-  <br />
-  <Layer></Layer> -->
+  <Layer></Layer>
+  <Layer></Layer>
+  <Form></Form>
 </template>
 
 <script setup lang="ts">
@@ -65,6 +66,7 @@ import Layer from "./components/layer.vue";
 import DatePicker from "./components/DatePicker.vue";
 import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
+import Form from "./components/Form.vue";
 import DropDown from "./components/Dropdown.vue";
 </script>
 

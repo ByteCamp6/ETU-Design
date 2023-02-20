@@ -7,11 +7,59 @@ export const dropDownProps = {
     type: Boolean,
     default: true,
   },
+  splitButton: {
+    type: Boolean,
+    default: false,
+  },
+  type: {
+    type: String,
+    values: ["primary", "success", "warning", "info", "danger", "default"],
+    default: "primary",
+  },
+  size: {
+    type: String,
+    values: ["large", "default", "small"],
+    default: "default",
+  },
+  placement: {
+    type: String,
+    default: "bottom",
+    validator: (value: string) => {
+      return (
+        [
+          "auto",
+          "auto-start",
+          "auto-end",
+          "top",
+          "top-start",
+          "top-end",
+          "bottom",
+          "bottom-start",
+          "bottom-end",
+          "right",
+          "right-start",
+          "right-end",
+          "left",
+          "left-start",
+          "left-end",
+        ].indexOf(value) !== -1
+      );
+    },
+  },
+  trigger: {
+    type: String,
+    default: "hover",
+  },
+  arrowDown: {
+    type: Boolean,
+    default: true,
+  },
 } as const;
-export type dropDownProps = ExtractPropTypes<typeof dropDownProps>;
-export const DropDownEmits = {
+export type DropDownProps = ExtractPropTypes<typeof dropDownProps>;
+export const dropdownEmits = {
+  command: (env: MouseEvent, command: string | number | object) => true,
   click: (env: MouseEvent) => env instanceof MouseEvent,
 };
-export type DropDownEmits = typeof DropDownEmits;
+export type dropdownEmits = typeof dropdownEmits;
 
 export type DropDownInstance = InstanceType<typeof DropDown>;

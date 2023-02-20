@@ -5,9 +5,6 @@
   height: 1em;
   width: 1em;
   line-height: 1em;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
   fill: currentColor; /* 常规css中是没有fill属性的，只在XML-CSS中存在，用于设置当前元素的填充内容，例如颜色，图片 */
   color: var(--color);
@@ -31,15 +28,15 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: inline-block;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
 }
 @font-face {
   font-family: "etu-font"; /* Project id 3867408 */
-  src: url("iconfont.woff2?t=1674050671686") format("woff2"),
-    url("iconfont.woff?t=1674050671686") format("woff"),
-    url("iconfont.ttf?t=1674050671686") format("truetype");
+  src: url("./fonts/iconfont.woff2?t=1674050671686") format("woff2"),
+    url("./fonts/iconfont.woff?t=1674050671686") format("woff"),
+    url("./fonts/iconfont.ttf?t=1674050671686") format("truetype");
 }
 
 .etu-i-3column:before {
