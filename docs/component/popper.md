@@ -63,3 +63,13 @@ title: Popper
 | :----- | :--------- | :------- |
 | open   | 显示时触发 | —        |
 | close  | 关闭时触发 | —        |
+
+## popper方法
+
+| 方法名  | 说明                               |
+| ------- | ---------------------------------- |
+| doOpen  | 打开popper（受openDelay延时影响）  |
+| doClose | 关闭popper（受closeDelay延时影响） |
+| open    | 强行打开popper（无延时）           |
+| close   | 强行关闭popper（无延时）           |
+| isOpen  | 当前的状态                         |

@@ -42,6 +42,14 @@ title: Table
 
 <preview path="../examples/table/fixAll.vue" title="" description=""></preview>
 
+## 流体高度
+
+当数据量动态变化时，可以为 Table 设置一个最大高度。
+
+通过设置 `max-height` 属性来指定最大高度。 此时若表格所需的高度大于最大高度，则会显示一个滚动条
+
+<preview path="../examples/table/fluidHeight.vue" title="" description=""></preview>
+
 ## 多选
 
 通过设置 `row-selection` 开启行选择器。
@@ -56,19 +64,19 @@ title: Table
 
 ## 排序
 
-通过设置 `columns` 中的 `sortable`属性，可以配置排序功能。
+通过设置 `columns` 中的 `sortable`属性，可以配置排序功能，修改排序方式和自定义排序函数。
 
 <preview path="../examples/table/sort.vue" title="" description=""></preview>
 
 ## 筛选
 
-通过设置 `columns` 中的 `filterable`属性，可以配置排序功能。
+通过设置 `columns` 中的 `filterable`属性，可以配置筛选功能，自定义筛选方式，筛选组合形式等。
 
 <preview path="../examples/table/filterable.vue" title="" description=""></preview>
 
 ## 自定义渲染
 
-通过设置`columns`中的`headerRender`和`cellRender`，可以对列进行自定义渲染
+通过设置`columns`中的`headerRender`和`cellRender`，可以对列进行自定义渲染，设置`headerCellClass`,`bodyCellClass`可以为表头和单元格添加类
 
 <preview path="../examples/table/custom.vue" title="" description=""></preview>
 
