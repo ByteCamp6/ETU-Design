@@ -72,3 +72,9 @@ title: Select
 | 名称 | 说明           |
 | :--- | :------------- |
 | —    | 自定义默认内容 |
+
+<style>
+  .vitepress-demo-preview__element-plus__container {
+    overflow: unset;
+  }
+</style>

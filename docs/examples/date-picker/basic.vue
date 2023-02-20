@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 350px">
+  <div>
     <etu-date-picker v-model="value"></etu-date-picker>
   </div>
 </template>

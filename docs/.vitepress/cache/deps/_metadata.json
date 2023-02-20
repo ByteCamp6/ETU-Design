@@ -1,22 +1,36 @@
 {
+<<<<<<< HEAD
   "hash": "13d08d21",
   "browserHash": "98e58c05",
+=======
+  "hash": "27583d46",
+  "browserHash": "23df7f3e",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
+<<<<<<< HEAD
       "fileHash": "68479cdc",
+=======
+      "fileHash": "72cf1c96",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": false
     },
     "@vitepress-demo-preview/component": {
       "src": "../../../../node_modules/@vitepress-demo-preview/component/dist/preview-component.js",
       "file": "@vitepress-demo-preview_component.js",
+<<<<<<< HEAD
       "fileHash": "bf5ec535",
+=======
+      "fileHash": "8d65d730",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": false
     },
     "async-validator": {
       "src": "../../../../node_modules/async-validator/dist-web/index.js",
       "file": "async-validator.js",
+<<<<<<< HEAD
       "fileHash": "ca9927a4",
       "needsInterop": false
     },
@@ -24,51 +38,82 @@
       "src": "../../../../node_modules/vue-router/dist/vue-router.mjs",
       "file": "vue-router.js",
       "fileHash": "2857c640",
+=======
+      "fileHash": "5c7fe1cc",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": false
     },
     "lodash-unified": {
       "src": "../../../../node_modules/lodash-unified/import.js",
       "file": "lodash-unified.js",
+<<<<<<< HEAD
       "fileHash": "95a0218b",
+=======
+      "fileHash": "40e856fb",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": false
     },
     "@vue/shared": {
       "src": "../../../../node_modules/@vue/shared/dist/shared.esm-bundler.js",
       "file": "@vue_shared.js",
+<<<<<<< HEAD
       "fileHash": "397100ba",
+=======
+      "fileHash": "708aef01",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": false
     },
     "@vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "@vueuse_core.js",
+<<<<<<< HEAD
       "fileHash": "02326fe5",
+=======
+      "fileHash": "469ea9bb",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": false
     },
     "dayjs": {
       "src": "../../../../node_modules/dayjs/dayjs.min.js",
       "file": "dayjs.js",
+<<<<<<< HEAD
       "fileHash": "46a42aed",
+=======
+      "fileHash": "f7bcf8a5",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": true
     },
     "dayjs/plugin/isLeapYear": {
       "src": "../../../../node_modules/dayjs/plugin/isLeapYear.js",
       "file": "dayjs_plugin_isLeapYear.js",
+<<<<<<< HEAD
       "fileHash": "716964ca",
+=======
+      "fileHash": "21694590",
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
       "needsInterop": true
     },
     "@popperjs/core": {
       "src": "../../../../node_modules/@popperjs/core/lib/index.js",
       "file": "@popperjs_core.js",
-      "fileHash": "83341e8e",
+      "fileHash": "e62bde0e",
       "needsInterop": false
     }
   },
   "chunks": {
+<<<<<<< HEAD
     "chunk-GPKUFA23": {
       "file": "chunk-GPKUFA23.js"
     },
     "chunk-HQUR2J2E": {
       "file": "chunk-HQUR2J2E.js"
+=======
+    "chunk-K4I7CSBL": {
+      "file": "chunk-K4I7CSBL.js"
+    },
+    "chunk-2D2BEOV3": {
+      "file": "chunk-2D2BEOV3.js"
+>>>>>>> e0162de2a4daaedc1db63f6c5b093a7aff8f27bb
     },
     "chunk-RSJERJUL": {
       "file": "chunk-RSJERJUL.js"
