@@ -6,11 +6,11 @@ title: Icon
 
 一套常用的图标集合。
 
-## 图标集合
+## 基础用法
+<preview path="../examples/icon/normal.vue" title="" description=""></preview>
 
-<script setup>
-import Basic from '../examples/icon/basic.vue'
-</script>
+## 图标集合
+<preview path="../examples/icon/basic.vue" title="" description=""></preview>
 
 <Basic></Basic>
 
