@@ -68,8 +68,7 @@ const { date, originDate, type } = toRefs(datePicker);
 const { model, value } = toRefs(props);
 const ns = useNamespace("date-picker");
 
-console.log(value);
-
+console.log(value.value);
 const yearRange = computed(() => {
   const year = Math.floor(value.value.year() / 10) * 10;
   return `${year}-${year + 10 - 1}`;
@@ -87,7 +86,6 @@ const navInnerClass = computed(() => {
   return [ns.e("nav-inner")];
 });
 
-console.log(props.index);
 const handleClickYear = (option: string) => {
   if (option === "add") {
     type.value === "year"

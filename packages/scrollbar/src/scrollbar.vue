@@ -62,7 +62,10 @@ const wrapperStyle = computed(() => {
 });
 
 const handleScroll = () => {
+<<<<<<< HEAD
+=======
   if (!props.native) return;
+>>>>>>> 0bec4eacde08cb38ed511badec33b2384be5366b
   if (wrap.value) {
     barRef.value?.handleScroll(wrap.value);
 

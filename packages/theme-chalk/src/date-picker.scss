@@ -42,7 +42,7 @@
     background-color: getCssVar("date-picker", "bg-color");
     border-radius: getCssVar("date-picker", "border-radius");
     box-shadow: getRootCssVar("shadow-3");
-    z-index: 100;
+    z-index: 9999;
     @include e("nav") {
       display: flex;
       align-items: center;

@@ -53,7 +53,7 @@ const handleClickCell = (item) => {
 
 const init = () => {
   const today = now();
-  const selectedYear = getYear();
+  const selectedYear = originDate.value ? getYear() : "";
   const nYear = today.year();
   let cnt = Math.floor(date.value.year() / 10) * 10;
   for (const arr of years) {

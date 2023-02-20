@@ -28,12 +28,12 @@
   <Upload></Upload>
   <Input />
   <Switch></Switch>
-  <!-- <router-view></router-view> -->
   <Tree></Tree>
   <router-view></router-view>
   <Tag type="success" round
     ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
   ></Tag>
+  <Layer></Layer>
   <Layer></Layer>
   <Form></Form>
 </template>
@@ -62,7 +62,7 @@ import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
 import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
-import Layer from "./components/Layer.vue";
+import Layer from "./components/layer.vue";
 import DatePicker from "./components/DatePicker.vue";
 import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
