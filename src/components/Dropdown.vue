@@ -5,7 +5,6 @@
     size="small"
     type="primary"
     @click="handleClick"
-    placement="right"
     trigger="hover"
   >
     下拉菜单

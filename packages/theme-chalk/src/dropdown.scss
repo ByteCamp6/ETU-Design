@@ -76,7 +76,8 @@ $dropdown-padding: map.merge(
   padding-inline-start: 0 !important;
 }
 @include b(dropdown-button-group) {
-  font-size: 14px;
+  line-height: 19px;
+  // font-size: 14px;
   background-color: getCssVar("dropdown", "bg-color");
   display: inline-block;
   padding: getCssVar("dropdown", "padding-size");
@@ -84,11 +85,13 @@ $dropdown-padding: map.merge(
   &:hover {
     background-color: getCssVar("dropdown", "hover-bg-color");
   }
-
+  vertical-align: middle;
   border: 0px;
   color: white;
   i {
-    font-size: 18px;
+    line-height: 16px;
+    position: relative;
+    top: 1px;
   }
   @each $type in $types {
     &--#{$type} {
