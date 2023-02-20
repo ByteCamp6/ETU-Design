@@ -1,8 +1,4 @@
 export const dialogContentProps = {
-  center: {
-    type: Boolean,
-    default: false,
-  },
   alignCenter: {
     type: Boolean,
     default: false,
