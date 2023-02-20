@@ -25,10 +25,11 @@
 @mixin setBgColor($bg) {
   background-color: $bg;
 }
-@mixin setState($s) {
-
+@mixin setState($s, $l) {
   @if ($s == true) {
-    opacity: 0.6;
+    @if ($l == true) {
+      opacity: 0.6;
+    }
     &:hover {
       cursor: not-allowed;
     }
@@ -46,15 +47,19 @@ $Len: 50px;
     @each $state in (true, false) {
       .etu-Switch-#{$bgc + ""}__#{$state}--#{$sz} {
         @include setBgColor(grey);
-        @include setState($state);
+        @include setState($state, true);
+
         @if (#{$sz} == large) {
           $Len: 50px;
           .etu-Switch-inBox {
             @include inBox($Len);
             transition: margin-left 0.3s;
+            @include setState($state, false);
           }
-          & input[type="checkbox"]:checked + .etu-Switch-inBox {
-            @include setMarginLeft(90px, 50px);
+          @include when(checked) {
+            .etu-Switch-inBox {
+              @include setMarginLeft(90px, 50px);
+            }
           }
           @include baseFunction(90px, 50px);
         } @else if(#{$sz} == normal) {
@@ -63,9 +68,12 @@ $Len: 50px;
           .etu-Switch-inBox {
             @include inBox($Len);
             transition: margin-left 0.3s;
+            @include setState($state, false);
           }
-          & input[type="checkbox"]:checked + .etu-Switch-inBox {
-            @include setMarginLeft(90px * 0.8, 50px * 0.8);
+          @include when(checked) {
+            .etu-Switch-inBox {
+              @include setMarginLeft(90px * 0.8, 50px * 0.8);
+            }
           }
         } @else {
           @include baseFunction(90px * 0.8 * 0.8, 50px * 0.8 * 0.8);
@@ -73,9 +81,12 @@ $Len: 50px;
           .etu-Switch-inBox {
             @include inBox($Len);
             transition: margin-left 0.3s;
+            @include setState($state, false);
           }
-          & input[type="checkbox"]:checked + .etu-Switch-inBox {
-            @include setMarginLeft(90px * 0.8 * 0.8, 50px * 0.8 * 0.8);
+          @include when(checked) {
+            .etu-Switch-inBox {
+              @include setMarginLeft(90px * 0.8 * 0.8, 50px * 0.8 * 0.8);
+            }
           }
         }
 
