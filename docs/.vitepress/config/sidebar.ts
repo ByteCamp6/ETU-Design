@@ -5,7 +5,6 @@ export default {
       items: [
         // This shows `/guide/index.md` page.
         { text: "团队", link: "/guide/team.md" }, // /guide/index.md
-        { text: "安装", link: "/guide/installation.md" }, // /guide/one.md
         { text: "快速开始", link: "/guide/quickstart.md" }, // /guide/two.md
       ],
     },
