@@ -29,3 +29,20 @@ $ pnpm install etu-design
 ```
 
 如果您的网络环境不好，建议使用相关镜像服务 `cnpm` 或 中国 `NPM` 镜像。
+
+## 完整引入
+
+如果你对打包后的文件大小不是很在乎，那么使用完整导入会更方便。
+
+```typescript
+// main.ts
+import { createApp } from "vue";
+import ETU from "etu-design";
+import "etu-design/theme-chalk/index.css";
+import App from "./App.vue";
+
+const app = createApp(App);
+
+app.use(ETU as any);
+app.mount("#app");
+```
