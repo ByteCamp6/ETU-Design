@@ -9,12 +9,14 @@
 @each $mode in horizontal , vertical {
   .etu-menuGroup__#{$mode} {
     @if(#{$mode} == horizontal) {
-      @include buildMode(94rem,3rem);
+      //@include buildMode(94rem,3rem);
+      @include buildMode(100%,30%);
       display: flex;
       flex-direction: row;
     }
     @else {
-      @include buildMode(9rem,50.6rem);
+      //@include buildMode(9rem,50.6rem);
+      @include buildMode(20%,100%rem);
     }
   }
 }
