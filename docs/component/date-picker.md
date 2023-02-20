@@ -2,7 +2,7 @@
 title: DatePicker
 ---
 
-# DatePicker 面包屑
+# DatePicker 日期选择器
 
 显示当前页面的路径，快速返回之前的任意页面。
 
@@ -30,12 +30,14 @@ title: DatePicker
 
 ## DatePicker 属性
 
-| 属性名                | 说明                               | 类型                           | 默认值 |
-| :-------------------- | :--------------------------------- | :----------------------------- | :----- |
-| model-value / v-model | 绑定值，如果它是数组，长度应该是 2 | Date / number / string / Array | —      |
-| readonly              | 只读                               | boolean                        | false  |
-| disabled              | 禁用                               | boolean                        | false  |
-| placeholder           | 是否为全屏 Dialog                  | placeholder                    | false  |
+| 属性名                | 说明                               | 类型                           | 默认值              |
+| :-------------------- | :--------------------------------- | :----------------------------- | :------------------ |
+| model-value / v-model | 绑定值，如果它是数组，长度应该是 2 | Date / number / string / Array | —                   |
+| readonly              | 只读                               | boolean                        | false               |
+| disabled              | 禁用                               | boolean                        | false               |
+| placeholder           | 是否为全屏 Dialog                  | string                         | -                   |
+| type                  | 显示类型                           | string                         | date                |
+| format                | 显示在输入框中的格式               | string                         | YYYY-MM-DD HH:mm:ss |
 
 ## DatePicker 插槽
 
