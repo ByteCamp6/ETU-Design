@@ -1,0 +1,41 @@
+@use "mixins/mixins" as *;
+
+//etu-menuItem-hover__white--black
+@mixin buildMenuItem($bgColor,$fontColor) {
+  text-align: center;
+  font-size: 22px;
+  max-height: 50%;
+  height: 9%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 13px;
+  width: 100%;
+  z-index: 100;
+  background-color: $bgColor;
+  color: $fontColor;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.4;
+    background: grey;
+  }
+}
+@each $bgColor in (crimson , dodgerblue , limegreen , grey , darkorange , black , white , inherit ,lightslategrey) {
+  @each $fontColor in (crimson , dodgerblue , limegreen , grey , darkorange , black , white , inherit , lightslategrey) {
+    .etu-menuItem-hover__#{$bgColor+""}--#{$fontColor+""} {
+      @include buildMenuItem($bgColor,$fontColor);
+    }
+  }
+}
+@each $disabled in true , false {
+  .etu-menuItem__#{$disabled} {
+    @if($disabled == true) {
+      opacity: 0.2;
+      &:hover {
+        cursor: not-allowed;
+        opacity: 0.4;
+      }
+    }
+  }
+}

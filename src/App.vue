@@ -36,6 +36,32 @@
   <Layer></Layer>
   <Layer></Layer>
   <Form></Form>
+<!--  <Scrollbar></Scrollbar>-->
+<!--  <Avatar></Avatar>-->
+<!--  <Pagination></Pagination>-->
+<!--  <Dialog></Dialog>-->
+<!--  <Collapse></Collapse>-->
+<!--  &lt;!&ndash; <Progress></Progress> &ndash;&gt;-->
+<!--  <Button></Button>-->
+<!--  <Divider></Divider>-->
+<!--  <Breadcrumb></Breadcrumb>-->
+<!--  <Icon></Icon>-->
+<!--  <Tag></Tag>-->
+<!--  <Select></Select>-->
+<!--  <Tag></Tag>-->
+<!--  <Checkbox></Checkbox>-->
+<!--  <Divider></Divider>-->
+<!--  <Drawer></Drawer>-->
+<!--  <OverLay></OverLay>-->
+<!--  <Radio></Radio>-->
+<!--  <Empty></Empty>-->
+<!--  <Message></Message>-->
+<!--  <Link />-->
+<!--  <Upload></Upload>-->
+<!--  <Input />-->
+<!--  <router-view></router-view>-->
+  <Menu></Menu>
+>>>>>>> origin/Menu
 </template>
 
 <script setup lang="ts">
@@ -68,6 +94,7 @@ import Popper from "./components/Popper.vue";
 import Tree from "./components/Tree.vue";
 import Form from "./components/Form.vue";
 import DropDown from "./components/Dropdown.vue";
+import Menu from "./components/Menu.vue";
 </script>
 
 <style scoped></style>

@@ -1,14 +1,14 @@
 // 整合所有组件
-import Link from "./link";
-import Button from "./button";
-import Divider from "./divider";
-import breadcrumb from "./breadcrumb";
-import Icon from "./icon";
-import Tag from "./tag";
-import select from "./select";
+import Link from "./link/index";
+import Button from "./button/index";
+import Divider from "./divider/index";
+import breadcrumb from "./breadcrumb/index";
+import Icon from "./icon/index";
+import Tag from "./tag/index";
+import select from "./select/index";
 import checkbox from "./checkbox";
 import radio from "./radio";
-import Switch from "./switch";
+import Switch from "./switch/index";
 import Empty from "./empty";
 import Upload from "./upload";
 import Progress from "./progress";
@@ -17,28 +17,19 @@ import Drawer from "./drawer";
 import Overlay from "./overlay";
 import Avatar from "./avatar";
 import Dialog from "./dialog";
-import Input from "./input";
+import Input from "./input/index";
 import scrollbar from "./scrollbar";
-import Row from "./row/index";
-import Col from "./col/index";
-import Table from "./table";
-import DatePicker from "./date-picker";
-import Popper from "./popper";
-import Tree from "./tree";
-import { Form } from "./form";
-import { FormItem } from "./form";
-import dropdown from "./dropdown";
 import Pagination from "./pagination";
 import MenuGroup from "./menu-group";
 import MenuGroupItem from "./menu-group-item";
 import type { App } from "vue";
+
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
 const { Radio, RadioGroup } = radio;
 const { Select, Option, OptionGroup } = select;
 const { Collapse, CollapseItem } = collapse;
 const { Scrollbar } = scrollbar;
-const { DropDown, DropDownItem, DropDownMenu } = dropdown;
 
 // 全部引入
 const components = [
@@ -68,18 +59,6 @@ const components = [
   Avatar,
   Dialog,
   Scrollbar,
-  Row,
-  Col,
-  Pagination,
-  Table,
-  DatePicker,
-  Popper,
-  Tree,
-  Form,
-  FormItem,
-  DropDown,
-  DropDownItem,
-  DropDownMenu,
   Pagination,
   MenuGroup,
   MenuGroupItem,
