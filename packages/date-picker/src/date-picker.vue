@@ -102,6 +102,7 @@ import MonthPicker from "./date-picker-com/month-table.vue";
 import YearPicker from "./date-picker-com/year-table.vue";
 
 const props = defineProps(datePickerProps);
+console.log(props.modelValue);
 const emit = defineEmits(datePickerEmits);
 const states = useDatePickerStates(props);
 const datePicker = useDatePicker(states, props, emit);

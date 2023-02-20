@@ -38,8 +38,8 @@
           <slot v-if="slots.default" />
           <span :class="ns.e('empty')" v-else>暂时没有数据</span>
         </div>
-      </div></transition
-    >
+      </div>
+    </transition>
   </div>
 </template>
 
