@@ -26,6 +26,8 @@ import Table from "./table";
 import DatePicker from "./date-picker";
 import Popper from "./popper";
 import Tree from "./tree";
+import { Form } from "./form";
+import { FormItem } from "./form";
 import dropdown from "./dropdown";
 import type { App } from "vue";
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
@@ -71,6 +73,8 @@ const components = [
   DatePicker,
   Popper,
   Tree,
+  Form,
+  FormItem,
   DropDown,
   DropDownItem,
   DropDownMenu,

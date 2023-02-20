@@ -3,7 +3,6 @@
 @mixin baseFunction($w,$h) {
   width: $w;
   height: $h;
-  background-color: #181818;
   border-radius: $w * 0.36;
   display: flex;
   &:hover {

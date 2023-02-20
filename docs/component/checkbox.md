@@ -24,7 +24,7 @@ title: Checkbox
 
 适用于多个勾选框绑定到同一个数组的情景，通过是否勾选来表示这一组选项中选中的项。
 
-在 `checkbox` 元素中定义 `v-model` 绑定变量，单一的 `checkbox` 中，默认绑定变量的值会是 `Boolean`，选中为 `true`。 在 `checkbox` 组件中，`label` 是选择框的值。 如果该组件下没有被传入内容，那么 `label` 将会作为 checkbox 按钮后的介绍。 `label` 也与数组中的元素值相对应。 如果指定的值存在于数组中，就处于选择状态，反之亦然。
+在 `checkbox-group` 元素中定义 `v-model` 绑定变量，单一的 `checkbox` 中，默认绑定变量的值会是 `Boolean`，选中为 `true`。 在 `checkbox` 组件中，`label` 是选择框的值。 如果该组件下没有被传入内容，那么 `label` 将会作为 checkbox 按钮后的介绍。 `label` 也与数组中的元素值相对应。 如果指定的值存在于数组中，就处于选择状态，反之亦然。
 
 <preview path="../examples/checkbox/group.vue" title="" description=""></preview>
 
@@ -48,11 +48,7 @@ title: Checkbox
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------- | :----- |
 | model-value / v-model | 选中项绑定值                                                 | `string` / `number` / `boolean`            | —      |
 | label                 | 选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效） | `string` / `number` / `boolean` / `object` | —      |
-| true-label            | 选中时的值                                                   | `string` / `number`                        | —      |
-| false-label           | 没有选中时的值                                               | `string` / `number`                        | —      |
 | disabled              | 是否禁用                                                     | `boolean`                                  | false  |
-| border                | 是否显示边框                                                 | `boolean`                                  | false  |
-| size                  | Checkbox 的尺寸                                              | large / default /small                                    | —      |
 | name                  | 原生 name 属性                                               | `string`                                   | —      |
 | checked               | 当前是否勾选                                                 | `boolean`                                  | false  |
 | indeterminate         | 设置不确定状态，仅负责样式控制                               | `boolean`                                  | false  |
