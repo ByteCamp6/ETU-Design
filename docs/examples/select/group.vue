@@ -1,14 +1,6 @@
 <template>
   <div style="height: 225px">
-    <etu-select
-      v-model="value"
-      filterable
-      remote
-      placeholder="Please enter a keyword"
-      remote-show-suffix
-      :remote-method="remoteMethod"
-      :loading="loading"
-    >
+    <etu-select v-model="value" placeholder="Please select a option">
       <etu-option-group
         v-for="options in optionsGroup"
         :key="options.toString()"
