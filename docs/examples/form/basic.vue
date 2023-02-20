@@ -37,7 +37,6 @@
         <etu-checkbox label="Online activities" name="type" />
         <etu-checkbox label="Promotion activities" name="type" />
         <etu-checkbox label="Offline activities" name="type" />
-        <etu-checkbox label="Simple brand exposure" name="type" />
       </etu-checkbox-group>
     </etu-form-item>
     <etu-form-item label="Resources">

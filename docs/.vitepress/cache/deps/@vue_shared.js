@@ -34,7 +34,6 @@ import {
   isOn,
   isPlainObject,
   isPromise,
-  isRegExp,
   isReservedProp,
   isSSRSafeAttrName,
   isSVGTag,
@@ -45,7 +44,6 @@ import {
   isVoidTag,
   looseEqual,
   looseIndexOf,
-  looseToNumber,
   makeMap,
   normalizeClass,
   normalizeProps,
@@ -61,7 +59,7 @@ import {
   toNumber,
   toRawType,
   toTypeString
-} from "./chunk-2D2BEOV3.js";
+} from "./chunk-HQUR2J2E.js";
 import "./chunk-RSJERJUL.js";
 export {
   EMPTY_ARR,
@@ -99,7 +97,6 @@ export {
   isOn,
   isPlainObject,
   isPromise,
-  isRegExp,
   isReservedProp,
   isSSRSafeAttrName,
   isSVGTag,
@@ -110,7 +107,6 @@ export {
   isVoidTag,
   looseEqual,
   looseIndexOf,
-  looseToNumber,
   makeMap,
   normalizeClass,
   normalizeProps,

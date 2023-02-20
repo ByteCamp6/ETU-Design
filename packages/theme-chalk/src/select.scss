@@ -25,7 +25,7 @@
 @include b(select) {
   position: relative;
   display: inline-flex;
-  flex-grow: 1;
+  // flex-grow: 1;
   align-items: center;
   justify-content: center;
   padding: getCssVar("select", "padding");
