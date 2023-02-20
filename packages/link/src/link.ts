@@ -7,7 +7,7 @@ export const linkProps = {
    */
   type: {
     type: String,
-    values: ["primary", "success", "warning", "info", "danger", "default"],
+    values: ["primary", "success", "warning", "error", "indfo", "danger"],
     default: "default",
   },
   /**
@@ -28,9 +28,9 @@ export const linkProps = {
   /**
    * @description icon component
    */
-  //   icon: {
-  //     type: iconPropType,
-  //   },
+  icon: {
+    type: String,
+  },
 } as const;
 export type linkProps = ExtractPropTypes<typeof linkProps>;
 export const linkEmits = {
