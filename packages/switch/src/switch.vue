@@ -1,33 +1,30 @@
 <template>
   <label :class="tClass">
     <input
-      ref="input"
       type="checkbox"
       class="RealCheck"
       :true-value="activeValue"
       :false-value="inactiveValue"
-      :checked="checkedValue"
-      v-model="mValue"
-      :value="val"
+      :value="valueBridge"
       @change="handleChange"
-      :disabled="state"
+      :disabled="isDisabled"
     />
     <div class="etu-Switch-inBox"></div>
     <slot></slot>
   </label>
 </template>
 
-<script setup lang="ts">
-import { useNamespace, useVmodel } from "../../hooks";
+<script setup lang="ts" name="EtuSwitch">
+import { useDisabled, useNamespace } from "../../hooks";
 const bem = useNamespace("Switch");
-import { computed, ref, watch, nextTick } from "vue";
+import { computed, ref } from "vue";
+import { isBoolean, isUndefined } from "@etu-design/utils";
 
 // const emit = defineEmits(switchEmits);
 const emits = defineEmits<{
   (e: "change", v: any): void; // 函数类型
-  (e: "dataVal", v: any): void;
+  (e: "update:modelValue", v: any): void;
 }>();
-let mValue = useVmodel(props.modelValue);
 const props = defineProps({
   type: {
     type: String,
@@ -42,10 +39,6 @@ const props = defineProps({
     default: "dodgerblue",
   },
   modelValue: {
-    type: [Boolean, String, Number],
-    default: false,
-  },
-  value: {
     type: [Boolean, String, Number],
     default: false,
   },
@@ -66,48 +59,37 @@ const props = defineProps({
     default: "",
   },
 });
-const isControlled = ref(typeof props.modelValue === "boolean");
-const state = ref(props.disabled);
-watch(
-  () => props.modelValue,
-  () => {
-    isControlled.value = true;
-  },
-);
-watch(
-  () => props.value,
-  (data) => {
-    isControlled.value = false;
-    data = !data;
-  },
-);
-const activeValue = ref(props.activeValue);
-const inactiveValue = ref(props.inactiveValue);
+const innerValue = ref<boolean | string | number>(false);
+const valueBridge = computed(() => {
+  return isUndefined(props.modelValue) ? props.modelValue : innerValue.value;
+});
+const isCheck = computed<boolean>(() => {
+  if (isBoolean(innerValue.value)) {
+    return innerValue.value;
+  } else {
+    return props.activeValue === innerValue.value;
+  }
+});
+const isDisabled = useDisabled();
 const tClass = computed(() => {
-  return [bem.b(), bem.bem(props.bgColor, String(props.disabled), props.size)];
+  return [
+    bem.b(),
+    bem.bem(props.bgColor, String(isDisabled.value), props.size),
+    bem.is("checked", isCheck.value),
+  ];
 });
-const inClass = computed(() => {
-  return [bem.e()];
-});
-let checkedValue = ref(false);
-let demo = ref();
-let val = demo;
-const handleChange = (): void => {
-  const v = checkedValue.value ? props.inactiveValue : props.activeValue;
-  emits("change", v);
-  emits("dataVal", val.value);
-  nextTick(() => {
-    checkedValue.value = !checkedValue.value;
-    demo.value = !props.modelValue;
-    mValue.value = !mValue.value;
-  });
+const handleChange = (e: Event): void => {
+  const target = e.target as HTMLInputElement;
+  const checked = target.checked;
+  const value = checked
+    ? isUndefined(props.activeValue)
+      ? checked
+      : props.activeValue
+    : isUndefined(props.inactiveValue)
+    ? checked
+    : props.inactiveValue;
+  emits("change", value);
+  emits("update:modelValue", value);
+  innerValue.value = value;
 };
 </script>
-
-<script lang="ts">
-export default {
-  name: "EtuSwitch",
-};
-</script>
-
-<style scoped></style>
