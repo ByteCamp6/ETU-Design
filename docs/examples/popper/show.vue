@@ -1,5 +1,7 @@
 <template>
-  <etu-switch v-model="show"></etu-switch>
+  <div>
+    <etu-switch v-model="show"></etu-switch>
+  </div>
   <etu-popper
     content="这是一个带箭头bottom"
     hover

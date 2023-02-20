@@ -9,15 +9,24 @@
 }
 
 @include b("date-table") {
+  display: table !important;
   table-layout: fixed;
   width: 100%;
   font-size: 14px;
   user-select: none;
-
+  margin: 0 !important;
   th {
     font-weight: 400;
     padding: 10px 5px;
+    background-color: #fff;
+    border: 0;
     border-bottom: 1px solid getCssVar("date-picker", "border-color");
+    text-align: center;
+  }
+
+  tr {
+    border: 0;
+    width: 100%;
   }
 
   td {
@@ -25,6 +34,8 @@
     width: 32px;
     height: 30px;
     padding: 4px 0;
+    background-color: #fff;
+    border: 0;
     box-sizing: border-box;
     text-align: center;
     cursor: pointer;

@@ -10,9 +10,13 @@ title: Drawer
 
 我们使用`v-model`给抽屉绑定一个布尔值用于侦测抽屉是否打开，然后定义一个按钮，用于改变绑定的布尔值，我们通过布尔值的状态来决定抽屉是否打开。
 
+## 抽屉打开方向
+
 由 `direction` 属性来选择 Drawer 的展开方向。
 
 <preview path="../examples/drawer/direction.vue" title="" description=""></preview>
+
+## 自定义抽屉标题
 
 我们提供了`Title`属性来自定义抽屉的标题的插槽，同时抽屉标签内部可以自定义的插入任意内容
 

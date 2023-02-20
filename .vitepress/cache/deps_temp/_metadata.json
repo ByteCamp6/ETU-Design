@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
+  "hash": "94faabf1",
+  "browserHash": "3512fd67",
+=======
   "hash": "61c11e14",
   "browserHash": "849e77a0",
+>>>>>>> ca2e85c14dc49e10bb012448986e4b3c28f94956
   "optimized": {
     "vue": {
       "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
@@ -36,6 +41,36 @@
       "src": "../../../node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
       "file": "@popperjs_core_lib_modifiers_preventOverflow__js.js",
       "fileHash": "aa40ee8a",
+      "needsInterop": false
+    },
+    "@popperjs/core": {
+      "src": "../../../node_modules/@popperjs/core/lib/index.js",
+      "file": "@popperjs_core.js",
+      "fileHash": "edb92358",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/arrow": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/arrow.js",
+      "file": "@popperjs_core_lib_modifiers_arrow.js",
+      "fileHash": "03f1ec7f",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/flip.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/flip.js",
+      "file": "@popperjs_core_lib_modifiers_flip__js.js",
+      "fileHash": "e749d345",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/offset": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/offset.js",
+      "file": "@popperjs_core_lib_modifiers_offset.js",
+      "fileHash": "3184d269",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/preventOverflow.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
+      "file": "@popperjs_core_lib_modifiers_preventOverflow__js.js",
+      "fileHash": "8a8303e0",
       "needsInterop": false
     },
     "@vue/shared": {

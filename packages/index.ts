@@ -21,7 +21,6 @@ import Input from "./input";
 import scrollbar from "./scrollbar";
 import Row from "./row/index";
 import Col from "./col/index";
-import Pagination from "./pagination";
 import Table from "./table";
 import DatePicker from "./date-picker";
 import Popper from "./popper";
@@ -29,6 +28,9 @@ import Tree from "./tree";
 import { Form } from "./form";
 import { FormItem } from "./form";
 import dropdown from "./dropdown";
+import Pagination from "./pagination";
+import MenuGroup from "./menu-group";
+import MenuGroupItem from "./menu-group-item";
 import type { App } from "vue";
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
@@ -78,6 +80,9 @@ const components = [
   DropDown,
   DropDownItem,
   DropDownMenu,
+  Pagination,
+  MenuGroup,
+  MenuGroupItem,
 ];
 
 // 全局动态添加

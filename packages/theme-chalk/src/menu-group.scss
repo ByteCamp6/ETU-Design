@@ -1,0 +1,48 @@
+@use "mixins/mixins" as *;
+
+// el-menuGroup__mode
+@mixin buildMode($w,$h) {
+  width: $w;
+  height: $h;
+  margin: 0;
+}
+@each $mode in horizontal , vertical {
+  .etu-menuGroup__#{$mode} {
+    @if(#{$mode} == horizontal) {
+      @include buildMode(94rem,3rem);
+      display: flex;
+      flex-direction: row;
+    }
+    @else {
+      @include buildMode(9rem,50.6rem);
+    }
+  }
+}
+@mixin buildStyle($menuTrigger,$bgColor,$textColor) {
+  background-color: $bgColor;
+  color: $textColor;
+  @if(#{$menuTrigger} == hover) {
+    &:hover {
+    //  ...
+    }
+  }
+  @else {
+    &:active {
+      //  ...
+      background-color: dodgerblue;
+    }
+  }
+}
+// etu-menuGroup-menuTrigger__bgColor--textColor
+@each $menuTrigger in ("hover" , "click") {
+  @each $bgColor in (crimson , dodgerblue , limegreen , grey , darkorange , black , white , lightslategrey) {
+    @each $textColor in (crimson , dodgerblue , limegreen , grey , darkorange , black , white , lightslategrey) {
+      .etu-menuGroup-#{$menuTrigger}__#{$bgColor+""}--#{$textColor+""} {
+        @include buildStyle($menuTrigger,$bgColor,$textColor);
+      }
+    }
+  }
+}
+body {
+  margin: 0;
+}

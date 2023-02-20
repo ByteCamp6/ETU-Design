@@ -40,7 +40,7 @@ const optionClass = computed(() => [
 ]);
 
 onMounted(() => {
-  if (select.props.modelValue) {
+  if (select.props.modelValue && !select.props.multiple) {
     if (!select.props.multiple) {
       if (select.props.modelValue === props.value) {
         updateValue(props.value, props.label);
