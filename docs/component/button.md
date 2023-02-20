@@ -12,22 +12,31 @@ title: Button
 
 <preview path="../examples/button/type.vue" title="" description=""></preview>
 
+## 按钮的Hollow
+
 由 `Hollow`属性来决定按钮是由实到虚，还是由虚到实，提供了两个值供选择:`solid`和`Hollow`,分别对应实心，空心, 默认实心。
 
 <preview path="../examples/button/Hollow.vue" title="" description=""></preview>
 
+# 按钮的曲度
 
 由 `Curvature`属性来决定按钮边框曲度大小，提供了两个值供选择:`Microcurvature`和`curved`,分别对应微曲和大曲度，默认微曲。
 
 <preview path="../examples/button/curvature.vue" title="" description=""></preview>
 
+## 圆按钮
+
 由`circle`属性决定按钮是否为圆形，提供了两个值供选择`true`,`false`。默认为`false`。
 
 <preview path="../examples/button/iscircle.vue" title="" description=""></preview>
 
+## 按钮尺寸
+
 由`size`属性来决定按钮尺寸大小，提供了`small`,`normal`,`large`三个选项，默认为`normal`。
 
 <preview path="../examples/button/size.vue" title="" description=""></preview>
+
+## 按钮禁用
 
 由`disabled`属性决定按钮是否被禁用，提供了两个值供选择`true`,`false`。默认为`false`。
 
@@ -50,7 +59,7 @@ title: Button
 | :----- |:-----------------| :--- |
 | click  | 点击 Button 时触发的事件 | —    |
 
-## Tag插槽
+## Button插槽
 
 <preview path="../examples/button/slotDemo.vue" title="" description=""></preview>
 
