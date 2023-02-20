@@ -1,6 +1,6 @@
 <template>
   <etu-input v-model="input" placeholder="Please input">
-    <template #prepend>http://</template>
+    <template #prepend>https://</template>
     <template #append> .com </template>
   </etu-input>
 </template>
