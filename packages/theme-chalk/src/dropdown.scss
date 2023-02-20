@@ -73,7 +73,7 @@ $dropdown-padding: map.merge(
   padding: 3px 15px;
 }
 @include b(dropdown-menu) {
-  padding-inline-start: 0 !important;
+  padding: 6.3px 0;
 }
 @include b(dropdown-button-group) {
   line-height: 19px;
