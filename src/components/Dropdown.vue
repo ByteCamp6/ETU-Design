@@ -1,11 +1,11 @@
 <template>
   <etu-dropdown
     @command="command"
-    split-button
     size="small"
     type="primary"
     @click="handleClick"
     trigger="hover"
+    :arrowDown="false"
   >
     下拉菜单
 

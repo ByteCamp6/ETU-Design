@@ -18,7 +18,9 @@ export const useDropDownStyle = (props: dropDownProps) => {
     click: false,
   };
   const isTriggerHover = judgeTriggerHover[props.trigger];
+  const isUseArrowDown = props.arrowDown;
   return {
+    isUseArrowDown,
     canclePadding,
     scrollbarMaxHeight,
     placeMent,
