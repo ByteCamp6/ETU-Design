@@ -10,7 +10,7 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /introduce
+      link: /component/button
     - theme: alt
       text: GitHub地址
       link: https://github.com/ByteCamp6/ETU-Design
@@ -23,7 +23,7 @@ features:
     details: 拿你想要的，减少打包体积。
   - icon: 💡
     title: 先进的技术栈
-    details: vue3、vite4、vitepress、vitest
+    details: Vue3、Vite4、Vitepress、Vitest
   - icon: 🎨
     title: 风格百变
     details: 修改主题组合搭配，可实现数百种不同风格的界面
