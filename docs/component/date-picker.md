@@ -30,14 +30,14 @@ title: DatePicker
 
 ## DatePicker 属性
 
-| 属性名                | 说明                               | 类型                           | 可选值                                                                   | 默认值     |
-| :-------------------- | :--------------------------------- | :----------------------------- | :----------------------------------------------------------------------- | :--------- | --- |
-| model-value / v-model | 绑定值，如果它是数组，长度应该是 2 | Date / number / string / Array | —                                                                        | —          |
-| placeholder           | 非范围选择时的占位内容             | boolean                        | —                                                                        | —          |
-| readonly              | 只读                               | string                         | —                                                                        | false      |
-| disabled              | 禁用                               | string                         | —                                                                        | false      | 、  |
-| type                  | 显示类型                           | string                         | year/month/date/dates/datetime/ week/datetimerange/daterange/ monthrange | date       |
-| format                | 显示在输入框中的格式               | string                         | —                                                                        | YYYY-MM-DD |
+| 属性名                | 说明                               | 类型                           | 默认值              |
+| :-------------------- | :--------------------------------- | :----------------------------- | :------------------ |
+| model-value / v-model | 绑定值，如果它是数组，长度应该是 2 | Date / number / string / Array | —                   |
+| readonly              | 只读                               | boolean                        | false               |
+| disabled              | 禁用                               | boolean                        | false               |
+| placeholder           | 是否为全屏 Dialog                  | string                         | -                   |
+| type                  | 显示类型                           | string                         | date                |
+| format                | 显示在输入框中的格式               | string                         | YYYY-MM-DD HH:mm:ss |
 
 ## DatePicker 插槽
 
