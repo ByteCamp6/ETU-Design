@@ -16,3 +16,4 @@ DropDownMenu.install = (app: App) => {
   app.component(DropDownMenu.name, DropDownMenu);
 };
 export default { DropDown, DropDownItem, DropDownMenu };
+export * from "./src/dropdown";

@@ -69,7 +69,6 @@ const innerZIndex = ref(props.zIndex ? props.zIndex : nextZIndex());
 const contentCls = computed(() => {
   return [ns.e("content"), ns.is("canclePadding", props.canclePadding)];
 });
-console.log(contentCls, "??contentCls");
 onMounted(() => {
   const children = slots.default?.();
   if (children && children.length > 1) {

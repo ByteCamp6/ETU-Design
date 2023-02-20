@@ -1,6 +1,5 @@
-import { computed, getCurrentInstance, ref } from "vue";
+import { computed } from "vue";
 import type { dropDownProps } from "./dropdown";
-// import { isNumber } from "@etu-design/utils";
 
 export const useDropDownStyle = (props: dropDownProps) => {
   const scrollbarMaxHeight = computed(() => {
@@ -13,8 +12,16 @@ export const useDropDownStyle = (props: dropDownProps) => {
     return undefined;
   });
   const canclePadding = props.canclePadding;
+  const placeMent = props.placement;
+  const judgeTriggerHover = {
+    hover: true,
+    click: false,
+  };
+  const isTriggerHover = judgeTriggerHover[props.trigger];
   return {
     canclePadding,
     scrollbarMaxHeight,
+    placeMent,
+    isTriggerHover,
   };
 };

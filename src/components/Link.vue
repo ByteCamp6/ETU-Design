@@ -1,8 +1,8 @@
 <template>
   <etu-link
-    type="primary"
+    type="success"
     :underline="true"
-    :disabled="true"
+    :disabled="false"
     href="https://juejin.cn/"
     >这是一个Link?</etu-link
   >

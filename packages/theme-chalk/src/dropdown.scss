@@ -14,6 +14,15 @@ $dropdown-item-divided-margin: map.merge(
   ),
   $dropdown-item-divided-margin
 );
+$dropdown-padding: () !default;
+$dropdown-padding: map.merge(
+  (
+    "large": 8px 10px,
+    "default": 6px 8px,
+    "small": 4px 6px,
+  ),
+  $dropdown-padding
+);
 @include b(dropdown-item) {
   @include set-css-var-value(
     ("dropdownItem", "bg-color"),
@@ -32,8 +41,17 @@ $dropdown-item-divided-margin: map.merge(
 }
 
 @include b(dropdown) {
+  padding: getCssVar("dropdown", "padding-size");
   color: getCssVar("dropdown", "text-color");
   cursor: pointer;
+  @each $size in (large, default, small) {
+    &--#{$size} {
+      @include set-css-var-value(
+        ("dropdown", "padding-size"),
+        map.get($dropdown-padding, $size)
+      );
+    }
+  }
 }
 @include b(dropdown-item) {
   &:hover {
@@ -56,4 +74,40 @@ $dropdown-item-divided-margin: map.merge(
 }
 @include b(dropdown-menu) {
   padding-inline-start: 0 !important;
+}
+@include b(dropdown-button-group) {
+  font-size: 14px;
+  background-color: getCssVar("dropdown", "bg-color");
+  display: inline-block;
+  padding: getCssVar("dropdown", "padding-size");
+  cursor: pointer;
+  &:hover {
+    background-color: getCssVar("dropdown", "hover-bg-color");
+  }
+
+  border: 0px;
+  color: white;
+  i {
+    font-size: 18px;
+  }
+  @each $type in $types {
+    &--#{$type} {
+      @include set-css-var-value(
+        ("dropdown", "bg-color"),
+        getRootCssVar("color", $type)
+      );
+      @include set-css-var-value(
+        ("dropdown", "hover-bg-color"),
+        getRootCssVar("color", $type, "hover")
+      );
+    }
+  }
+  @each $size in (large, default, small) {
+    &--#{$size} {
+      @include set-css-var-value(
+        ("dropdown", "padding-size"),
+        map.get($dropdown-padding, $size)
+      );
+    }
+  }
 }
