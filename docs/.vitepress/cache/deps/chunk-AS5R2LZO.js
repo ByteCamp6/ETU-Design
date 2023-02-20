@@ -1,12 +1,12 @@
 import {
-  detectOverflow,
-  getVariation
-} from "./chunk-P2YO6AJV.js";
-import {
   getLayoutRect,
   within,
   withinMaxClamp
 } from "./chunk-ARNFD3DL.js";
+import {
+  detectOverflow,
+  getVariation
+} from "./chunk-P2YO6AJV.js";
 import {
   getFreshSideObject,
   getMainAxisFromPlacement,
@@ -124,4 +124,4 @@ var preventOverflow_default = {
 export {
   preventOverflow_default
 };
-//# sourceMappingURL=chunk-25Y2KQKH.js.map
+//# sourceMappingURL=chunk-AS5R2LZO.js.map

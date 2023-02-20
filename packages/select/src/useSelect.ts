@@ -84,6 +84,7 @@ export const useSelect = (
   };
 
   const isShow = (label: string) => {
+    if (!props.filterable) return true;
     return states.list.has(label);
   };
 
@@ -124,7 +125,8 @@ export const useSelect = (
   watch(
     () => states.currentLable,
     (val) => {
-      if ((!props.remote && !props.filterable) || !states.visible) return;
+      if (!props.remote && !props.filterable) return;
+
       if (val === "") {
         if (props.filterable) {
           states.list = new Set(states.originList);
@@ -134,6 +136,7 @@ export const useSelect = (
           return;
         }
       }
+
       if (props.remote) {
         debounceremoteMethod(val);
         states.visible = true;

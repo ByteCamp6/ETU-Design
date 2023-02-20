@@ -11,6 +11,7 @@ import {
 } from "./utils";
 
 export const useDatePickerStates = (props: DatePickerProps) => {
+  console.log(props.modelValue);
   return reactive({
     visible: false,
     model: initModel(props.modelValue!, props.type),
@@ -66,6 +67,7 @@ export const useDatePicker = (
   };
 
   const getDate = (type, index: number = -1) => {
+    if (!states.model || !states.model[index]) return "";
     if (index !== -1) {
       return states.model[index].get(type);
     }

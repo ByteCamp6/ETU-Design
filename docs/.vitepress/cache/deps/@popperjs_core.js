@@ -1,6 +1,15 @@
 import {
+  offset_default
+} from "./chunk-UCI4V7CI.js";
+import {
+  arrow_default
+} from "./chunk-BS4JQVKO.js";
+import {
   preventOverflow_default
-} from "./chunk-25Y2KQKH.js";
+} from "./chunk-AS5R2LZO.js";
+import {
+  getLayoutRect
+} from "./chunk-ARNFD3DL.js";
 import {
   flip_default
 } from "./chunk-JSGAY6FE.js";
@@ -13,15 +22,6 @@ import {
   isScrollParent,
   listScrollParents
 } from "./chunk-P2YO6AJV.js";
-import {
-  offset_default
-} from "./chunk-UCI4V7CI.js";
-import {
-  arrow_default
-} from "./chunk-BS4JQVKO.js";
-import {
-  getLayoutRect
-} from "./chunk-ARNFD3DL.js";
 import {
   getBoundingClientRect,
   getComputedStyle,

@@ -1,0 +1,25 @@
+{
+  "name": "dropdown",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "王帆 <9729143+wang-fan1111@user.noreply.gitee.com>",
+  "homepage": "https://github.com/ByteCamp6/ETU-Design#readme",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ByteCamp6/ETU-Design.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/dropdown.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ByteCamp6/ETU-Design/issues"
+  }
+}

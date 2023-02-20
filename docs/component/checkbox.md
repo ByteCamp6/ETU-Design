@@ -40,36 +40,34 @@ title: Checkbox
 
 <preview path="../examples/checkbox/limit.vue" title="" description=""></preview>
 
+## Checkbox 属性
 
-## Checkbox属性
-
-
-| 属性名                | 说明                                                         | 类型                                       | 默认值 |
-| :-------------------- | :----------------------------------------------------------- | :----------------------------------------- | :----- |
-| model-value / v-model | 选中项绑定值                                                 | `string` / `number` / `boolean`            | —      |
+| 属性名                | 说明                                                                  | 类型                                       | 默认值 |
+| :-------------------- | :-------------------------------------------------------------------- | :----------------------------------------- | :----- |
+| model-value / v-model | 选中项绑定值                                                          | `string` / `number` / `boolean`            | —      |
 | label                 | 选中状态的值（只有在`checkbox-group`或者绑定对象类型为`array`时有效） | `string` / `number` / `boolean` / `object` | —      |
-| true-label            | 选中时的值                                                   | `string` / `number`                        | —      |
-| false-label           | 没有选中时的值                                               | `string` / `number`                        | —      |
-| disabled              | 是否禁用                                                     | `boolean`                                  | false  |
-| border                | 是否显示边框                                                 | `boolean`                                  | false  |
-| size                  | Checkbox 的尺寸                                              | large / default /small                                    | —      |
-| name                  | 原生 name 属性                                               | `string`                                   | —      |
-| checked               | 当前是否勾选                                                 | `boolean`                                  | false  |
-| indeterminate         | 设置不确定状态，仅负责样式控制                               | `boolean`                                  | false  |
+| true-label            | 选中时的值                                                            | `string` / `number`                        | —      |
+| false-label           | 没有选中时的值                                                        | `string` / `number`                        | —      |
+| disabled              | 是否禁用                                                              | `boolean`                                  | false  |
+| border                | 是否显示边框                                                          | `boolean`                                  | false  |
+| size                  | Checkbox 的尺寸                                                       | large / default /small                     | —      |
+| name                  | 原生 name 属性                                                        | `string`                                   | —      |
+| checked               | 当前是否勾选                                                          | `boolean`                                  | false  |
+| indeterminate         | 设置不确定状态，仅负责样式控制                                        | `boolean`                                  | false  |
 
-## Checkbox事件
+## Checkbox 事件
 
 | 事件名 | 说明                     | 类型       |
 | :----- | :----------------------- | :--------- |
 | change | 当绑定值变化时触发的事件 | `Function` |
 
-## Checkbox插槽
+## Checkbox 插槽
 
 | 插槽名  | 说明           |
 | :------ | :------------- |
 | default | 自定义默认内容 |
 
-## CheckboxGroup属性
+## CheckboxGroup 属性
 
 | 属性名                | 说明                           | 类型      | 默认值 |
 | :-------------------- | :----------------------------- | :-------- | :----- |
@@ -79,14 +77,14 @@ title: Checkbox
 | min                   | 可被勾选的 checkbox 的最小数量 | `number`  | —      |
 | max                   | 可被勾选的 checkbox 的最大数量 | `number`  | —      |
 
-## CheckboxGroup事件
+## CheckboxGroup 事件
 
 | 事件名 | 说明                     | 类型       |
 | :----- | :----------------------- | :--------- |
 | change | 当绑定值变化时触发的事件 | `Function` |
 
-## CheckboxGroup插槽
+## CheckboxGroup 插槽
 
-| 插槽名  | 说明           | 子标签                     |
-| :------ | :------------- | :------------------------- |
-| default | 自定义默认内容 | Checkbox  |
+| 插槽名  | 说明           | 子标签   |
+| :------ | :------------- | :------- |
+| default | 自定义默认内容 | Checkbox |

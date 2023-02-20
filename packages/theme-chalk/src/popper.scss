@@ -4,14 +4,19 @@
 @use "mixins/config" as *;
 
 @include b(popper) {
-  @include set-css-var-value(("popper-padding"), 16px);
+  @include set-css-var-value(("popper-padding"), 18px);
   @include set-css-var-value(("popper-border-radius"), 6px);
-  @include set-css-var-value(("popper-bg-color"),getRootCssVar("color-white"));
-  @include set-css-var-value(("popper-border"),getRootCssVar("border-default"));
-  @include set-css-var-value(("popper-box-shadow"),0 6px 30px -6px rgba(0, 0, 0, 0.25));
+  @include set-css-var-value(("popper-bg-color"), getRootCssVar("color-white"));
+  @include set-css-var-value(
+    ("popper-border"),
+    getRootCssVar("border-default")
+  );
+  @include set-css-var-value(
+    ("popper-box-shadow"),
+    0 6px 30px -6px rgba(0, 0, 0, 0.25)
+  );
   @include set-css-var-value(("popper-theme-border-width"), 0);
 }
-
 
 @include b(popper) {
   display: inline-block;
@@ -64,6 +69,9 @@
         border-left: getCssVar("popper-border");
       }
     }
+    @include when(canclePadding) {
+      padding: 0px;
+    }
   }
 
   @include e(arrow) {
@@ -76,7 +84,7 @@
       width: 10px;
       height: 10px;
       box-sizing: border-box;
-      background: getCssVar("popper-bg-color")
+      background: getCssVar("popper-bg-color");
     }
 
     &::before {
