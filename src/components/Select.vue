@@ -9,9 +9,6 @@
     @blur="fun"
     @focus="fun"
   >
-    <template #prefix>
-      <etu-icon name="time"></etu-icon>
-    </template>
     <etu-option
       v-for="item in options1"
       :key="item.label"

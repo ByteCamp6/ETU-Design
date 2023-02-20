@@ -52,13 +52,13 @@ export function initValue(
 ) {
   const today = now();
   const res: Array<dayjs.Dayjs> = [];
+  console.log(value);
   if (Array.isArray(value)) {
     res.push(value[0] ? getDate(value[0]) : today);
     res.push(value[1] ? getDate(value[1]) : today.add(1, "month"));
   } else {
     res.push(value ? getDate(value) : today);
   }
-  console.log(res);
   return type === "daterange" ? res : res[0];
 }
 
@@ -73,7 +73,6 @@ export function initModel(
   } else {
     res.push(getDate(value));
   }
-  console.log(res);
   return type === "daterange" ? res : res[0];
 }
 
@@ -108,7 +107,6 @@ export function initFormate(type) {
 }
 
 export function getFormate(date, format = "YYYY-MM-DD") {
-  console.log(date);
   if (!date) return "";
   if (Array.isArray(date)) {
     return [dayjs(date[0]).format(format), dayjs(date[1]).format(format)];
