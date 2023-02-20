@@ -1,0 +1,142 @@
+{
+<<<<<<< HEAD
+  "hash": "94faabf1",
+  "browserHash": "3512fd67",
+=======
+  "hash": "61c11e14",
+  "browserHash": "849e77a0",
+>>>>>>> ca2e85c14dc49e10bb012448986e4b3c28f94956
+  "optimized": {
+    "vue": {
+      "src": "../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "2fef3cbc",
+      "needsInterop": false
+    },
+    "@popperjs/core": {
+      "src": "../../../node_modules/@popperjs/core/lib/index.js",
+      "file": "@popperjs_core.js",
+      "fileHash": "773a5f16",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/arrow": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/arrow.js",
+      "file": "@popperjs_core_lib_modifiers_arrow.js",
+      "fileHash": "098df41c",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/flip.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/flip.js",
+      "file": "@popperjs_core_lib_modifiers_flip__js.js",
+      "fileHash": "d02b506f",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/offset": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/offset.js",
+      "file": "@popperjs_core_lib_modifiers_offset.js",
+      "fileHash": "ef6e385b",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/preventOverflow.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
+      "file": "@popperjs_core_lib_modifiers_preventOverflow__js.js",
+      "fileHash": "aa40ee8a",
+      "needsInterop": false
+    },
+    "@popperjs/core": {
+      "src": "../../../node_modules/@popperjs/core/lib/index.js",
+      "file": "@popperjs_core.js",
+      "fileHash": "edb92358",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/arrow": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/arrow.js",
+      "file": "@popperjs_core_lib_modifiers_arrow.js",
+      "fileHash": "03f1ec7f",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/flip.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/flip.js",
+      "file": "@popperjs_core_lib_modifiers_flip__js.js",
+      "fileHash": "e749d345",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/offset": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/offset.js",
+      "file": "@popperjs_core_lib_modifiers_offset.js",
+      "fileHash": "3184d269",
+      "needsInterop": false
+    },
+    "@popperjs/core/lib/modifiers/preventOverflow.js": {
+      "src": "../../../node_modules/@popperjs/core/lib/modifiers/preventOverflow.js",
+      "file": "@popperjs_core_lib_modifiers_preventOverflow__js.js",
+      "fileHash": "8a8303e0",
+      "needsInterop": false
+    },
+    "@vue/shared": {
+      "src": "../../../node_modules/@vue/shared/dist/shared.esm-bundler.js",
+      "file": "@vue_shared.js",
+      "fileHash": "7bd4ea6e",
+      "needsInterop": false
+    },
+    "@vueuse/core": {
+      "src": "../../../node_modules/@vueuse/core/index.mjs",
+      "file": "@vueuse_core.js",
+      "fileHash": "09cd0a3b",
+      "needsInterop": false
+    },
+    "dayjs": {
+      "src": "../../../node_modules/dayjs/dayjs.min.js",
+      "file": "dayjs.js",
+      "fileHash": "1cbf0a42",
+      "needsInterop": true
+    },
+    "dayjs/plugin/isLeapYear": {
+      "src": "../../../node_modules/dayjs/plugin/isLeapYear.js",
+      "file": "dayjs_plugin_isLeapYear.js",
+      "fileHash": "1cd67711",
+      "needsInterop": true
+    },
+    "lodash-unified": {
+      "src": "../../../node_modules/lodash-unified/import.js",
+      "file": "lodash-unified.js",
+      "fileHash": "c3278865",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-BXE4SSMW": {
+      "file": "chunk-BXE4SSMW.js"
+    },
+    "chunk-H6YSKBJL": {
+      "file": "chunk-H6YSKBJL.js"
+    },
+    "chunk-WUXKB76K": {
+      "file": "chunk-WUXKB76K.js"
+    },
+    "chunk-ZUVEPBYQ": {
+      "file": "chunk-ZUVEPBYQ.js"
+    },
+    "chunk-OJJNZHSS": {
+      "file": "chunk-OJJNZHSS.js"
+    },
+    "chunk-FOINLP6H": {
+      "file": "chunk-FOINLP6H.js"
+    },
+    "chunk-IP2SUSOQ": {
+      "file": "chunk-IP2SUSOQ.js"
+    },
+    "chunk-IN7D5TZZ": {
+      "file": "chunk-IN7D5TZZ.js"
+    },
+    "chunk-G2LOIZIK": {
+      "file": "chunk-G2LOIZIK.js"
+    },
+    "chunk-VGJYVVDL": {
+      "file": "chunk-VGJYVVDL.js"
+    },
+    "chunk-RSJERJUL": {
+      "file": "chunk-RSJERJUL.js"
+    }
+  }
+}

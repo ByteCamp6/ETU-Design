@@ -1,5 +1,9 @@
 <template>
-  <div :class="optionClass" @click.stop="updateValue(props.value, props.label)">
+  <div
+    v-show="select.isShow(props.label)"
+    :class="optionClass"
+    @click.stop="updateValue(props.value, props.label)"
+  >
     <span>{{ props.label }}</span>
   </div>
 </template>
@@ -19,6 +23,10 @@ import { selectKey } from "../../tokens";
 const props = defineProps(optionProps);
 const select = inject(selectKey);
 
+if (!props.disabled) {
+  select.addValue(props.label);
+}
+
 const updateValue = (value, label) => {
   if (props.disabled) return;
   select.handlerClickOption({ value, label });
@@ -32,7 +40,7 @@ const optionClass = computed(() => [
 ]);
 
 onMounted(() => {
-  if (select.props.modelValue) {
+  if (select.props.modelValue && !select.props.multiple) {
     if (!select.props.multiple) {
       if (select.props.modelValue === props.value) {
         updateValue(props.value, props.label);

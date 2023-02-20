@@ -4,24 +4,5 @@
   "description": "> TODO: description",
   "author": "voilt-sourse <2503063984@qq.com>",
   "homepage": "",
-  "license": "ISC",
-  "main": "lib/divider.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmmirror.com/"
-  },
-  "scripts": {
-    "test": "node ./__tests__/divider.test.js"
-  },
-  "dependencies": {
-    "@etu-design/directives": "^0.0.1",
-    "animate.css": "^4.1.1",
-    "vue-router": "^4.1.6"
-  }
+  "license": "ISC"
 }

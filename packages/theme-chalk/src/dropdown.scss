@@ -1,0 +1,116 @@
+@use "sass:map";
+@use "mixins/mixins" as *;
+@use "mixins/function" as *;
+@use "mixins/_var.scss" as *;
+@use "var" as *;
+@use "mixins/config" as *;
+
+$dropdown-item-divided-margin: () !default;
+$dropdown-item-divided-margin: map.merge(
+  (
+    "large": 8px 0,
+    "default": 6px 0,
+    "small": 4px 0,
+  ),
+  $dropdown-item-divided-margin
+);
+$dropdown-padding: () !default;
+$dropdown-padding: map.merge(
+  (
+    "large": 8px 10px,
+    "default": 6px 8px,
+    "small": 4px 6px,
+  ),
+  $dropdown-padding
+);
+@include b(dropdown-item) {
+  @include set-css-var-value(
+    ("dropdownItem", "bg-color"),
+    getRootCssVar("color", "primary", "light", "hover")
+  );
+  @include set-css-var-value(
+    ("dropdownItem", "disabled-text-color"),
+    getRootCssVar("color", "info", "disabled")
+  );
+}
+@include b(dropdown) {
+  @include set-css-var-value(
+    ("dropdown", "text-color"),
+    getRootCssVar("color", "primary")
+  );
+}
+
+@include b(dropdown) {
+  padding: getCssVar("dropdown", "padding-size");
+  color: getCssVar("dropdown", "text-color");
+  cursor: pointer;
+  @each $size in (large, default, small) {
+    &--#{$size} {
+      @include set-css-var-value(
+        ("dropdown", "padding-size"),
+        map.get($dropdown-padding, $size)
+      );
+    }
+  }
+}
+@include b(dropdown-item) {
+  &:hover {
+    background-color: getCssVar("dropdownItem", "bg-color");
+    color: rgba(var(--color-blue-6), 1);
+    cursor: pointer;
+  }
+  @include when(disabled) {
+    background-color: white;
+    color: getCssVar("dropdownItem", "disabled-text-color");
+    cursor: not-allowed;
+  }
+  @include m(divided) {
+    border-top: 1px solid #ccc;
+    margin: map.get($dropdown-item-divided-margin, "default");
+    height: 0;
+  }
+  list-style: none;
+  padding: 3px 15px;
+}
+@include b(dropdown-menu) {
+  padding: 6.3px 0;
+}
+@include b(dropdown-button-group) {
+  line-height: 19px;
+  // font-size: 14px;
+  background-color: getCssVar("dropdown", "bg-color");
+  display: inline-block;
+  padding: getCssVar("dropdown", "padding-size");
+  cursor: pointer;
+  &:hover {
+    background-color: getCssVar("dropdown", "hover-bg-color");
+  }
+  vertical-align: middle;
+  border: 0px;
+  color: white;
+  i {
+    line-height: 16px;
+    position: relative;
+    top: 1px;
+  }
+  @each $type in $types {
+    &--#{$type} {
+      @include set-css-var-value(
+        ("dropdown", "bg-color"),
+        getRootCssVar("color", $type)
+      );
+      @include set-css-var-value(
+        ("dropdown", "hover-bg-color"),
+        getRootCssVar("color", $type, "hover")
+      );
+    }
+  }
+  @each $size in (large, default, small) {
+    &--#{$size} {
+      @include set-css-var-value(
+        ("dropdown", "padding-size"),
+        map.get($dropdown-padding, $size)
+      );
+    }
+  }
+}

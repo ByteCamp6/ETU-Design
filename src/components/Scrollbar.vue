@@ -1,9 +1,9 @@
 <template>
-  <etu-scrollbar :height="400">
+  <etu-scrollbar :max-height="400">
     <div
       v-for="item in 20"
       :key="item"
-      style="height: 80px; margin-bottom: 10px; background: blue"
+      style="height: 80px; margin: 12px; margin-top: 5px; background: blue"
     ></div>
   </etu-scrollbar>
   <br />

@@ -1,10 +1,11 @@
-import { defineConfig } from 'vitepress'
-import nav from './nav';
-import markdown from './markdown';
-import sidebar from './sidebar';
+import { defineConfig } from "vitepress";
+import nav from "./nav";
+import markdown from "./markdown";
+import sidebar from "./sidebar";
 
 export default defineConfig({
-  title: 'ETU组件库',
+  head: [["link", { rel: "icon", href: "/logo.png" }]],
+  title: "ETU组件库",
   // description: ' vue-cc-ui 组件库',
   // lastUpdated: true,
   // head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]],
@@ -13,8 +14,9 @@ export default defineConfig({
     sidebar,
     nav,
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: "github", link: "https://github.com/ByteCamp6/ETU-Design" },
     ],
-    logo: '/logo.svg'
-  }
-})
+    logo: "/logo.png",
+  },
+  base: "/docs/",
+});

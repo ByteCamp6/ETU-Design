@@ -1,10 +1,15 @@
 <template>
+  <DropDown></DropDown>
+  <DatePicker></DatePicker>
   <Scrollbar></Scrollbar>
+  <Popper></Popper>
   <Avatar></Avatar>
+  <scrollbar></scrollbar>
   <Pagination></Pagination>
+  <Table></Table>
   <Dialog></Dialog>
   <Collapse></Collapse>
-  <!-- <Progress></Progress> -->
+  <Progress></Progress>
   <Button></Button>
   <Divider></Divider>
   <Breadcrumb></Breadcrumb>
@@ -22,7 +27,41 @@
   <Link />
   <Upload></Upload>
   <Input />
+  <Switch></Switch>
+  <Tree></Tree>
   <router-view></router-view>
+  <Tag type="success" round
+    ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
+  ></Tag>
+  <Layer></Layer>
+  <Layer></Layer>
+  <Form></Form>
+<!--  <Scrollbar></Scrollbar>-->
+<!--  <Avatar></Avatar>-->
+<!--  <Pagination></Pagination>-->
+<!--  <Dialog></Dialog>-->
+<!--  <Collapse></Collapse>-->
+<!--  &lt;!&ndash; <Progress></Progress> &ndash;&gt;-->
+<!--  <Button></Button>-->
+<!--  <Divider></Divider>-->
+<!--  <Breadcrumb></Breadcrumb>-->
+<!--  <Icon></Icon>-->
+<!--  <Tag></Tag>-->
+<!--  <Select></Select>-->
+<!--  <Tag></Tag>-->
+<!--  <Checkbox></Checkbox>-->
+<!--  <Divider></Divider>-->
+<!--  <Drawer></Drawer>-->
+<!--  <OverLay></OverLay>-->
+<!--  <Radio></Radio>-->
+<!--  <Empty></Empty>-->
+<!--  <Message></Message>-->
+<!--  <Link />-->
+<!--  <Upload></Upload>-->
+<!--  <Input />-->
+<!--  <router-view></router-view>-->
+  <Menu></Menu>
+>>>>>>> origin/Menu
 </template>
 
 <script setup lang="ts">
@@ -47,7 +86,15 @@ import OverLay from "./components/OverLay.vue";
 import Avatar from "./components/Avatar.vue";
 import Dialog from "./components/Dialog.vue";
 import Pagination from "./components/Pagination.vue";
+import Table from "./components/Table.vue";
 import Scrollbar from "./components/Scrollbar.vue";
+import Layer from "./components/layer.vue";
+import DatePicker from "./components/DatePicker.vue";
+import Popper from "./components/Popper.vue";
+import Tree from "./components/Tree.vue";
+import Form from "./components/Form.vue";
+import DropDown from "./components/Dropdown.vue";
+import Menu from "./components/Menu.vue";
 </script>
 
 <style scoped></style>

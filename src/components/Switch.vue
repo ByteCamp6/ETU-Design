@@ -1,26 +1,21 @@
 <template>
+  <etu-button @click="val = !val">测试</etu-button>
   <etu-switch
-    id="cx"
     bgColor="crimson"
-    activeValue="100"
-    inactiveValue="0"
-    @change="handleChange(100)"
-    v-model="xx"
     size="normal"
-    @dataVal="func"
+    activeValue="300"
+    @change="handleChange"
+    inactiveValue="0"
+    :disabled="val"
   ></etu-switch>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
+let val = ref(false);
 
-const func = (v: any) => {
-  console.log(v);
-};
-
-const xx = ref();
 const handleChange = (row: any) => {
-  console.log("这是个自定义事件");
+  console.log("这是个自定义事件",row);
 };
 </script>
 

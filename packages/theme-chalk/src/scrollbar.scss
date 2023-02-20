@@ -14,7 +14,7 @@
   );
   ::-webkit-scrollbar {
     width: 6px;
-    height: 8px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -34,7 +34,53 @@
   height: 100%;
 
   @include e(wrapper) {
-    overflow: auto;
+    overflow: overlay;
     height: 100%;
+    scroll-behavior: smooth;
+    @include m(hidden-default) {
+      &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  @include e(bar) {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    z-index: 1;
+    border-radius: 8px;
+
+    @include when(horizontal) {
+      height: 6px;
+      left: 2px;
+      div {
+        height: 100%;
+      }
+    }
+
+    @include when(vertical) {
+      width: 6px;
+      top: 2px;
+      div {
+        width: 100%;
+      }
+    }
+  }
+
+  @include e(thumb) {
+    position: relative;
+    display: block;
+    width: 0;
+    height: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: getCssVar("scrollbar", "bg-color");
+    transition: background-color 0.3s;
+    opacity: getCssVar("scrollbar", "opacity");
+    &:hover {
+      opacity: getCssVar("scrollbar", "hover-opacity");
+    }
   }
 }

@@ -6,6 +6,7 @@
     @mouseover.self="onHover"
     @mouseleave.self="onUnHover"
   >
+    <slot name="prefix" />
     <input
       ref="input"
       :class="innerClass"
@@ -17,11 +18,12 @@
       @blur="onBlur"
       @focus="onFocus"
     />
-    <span :class="nc.e('tag')" v-else>
+    <span :class="ns.e('tag')" v-else>
       <etu-tag v-for="item in selected" :key="item">{{ item }}</etu-tag>
     </span>
     <span :class="iconClass"
       ><etu-icon
+        :class="ns.e('icon-arrow')"
         name="arrow-down-bold"
         v-if="caches.size === 0 || !hover"
       ></etu-icon
@@ -32,12 +34,12 @@
       leave-active-class="animate__animated animate__fadeOut animate__faster"
     >
       <div :class="dropdownClass" v-show="visible" ref="dropdown">
-        <div :class="nc.be('dropdown', 'wrapper')">
+        <div :class="ns.be('dropdown', 'wrapper')">
           <slot v-if="slots.default" />
-          <span :class="nc.e('empty')" v-else>暂时没有数据</span>
+          <span :class="ns.e('empty')" v-else>暂时没有数据</span>
         </div>
-      </div></transition
-    >
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -85,13 +87,18 @@ const {
   handlerClickOption,
   onHover,
   onUnHover,
+  isShow,
   isSelected,
   resetStates,
+  addValue,
 } = useSelect(states, props, emit);
 
-provide(selectKey, reactive({ props, handlerClickOption, isSelected, caches }));
+provide(
+  selectKey,
+  reactive({ props, handlerClickOption, isSelected, isShow, addValue }),
+);
 
-const nc = useNamespace("select");
+const ns = useNamespace("select");
 
 const onBlur = (e) => {
   emit && emit("blur", e);
@@ -103,16 +110,16 @@ const onFocus = (e) => {
 
 const selectClass = computed(() => {
   return [
-    nc.b(),
-    props.size !== "default" ? nc.m(props.size) : "",
-    nc.is("disabled", props.disabled),
-    nc.is("focus", visible.value || filterable.value),
-    nc.is("hover", hover.value),
+    ns.b(),
+    props.size !== "default" ? ns.m(props.size) : "",
+    ns.is("disabled", props.disabled),
+    ns.is("focus", visible.value || filterable.value),
+    ns.is("hover", hover.value),
   ];
 });
-const iconClass = computed(() => [nc.e("icon")]);
-const dropdownClass = computed(() => [nc.b("dropdown")]);
-const innerClass = computed(() => [nc.e("inner")]);
+const iconClass = computed(() => [ns.e("icon")]);
+const dropdownClass = computed(() => [ns.b("dropdown")]);
+const innerClass = computed(() => [ns.e("inner")]);
 
 onMounted(() => {
   window.addEventListener("click", hideMenu);
