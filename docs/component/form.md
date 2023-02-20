@@ -20,3 +20,24 @@ Form 组件提供了表单验证的功能，只需为 rules 属性传入约定�
 ## 自定义校验规则
 这个例子中展示了如何使用自定义验证规则来完成密码的二次验证。
 <preview path="../examples/form/validate.vue" title="" description=""></preview>
+
+
+
+## FormItem API
+
+| 名称        | 说明         | 类型              | 默认值 |
+| ----------- | ------------ | ----------------- | ------ |
+| prop        | model的键名  | string / string[] | ——     |
+| label       | 标签文本     | string            | ——     |
+| label-width | 标签宽度     | string / number   | ——     |
+| required    | 校验规则     | boolean           | false  |
+| rules       | 表单验证规则 | object            | ——     |
+
+
+
+#### FormItemRule
+
+| 插槽名  | 说明               | 类型 | 默认 |
+| ------- | ------------------ | ---- | ---- |
+| trigger | 验证逻辑的触发方式 | enum | ——   |
+
