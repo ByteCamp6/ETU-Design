@@ -50,6 +50,10 @@ export const dropDownProps = {
     type: String,
     default: "hover",
   },
+  arrowDown: {
+    type: Boolean,
+    default: true,
+  },
 } as const;
 export type DropDownProps = ExtractPropTypes<typeof dropDownProps>;
 export const dropdownEmits = {

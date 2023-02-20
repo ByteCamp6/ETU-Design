@@ -14,9 +14,10 @@ import { useDropDownItemStatus } from "./use-dropdown-item-status";
 const props = defineProps(dropdownItemProps);
 
 const ns = useNamespace("dropdown");
-const dropdownItemCls = [ns.b("item"), ns.is("disabled", props.disabled)];
-const liCls = [ns.bm("item", "divided")];
 const { isDisabled } = useDropDownItemStatus(props);
+const dropdownItemCls = [ns.b("item"), ns.is("disabled", isDisabled.value)];
+const liCls = [ns.bm("item", "divided")];
+
 const { handleMousedown } = inject(dropdownKey, undefined);
 const handleMousedownitem = function (e: Event) {
   if (isDisabled.value) return;

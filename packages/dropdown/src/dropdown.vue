@@ -21,11 +21,12 @@
             :class="splitButton ? bgCls : []"
             style="border-radius: 0 5px 5px 0"
           >
-            <etu-icon name="arrow-down-bold"></etu-icon>
+            <etu-icon v-if="splitButton" name="arrow-down-bold"></etu-icon>
           </button>
         </template>
         <span v-else
-          ><slot></slot> <etu-icon name="arrow-down-bold"></etu-icon
+          ><slot name="default"></slot>
+          <etu-icon v-if="isUseArrowDown" name="arrow-down-bold"></etu-icon
         ></span>
 
         <template #content>
@@ -57,8 +58,13 @@ const ns = useNamespace("dropdown");
 const props = defineProps(dropDownProps);
 
 defineEmits(dropdownEmits);
-const { scrollbarMaxHeight, canclePadding, placeMent, isTriggerHover } =
-  useDropDownStyle(props);
+const {
+  scrollbarMaxHeight,
+  canclePadding,
+  placeMent,
+  isTriggerHover,
+  isUseArrowDown,
+} = useDropDownStyle(props);
 
 const { handleMousedown, onButtonClick } = useDropdownEvent(props);
 provide(dropdownKey, {
