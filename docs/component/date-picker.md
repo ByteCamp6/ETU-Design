@@ -53,3 +53,9 @@ title: DatePicker
 | blur           | 在组件 Input 失去焦点时触发             | `Function` |
 | focus          | 在组件 Input 获得焦点时触发             | `Function` |
 | visible-change | 当 DatePicker 的下拉列表出现/消失时触发 | `Function` |
+
+<style>
+  .vitepress-demo-preview__element-plus__container {
+    overflow: unset;
+  }
+</style>
