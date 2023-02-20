@@ -1,7 +1,7 @@
 <template>
   <etu-switch
     v-model="demo"
-    @dataVal="showDemo"
+    @change="showDemo"
     activeValue="1000"
     inactiveValue="0"
   ></etu-switch>
@@ -9,8 +9,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-let demo = ref(1000);
-function showDemo() {
-  console.log(demo.value);
+const demo = ref("1000");
+function showDemo(v) {
+  console.log(v);
 }
 </script>
