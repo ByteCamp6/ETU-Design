@@ -1,0 +1,24 @@
+.etu-form-item {
+  display: flex;
+}
+.etu-form-item__label {
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-right: 12px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.etu-form-item__content {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.etu-form-item__error {
+  color: red;
+  font-size: 12px;
+  margin-left: 5px;
+  align-self: center;
+}

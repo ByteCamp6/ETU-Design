@@ -1,0 +1,82 @@
+.etu-popper {
+  --etu-popper-padding: 18px;
+  --etu-popper-border-radius: 6px;
+  --etu-popper-bg-color: var(--color-white);
+  --etu-popper-border: var(--border-default);
+  --etu-popper-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+  --etu-popper-theme-border-width: 0;
+}
+
+.etu-popper {
+  display: inline-block;
+}
+.etu-popper__content {
+  transition: background 250ms ease-in-out;
+  background: var(--etu-popper-bg-color);
+  padding: var(--etu-popper-padding);
+  color: inherit;
+  border-radius: var(--etu-popper-border-radius);
+  border: var(--etu-popper-border);
+  box-shadow: var(--etu-popper-box-shadow);
+}
+.etu-popper__content:hover, .etu-popper__content:hover > .etu-popper__arrow::before {
+  background: var(--etu-popper-bg-color);
+}
+.etu-popper__content[data-popper-placement^=top] > .etu-popper__arrow {
+  bottom: -5px;
+}
+.etu-popper__content[data-popper-placement^=top] > .etu-popper__arrow::before {
+  border-bottom: var(--etu-popper-border);
+  border-right: var(--etu-popper-border);
+}
+.etu-popper__content[data-popper-placement^=bottom] > .etu-popper__arrow {
+  top: -5px;
+}
+.etu-popper__content[data-popper-placement^=bottom] > .etu-popper__arrow::before {
+  border-top: var(--etu-popper-border);
+  border-left: var(--etu-popper-border);
+}
+.etu-popper__content[data-popper-placement^=left] > .etu-popper__arrow {
+  right: -5px;
+}
+.etu-popper__content[data-popper-placement^=left] > .etu-popper__arrow::before {
+  border-top: var(--etu-popper-border);
+  border-right: var(--etu-popper-border);
+}
+.etu-popper__content[data-popper-placement^=right] > .etu-popper__arrow {
+  left: -5px;
+}
+.etu-popper__content[data-popper-placement^=right] > .etu-popper__arrow::before {
+  border-bottom: var(--etu-popper-border);
+  border-left: var(--etu-popper-border);
+}
+.etu-popper__content.is-canclePadding {
+  padding: 0px;
+}
+
+.etu-popper__arrow {
+  visibility: hidden;
+}
+.etu-popper__arrow, .etu-popper__arrow::before {
+  transition: background 250ms ease-in-out;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  background: var(--etu-popper-bg-color);
+}
+.etu-popper__arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.popper-fade-enter-active,
+.popper-fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.popper-fade-enter-from,
+.popper-fade-leave-to {
+  opacity: 0;
+}

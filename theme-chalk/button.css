@@ -11,6 +11,7 @@
   border-radius: 6px 6px;
   cursor: pointer;
   user-select: none;
+  -webkit-user-select: none;
   touch-action: manipulation;
   line-height: 24px;
 }
@@ -30,51 +31,64 @@
 }
 
 .etu-Button-false__normal {
-  width: 108px;
-  height: 36px;
   aspect-ratio: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 1.5rem 0.4rem 1.5rem;
 }
 
 .etu-Button-false__large {
-  width: 130px;
-  height: 43px;
   aspect-ratio: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 2rem 0.6rem 2rem;
 }
 
 .etu-Button-false__small {
-  width: 90px;
-  height: 35px;
   aspect-ratio: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 1rem 0.2rem 1rem;
 }
 
-.etu-Button-true__small, .etu-Button-true__large, .etu-Button-true__normal {
+.etu-Button-true__normal {
+  aspect-ratio: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 1rem 0.4rem 1rem;
   aspect-ratio: 1/1;
   border-radius: 50%;
 }
 
-.etu-Button-true__normal {
-  width: 36px;
-  height: 36px;
-  aspect-ratio: inherit;
-}
-
 .etu-Button-true__large {
-  width: 48px;
-  height: 48px;
   aspect-ratio: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 1.5rem 0.4rem 1.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
 }
 
 .etu-Button-true__small {
-  width: 24px;
-  height: 24px;
   aspect-ratio: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
 }
 
 .etu-Button-default__solid--curved, .etu-Button-default__Hollow--Microcurvature, .etu-Button,
 .etu-Button-default__solid--Microcurvature {
   border: grey solid 1px;
   background-color: inherit;
-  color: white;
+  color: inherit;
 }
 
 .etu-Button-rainbow__Hollow--Microcurvature:hover, .etu-Button-danger__Hollow--Microcurvature:hover, .etu-Button-warning__Hollow--Microcurvature:hover, .etu-Button-Info__Hollow--Microcurvature:hover, .etu-Button-success__Hollow--Microcurvature:hover, .etu-Button-primary__Hollow--Microcurvature:hover, .etu-Button-rainbow__solid--curved:hover, .etu-Button-danger__solid--curved:hover, .etu-Button-warning__solid--curved:hover, .etu-Button-Info__solid--curved:hover, .etu-Button-success__solid--curved:hover, .etu-Button-primary__solid--curved:hover, .etu-Button-default__solid--curved:hover, .etu-Button-default__Hollow--Microcurvature:hover, .etu-Button-rainbow__solid--Microcurvature:hover, .etu-Button-danger__solid--Microcurvature:hover, .etu-Button-warning__solid--Microcurvature:hover, .etu-Button-Info__solid--Microcurvature:hover, .etu-Button-success__solid--Microcurvature:hover, .etu-Button-primary__solid--Microcurvature:hover, .etu-Button:hover,
@@ -92,10 +106,6 @@
   color: white;
 }
 
-.etu-Button,
-.etu-Button-default__solid--Microcurvature {
-  color: #181818;
-}
 .etu-Button:hover,
 .etu-Button-default__solid--Microcurvature:hover {
   color: dodgerblue;
@@ -214,7 +224,8 @@
 
 .etu-Button-default__solid--curved {
   border-radius: 18px 18px;
-  color: black;
+  color: inherit;
+  background-color: inherit;
 }
 .etu-Button-default__solid--curved:hover {
   color: dodgerblue;

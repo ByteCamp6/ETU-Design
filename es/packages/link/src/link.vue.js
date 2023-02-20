@@ -1,4 +1,4 @@
-import { defineComponent, openBlock, createElementBlock, normalizeClass, unref, renderSlot, createCommentVNode } from "vue";
+import { defineComponent, resolveComponent, openBlock, createElementBlock, normalizeClass, unref, renderSlot, createBlock, createCommentVNode } from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import { linkProps, linkEmits } from "./link.js";
@@ -13,6 +13,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props, { emit }) {
     const props = __props;
     const bem = useNamespace("link");
+    const iconName = props.icon || "";
+    console.log(iconName, "???");
     let linkKls = [
       bem.b(),
       bem.m(props.type),
@@ -24,13 +26,20 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         emit("click", event);
     }
     return (_ctx, _cache) => {
+      const _component_etu_icon = resolveComponent("etu-icon");
       return openBlock(), createElementBlock("a", {
         class: normalizeClass(unref(linkKls)),
         href: _ctx.disabled || !_ctx.href ? void 0 : _ctx.href,
-        onClick: handleClick
+        onClick: handleClick,
+        style: { "align-items": "center" }
       }, [
-        _ctx.$slots.default ? (openBlock(), createElementBlock("span", {
+        renderSlot(_ctx.$slots, "icon"),
+        unref(iconName) ? (openBlock(), createBlock(_component_etu_icon, {
           key: 0,
+          name: unref(iconName)
+        }, null, 8, ["name"])) : createCommentVNode("", true),
+        _ctx.$slots.default ? (openBlock(), createElementBlock("span", {
+          key: 1,
           class: normalizeClass(unref(bem).e("inner"))
         }, [
           renderSlot(_ctx.$slots, "default")

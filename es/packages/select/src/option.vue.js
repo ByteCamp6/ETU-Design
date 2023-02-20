@@ -1,4 +1,4 @@
-import { defineComponent, inject, computed, onMounted, openBlock, createElementBlock, normalizeClass, unref, withModifiers, createElementVNode, toDisplayString } from "vue";
+import { defineComponent, inject, computed, onMounted, withDirectives, openBlock, createElementBlock, normalizeClass, unref, withModifiers, createElementVNode, toDisplayString, vShow } from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import { optionProps } from "./option.js";
@@ -12,6 +12,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   setup(__props) {
     const props = __props;
     const select = inject(selectKey);
+    if (!props.disabled) {
+      select.addValue(props.label);
+    }
     const updateValue = (value, label) => {
       if (props.disabled)
         return;
@@ -24,7 +27,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       nc.is("selected", select.isSelected(props.value))
     ]);
     onMounted(() => {
-      if (select.props.modelValue) {
+      if (select.props.modelValue && !select.props.multiple) {
         if (!select.props.multiple) {
           if (select.props.modelValue === props.value) {
             updateValue(props.value, props.label);
@@ -37,12 +40,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
+      return withDirectives((openBlock(), createElementBlock("div", {
         class: normalizeClass(unref(optionClass)),
         onClick: _cache[0] || (_cache[0] = withModifiers(($event) => updateValue(props.value, props.label), ["stop"]))
       }, [
         createElementVNode("span", null, toDisplayString(props.label), 1)
-      ], 2);
+      ], 2)), [
+        [vShow, unref(select).isShow(props.label)]
+      ]);
     };
   }
 });

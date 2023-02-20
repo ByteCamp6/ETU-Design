@@ -22,6 +22,7 @@ const tableProps = {
   },
   width: [String, Number],
   height: [String, Number],
+  maxHeight: [String, Number],
   rowSelection: {
     type: definePropType(Object)
   },

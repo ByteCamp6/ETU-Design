@@ -1,12 +1,5 @@
 <template>
-  <etu-dropdown
-    @command="command"
-    size="small"
-    type="primary"
-    @click="handleClick"
-    trigger="hover"
-    :arrowDown="false"
-  >
+  <etu-dropdown>
     下拉菜单
 
     <template #dropdown>

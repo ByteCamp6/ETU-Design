@@ -1,12 +1,14 @@
-import { defineComponent, ref, watch, computed, openBlock, createElementBlock, normalizeClass, unref, withDirectives, createElementVNode, isRef, vModelCheckbox, renderSlot, nextTick } from "vue";
+import { defineComponent, ref, computed, openBlock, createElementBlock, normalizeClass, unref, withDirectives, createElementVNode, isRef, vModelCheckbox, renderSlot } from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
+import { useDisabled } from "../../hooks/use-common-props/index.js";
+import { isPropAbsent } from "../../utils/types.js";
 import "../../hooks/use-z-index/index.js";
-import "../../theme-chalk/src/switch.scss.js";
-const _hoisted_1 = ["true-value", "false-value", "checked", "value", "disabled"];
+import { isBoolean } from "../../../node_modules/@vueuse/shared/index.js";
+const _hoisted_1 = ["true-value", "false-value", "disabled"];
 const _hoisted_2 = /* @__PURE__ */ createElementVNode("div", { class: "etu-Switch-inBox" }, null, -1);
-const __default__ = {
+const __default__ = defineComponent({
   name: "EtuSwitch"
-};
+});
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
   props: {
@@ -24,11 +26,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     },
     modelValue: {
       type: [Boolean, String, Number],
-      default: false
-    },
-    value: {
-      type: [Boolean, String, Number],
-      default: false
+      default: null
     },
     disabled: {
       type: Boolean,
@@ -47,60 +45,49 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       default: ""
     }
   },
-  emits: ["change", "dataVal"],
+  emits: ["change", "update:modelValue"],
   setup(__props, { emit: emits }) {
     const props = __props;
     const bem = useNamespace("Switch");
-    const isControlled = ref(typeof props.modelValue === "boolean");
-    const state = ref(props.disabled);
-    watch(
-      () => props.modelValue,
-      () => {
-        isControlled.value = true;
+    const innerValue = ref(false);
+    const valueBridge = computed({
+      get() {
+        return !isPropAbsent(props.modelValue) ? props.modelValue : innerValue.value;
+      },
+      set(v) {
+        emits("change", v);
+        emits("update:modelValue", v);
+        innerValue.value = v;
       }
-    );
-    watch(
-      () => props.value,
-      () => {
-        isControlled.value = false;
+    });
+    const isCheck = computed(() => {
+      if (isBoolean(valueBridge.value)) {
+        return valueBridge.value;
+      } else {
+        return props.activeValue === valueBridge.value;
       }
-    );
-    const activeValue = ref(props.activeValue);
-    const inactiveValue = ref(props.inactiveValue);
+    });
+    const isDisabled = useDisabled();
     const tClass = computed(() => {
-      return [bem.b(), bem.bem(props.bgColor, String(props.disabled), props.size)];
+      return [
+        bem.b(),
+        bem.bem(props.bgColor, String(isDisabled.value), props.size),
+        bem.is("checked", isCheck.value)
+      ];
     });
-    computed(() => {
-      return [bem.e()];
-    });
-    let checkedValue = ref(false);
-    let demo = ref();
-    let val = demo;
-    const handleChange = () => {
-      const v = checkedValue.value ? props.inactiveValue : props.activeValue;
-      emits("change", v);
-      emits("dataVal", val.value);
-      nextTick(() => {
-        checkedValue.value = !checkedValue.value;
-      });
-    };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("label", {
         class: normalizeClass(unref(tClass))
       }, [
         withDirectives(createElementVNode("input", {
-          ref: "input",
           type: "checkbox",
           class: "RealCheck",
-          "true-value": activeValue.value,
-          "false-value": inactiveValue.value,
-          checked: unref(checkedValue),
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(demo) ? demo.value = $event : demo = $event),
-          value: unref(val),
-          onChange: handleChange,
-          disabled: state.value
-        }, null, 40, _hoisted_1), [
-          [vModelCheckbox, unref(demo)]
+          "true-value": __props.activeValue,
+          "false-value": __props.inactiveValue,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(valueBridge) ? valueBridge.value = $event : null),
+          disabled: unref(isDisabled)
+        }, null, 8, _hoisted_1), [
+          [vModelCheckbox, unref(valueBridge)]
         ]),
         _hoisted_2,
         renderSlot(_ctx.$slots, "default")

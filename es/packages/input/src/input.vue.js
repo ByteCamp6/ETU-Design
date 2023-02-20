@@ -1,4 +1,4 @@
-import { defineComponent, useAttrs, useSlots, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, mergeProps, renderSlot, createCommentVNode, withDirectives, vShow, createVNode } from "vue";
+import { defineComponent, useAttrs, useSlots, inject, watch, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, mergeProps, renderSlot, createCommentVNode, withDirectives, vShow, createVNode } from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import { inputProps, inputEmits } from "./input.js";
@@ -24,6 +24,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const slots = useSlots();
     const bem = useNamespace("input");
     const bemArea = useNamespace("textarea");
+    const formItemContext = inject("form-item");
+    watch(
+      () => props.modelValue,
+      () => {
+        formItemContext == null ? void 0 : formItemContext.validate("change");
+      }
+    );
     const {
       inputRef,
       textareaRef,

@@ -5,8 +5,8 @@ import "../../hooks/use-z-index/index.js";
 import "../../icon/index.js";
 import "../../progress/index.js";
 import { uploadListProps, uploadListEmits } from "./upload-list.js";
-import _sfc_main$1 from "../../icon/src/icon.vue.js";
 import _sfc_main$2 from "../../progress/src/progress.vue.js";
+import _sfc_main$1 from "../../icon/src/icon.vue.js";
 const _hoisted_1 = ["onClick"];
 const __default__ = defineComponent({
   name: "EtuUploadList"

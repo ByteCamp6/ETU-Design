@@ -1,0 +1,785 @@
+.etu-menuGroup__horizontal {
+  width: 100%;
+  height: 30%;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.etu-menuGroup__vertical {
+  width: 20%;
+  height: 100% rem;
+  margin: 0;
+}
+
+.etu-menuGroup-hover__crimson--crimson {
+  background-color: crimson;
+  color: crimson;
+}
+.etu-menuGroup-hover__crimson--dodgerblue {
+  background-color: crimson;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__crimson--limegreen {
+  background-color: crimson;
+  color: limegreen;
+}
+.etu-menuGroup-hover__crimson--grey {
+  background-color: crimson;
+  color: grey;
+}
+.etu-menuGroup-hover__crimson--darkorange {
+  background-color: crimson;
+  color: darkorange;
+}
+.etu-menuGroup-hover__crimson--black {
+  background-color: crimson;
+  color: black;
+}
+.etu-menuGroup-hover__crimson--white {
+  background-color: crimson;
+  color: white;
+}
+.etu-menuGroup-hover__crimson--lightslategrey {
+  background-color: crimson;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__dodgerblue--crimson {
+  background-color: dodgerblue;
+  color: crimson;
+}
+.etu-menuGroup-hover__dodgerblue--dodgerblue {
+  background-color: dodgerblue;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__dodgerblue--limegreen {
+  background-color: dodgerblue;
+  color: limegreen;
+}
+.etu-menuGroup-hover__dodgerblue--grey {
+  background-color: dodgerblue;
+  color: grey;
+}
+.etu-menuGroup-hover__dodgerblue--darkorange {
+  background-color: dodgerblue;
+  color: darkorange;
+}
+.etu-menuGroup-hover__dodgerblue--black {
+  background-color: dodgerblue;
+  color: black;
+}
+.etu-menuGroup-hover__dodgerblue--white {
+  background-color: dodgerblue;
+  color: white;
+}
+.etu-menuGroup-hover__dodgerblue--lightslategrey {
+  background-color: dodgerblue;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__limegreen--crimson {
+  background-color: limegreen;
+  color: crimson;
+}
+.etu-menuGroup-hover__limegreen--dodgerblue {
+  background-color: limegreen;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__limegreen--limegreen {
+  background-color: limegreen;
+  color: limegreen;
+}
+.etu-menuGroup-hover__limegreen--grey {
+  background-color: limegreen;
+  color: grey;
+}
+.etu-menuGroup-hover__limegreen--darkorange {
+  background-color: limegreen;
+  color: darkorange;
+}
+.etu-menuGroup-hover__limegreen--black {
+  background-color: limegreen;
+  color: black;
+}
+.etu-menuGroup-hover__limegreen--white {
+  background-color: limegreen;
+  color: white;
+}
+.etu-menuGroup-hover__limegreen--lightslategrey {
+  background-color: limegreen;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__grey--crimson {
+  background-color: grey;
+  color: crimson;
+}
+.etu-menuGroup-hover__grey--dodgerblue {
+  background-color: grey;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__grey--limegreen {
+  background-color: grey;
+  color: limegreen;
+}
+.etu-menuGroup-hover__grey--grey {
+  background-color: grey;
+  color: grey;
+}
+.etu-menuGroup-hover__grey--darkorange {
+  background-color: grey;
+  color: darkorange;
+}
+.etu-menuGroup-hover__grey--black {
+  background-color: grey;
+  color: black;
+}
+.etu-menuGroup-hover__grey--white {
+  background-color: grey;
+  color: white;
+}
+.etu-menuGroup-hover__grey--lightslategrey {
+  background-color: grey;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__darkorange--crimson {
+  background-color: darkorange;
+  color: crimson;
+}
+.etu-menuGroup-hover__darkorange--dodgerblue {
+  background-color: darkorange;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__darkorange--limegreen {
+  background-color: darkorange;
+  color: limegreen;
+}
+.etu-menuGroup-hover__darkorange--grey {
+  background-color: darkorange;
+  color: grey;
+}
+.etu-menuGroup-hover__darkorange--darkorange {
+  background-color: darkorange;
+  color: darkorange;
+}
+.etu-menuGroup-hover__darkorange--black {
+  background-color: darkorange;
+  color: black;
+}
+.etu-menuGroup-hover__darkorange--white {
+  background-color: darkorange;
+  color: white;
+}
+.etu-menuGroup-hover__darkorange--lightslategrey {
+  background-color: darkorange;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__black--crimson {
+  background-color: black;
+  color: crimson;
+}
+.etu-menuGroup-hover__black--dodgerblue {
+  background-color: black;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__black--limegreen {
+  background-color: black;
+  color: limegreen;
+}
+.etu-menuGroup-hover__black--grey {
+  background-color: black;
+  color: grey;
+}
+.etu-menuGroup-hover__black--darkorange {
+  background-color: black;
+  color: darkorange;
+}
+.etu-menuGroup-hover__black--black {
+  background-color: black;
+  color: black;
+}
+.etu-menuGroup-hover__black--white {
+  background-color: black;
+  color: white;
+}
+.etu-menuGroup-hover__black--lightslategrey {
+  background-color: black;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__white--crimson {
+  background-color: white;
+  color: crimson;
+}
+.etu-menuGroup-hover__white--dodgerblue {
+  background-color: white;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__white--limegreen {
+  background-color: white;
+  color: limegreen;
+}
+.etu-menuGroup-hover__white--grey {
+  background-color: white;
+  color: grey;
+}
+.etu-menuGroup-hover__white--darkorange {
+  background-color: white;
+  color: darkorange;
+}
+.etu-menuGroup-hover__white--black {
+  background-color: white;
+  color: black;
+}
+.etu-menuGroup-hover__white--white {
+  background-color: white;
+  color: white;
+}
+.etu-menuGroup-hover__white--lightslategrey {
+  background-color: white;
+  color: lightslategrey;
+}
+.etu-menuGroup-hover__lightslategrey--crimson {
+  background-color: lightslategrey;
+  color: crimson;
+}
+.etu-menuGroup-hover__lightslategrey--dodgerblue {
+  background-color: lightslategrey;
+  color: dodgerblue;
+}
+.etu-menuGroup-hover__lightslategrey--limegreen {
+  background-color: lightslategrey;
+  color: limegreen;
+}
+.etu-menuGroup-hover__lightslategrey--grey {
+  background-color: lightslategrey;
+  color: grey;
+}
+.etu-menuGroup-hover__lightslategrey--darkorange {
+  background-color: lightslategrey;
+  color: darkorange;
+}
+.etu-menuGroup-hover__lightslategrey--black {
+  background-color: lightslategrey;
+  color: black;
+}
+.etu-menuGroup-hover__lightslategrey--white {
+  background-color: lightslategrey;
+  color: white;
+}
+.etu-menuGroup-hover__lightslategrey--lightslategrey {
+  background-color: lightslategrey;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__crimson--crimson {
+  background-color: crimson;
+  color: crimson;
+}
+.etu-menuGroup-click__crimson--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--dodgerblue {
+  background-color: crimson;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__crimson--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--limegreen {
+  background-color: crimson;
+  color: limegreen;
+}
+.etu-menuGroup-click__crimson--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--grey {
+  background-color: crimson;
+  color: grey;
+}
+.etu-menuGroup-click__crimson--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--darkorange {
+  background-color: crimson;
+  color: darkorange;
+}
+.etu-menuGroup-click__crimson--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--black {
+  background-color: crimson;
+  color: black;
+}
+.etu-menuGroup-click__crimson--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--white {
+  background-color: crimson;
+  color: white;
+}
+.etu-menuGroup-click__crimson--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__crimson--lightslategrey {
+  background-color: crimson;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__crimson--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--crimson {
+  background-color: dodgerblue;
+  color: crimson;
+}
+.etu-menuGroup-click__dodgerblue--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--dodgerblue {
+  background-color: dodgerblue;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__dodgerblue--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--limegreen {
+  background-color: dodgerblue;
+  color: limegreen;
+}
+.etu-menuGroup-click__dodgerblue--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--grey {
+  background-color: dodgerblue;
+  color: grey;
+}
+.etu-menuGroup-click__dodgerblue--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--darkorange {
+  background-color: dodgerblue;
+  color: darkorange;
+}
+.etu-menuGroup-click__dodgerblue--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--black {
+  background-color: dodgerblue;
+  color: black;
+}
+.etu-menuGroup-click__dodgerblue--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--white {
+  background-color: dodgerblue;
+  color: white;
+}
+.etu-menuGroup-click__dodgerblue--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__dodgerblue--lightslategrey {
+  background-color: dodgerblue;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__dodgerblue--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--crimson {
+  background-color: limegreen;
+  color: crimson;
+}
+.etu-menuGroup-click__limegreen--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--dodgerblue {
+  background-color: limegreen;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__limegreen--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--limegreen {
+  background-color: limegreen;
+  color: limegreen;
+}
+.etu-menuGroup-click__limegreen--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--grey {
+  background-color: limegreen;
+  color: grey;
+}
+.etu-menuGroup-click__limegreen--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--darkorange {
+  background-color: limegreen;
+  color: darkorange;
+}
+.etu-menuGroup-click__limegreen--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--black {
+  background-color: limegreen;
+  color: black;
+}
+.etu-menuGroup-click__limegreen--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--white {
+  background-color: limegreen;
+  color: white;
+}
+.etu-menuGroup-click__limegreen--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__limegreen--lightslategrey {
+  background-color: limegreen;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__limegreen--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--crimson {
+  background-color: grey;
+  color: crimson;
+}
+.etu-menuGroup-click__grey--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--dodgerblue {
+  background-color: grey;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__grey--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--limegreen {
+  background-color: grey;
+  color: limegreen;
+}
+.etu-menuGroup-click__grey--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--grey {
+  background-color: grey;
+  color: grey;
+}
+.etu-menuGroup-click__grey--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--darkorange {
+  background-color: grey;
+  color: darkorange;
+}
+.etu-menuGroup-click__grey--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--black {
+  background-color: grey;
+  color: black;
+}
+.etu-menuGroup-click__grey--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--white {
+  background-color: grey;
+  color: white;
+}
+.etu-menuGroup-click__grey--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__grey--lightslategrey {
+  background-color: grey;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__grey--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--crimson {
+  background-color: darkorange;
+  color: crimson;
+}
+.etu-menuGroup-click__darkorange--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--dodgerblue {
+  background-color: darkorange;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__darkorange--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--limegreen {
+  background-color: darkorange;
+  color: limegreen;
+}
+.etu-menuGroup-click__darkorange--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--grey {
+  background-color: darkorange;
+  color: grey;
+}
+.etu-menuGroup-click__darkorange--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--darkorange {
+  background-color: darkorange;
+  color: darkorange;
+}
+.etu-menuGroup-click__darkorange--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--black {
+  background-color: darkorange;
+  color: black;
+}
+.etu-menuGroup-click__darkorange--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--white {
+  background-color: darkorange;
+  color: white;
+}
+.etu-menuGroup-click__darkorange--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__darkorange--lightslategrey {
+  background-color: darkorange;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__darkorange--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--crimson {
+  background-color: black;
+  color: crimson;
+}
+.etu-menuGroup-click__black--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--dodgerblue {
+  background-color: black;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__black--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--limegreen {
+  background-color: black;
+  color: limegreen;
+}
+.etu-menuGroup-click__black--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--grey {
+  background-color: black;
+  color: grey;
+}
+.etu-menuGroup-click__black--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--darkorange {
+  background-color: black;
+  color: darkorange;
+}
+.etu-menuGroup-click__black--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--black {
+  background-color: black;
+  color: black;
+}
+.etu-menuGroup-click__black--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--white {
+  background-color: black;
+  color: white;
+}
+.etu-menuGroup-click__black--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__black--lightslategrey {
+  background-color: black;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__black--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--crimson {
+  background-color: white;
+  color: crimson;
+}
+.etu-menuGroup-click__white--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--dodgerblue {
+  background-color: white;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__white--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--limegreen {
+  background-color: white;
+  color: limegreen;
+}
+.etu-menuGroup-click__white--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--grey {
+  background-color: white;
+  color: grey;
+}
+.etu-menuGroup-click__white--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--darkorange {
+  background-color: white;
+  color: darkorange;
+}
+.etu-menuGroup-click__white--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--black {
+  background-color: white;
+  color: black;
+}
+.etu-menuGroup-click__white--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--white {
+  background-color: white;
+  color: white;
+}
+.etu-menuGroup-click__white--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__white--lightslategrey {
+  background-color: white;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__white--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--crimson {
+  background-color: lightslategrey;
+  color: crimson;
+}
+.etu-menuGroup-click__lightslategrey--crimson:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--dodgerblue {
+  background-color: lightslategrey;
+  color: dodgerblue;
+}
+.etu-menuGroup-click__lightslategrey--dodgerblue:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--limegreen {
+  background-color: lightslategrey;
+  color: limegreen;
+}
+.etu-menuGroup-click__lightslategrey--limegreen:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--grey {
+  background-color: lightslategrey;
+  color: grey;
+}
+.etu-menuGroup-click__lightslategrey--grey:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--darkorange {
+  background-color: lightslategrey;
+  color: darkorange;
+}
+.etu-menuGroup-click__lightslategrey--darkorange:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--black {
+  background-color: lightslategrey;
+  color: black;
+}
+.etu-menuGroup-click__lightslategrey--black:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--white {
+  background-color: lightslategrey;
+  color: white;
+}
+.etu-menuGroup-click__lightslategrey--white:active {
+  background-color: dodgerblue;
+}
+
+.etu-menuGroup-click__lightslategrey--lightslategrey {
+  background-color: lightslategrey;
+  color: lightslategrey;
+}
+.etu-menuGroup-click__lightslategrey--lightslategrey:active {
+  background-color: dodgerblue;
+}
+
+body {
+  margin: 0;
+}

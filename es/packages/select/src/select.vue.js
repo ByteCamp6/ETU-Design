@@ -1,4 +1,4 @@
-import { defineComponent, ref, useSlots, toRefs, provide, reactive, computed, onMounted, onUnmounted, resolveComponent, openBlock, createElementBlock, normalizeClass, unref, withModifiers, withDirectives, isRef, vModelText, Fragment, renderList, createBlock, withCtx, createTextVNode, toDisplayString, createElementVNode, createVNode, Transition, renderSlot, vShow } from "vue";
+import { defineComponent, ref, useSlots, toRefs, provide, reactive, computed, onMounted, onUnmounted, resolveComponent, openBlock, createElementBlock, normalizeClass, unref, withModifiers, renderSlot, withDirectives, isRef, vModelText, Fragment, renderList, createBlock, withCtx, createTextVNode, toDisplayString, createElementVNode, createVNode, Transition, vShow } from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import { selectProps, selectEmits } from "./select.js";
@@ -26,11 +26,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       handlerClickOption,
       onHover,
       onUnHover,
+      isShow,
       isSelected,
-      resetStates
+      resetStates,
+      addValue
     } = useSelect(states, props, emit);
-    provide(selectKey, reactive({ props, handlerClickOption, isSelected, caches }));
-    const nc = useNamespace("select");
+    provide(
+      selectKey,
+      reactive({ props, handlerClickOption, isSelected, isShow, addValue })
+    );
+    const ns = useNamespace("select");
     const onBlur = (e) => {
       emit && emit("blur", e);
     };
@@ -39,16 +44,16 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const selectClass = computed(() => {
       return [
-        nc.b(),
-        props.size !== "default" ? nc.m(props.size) : "",
-        nc.is("disabled", props.disabled),
-        nc.is("focus", visible.value || filterable.value),
-        nc.is("hover", hover.value)
+        ns.b(),
+        props.size !== "default" ? ns.m(props.size) : "",
+        ns.is("disabled", props.disabled),
+        ns.is("focus", visible.value || filterable.value),
+        ns.is("hover", hover.value)
       ];
     });
-    const iconClass = computed(() => [nc.e("icon")]);
-    const dropdownClass = computed(() => [nc.b("dropdown")]);
-    const innerClass = computed(() => [nc.e("inner")]);
+    const iconClass = computed(() => [ns.e("icon")]);
+    const dropdownClass = computed(() => [ns.b("dropdown")]);
+    const innerClass = computed(() => [ns.e("inner")]);
     onMounted(() => {
       window.addEventListener("click", hideMenu);
     });
@@ -78,6 +83,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ["self"]
         ))
       }, [
+        renderSlot(_ctx.$slots, "prefix"),
         !unref(selected).length ? withDirectives((openBlock(), createElementBlock("input", {
           key: 0,
           ref: "input",
@@ -92,7 +98,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           [vModelText, unref(currentLable)]
         ]) : (openBlock(), createElementBlock("span", {
           key: 1,
-          class: normalizeClass(unref(nc).e("tag"))
+          class: normalizeClass(unref(ns).e("tag"))
         }, [
           (openBlock(true), createElementBlock(Fragment, null, renderList(unref(selected), (item) => {
             return openBlock(), createBlock(_component_etu_tag, { key: item }, {
@@ -108,8 +114,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }, [
           unref(caches).size === 0 || !unref(hover) ? (openBlock(), createBlock(_component_etu_icon, {
             key: 0,
+            class: normalizeClass(unref(ns).e("icon-arrow")),
             name: "arrow-down-bold"
-          })) : (openBlock(), createBlock(_component_etu_icon, {
+          }, null, 8, ["class"])) : (openBlock(), createBlock(_component_etu_icon, {
             key: 1,
             name: "error",
             onClick: withModifiers(unref(resetStates), ["stop"])
@@ -126,11 +133,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               ref: dropdown
             }, [
               createElementVNode("div", {
-                class: normalizeClass(unref(nc).be("dropdown", "wrapper"))
+                class: normalizeClass(unref(ns).be("dropdown", "wrapper"))
               }, [
                 unref(slots).default ? renderSlot(_ctx.$slots, "default", { key: 0 }) : (openBlock(), createElementBlock("span", {
                   key: 1,
-                  class: normalizeClass(unref(nc).e("empty"))
+                  class: normalizeClass(unref(ns).e("empty"))
                 }, "暂时没有数据", 2))
               ], 2)
             ], 2), [

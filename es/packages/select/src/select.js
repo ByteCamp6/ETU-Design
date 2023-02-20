@@ -39,6 +39,7 @@ const selectProps = {
   placeholder: {
     type: String
   },
+  remote: booleanType,
   disabled: booleanType,
   filterable: booleanType,
   clearable: booleanType,

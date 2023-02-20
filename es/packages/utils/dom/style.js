@@ -2,6 +2,17 @@ import { isString, isObject } from "../../../node_modules/@vue/shared/dist/share
 import { camelize } from "vue";
 import { isNumber } from "../../../node_modules/@vueuse/shared/index.js";
 const keysOf = (arr) => Object.keys(arr);
+const classNameToArray = (cls = "") => cls.split(" ").filter((item) => !!item.trim());
+const addClass = (el, cls) => {
+  if (!el || !cls.trim())
+    return;
+  el.classList.add(...classNameToArray(cls));
+};
+const removeClass = (el, cls) => {
+  if (!el || !cls.trim())
+    return;
+  el.classList.remove(...classNameToArray(cls));
+};
 const getStyle = (element, styleName) => {
   var _a;
   if (!element || !styleName)
@@ -51,9 +62,12 @@ function addUnit(value, defaultUnit = "px") {
   }
 }
 export {
+  addClass,
   addUnit,
+  classNameToArray,
   getStyle,
   keysOf,
+  removeClass,
   removeStyle,
   setStyle
 };

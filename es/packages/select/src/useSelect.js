@@ -1,8 +1,10 @@
-import { reactive, watch } from "vue";
+import { reactive, watch, nextTick } from "vue";
 import { _debounce } from "../../utils/utils.js";
 function useSelectStates(props) {
   return reactive({
     caches: /* @__PURE__ */ new Map(),
+    originList: [],
+    list: /* @__PURE__ */ new Set(),
     selected: [],
     currentLable: "",
     currentIndex: -1,
@@ -33,7 +35,7 @@ const useSelect = (states, props, emit) => {
         resetStates();
         return;
       }
-      states.currentIndex !== -1 && states.caches.delete(states.currentIndex);
+      states.currentIndex !== -1 && states.caches.delete(states.currentIndex) && (states.currentIndex = -1);
       states.currentLable = item.label;
       states.caches.set(item.value, item.label);
       states.currentIndex = item.value;
@@ -46,10 +48,15 @@ const useSelect = (states, props, emit) => {
     arr.splice(idx, 1);
     emit && emit("update:modelValue", [...states.selected]);
   };
+  const addValue = (item) => {
+    states.list.add(item);
+    states.originList = [...states.list];
+  };
   const resetStates = () => {
     emit && emit("update:modelValue", states.originValue);
     emit && emit("visible-change", states.visible);
     states.currentLable = "";
+    states.currentIndex = -1;
     states.selected.length = 0;
     states.caches.clear();
     hideMenu();
@@ -57,12 +64,22 @@ const useSelect = (states, props, emit) => {
   const isSelected = (key) => {
     return states.caches.has(key);
   };
+  const isShow = (label) => {
+    if (!props.filterable)
+      return true;
+    return states.list.has(label);
+  };
   const toggleMenu = () => {
     if (props.disabled)
       return;
-    if (props.filterable) {
-      states.filterable = true;
-    } else {
+    if (!props.remote) {
+      if (props.filterable) {
+        if (states.currentIndex !== -1) {
+          nextTick(() => {
+            states.list = new Set(states.originList);
+          });
+        }
+      }
       states.visible = !states.visible;
       emit && emit("visible-change", states.visible);
     }
@@ -71,7 +88,8 @@ const useSelect = (states, props, emit) => {
     const flag = states.visible;
     states.visible = false;
     flag !== states.visible && emit && emit("visible-change", states.visible);
-    states.filterable = false;
+    if (props.filterable && states.currentLable === "")
+      states.currentLable = "";
   };
   const onHover = () => {
     if (!props.clearable)
@@ -85,14 +103,30 @@ const useSelect = (states, props, emit) => {
   watch(
     () => states.currentLable,
     (val) => {
-      if (!props.filterable || !states.filterable)
+      if (!props.remote && !props.filterable)
         return;
       if (val === "") {
-        hideMenu();
-        return;
+        if (props.filterable) {
+          states.list = new Set(states.originList);
+        }
+        if (props.remote) {
+          hideMenu();
+          return;
+        }
       }
-      debounceremoteMethod(val);
-      states.visible = true;
+      if (props.remote) {
+        debounceremoteMethod(val);
+        states.visible = true;
+        emit && emit("visible-change", states.visible);
+      } else {
+        const arr = [...states.list];
+        const temp = arr.filter((item) => {
+          return item.toUpperCase().includes(states.currentLable.toUpperCase());
+        });
+        nextTick(() => {
+          states.list = new Set(temp);
+        });
+      }
     }
   );
   return {
@@ -101,8 +135,10 @@ const useSelect = (states, props, emit) => {
     handlerClickOption,
     onHover,
     onUnHover,
+    isShow,
     isSelected,
-    resetStates
+    resetStates,
+    addValue
   };
 };
 export {

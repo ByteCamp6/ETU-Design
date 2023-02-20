@@ -4,7 +4,7 @@ const linkProps = {
    */
   type: {
     type: String,
-    values: ["primary", "success", "warning", "info", "danger", "default"],
+    values: ["primary", "success", "warning", "error", "indfo", "danger"],
     default: "default"
   },
   /**
@@ -21,13 +21,13 @@ const linkProps = {
   /**
    * @description same as native hyperlink's `href`
    */
-  href: { type: String, default: "" }
+  href: { type: String, default: "" },
   /**
    * @description icon component
    */
-  //   icon: {
-  //     type: iconPropType,
-  //   },
+  icon: {
+    type: String
+  }
 };
 const linkEmits = {
   click: (env) => env instanceof MouseEvent

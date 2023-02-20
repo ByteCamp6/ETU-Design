@@ -8,6 +8,10 @@ function combineClass(nativeClass, customClass, customClassArgs) {
   }
   return headerCellClassNative;
 }
+function fixedStyle(column) {
+  return (column == null ? void 0 : column.fixed) === "left" ? { left: `${column.styleOffsetWidth}px` } : (column == null ? void 0 : column.fixed) === "right" ? { right: `${column.styleOffsetWidth}px` } : void 0;
+}
 export {
-  combineClass
+  combineClass,
+  fixedStyle
 };

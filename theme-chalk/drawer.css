@@ -36,6 +36,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   animation: LtoR 0.5s;
@@ -47,6 +48,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   right: 0;
   animation: RtoL 0.5s;
@@ -58,6 +60,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   right: 0;
@@ -70,6 +73,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   animation: BtoT 0.5s;
   bottom: 0;
 }
@@ -80,6 +84,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   animation: LtoR 0.5s;
@@ -91,6 +96,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   right: 0;
   animation: RtoL 0.5s;
@@ -102,6 +108,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   right: 0;
@@ -114,6 +121,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   animation: BtoT 0.5s;
   bottom: 0;
 }
@@ -124,6 +132,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   animation: LtoR 0.5s;
@@ -135,6 +144,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   right: 0;
   animation: RtoL 0.5s;
@@ -146,6 +156,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   right: 0;
@@ -158,6 +169,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   animation: BtoT 0.5s;
   bottom: 0;
 }
@@ -168,6 +180,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   animation: LtoR 0.5s;
@@ -179,6 +192,7 @@
   width: 30%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   right: 0;
   animation: RtoL 0.5s;
@@ -190,6 +204,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   top: 0;
   left: 0;
   right: 0;
@@ -202,6 +217,7 @@
   width: 100%;
   z-index: 100000000001;
   position: absolute;
+  color: #181818;
   animation: BtoT 0.5s;
   bottom: 0;
 }

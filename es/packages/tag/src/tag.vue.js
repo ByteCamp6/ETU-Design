@@ -1,7 +1,9 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot } from "vue";
+import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, createBlock, withModifiers, createCommentVNode } from "vue";
+import "../../icon/index.js";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import { tagProps, tagEmits } from "./tag.js";
+import _sfc_main$1 from "../../icon/src/icon.vue.js";
 const __default__ = defineComponent({
   name: "EtuTag"
 });
@@ -26,6 +28,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const handleClick = (event) => {
       emit("click", event);
     };
+    const handleClose = (event) => {
+      emit("click", event);
+    };
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("span", {
         class: normalizeClass(unref(classes)),
@@ -35,7 +40,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           class: normalizeClass(unref(ns).e("content"))
         }, [
           renderSlot(_ctx.$slots, "default")
-        ], 2)
+        ], 2),
+        props.closable ? (openBlock(), createBlock(unref(_sfc_main$1), {
+          key: 0,
+          name: "close",
+          class: normalizeClass(unref(ns).e("close")),
+          onClick: withModifiers(handleClose, ["stop"])
+        }, null, 8, ["class", "onClick"])) : createCommentVNode("", true)
       ], 2);
     };
   }

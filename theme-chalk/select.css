@@ -10,7 +10,7 @@
   --etu-select-border-color-hover: var(--color-fill-4);
   --etu-select-border-color-active: var(--color-primary);
   --etu-select-multiple-input-color: var(--color-fill-5);
-  --etu-select-padding: 1px 11px;
+  --etu-select-padding: 1px 11px 0 8px;
 }
 
 .etu-select {
@@ -19,7 +19,6 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  gap: var(--space-6);
   padding: var(--etu-select-padding);
   min-width: var(--etu-select-width);
   background-color: var(--etu-select-bg-color);
@@ -43,13 +42,15 @@
 .etu-select.is-focus {
   border: 1px solid var(--etu-select-border-color-active);
 }
-.etu-select.is-focus .etu-select__icon {
+.etu-select.is-focus .etu-select__icon-arrow {
   transform: rotate(180deg);
 }
 
 .etu-select__inner {
   width: var(--etu-select-width);
   height: var(--etu-select-inner-height);
+  margin-left: 5px;
+  margin-right: 10px;
   line-height: var(--etu-select-inner-height);
   color: var(--color-text-0);
   border: 0;
@@ -94,6 +95,8 @@
 
 .etu-select__icon {
   user-select: none;
+}
+.etu-select__icon-arrow {
   transition: 0.3s ease;
 }
 
