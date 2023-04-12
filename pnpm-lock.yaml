@@ -119,109 +119,12 @@ importers:
 
   packages/components:
     specifiers:
-      vite: ^4.2.1
-    dependencies:
-      vite: 4.2.1
-
-  packages/components/avatar:
-    specifiers: {}
-
-  packages/components/breadcrumb:
-    specifiers:
-      '@etu-design/directives': ^0.0.1
-      animate.css: ^4.1.1
-      vue-router: ^4.1.6
-    dependencies:
-      '@etu-design/directives': link:../directives
-      animate.css: 4.1.1
-      vue-router: 4.1.6
-
-  packages/components/button:
-    specifiers: {}
-
-  packages/components/checkbox:
-    specifiers: {}
-
-  packages/components/collapse:
-    specifiers: {}
-
-  packages/components/date-picker:
-    specifiers: {}
-
-  packages/components/dialog:
-    specifiers: {}
-
-  packages/components/directives:
-    specifiers: {}
-
-  packages/components/divider:
-    specifiers: {}
-
-  packages/components/drawer:
-    specifiers: {}
-
-  packages/components/dropdown:
-    specifiers: {}
-
-  packages/components/icon:
-    specifiers:
-      '@etu-design/directives': ^0.0.1
       animate.css: ^4.1.1
     dependencies:
-      '@etu-design/directives': link:../directives
       animate.css: 4.1.1
-
-  packages/components/input:
-    specifiers: {}
-
-  packages/components/input-number:
-    specifiers: {}
-
-  packages/components/message:
-    specifiers:
-      '@etu-design/directives': ^0.0.1
-    dependencies:
-      '@etu-design/directives': link:../directives
-
-  packages/components/overlay:
-    specifiers: {}
-
-  packages/components/pagination:
-    specifiers: {}
-
-  packages/components/popper:
-    specifiers: {}
-
-  packages/components/progress:
-    specifiers: {}
-
-  packages/components/radio:
-    specifiers: {}
-
-  packages/components/scrollbar:
-    specifiers: {}
-
-  packages/components/select:
-    specifiers: {}
-
-  packages/components/slider:
-    specifiers: {}
-
-  packages/components/switch:
-    specifiers: {}
-
-  packages/components/table:
-    specifiers: {}
-
-  packages/components/tag:
-    specifiers:
-      '@etu-design/directives': ^0.0.1
-    dependencies:
-      '@etu-design/directives': link:../directives
 
   packages/hooks:
     specifiers:
-      '@etu-design/directives': ^0.0.1
       '@etu-design/theme-chalk': ^0.0.1
       animate.css: ^4.1.1
       hooks: ^0.3.2
@@ -230,7 +133,6 @@ importers:
       vite: ^4.0.4
       vue-router: ^4.1.6
     dependencies:
-      '@etu-design/directives': link:../components/directives
       '@etu-design/theme-chalk': link:../theme-chalk
       animate.css: 4.1.1
       hooks: 0.3.2
@@ -241,7 +143,6 @@ importers:
 
   packages/theme-chalk:
     specifiers:
-      '@etu-design/directives': ^0.0.1
       '@etu-design/hooks': ^0.0.1
       animate.css: ^4.1.1
       hooks: ^0.3.2
@@ -250,7 +151,6 @@ importers:
       vite: ^4.0.4
       vue-router: ^4.1.6
     dependencies:
-      '@etu-design/directives': link:../components/directives
       '@etu-design/hooks': link:../hooks
       animate.css: 4.1.1
       hooks: 0.3.2
@@ -261,17 +161,14 @@ importers:
 
   packages/tokens:
     specifiers:
-      '@etu-design/directives': ^0.0.1
       animate.css: ^4.1.1
       vue-router: ^4.1.6
     dependencies:
-      '@etu-design/directives': link:../components/directives
       animate.css: 4.1.1
       vue-router: 4.1.6
 
   packages/utils:
     specifiers:
-      '@etu-design/directives': ^0.0.1
       '@etu-design/hooks': ^0.0.1
       '@etu-design/theme-chalk': ^0.0.1
       animate.css: ^4.1.1
@@ -281,7 +178,6 @@ importers:
       vite: ^4.0.4
       vue-router: ^4.1.6
     dependencies:
-      '@etu-design/directives': link:../components/directives
       '@etu-design/hooks': link:../hooks
       '@etu-design/theme-chalk': link:../theme-chalk
       animate.css: 4.1.1

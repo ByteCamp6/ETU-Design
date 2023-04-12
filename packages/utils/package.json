@@ -11,7 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@etu-design/directives": "^0.0.1",
     "@etu-design/hooks": "^0.0.1",
     "@etu-design/theme-chalk": "^0.0.1",
     "animate.css": "^4.1.1",

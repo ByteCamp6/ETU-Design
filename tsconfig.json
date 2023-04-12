@@ -40,5 +40,10 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"]
-  }
+  },
+  "references": [
+    {
+      "path": "./tsconfig.config.json"
+    }
+  ]
 }

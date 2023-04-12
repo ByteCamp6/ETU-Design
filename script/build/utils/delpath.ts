@@ -8,7 +8,6 @@ const delPath = async (path: string) => {
   let files: string[] = [];
   if (fs.existsSync(path)) {
     files = fs.readdirSync(path);
-    console.log(files, path, "???");
     files.forEach(async (file) => {
       const curPath = resolve(path, file);
       if (fs.statSync(curPath).isDirectory()) {

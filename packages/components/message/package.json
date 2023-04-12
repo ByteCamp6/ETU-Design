@@ -1,9 +1,0 @@
-{
-  "name": "@etu-design/message",
-  "version": "0.0.1",
-  "main": "index.ts",
-  "module": "index.ts",
-  "dependencies": {
-    "@etu-design/directives": "^0.0.1"
-  }
-}
