@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import EtuMessage from "@etu-design/message";
+import EtuMessage from "@etu-design/components/message";
 
 const open = () => {
   EtuMessage("33333");

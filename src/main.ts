@@ -2,7 +2,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 // import "../packages/theme-chalk/src/index.scss";
-import "../theme-chalk/index.css";
+import "../dist/theme-chalk/index.css";
 // const router = createRouter({
 //   history: createWebHistory(),
 //   routes: [
@@ -19,7 +19,7 @@ import "../theme-chalk/index.css";
 //   ],
 // });
 
-import ETU from "../es/packages/index";
+import ETU from "../dist/es/packages/components/index";
 // import "./assets/main.css";
 
 const app = createApp(App);

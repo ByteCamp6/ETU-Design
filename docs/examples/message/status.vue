@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import EtuMessage from "@etu-design/message";
+import EtuMessage from "@etu-design/components/message";
 
 const open1 = () => {
   EtuMessage.success("这是一条success消息");

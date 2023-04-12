@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import EtuMessage from "@etu-design/message";
+import EtuMessage from "@etu-design/components/message";
 const handleCommandClick = (command: string | number | object) => {
   // eslint-disable-next-line no-alert
   EtuMessage(`click on item ${command}`);

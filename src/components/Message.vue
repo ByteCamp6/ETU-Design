@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-import EtuMessage from "@etu-design/message";
+import EtuMessage from "@etu-design/components/message";
 
 const test = () => {
   const types = ["info", "success", "warning", "error"];

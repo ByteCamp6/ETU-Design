@@ -20,10 +20,12 @@ export const useSameTarget = (handleClick?: (e: MouseEvent) => void) => {
 
   // currentTarget始终是监听事件者，而target是事件的真正发出者
   const onMousedown = (e: MouseEvent) => {
+    console.log(e.target, e.currentTarget);
     mousedownTarget = e.target === e.currentTarget;
   };
 
   const onMouseup = (e: MouseEvent) => {
+    console.log(e.target, e.currentTarget);
     mouseupTarget = e.target === e.currentTarget;
   };
 

@@ -1,30 +1,44 @@
-{
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "esModuleInterop": true, // 支持模块转化
-    "skipLibCheck": true, // 跳过类库检测
-    "forceConsistentCasingInFileNames": true, // 强制区分大小写
-    "moduleResolution": "node", // 模块解析方式
-    "jsx": "preserve", // 不转化jsx
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
-    "outDir": "lib",
-    "declaration": true, // 生成声明文件
-    "declarationDir": ".",
-    "declarationMap": true,
-    "sourceMap": true, // 生成映射文件
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "noImplicitAny": false //
-  },
+// {
+//   "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "package/**/*"],
+//   "compilerOptions": {
+//     "target": "ESNext",
+//     "module": "ESNext",
+//     "esModuleInterop": true, // 支持模块转化
+//     "skipLibCheck": true, // 跳过类库检测
+//     "forceConsistentCasingInFileNames": true, // 强制区分大小写
+//     "moduleResolution": "node", // 模块解析方式
+//     "jsx": "preserve", // 不转化jsx
+//     "jsxFactory": "h",
+//     "jsxFragmentFactory": "Fragment",
+//     "outDir": "lib",
+//     "declaration": true, // 生成声明文件
+//     "declarationDir": "dist",
+//     "declarationMap": true,
+//     "sourceMap": true, // 生成映射文件
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": ["./src/*"]
+//     },
+//     "noImplicitAny": false, //，
+//     "typeRoots": ["./typings"]
+//   },
 
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    }
-  ]
+//   "references": [
+//     {
+//       "path": "./tsconfig.config.json"
+//     }
+//   ]
+// }
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "strict": true,
+    "target": "ES2015",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "lib": ["esnext", "dom"]
+  }
 }

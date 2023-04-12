@@ -62,7 +62,7 @@
 </style>
 
 <script lang="ts" setup>
-import EtuMessage from "@etu-design/message";
+import EtuMessage from "@etu-design/components/message";
 
 const copy = (text: any) => {
   // text是复制文本
