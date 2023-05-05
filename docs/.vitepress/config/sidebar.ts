@@ -18,6 +18,7 @@ export default {
         { text: "Layout 布局", link: "/component/layout.md" },
         { text: "Link 链接", link: "/component/link.md" },
         { text: "Scrollbar 滚动条", link: "/component/scrollbar.md" },
+        { text: "Text 文本", link: "/component/text.md" }
       ],
     },
     {

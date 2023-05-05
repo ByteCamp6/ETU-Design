@@ -41,7 +41,7 @@
         @include setFontStyle(#f56c6c,$size);
       }
       @else {
-        @include setFontStyle(dodgerblue,$size);
+        @include setFontStyle(black,$size);
       }
     }
   }
