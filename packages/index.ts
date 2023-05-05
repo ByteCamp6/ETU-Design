@@ -24,6 +24,7 @@ import Col from "./col/index";
 import Table from "./table";
 import DatePicker from "./date-picker";
 import Popper from "./popper";
+import Text from "./text";
 import Tree from "./tree";
 import { Form } from "./form";
 import { FormItem } from "./form";
@@ -83,6 +84,7 @@ const components = [
   Pagination,
   MenuGroup,
   MenuGroupItem,
+  Text,
 ];
 
 // 全局动态添加

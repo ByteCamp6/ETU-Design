@@ -1,0 +1,48 @@
+@use "mixins/mixins" as *;
+@mixin setFontStyle($fColor,$fSize) {
+  color: $fColor;
+  @if($fSize == large) {
+    font-size: 24px;
+  }
+  @else if($fSize == small) {
+    font-size: 8px;
+  }
+  @else {
+    font-size: 16px;
+  }
+}
+@mixin setOverFlow($truncated) {
+  @if($truncated == true) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@each $truncated in (true,false) {
+  .etu-Text--#{$truncated} {
+    @include setOverFlow($truncated);
+  }
+}
+@each $size in (large,default,small) {
+  @each $type in (default,primary,success,info,warning,danger) {
+    .etu-Text-#{$size}--#{$type} {
+      @if($type == primary) {
+        @include setFontStyle(dodgerblue,$size);
+      }
+      @else if($type == success) {
+        @include setFontStyle(limegreen,$size);
+      }
+      @else if($type == info) {
+        @include setFontStyle(grey,$size);
+      }
+      @else if($type == warning) {
+        @include setFontStyle(darkorange,$size);
+      }
+      @else if($type == danger) {
+        @include setFontStyle(#f56c6c,$size);
+      }
+      @else {
+        @include setFontStyle(dodgerblue,$size);
+      }
+    }
+  }
+}

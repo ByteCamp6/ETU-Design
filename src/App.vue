@@ -1,41 +1,42 @@
 <template>
-  <DropDown></DropDown>
-  <DatePicker></DatePicker>
-  <Scrollbar></Scrollbar>
-  <Popper></Popper>
-  <Avatar></Avatar>
-  <scrollbar></scrollbar>
-  <Pagination></Pagination>
-  <Table></Table>
-  <Dialog></Dialog>
-  <Collapse></Collapse>
-  <Progress></Progress>
-  <Button></Button>
-  <Divider></Divider>
-  <Breadcrumb></Breadcrumb>
-  <Icon></Icon>
-  <Tag></Tag>
-  <Select></Select>
-  <Tag></Tag>
-  <Checkbox></Checkbox>
-  <Divider></Divider>
-  <Drawer></Drawer>
-  <OverLay></OverLay>
-  <Radio></Radio>
-  <Empty></Empty>
-  <Message></Message>
-  <Link />
-  <Upload></Upload>
-  <Input />
-  <Switch></Switch>
-  <Tree></Tree>
-  <router-view></router-view>
-  <Tag type="success" round
-    ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
-  ></Tag>
-  <Layer></Layer>
-  <Layer></Layer>
-  <Form></Form>
+  <Text></Text>
+<!--  <DropDown></DropDown>-->
+<!--  <DatePicker></DatePicker>-->
+<!--  <Scrollbar></Scrollbar>-->
+<!--  <Popper></Popper>-->
+<!--  <Avatar></Avatar>-->
+<!--  <scrollbar></scrollbar>-->
+<!--  <Pagination></Pagination>-->
+<!--  <Table></Table>-->
+<!--  <Dialog></Dialog>-->
+<!--  <Collapse></Collapse>-->
+<!--  <Progress></Progress>-->
+<!--  <Button></Button>-->
+<!--  <Divider></Divider>-->
+<!--  <Breadcrumb></Breadcrumb>-->
+<!--  <Icon></Icon>-->
+<!--  <Tag></Tag>-->
+<!--  <Select></Select>-->
+<!--  <Tag></Tag>-->
+<!--  <Checkbox></Checkbox>-->
+<!--  <Divider></Divider>-->
+<!--  <Drawer></Drawer>-->
+<!--  <OverLay></OverLay>-->
+<!--  <Radio></Radio>-->
+<!--  <Empty></Empty>-->
+<!--  <Message></Message>-->
+<!--  <Link />-->
+<!--  <Upload></Upload>-->
+<!--  <Input />-->
+<!--  <Switch></Switch>-->
+<!--  <Tree></Tree>-->
+<!--  <router-view></router-view>-->
+<!--  <Tag type="success" round-->
+<!--    ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i-->
+<!--  ></Tag>-->
+<!--  <Layer></Layer>-->
+<!--  <Layer></Layer>-->
+<!--  <Form></Form>-->
 <!--  <Scrollbar></Scrollbar>-->
 <!--  <Avatar></Avatar>-->
 <!--  <Pagination></Pagination>-->
@@ -60,8 +61,8 @@
 <!--  <Upload></Upload>-->
 <!--  <Input />-->
 <!--  <router-view></router-view>-->
-  <Menu></Menu>
->>>>>>> origin/Menu
+<!--  <Menu></Menu>-->
+<!--&gt;>>>>>> origin/Menu-->
 </template>
 
 <script setup lang="ts">
@@ -95,6 +96,7 @@ import Tree from "./components/Tree.vue";
 import Form from "./components/Form.vue";
 import DropDown from "./components/Dropdown.vue";
 import Menu from "./components/Menu.vue";
+import Text from "./components/Text.vue";
 </script>
 
 <style scoped></style>
