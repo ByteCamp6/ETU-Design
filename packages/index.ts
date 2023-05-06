@@ -16,6 +16,7 @@ import collapse from "./collapse";
 import Drawer from "./drawer";
 import Overlay from "./overlay";
 import Avatar from "./avatar";
+import Affix from "./affix";
 import Dialog from "./dialog";
 import Input from "./input";
 import scrollbar from "./scrollbar";
@@ -85,6 +86,7 @@ const components = [
   MenuGroup,
   MenuGroupItem,
   Text,
+  Affix,
 ];
 
 // 全局动态添加

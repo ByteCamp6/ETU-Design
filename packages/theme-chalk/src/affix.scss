@@ -1,0 +1,40 @@
+@use "./mixins/mixins.scss" as *;
+
+//@mixin setFixedPos($offset,$position,$zIndex) {
+//  position: fixed;
+//  z-index: $zIndex;
+//  @if($position == bottom) {
+//    bottom: $offset;
+//  }
+//  @else if($position == left) {
+//    left: $offset;
+//  }
+//  @else if($position == right) {
+//    right: $offset;
+//  }
+//  @else {
+//    top: $offset;
+//  }
+//}
+
+@mixin setFixedPos($position) {
+  position: fixed;
+  @if($position == bottom) {
+    bottom: 0;
+  }
+  @else if($position == left) {
+    left: 0;
+  }
+  @else if($position == right) {
+    right: 0;
+  }
+  @else {
+    top: 0;
+  }
+}
+
+@each $pos in(top,bottom,right,left) {
+  .etu-Affix--#{$pos} {
+    @include setFixedPos($pos);
+  }
+}

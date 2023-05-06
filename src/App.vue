@@ -1,65 +1,66 @@
 <template>
   <Text></Text>
-<!--  <DropDown></DropDown>-->
-<!--  <DatePicker></DatePicker>-->
-<!--  <Scrollbar></Scrollbar>-->
-<!--  <Popper></Popper>-->
-<!--  <Avatar></Avatar>-->
-<!--  <scrollbar></scrollbar>-->
-<!--  <Pagination></Pagination>-->
-<!--  <Table></Table>-->
-<!--  <Dialog></Dialog>-->
-<!--  <Collapse></Collapse>-->
-<!--  <Progress></Progress>-->
-<!--  <Button></Button>-->
-<!--  <Divider></Divider>-->
-<!--  <Breadcrumb></Breadcrumb>-->
-<!--  <Icon></Icon>-->
-<!--  <Tag></Tag>-->
-<!--  <Select></Select>-->
-<!--  <Tag></Tag>-->
-<!--  <Checkbox></Checkbox>-->
-<!--  <Divider></Divider>-->
-<!--  <Drawer></Drawer>-->
-<!--  <OverLay></OverLay>-->
-<!--  <Radio></Radio>-->
-<!--  <Empty></Empty>-->
-<!--  <Message></Message>-->
-<!--  <Link />-->
-<!--  <Upload></Upload>-->
-<!--  <Input />-->
-<!--  <Switch></Switch>-->
-<!--  <Tree></Tree>-->
-<!--  <router-view></router-view>-->
-<!--  <Tag type="success" round-->
-<!--    ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i-->
-<!--  ></Tag>-->
-<!--  <Layer></Layer>-->
-<!--  <Layer></Layer>-->
-<!--  <Form></Form>-->
-<!--  <Scrollbar></Scrollbar>-->
-<!--  <Avatar></Avatar>-->
-<!--  <Pagination></Pagination>-->
-<!--  <Dialog></Dialog>-->
-<!--  <Collapse></Collapse>-->
-<!--  &lt;!&ndash; <Progress></Progress> &ndash;&gt;-->
-<!--  <Button></Button>-->
-<!--  <Divider></Divider>-->
-<!--  <Breadcrumb></Breadcrumb>-->
-<!--  <Icon></Icon>-->
-<!--  <Tag></Tag>-->
-<!--  <Select></Select>-->
-<!--  <Tag></Tag>-->
-<!--  <Checkbox></Checkbox>-->
-<!--  <Divider></Divider>-->
-<!--  <Drawer></Drawer>-->
-<!--  <OverLay></OverLay>-->
-<!--  <Radio></Radio>-->
-<!--  <Empty></Empty>-->
-<!--  <Message></Message>-->
-<!--  <Link />-->
-<!--  <Upload></Upload>-->
-<!--  <Input />-->
+  <Affix></Affix>
+  <DropDown></DropDown>
+  <DatePicker></DatePicker>
+  <Scrollbar></Scrollbar>
+  <Popper></Popper>
+  <Avatar></Avatar>
+  <scrollbar></scrollbar>
+  <Pagination></Pagination>
+  <Table></Table>
+  <Dialog></Dialog>
+  <Collapse></Collapse>
+  <Progress></Progress>
+  <Button></Button>
+  <Divider></Divider>
+  <Breadcrumb></Breadcrumb>
+  <Icon></Icon>
+  <Tag></Tag>
+  <Select></Select>
+  <Tag></Tag>
+  <Checkbox></Checkbox>
+  <Divider></Divider>
+  <Drawer></Drawer>
+  <OverLay></OverLay>
+  <Radio></Radio>
+  <Empty></Empty>
+  <Message></Message>
+  <Link />
+  <Upload></Upload>
+  <Input />
+  <Switch></Switch>
+  <Tree></Tree>
+  <router-view></router-view>
+  <Tag type="success" round
+    ><i class="etu-i-sorting"></i> 22222 <i class="etu-i-adjust"></i
+  ></Tag>
+  <Layer></Layer>
+  <Layer></Layer>
+  <Form></Form>
+  <Scrollbar></Scrollbar>
+  <Avatar></Avatar>
+  <Pagination></Pagination>
+  <Dialog></Dialog>
+  <Collapse></Collapse>
+  <!-- <Progress></Progress> -->
+  <Button></Button>
+  <Divider></Divider>
+  <Breadcrumb></Breadcrumb>
+  <Icon></Icon>
+  <Tag></Tag>
+  <Select></Select>
+  <Tag></Tag>
+  <Checkbox></Checkbox>
+  <Divider></Divider>
+  <Drawer></Drawer>
+  <OverLay></OverLay>
+  <Radio></Radio>
+  <Empty></Empty>
+  <Message></Message>
+  <Link />
+  <Upload></Upload>
+  <Input />
 <!--  <router-view></router-view>-->
 <!--  <Menu></Menu>-->
 <!--&gt;>>>>>> origin/Menu-->
@@ -69,6 +70,7 @@
 import Button from "./components/Button.vue";
 import Divider from "./components/Divider.vue";
 import Breadcrumb from "./components/Breadcrumb.vue";
+import Affix from "./components/Affix.vue";
 import Icon from "./components/Icon.vue";
 import Link from "./components/Link.vue";
 import Tag from "./components/Tag.vue";
