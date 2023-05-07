@@ -6,60 +6,57 @@ const dialogProps = {
   ...dialogContentProps,
   appendToBody: {
     type: Boolean,
-    default: false
+    default: false,
   },
   beforeClose: {
-    type: definePropType(Function)
+    type: definePropType(Function),
   },
   destroyOnClose: {
     type: Boolean,
-    default: false
+    default: false,
   },
   closeOnClickModal: {
     type: Boolean,
-    default: true
+    default: true,
   },
   lockScroll: {
     type: Boolean,
-    default: true
+    default: true,
   },
   openDelay: {
     type: Number,
-    default: 0
+    default: 0,
   },
   closeDelay: {
     type: Number,
-    default: 0
+    default: 0,
   },
   top: {
     type: String,
-    default: "15vh"
+    default: "15vh",
   },
   modelValue: {
     type: Boolean,
-    default: false
+    default: false,
   },
   modalClass: String,
   width: {
     type: [String, Number],
-    default: "50%"
+    default: "50%",
   },
   zIndex: {
-    type: Number
+    type: Number,
   },
   trapFocus: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 };
 const dialogEmits = {
   open: () => true,
   opened: () => true,
   close: () => true,
   closed: () => true,
-  "update:modelValue": (value) => isBoolean(value)
+  "update:modelValue": (value) => isBoolean(value),
 };
-export {
-  dialogEmits,
-  dialogProps
-};
+export { dialogEmits, dialogProps };

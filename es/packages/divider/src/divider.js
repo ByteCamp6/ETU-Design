@@ -2,12 +2,12 @@ const dividerProps = {
   direction: {
     type: String,
     values: ["horizontal", "vertical"],
-    default: "horizontal"
+    default: "horizontal",
   },
   contentPosition: {
     type: String,
     values: ["center", "left", "right"],
-    default: "center"
+    default: "center",
   },
   borderStyle: {
     type: String,
@@ -19,11 +19,9 @@ const dividerProps = {
       "groove",
       "ridge",
       "inset",
-      "outset"
+      "outset",
     ],
-    default: "solid"
-  }
+    default: "solid",
+  },
 };
-export {
-  dividerProps
-};
+export { dividerProps };

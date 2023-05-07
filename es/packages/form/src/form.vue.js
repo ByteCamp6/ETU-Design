@@ -1,9 +1,20 @@
-import { defineComponent, reactive, toRefs, computed, provide, openBlock, createElementBlock, normalizeClass, unref, renderSlot } from "vue";
+import {
+  defineComponent,
+  reactive,
+  toRefs,
+  computed,
+  provide,
+  openBlock,
+  createElementBlock,
+  normalizeClass,
+  unref,
+  renderSlot,
+} from "vue";
 import { formProps } from "./form.js";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 const __default__ = {
-  name: "EtuForm"
+  name: "EtuForm",
 };
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
@@ -19,7 +30,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         } catch (error) {
           errors = {
             ...errors,
-            ...error.fields
+            ...error.fields,
           };
         }
       }
@@ -36,7 +47,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const etuForm = reactive({
       ...toRefs(props),
-      addField
+      addField,
     });
     let formClass = computed(() => {
       return [bem.b()];
@@ -44,17 +55,21 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     provide("etuForm", etuForm);
     expose({
       // 暴露校验方法
-      validate
+      validate,
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("form", {
-        class: normalizeClass(unref(formClass))
-      }, [
-        renderSlot(_ctx.$slots, "default")
-      ], 2);
+      return (
+        openBlock(),
+        createElementBlock(
+          "form",
+          {
+            class: normalizeClass(unref(formClass)),
+          },
+          [renderSlot(_ctx.$slots, "default")],
+          2,
+        )
+      );
     };
-  }
+  },
 });
-export {
-  _sfc_main as default
-};
+export { _sfc_main as default };

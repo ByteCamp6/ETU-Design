@@ -1,44 +1,52 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, renderSlot } from "vue";
+import {
+  defineComponent,
+  computed,
+  openBlock,
+  createElementBlock,
+  normalizeClass,
+  unref,
+  renderSlot,
+} from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 const __default__ = defineComponent({
-  name: "EtuMenuItem"
+  name: "EtuMenuItem",
 });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
   props: {
     mode: {
       type: String,
-      default: "vertical"
+      default: "vertical",
     },
     collapse: {
       type: Boolean,
-      default: false
+      default: false,
     },
     bgColor: {
       type: String,
-      default: "inherit"
+      default: "inherit",
     },
     textColor: {
       type: String,
-      default: "inherit"
+      default: "inherit",
     },
     defaultActive: {
       type: String,
-      default: ""
+      default: "",
     },
     menuTrigger: {
       type: String,
-      default: "hover"
+      default: "hover",
     },
     disabled: {
       type: String,
-      default: "false"
+      default: "false",
     },
     component: {
       type: String,
-      default: null
-    }
+      default: null,
+    },
   },
   emits: ["click"],
   setup(__props, { emit: emits }) {
@@ -47,20 +55,26 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const tClass = computed(() => {
       return [
         bem.e(props.disabled),
-        bem.bem(props.menuTrigger, props.bgColor, props.textColor)
+        bem.bem(props.menuTrigger, props.bgColor, props.textColor),
       ];
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        class: normalizeClass(unref(tClass)),
-        onClick: _cache[0] || (_cache[0] = //@ts-ignore
-        (...args) => _ctx.handleClick && _ctx.handleClick(...args))
-      }, [
-        renderSlot(_ctx.$slots, "default")
-      ], 2);
+      return (
+        openBlock(),
+        createElementBlock(
+          "div",
+          {
+            class: normalizeClass(unref(tClass)),
+            onClick:
+              _cache[0] ||
+              (_cache[0] = //@ts-ignore
+                (...args) => _ctx.handleClick && _ctx.handleClick(...args)),
+          },
+          [renderSlot(_ctx.$slots, "default")],
+          2,
+        )
+      );
     };
-  }
+  },
 });
-export {
-  _sfc_main as default
-};
+export { _sfc_main as default };

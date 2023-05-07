@@ -9,18 +9,23 @@ function usePopper({
   offsetSkid,
   placement,
   popperRef,
-  triggerRef
+  triggerRef,
 }) {
   const state = reactive({
     isOpen: false,
-    popperInstance: null
+    popperInstance: null,
   });
   const setPopperEventListeners = (enabled) => {
     var _a;
-    (_a = state.popperInstance) == null ? void 0 : _a.setOptions((options) => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: "eventListeners", enabled }]
-    }));
+    (_a = state.popperInstance) == null
+      ? void 0
+      : _a.setOptions((options) => ({
+          ...options,
+          modifiers: [
+            ...options.modifiers,
+            { name: "eventListeners", enabled },
+          ],
+        }));
   };
   const enablePopperEventListeners = () => setPopperEventListeners(true);
   const disablePopperEventListeners = () => setPopperEventListeners(false);
@@ -53,21 +58,21 @@ function usePopper({
       modifiers: [
         {
           name: "flip",
-          enabled: !locked.value
+          enabled: !locked.value,
         },
         {
           name: "arrow",
           options: {
-            padding: toInt(arrowPadding.value)
-          }
+            padding: toInt(arrowPadding.value),
+          },
         },
         {
           name: "offset",
           options: {
-            offset: [toInt(offsetSkid.value), toInt(offsetDistance.value)]
-          }
-        }
-      ]
+            offset: [toInt(offsetSkid.value), toInt(offsetDistance.value)],
+          },
+        },
+      ],
     });
     state.popperInstance.update();
   };
@@ -78,9 +83,7 @@ function usePopper({
   return {
     ...toRefs(state),
     open,
-    close
+    close,
   };
 }
-export {
-  usePopper
-};
+export { usePopper };

@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const directives = require('..');
-const assert = require('assert').strict;
+const directives = require("..");
+const assert = require("assert").strict;
 
-assert.strictEqual(directives(), 'Hello from directives');
+assert.strictEqual(directives(), "Hello from directives");
 console.info("directives tests passed");

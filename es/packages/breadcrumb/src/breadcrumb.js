@@ -1,9 +1,7 @@
 const breadcrumbProps = {
   separator: {
     type: String,
-    default: "/"
-  }
+    default: "/",
+  },
 };
-export {
-  breadcrumbProps
-};
+export { breadcrumbProps };

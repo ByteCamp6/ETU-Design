@@ -5,14 +5,14 @@ const linkProps = {
   type: {
     type: String,
     values: ["primary", "success", "warning", "error", "indfo", "danger"],
-    default: "default"
+    default: "default",
   },
   /**
    * @description whether the component has underline
    */
   underline: {
     type: Boolean,
-    default: true
+    default: true,
   },
   /**
    * @description whether the component is disabled
@@ -26,13 +26,10 @@ const linkProps = {
    * @description icon component
    */
   icon: {
-    type: String
-  }
+    type: String,
+  },
 };
 const linkEmits = {
-  click: (env) => env instanceof MouseEvent
+  click: (env) => env instanceof MouseEvent,
 };
-export {
-  linkEmits,
-  linkProps
-};
+export { linkEmits, linkProps };

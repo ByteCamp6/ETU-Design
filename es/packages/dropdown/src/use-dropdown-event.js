@@ -10,9 +10,7 @@ const useDropdownEvent = (props) => {
   };
   return {
     handleMousedown,
-    onButtonClick
+    onButtonClick,
   };
 };
-export {
-  useDropdownEvent
-};
+export { useDropdownEvent };

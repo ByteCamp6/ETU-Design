@@ -1,14 +1,12 @@
 const breadcrumbItemProps = {
   to: {
     type: String,
-    default: ""
+    default: "",
   },
   replace: {
     type: Boolean,
     values: [true, false],
-    default: false
-  }
+    default: false,
+  },
 };
-export {
-  breadcrumbItemProps
-};
+export { breadcrumbItemProps };

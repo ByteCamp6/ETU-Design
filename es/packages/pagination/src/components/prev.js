@@ -2,16 +2,13 @@ const paginationPrevProps = {
   disabled: Boolean,
   currentPage: {
     type: Number,
-    default: 1
+    default: 1,
   },
   prevText: {
-    type: String
-  }
+    type: String,
+  },
 };
 const paginationPrevEmits = {
-  click: (evt) => evt instanceof MouseEvent
+  click: (evt) => evt instanceof MouseEvent,
 };
-export {
-  paginationPrevEmits,
-  paginationPrevProps
-};
+export { paginationPrevEmits, paginationPrevProps };

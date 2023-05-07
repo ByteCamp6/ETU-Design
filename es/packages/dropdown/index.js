@@ -11,7 +11,9 @@ _sfc_main$1.install = (app) => {
 _sfc_main$2.install = (app) => {
   app.component(_sfc_main$2.name, _sfc_main$2);
 };
-const dropdown = { DropDown: _sfc_main, DropDownItem: _sfc_main$1, DropDownMenu: _sfc_main$2 };
-export {
-  dropdown as default
+const dropdown = {
+  DropDown: _sfc_main,
+  DropDownItem: _sfc_main$1,
+  DropDownMenu: _sfc_main$2,
 };
+export { dropdown as default };

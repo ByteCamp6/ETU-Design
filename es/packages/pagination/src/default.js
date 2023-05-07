@@ -29,44 +29,50 @@ const paginationProps = {
   pagerCount: {
     type: Number,
     validator: (value) => {
-      return isNumber(value) && Math.trunc(value) === value && value > 4 && value < 22 && value % 2 === 1;
+      return (
+        isNumber(value) &&
+        Math.trunc(value) === value &&
+        value > 4 &&
+        value < 22 &&
+        value % 2 === 1
+      );
     },
-    default: 7
+    default: 7,
   },
   /**
    * @description layout of Pagination, elements separated with a comma
    */
   layout: {
     type: String,
-    default: ["prev", "pager", "next", "jumper", "sizes", "total"].join(", ")
+    default: ["prev", "pager", "next", "jumper", "sizes", "total"].join(", "),
   },
   /**
    * @description item count of each page
    */
   pageSizes: {
     type: definePropType(Array),
-    default: () => [10, 20, 30, 40, 50, 100]
+    default: () => [10, 20, 30, 40, 50, 100],
   },
   /**
    * @description custom class name for the page size Select's dropdown
    */
   popperClass: {
     type: String,
-    default: ""
+    default: "",
   },
   /**
    * @description text for the prev button
    */
   prevText: {
     type: String,
-    default: ""
+    default: "",
   },
   /**
    * @description text for the next button
    */
   nextText: {
     type: String,
-    default: ""
+    default: "",
   },
   /**
    * @description whether to use small pagination
@@ -83,7 +89,7 @@ const paginationProps = {
   /**
    * @description whether to hide when there's only one page
    */
-  hideOnSinglePage: Boolean
+  hideOnSinglePage: Boolean,
 };
 const paginationEmits = {
   "update:current-page": (val) => isNumber(val),
@@ -91,9 +97,6 @@ const paginationEmits = {
   "size-change": (val) => isNumber(val),
   "current-change": (val) => isNumber(val),
   "prev-click": (val) => isNumber(val),
-  "next-click": (val) => isNumber(val)
+  "next-click": (val) => isNumber(val),
 };
-export {
-  paginationEmits,
-  paginationProps
-};
+export { paginationEmits, paginationProps };

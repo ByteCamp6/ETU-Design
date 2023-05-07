@@ -102,7 +102,7 @@ const components = [
   DropDownMenu,
   Pagination,
   _sfc_main$m,
-  _sfc_main$n
+  _sfc_main$n,
 ];
 const install = (app) => {
   components.forEach((component) => {
@@ -110,8 +110,6 @@ const install = (app) => {
   });
 };
 const index = {
-  install
+  install,
 };
-export {
-  index as default
-};
+export { index as default };

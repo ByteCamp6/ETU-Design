@@ -18,7 +18,7 @@ function useResizeObserver(target, callback, options = {}) {
         observer.observe(el, observerOptions);
       }
     },
-    { immediate: true, flush: "post" }
+    { immediate: true, flush: "post" },
   );
   const stop = () => {
     cleanup();
@@ -26,9 +26,7 @@ function useResizeObserver(target, callback, options = {}) {
   };
   tryOnScopeDispose(stop);
   return {
-    stop
+    stop,
   };
 }
-export {
-  useResizeObserver
-};
+export { useResizeObserver };

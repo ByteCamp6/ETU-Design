@@ -31,9 +31,7 @@ const useTimeoutFn = (cb, interval, options = {}) => {
   return {
     isPending,
     start,
-    stop
+    stop,
   };
 };
-export {
-  useTimeoutFn
-};
+export { useTimeoutFn };

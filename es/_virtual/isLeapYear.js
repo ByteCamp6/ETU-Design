@@ -5,9 +5,6 @@ var isLeapYear = {
   },
   set exports(v) {
     isLeapYearExports = v;
-  }
+  },
 };
-export {
-  isLeapYear as __module,
-  isLeapYearExports as exports
-};
+export { isLeapYear as __module, isLeapYearExports as exports };

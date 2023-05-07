@@ -1,16 +1,14 @@
 const collapseItemProps = {
   name: {
-    type: [String, Number]
+    type: [String, Number],
   },
   title: {
     type: String,
-    default: ""
+    default: "",
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 };
-export {
-  collapseItemProps
-};
+export { collapseItemProps };

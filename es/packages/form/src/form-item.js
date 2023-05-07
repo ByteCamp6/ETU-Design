@@ -4,9 +4,7 @@ const formItemProps = {
   rules: [Object, Array],
   showMessage: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 };
-export {
-  formItemProps
-};
+export { formItemProps };

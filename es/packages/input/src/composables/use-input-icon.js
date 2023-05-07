@@ -12,9 +12,7 @@ const useInputIcon = (props, passwordVisible) => {
   return {
     eyeIcon,
     isShowPrefixIcon,
-    isShowSuffixIcon
+    isShowSuffixIcon,
   };
 };
-export {
-  useInputIcon
-};
+export { useInputIcon };

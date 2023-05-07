@@ -1,20 +1,17 @@
 const overlayProps = {
   modelValue: {
     type: Boolean,
-    default: false
+    default: false,
   },
   maskEvent: {
     type: Boolean,
-    default: false
+    default: false,
   },
   zIndex: {
-    type: Number
-  }
+    type: Number,
+  },
 };
 const overlayEmits = {
-  click: (evt) => evt instanceof MouseEvent
+  click: (evt) => evt instanceof MouseEvent,
 };
-export {
-  overlayEmits,
-  overlayProps
-};
+export { overlayEmits, overlayProps };

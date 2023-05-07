@@ -1,4 +1,17 @@
-import { defineComponent, computed, provide, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, normalizeStyle, renderSlot, createVNode, withCtx } from "vue";
+import {
+  defineComponent,
+  computed,
+  provide,
+  openBlock,
+  createElementBlock,
+  normalizeClass,
+  unref,
+  createElementVNode,
+  normalizeStyle,
+  renderSlot,
+  createVNode,
+  withCtx,
+} from "vue";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import _sfc_main$1 from "./tableColgroup.vue.js";
@@ -12,10 +25,10 @@ import { useTableStyle } from "./use-table-style.js";
 import { useTableData } from "./use-table-data.js";
 const _hoisted_1 = {
   ref: "hiddenColumns",
-  class: "hidden-columns"
+  class: "hidden-columns",
 };
 const __default__ = defineComponent({
-  name: "EtuTable"
+  name: "EtuTable",
 });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
@@ -29,7 +42,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     "row-click",
     "header-click",
     "sort-change",
-    "filter-change"
+    "filter-change",
   ],
   setup(__props, { expose, emit }) {
     const props = __props;
@@ -37,21 +50,23 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const ns = useNamespace("table");
     const hasKey = computed(() => {
       var _a;
-      return (_a = props.columns) == null ? void 0 : _a.some((column) => column.prop === props.rowKey);
+      return (_a = props.columns) == null
+        ? void 0
+        : _a.some((column) => column.prop === props.rowKey);
     });
     const {
       originColumns,
       getSelectionRows,
       toggleRowSelection,
       toggleAllSelection,
-      setCurrentRow
+      setCurrentRow,
     } = useTableColumn(props, hasKey, emit);
     const {
       sortingColumn,
       filterData,
       changeSortingColumn,
       changeFilterRules,
-      clearSort
+      clearSort,
     } = useTableData(props, hasKey, emit);
     const {
       tableInnerStyle,
@@ -59,7 +74,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       scrollBarRef,
       scrollingPosition,
       bindScroll,
-      scrollbarMaxHeight
+      scrollbarMaxHeight,
     } = useTableStyle(props);
     provide(TableKey, {
       emit,
@@ -69,83 +84,123 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       rowClass: props.rowClass,
       sortingColumn,
       changeSortingColumn,
-      changeFilterRules
+      changeFilterRules,
     });
     expose({
       getSelectionRows,
       toggleRowSelection,
       toggleAllSelection,
       setCurrentRow,
-      clearSort
+      clearSort,
     });
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", {
-        class: normalizeClass([
-          unref(ns).b(),
-          unref(ns).is(`scrolling-${unref(scrollingPosition)}`),
-          unref(ns).m("enable-row-hover")
-        ])
-      }, [
-        createElementVNode("div", {
-          class: normalizeClass(unref(ns).e("inner-wrapper")),
-          style: normalizeStyle(unref(tableInnerStyle))
-        }, [
-          createElementVNode("div", _hoisted_1, [
-            renderSlot(_ctx.$slots, "default")
-          ], 512),
-          createElementVNode("div", {
-            class: normalizeClass(unref(ns).e("header-wrapper")),
-            ref: "headerWrapper"
-          }, [
-            createElementVNode("table", {
-              class: normalizeClass(unref(ns).e("header")),
-              border: "0",
-              cellpadding: "0",
-              cellspacing: "0",
-              style: {
-                width: "100%",
-                tableLayout: "fixed"
-              }
-            }, [
-              createVNode(_sfc_main$1),
-              createVNode(unref(TableHeader))
-            ], 2)
-          ], 2),
-          createElementVNode("div", {
-            ref: "bodyWrapper",
-            class: normalizeClass(unref(ns).e("body-wrapper"))
-          }, [
-            createVNode(unref(EtuScrollbar), {
-              ref_key: "scrollBarRef",
-              ref: scrollBarRef,
-              height: unref(scrollbarHeight),
-              maxHeight: unref(scrollbarMaxHeight),
-              onScroll: unref(bindScroll)
-            }, {
-              default: withCtx(() => [
-                createElementVNode("table", {
-                  ref: "tableBodyNativeRef",
-                  class: normalizeClass(unref(ns).e("body")),
-                  cellspacing: "0",
-                  cellpadding: "0",
-                  border: "0",
-                  style: {
-                    width: "100%",
-                    tableLayout: "fixed"
-                  }
-                }, [
-                  createVNode(_sfc_main$1),
-                  createVNode(unref(TableBody))
-                ], 2)
-              ]),
-              _: 1
-            }, 8, ["height", "maxHeight", "onScroll"])
-          ], 2)
-        ], 6)
-      ], 2);
+      return (
+        openBlock(),
+        createElementBlock(
+          "div",
+          {
+            class: normalizeClass([
+              unref(ns).b(),
+              unref(ns).is(`scrolling-${unref(scrollingPosition)}`),
+              unref(ns).m("enable-row-hover"),
+            ]),
+          },
+          [
+            createElementVNode(
+              "div",
+              {
+                class: normalizeClass(unref(ns).e("inner-wrapper")),
+                style: normalizeStyle(unref(tableInnerStyle)),
+              },
+              [
+                createElementVNode(
+                  "div",
+                  _hoisted_1,
+                  [renderSlot(_ctx.$slots, "default")],
+                  512,
+                ),
+                createElementVNode(
+                  "div",
+                  {
+                    class: normalizeClass(unref(ns).e("header-wrapper")),
+                    ref: "headerWrapper",
+                  },
+                  [
+                    createElementVNode(
+                      "table",
+                      {
+                        class: normalizeClass(unref(ns).e("header")),
+                        border: "0",
+                        cellpadding: "0",
+                        cellspacing: "0",
+                        style: {
+                          width: "100%",
+                          tableLayout: "fixed",
+                        },
+                      },
+                      [
+                        createVNode(_sfc_main$1),
+                        createVNode(unref(TableHeader)),
+                      ],
+                      2,
+                    ),
+                  ],
+                  2,
+                ),
+                createElementVNode(
+                  "div",
+                  {
+                    ref: "bodyWrapper",
+                    class: normalizeClass(unref(ns).e("body-wrapper")),
+                  },
+                  [
+                    createVNode(
+                      unref(EtuScrollbar),
+                      {
+                        ref_key: "scrollBarRef",
+                        ref: scrollBarRef,
+                        height: unref(scrollbarHeight),
+                        maxHeight: unref(scrollbarMaxHeight),
+                        onScroll: unref(bindScroll),
+                      },
+                      {
+                        default: withCtx(() => [
+                          createElementVNode(
+                            "table",
+                            {
+                              ref: "tableBodyNativeRef",
+                              class: normalizeClass(unref(ns).e("body")),
+                              cellspacing: "0",
+                              cellpadding: "0",
+                              border: "0",
+                              style: {
+                                width: "100%",
+                                tableLayout: "fixed",
+                              },
+                            },
+                            [
+                              createVNode(_sfc_main$1),
+                              createVNode(unref(TableBody)),
+                            ],
+                            2,
+                          ),
+                        ]),
+                        _: 1,
+                      },
+                      8,
+                      ["height", "maxHeight", "onScroll"],
+                    ),
+                  ],
+                  2,
+                ),
+              ],
+              6,
+            ),
+          ],
+          2,
+        )
+      );
     };
-  }
+  },
 });
-export {
-  _sfc_main as default
-};
+export { _sfc_main as default };

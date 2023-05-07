@@ -26,7 +26,7 @@ const popperRef = ref(null);
 const confirm = () => {
   popperRef.value?.doClose();
   console.log(1);
-}
+};
 </script>
 
 <style lang="scss" scoped>

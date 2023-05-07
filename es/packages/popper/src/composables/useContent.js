@@ -9,7 +9,7 @@ function useContent(slots, popperRef, content) {
     observer = new MutationObserver(checkContent);
     observer.observe(popperRef.value, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
   });
   onBeforeUnmount(() => observer.disconnect());
@@ -20,9 +20,7 @@ function useContent(slots, popperRef, content) {
     hasContent.value = !!slots.content;
   };
   return {
-    hasContent
+    hasContent,
   };
 }
-export {
-  useContent
-};
+export { useContent };

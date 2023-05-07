@@ -38,9 +38,7 @@ const useTimeEvent = (props, manualMode, invalid, open, close) => {
     openPopper,
     closePopper,
     doClose,
-    doOpen
+    doOpen,
   };
 };
-export {
-  useTimeEvent
-};
+export { useTimeEvent };

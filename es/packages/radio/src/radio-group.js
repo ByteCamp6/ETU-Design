@@ -6,7 +6,7 @@ const radioGroupProps = {
   size: {
     type: String,
     values: ["large", "default", "small"],
-    default: "default"
+    default: "default",
   },
   /**
    * @description 单选框是否被禁用
@@ -17,11 +17,8 @@ const radioGroupProps = {
    */
   modelValue: {
     type: [String, Number, Boolean],
-    default: ""
-  }
+    default: "",
+  },
 };
 const radioGroupEmits = radioEmits;
-export {
-  radioGroupEmits,
-  radioGroupProps
-};
+export { radioGroupEmits, radioGroupProps };

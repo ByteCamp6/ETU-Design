@@ -1,9 +1,7 @@
 const iconProps = {
   name: {
     type: String,
-    default: ""
-  }
+    default: "",
+  },
 };
-export {
-  iconProps
-};
+export { iconProps };

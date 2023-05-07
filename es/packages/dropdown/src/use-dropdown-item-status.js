@@ -2,9 +2,7 @@ import { ref } from "vue";
 const useDropDownItemStatus = (props) => {
   const isDisabled = ref(props.disabled || false);
   return {
-    isDisabled
+    isDisabled,
   };
 };
-export {
-  useDropDownItemStatus
-};
+export { useDropDownItemStatus };

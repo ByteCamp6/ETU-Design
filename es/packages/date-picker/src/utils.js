@@ -13,15 +13,14 @@ const MONTHS = [
   "September",
   "October",
   "November",
-  "December"
+  "December",
 ];
 dayjs.extend(isLeapYear);
 function now() {
   return dayjs();
 }
 function getDate(date) {
-  if (date === void 0 || !date)
-    return "";
+  if (date === void 0 || !date) return "";
   return dayjs(date);
 }
 function initValue(value, type) {
@@ -70,8 +69,7 @@ function initFormate(type) {
   }
 }
 function getFormate(date, format = "YYYY-MM-DD") {
-  if (!date)
-    return "";
+  if (!date) return "";
   if (Array.isArray(date)) {
     return [dayjs(date[0]).format(format), dayjs(date[1]).format(format)];
   }
@@ -82,7 +80,15 @@ function getStartDayWeek(year, month) {
     month += 12;
     year--;
   }
-  const week = (1 + 2 * month + 3 * (month + 1) / 5 + year + year / 4 - year / 100 + year / 400) % 7;
+  const week =
+    (1 +
+      2 * month +
+      (3 * (month + 1)) / 5 +
+      year +
+      year / 4 -
+      year / 100 +
+      year / 400) %
+    7;
   let weekstr = 0;
   switch (Math.floor(week)) {
     case 0:
@@ -111,7 +117,11 @@ function getStartDayWeek(year, month) {
 }
 function isSeleted(model, selected, cnt) {
   for (const select of selected) {
-    if (model.year() === select.year() && model.month() === select.month() && cnt === select.date()) {
+    if (
+      model.year() === select.year() &&
+      model.month() === select.month() &&
+      cnt === select.date()
+    ) {
       return true;
     }
   }
@@ -119,10 +129,15 @@ function isSeleted(model, selected, cnt) {
 }
 function getDates(date, originDate, selected) {
   const today = now();
-  const year = date.year(), month = date.month();
+  const year = date.year(),
+    month = date.month();
   date.date();
-  const tYear = today.year(), tMonth = today.month(), tDay = today.date();
-  const oYear = originDate ? originDate.year() : "", oMonth = originDate ? originDate.month() : "", oDay = originDate ? originDate.date() : "";
+  const tYear = today.year(),
+    tMonth = today.month(),
+    tDay = today.date();
+  const oYear = originDate ? originDate.year() : "",
+    oMonth = originDate ? originDate.month() : "",
+    oDay = originDate ? originDate.date() : "";
   const week = getStartDayWeek(year, month + 1);
   const limit = getDays(year, month + 1);
   const res = new Array(6).fill(0).map((item) => {
@@ -130,7 +145,8 @@ function getDates(date, originDate, selected) {
       return {};
     });
   });
-  let r = 0, i = week % 7;
+  let r = 0,
+    i = week % 7;
   let cnt = 1;
   while (cnt <= limit) {
     res[r][i % 7].value = cnt;
@@ -138,7 +154,10 @@ function getDates(date, originDate, selected) {
       res[r][i % 7].today = true;
     }
     if (originDate) {
-      if (year === oYear && month === oMonth && cnt === oDay || isSeleted(originDate, selected, cnt)) {
+      if (
+        (year === oYear && month === oMonth && cnt === oDay) ||
+        isSeleted(originDate, selected, cnt)
+      ) {
         res[r][i % 7].selected = true;
       }
     }
@@ -148,8 +167,7 @@ function getDates(date, originDate, selected) {
     }
     cnt++;
   }
-  if (r * 7 + i % 7 < 35)
-    res.splice(-1);
+  if (r * 7 + (i % 7) < 35) res.splice(-1);
   return res;
 }
 function getMonthEn(month) {
@@ -167,5 +185,5 @@ export {
   initFormate,
   initModel,
   initValue,
-  now
+  now,
 };

@@ -4,40 +4,33 @@ const tableProps = {
   columns: {
     type: definePropType(Array),
     default: () => [],
-    required: true
+    required: true,
   },
   data: {
     type: definePropType(Array),
     default: () => [],
-    required: true
+    required: true,
   },
   stripe: Boolean,
   rowKey: {
     type: String,
-    default: "key"
+    default: "key",
   },
   showHeader: {
     type: Boolean,
-    default: true
+    default: true,
   },
   width: [String, Number],
   height: [String, Number],
   maxHeight: [String, Number],
   rowSelection: {
-    type: definePropType(Object)
+    type: definePropType(Object),
   },
   selectedKeys: {
-    type: definePropType(Array)
+    type: definePropType(Array),
   },
   rowClass: {
-    type: definePropType([
-      String,
-      Array,
-      Object,
-      Function
-    ])
-  }
+    type: definePropType([String, Array, Object, Function]),
+  },
 };
-export {
-  tableProps
-};
+export { tableProps };

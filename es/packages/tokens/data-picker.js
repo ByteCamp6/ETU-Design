@@ -1,4 +1,2 @@
 const datePickerKey = Symbol("datePickerKey");
-export {
-  datePickerKey
-};
+export { datePickerKey };

@@ -7,7 +7,10 @@
     {{ item.label }}
     <etu-checkbox v-show="item.showCheck === true"></etu-checkbox>
     <Transition name="slide-fade">
-      <etu-tree-node v-show="item.isOpened" v-if="item.children && item.children.length">
+      <etu-tree-node
+        v-show="item.isOpened"
+        v-if="item.children && item.children.length"
+      >
         <etu-tree :options="item.children"></etu-tree>
       </etu-tree-node>
     </Transition>
@@ -47,7 +50,7 @@ const props = defineProps({
 });
 let isShow = ref(false);
 let state = ref(props.showCheck);
-console.log("state is " + state.value+","+typeof state.value);
+console.log("state is " + state.value + "," + typeof state.value);
 const newOptions = ref(props.options);
 const isOpen = (item: any) => {
   item.isOpened = !item.isOpened;

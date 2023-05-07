@@ -1,9 +1,7 @@
 const paginationTotalProps = {
   total: {
     type: Number,
-    default: 1e3
-  }
+    default: 1e3,
+  },
 };
-export {
-  paginationTotalProps
-};
+export { paginationTotalProps };

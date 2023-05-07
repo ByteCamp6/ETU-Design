@@ -7,6 +7,4 @@ _sfc_main$1.install = (app) => {
   app.component(_sfc_main$1.name, _sfc_main$1);
 };
 const radio = { Radio: _sfc_main, RadioGroup: _sfc_main$1 };
-export {
-  radio as default
-};
+export { radio as default };

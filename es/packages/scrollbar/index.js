@@ -4,6 +4,4 @@ _sfc_main.install = (app) => {
   app.component(_sfc_main.name, _sfc_main);
 };
 const scrollbar = { Scrollbar: _sfc_main };
-export {
-  scrollbar as default
-};
+export { scrollbar as default };

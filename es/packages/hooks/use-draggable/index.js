@@ -3,7 +3,7 @@ import { addUnit } from "../../utils/dom/style.js";
 const useDraggable = (targetRef, dragRef, draggable) => {
   let transform = {
     offsetX: 0,
-    offsetY: 0
+    offsetY: 0,
   };
   const onMousedown = (e) => {
     const downX = e.clientX;
@@ -23,19 +23,19 @@ const useDraggable = (targetRef, dragRef, draggable) => {
     const onMousemove = (e2) => {
       const moveX = Math.min(
         Math.max(offsetX + e2.clientX - downX, minLeft),
-        maxLeft
+        maxLeft,
       );
       const moveY = Math.min(
         Math.max(offsetY + e2.clientY - downY, minTop),
-        maxTop
+        maxTop,
       );
       transform = {
         offsetX: moveX,
-        offsetY: moveY
+        offsetY: moveY,
       };
-      targetRef.value.style.transform = `translate(${addUnit(
-        moveX
-      )}, ${addUnit(moveY)})`;
+      targetRef.value.style.transform = `translate(${addUnit(moveX)}, ${addUnit(
+        moveY,
+      )})`;
     };
     const onMouseup = () => {
       document.removeEventListener("mousemove", onMousemove);
@@ -63,6 +63,4 @@ const useDraggable = (targetRef, dragRef, draggable) => {
     offDraggable();
   });
 };
-export {
-  useDraggable
-};
+export { useDraggable };

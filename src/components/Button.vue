@@ -1,10 +1,15 @@
 <template>
   <etu-button>按钮</etu-button>
-  <etu-button type="primary" @click="show" disabled="true"><etu-icon name="close"></etu-icon>一个超级超级超级超级超级超级超级超极长的按钮</etu-button>
+  <etu-button type="primary" @click="show" disabled="true"
+    ><etu-icon name="close"></etu-icon
+    >一个超级超级超级超级超级超级超级超极长的按钮</etu-button
+  >
   <etu-button type="success">按钮</etu-button>
   <etu-button type="Info">按钮</etu-button>
   <etu-button type="warning">按钮</etu-button>
-  <etu-button type="danger">一个超级超级超级超级超级超级超级超极长的按钮</etu-button>
+  <etu-button type="danger"
+    >一个超级超级超级超级超级超级超级超极长的按钮</etu-button
+  >
   <etu-button type="rainbow">按钮</etu-button>
 
   <etu-button Hollow="Hollow">按钮</etu-button>

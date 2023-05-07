@@ -5,37 +5,34 @@ const componentSizes = ["", "default", "small", "large"];
 const shapeTypes = ["circle", "square"];
 const avatarProps = {
   icon: {
-    type: String
+    type: String,
   },
   size: {
     type: [Number, String],
     values: componentSizes,
     default: "",
-    validator: (val) => isNumber(val)
+    validator: (val) => isNumber(val),
   },
   shape: {
     type: String,
     values: shapeTypes,
-    default: "circle"
+    default: "circle",
   },
   src: {
-    type: String
+    type: String,
   },
   srcSet: {
-    type: String
+    type: String,
   },
   alt: {
-    type: String
+    type: String,
   },
   fit: {
     type: definePropType(String),
-    default: "cover"
-  }
+    default: "cover",
+  },
 };
 const avatarEmits = {
-  error: (evt) => evt instanceof Event
+  error: (evt) => evt instanceof Event,
 };
-export {
-  avatarEmits,
-  avatarProps
-};
+export { avatarEmits, avatarProps };

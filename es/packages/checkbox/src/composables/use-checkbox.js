@@ -9,14 +9,14 @@ const useCheckbox = (props, slots) => {
   const { isFocused, isChecked, hasOwnLabel } = useCheckboxStatus(
     props,
     slots,
-    { model }
+    { model },
   );
   const { isDisabled } = useCheckboxDisabled({ model, isChecked });
   const { handleChange } = useCheckboxEvent(props, {
     model,
     isLimitExceeded,
     hasOwnLabel,
-    isDisabled
+    isDisabled,
   });
   function addToStore() {
     if (isArray(model.value) && !model.value.includes(props.label)) {
@@ -32,9 +32,7 @@ const useCheckbox = (props, slots) => {
     isFocused,
     hasOwnLabel,
     model,
-    handleChange
+    handleChange,
   };
 };
-export {
-  useCheckbox
-};
+export { useCheckbox };

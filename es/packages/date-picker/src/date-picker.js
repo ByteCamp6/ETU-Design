@@ -1,9 +1,16 @@
 import "vue";
-import { isString, isArray, isDate } from "../../../node_modules/@vue/shared/dist/shared.esm-bundler.js";
-import { isNumber, isBoolean } from "../../../node_modules/@vueuse/shared/index.js";
+import {
+  isString,
+  isArray,
+  isDate,
+} from "../../../node_modules/@vue/shared/dist/shared.esm-bundler.js";
+import {
+  isNumber,
+  isBoolean,
+} from "../../../node_modules/@vueuse/shared/index.js";
 const datePickerProps = {
   modelValue: {
-    type: [Date, Number, String, Array]
+    type: [Date, Number, String, Array],
   },
   type: {
     type: String,
@@ -15,50 +22,48 @@ const datePickerProps = {
       "week",
       "datetimerange",
       "daterange",
-      "monthrange"
+      "monthrange",
     ],
-    default: "date"
+    default: "date",
   },
   placeholder: {
-    type: String
+    type: String,
   },
   startPlaceholder: {
-    type: String
+    type: String,
   },
   endPlaceholder: {
-    type: String
+    type: String,
   },
   format: {
-    type: String
+    type: String,
   },
   valueFormat: {
-    type: String
+    type: String,
   },
   readonly: {
     type: Boolean,
-    default: false
+    default: false,
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   editable: {
     type: Boolean,
-    default: true
+    default: true,
   },
   clearable: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 };
 const datePickerEmits = {
-  "update:modelValue": (val) => isString(val) || isNumber(val) || isArray(val) || isDate(val),
+  "update:modelValue": (val) =>
+    isString(val) || isNumber(val) || isArray(val) || isDate(val),
   "visible-change": (val) => isBoolean(val),
   change: (val) => isString(val),
   blur: (event) => event instanceof FocusEvent,
-  focus: (event) => event instanceof FocusEvent
+  focus: (event) => event instanceof FocusEvent,
 };
-export {
-  datePickerEmits,
-  datePickerProps
-};
+export { datePickerEmits, datePickerProps };

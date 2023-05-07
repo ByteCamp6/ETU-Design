@@ -1,4 +1,2 @@
 const radioGroupKey = Symbol("radioGroupKey");
-export {
-  radioGroupKey
-};
+export { radioGroupKey };

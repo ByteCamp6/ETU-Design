@@ -6,6 +6,4 @@ const useProp = (name) => {
     return ((_a = vm.proxy) == null ? void 0 : _a.$props)[name] ?? void 0;
   });
 };
-export {
-  useProp
-};
+export { useProp };

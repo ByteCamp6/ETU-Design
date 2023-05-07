@@ -2,11 +2,9 @@ import { ref } from "vue";
 function useCursor(input) {
   const selectionRef = ref();
   function recordCursor() {
-    if (input.value == void 0)
-      return;
+    if (input.value == void 0) return;
     const { selectionStart, selectionEnd, value } = input.value;
-    if (selectionStart == null || selectionEnd == null)
-      return;
+    if (selectionStart == null || selectionEnd == null) return;
     const beforeTxt = value.slice(0, Math.max(0, selectionStart));
     const afterTxt = value.slice(Math.max(0, selectionEnd));
     selectionRef.value = {
@@ -14,12 +12,11 @@ function useCursor(input) {
       selectionEnd,
       value,
       beforeTxt,
-      afterTxt
+      afterTxt,
     };
   }
   function setCursor() {
-    if (input.value == void 0 || selectionRef.value == void 0)
-      return;
+    if (input.value == void 0 || selectionRef.value == void 0) return;
     const { value } = input.value;
     const { beforeTxt, afterTxt, selectionStart } = selectionRef.value;
     if (beforeTxt == void 0 || afterTxt == void 0 || selectionStart == void 0)
@@ -40,6 +37,4 @@ function useCursor(input) {
   }
   return [recordCursor, setCursor];
 }
-export {
-  useCursor
-};
+export { useCursor };

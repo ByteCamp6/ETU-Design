@@ -16,7 +16,7 @@ const useInput = (props) => {
     handleInput,
     handleChange,
     handleCompositionStart,
-    handleCompositionEnd
+    handleCompositionEnd,
   } = useInputText(props, aimRef);
   const {
     isEnter,
@@ -26,11 +26,11 @@ const useInput = (props) => {
     clearValue,
     passwordVisible,
     isPwdVisible,
-    changeType
+    changeType,
   } = useInputState(props, nativeInputValue, inputDisabled);
   const { eyeIcon, isShowPrefixIcon, isShowSuffixIcon } = useInputIcon(
     props,
-    passwordVisible
+    passwordVisible,
   );
   return {
     inputRef,
@@ -54,9 +54,7 @@ const useInput = (props) => {
     eyeIcon,
     changeType,
     isShowPrefixIcon,
-    isShowSuffixIcon
+    isShowSuffixIcon,
   };
 };
-export {
-  useInput
-};
+export { useInput };

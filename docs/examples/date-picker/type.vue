@@ -1,7 +1,5 @@
 <template>
-  <div
-    style="display: flex; justify-content: space-around: gap: 20px"
-  >
+  <div style="display: flex; justify-content: space-around: gap: 20px">
     <div style="width: 100%">
       <div>year:</div>
       <etu-date-picker type="year" v-model="value1"></etu-date-picker>

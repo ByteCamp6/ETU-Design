@@ -13,13 +13,12 @@ function useSelectStates(props) {
     filterable: false,
     empty: false,
     interval: 200,
-    originValue: props.modelValue
+    originValue: props.modelValue,
   });
 }
 const useSelect = (states, props, emit) => {
   const handlerClickOption = (item) => {
-    if (props.disabled)
-      return;
+    if (props.disabled) return;
     emit && emit("change", item.value);
     if (props.multiple) {
       if (states.caches.has(item.value)) {
@@ -35,7 +34,9 @@ const useSelect = (states, props, emit) => {
         resetStates();
         return;
       }
-      states.currentIndex !== -1 && states.caches.delete(states.currentIndex) && (states.currentIndex = -1);
+      states.currentIndex !== -1 &&
+        states.caches.delete(states.currentIndex) &&
+        (states.currentIndex = -1);
       states.currentLable = item.label;
       states.caches.set(item.value, item.label);
       states.currentIndex = item.value;
@@ -65,13 +66,11 @@ const useSelect = (states, props, emit) => {
     return states.caches.has(key);
   };
   const isShow = (label) => {
-    if (!props.filterable)
-      return true;
+    if (!props.filterable) return true;
     return states.list.has(label);
   };
   const toggleMenu = () => {
-    if (props.disabled)
-      return;
+    if (props.disabled) return;
     if (!props.remote) {
       if (props.filterable) {
         if (states.currentIndex !== -1) {
@@ -92,8 +91,7 @@ const useSelect = (states, props, emit) => {
       states.currentLable = "";
   };
   const onHover = () => {
-    if (!props.clearable)
-      return;
+    if (!props.clearable) return;
     states.hover = true;
   };
   const onUnHover = () => {
@@ -103,8 +101,7 @@ const useSelect = (states, props, emit) => {
   watch(
     () => states.currentLable,
     (val) => {
-      if (!props.remote && !props.filterable)
-        return;
+      if (!props.remote && !props.filterable) return;
       if (val === "") {
         if (props.filterable) {
           states.list = new Set(states.originList);
@@ -127,7 +124,7 @@ const useSelect = (states, props, emit) => {
           states.list = new Set(temp);
         });
       }
-    }
+    },
   );
   return {
     toggleMenu,
@@ -138,10 +135,7 @@ const useSelect = (states, props, emit) => {
     isShow,
     isSelected,
     resetStates,
-    addValue
+    addValue,
   };
 };
-export {
-  useSelect,
-  useSelectStates
-};
+export { useSelect, useSelectStates };

@@ -1,4 +1,2 @@
 const checkboxGroupContextKey = Symbol("checkboxGroupContextKey");
-export {
-  checkboxGroupContextKey
-};
+export { checkboxGroupContextKey };

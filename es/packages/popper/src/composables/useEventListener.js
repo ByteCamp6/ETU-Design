@@ -12,9 +12,9 @@ function useEventListener(target, event, handler) {
   }
   onBeforeUnmount(() => {
     var _a;
-    (_a = unref(target)) == null ? void 0 : _a.removeEventListener(event, handler);
+    (_a = unref(target)) == null
+      ? void 0
+      : _a.removeEventListener(event, handler);
   });
 }
-export {
-  useEventListener
-};
+export { useEventListener };

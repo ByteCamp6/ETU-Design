@@ -1,15 +1,13 @@
 const optionProps = {
   value: {
-    type: [String, Number, Boolean, Object]
+    type: [String, Number, Boolean, Object],
   },
   label: {
-    type: [String, Number]
+    type: [String, Number],
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 };
-export {
-  optionProps
-};
+export { optionProps };

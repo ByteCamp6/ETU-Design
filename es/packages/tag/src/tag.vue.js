@@ -1,11 +1,23 @@
-import { defineComponent, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, createBlock, withModifiers, createCommentVNode } from "vue";
+import {
+  defineComponent,
+  computed,
+  openBlock,
+  createElementBlock,
+  normalizeClass,
+  unref,
+  createElementVNode,
+  renderSlot,
+  createBlock,
+  withModifiers,
+  createCommentVNode,
+} from "vue";
 import "../../icon/index.js";
 import { useNamespace } from "../../hooks/use-namespace/index.js";
 import "../../hooks/use-z-index/index.js";
 import { tagProps, tagEmits } from "./tag.js";
 import _sfc_main$1 from "../../icon/src/icon.vue.js";
 const __default__ = defineComponent({
-  name: "EtuTag"
+  name: "EtuTag",
 });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
@@ -21,7 +33,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         ns.m(type),
         ns.m(size),
         ns.m(effect),
-        ns.is("round", round)
+        ns.is("round", round),
       ];
     });
     const ns = useNamespace("tag");
@@ -32,25 +44,43 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       emit("click", event);
     };
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("span", {
-        class: normalizeClass(unref(classes)),
-        onClick: handleClick
-      }, [
-        createElementVNode("span", {
-          class: normalizeClass(unref(ns).e("content"))
-        }, [
-          renderSlot(_ctx.$slots, "default")
-        ], 2),
-        props.closable ? (openBlock(), createBlock(unref(_sfc_main$1), {
-          key: 0,
-          name: "close",
-          class: normalizeClass(unref(ns).e("close")),
-          onClick: withModifiers(handleClose, ["stop"])
-        }, null, 8, ["class", "onClick"])) : createCommentVNode("", true)
-      ], 2);
+      return (
+        openBlock(),
+        createElementBlock(
+          "span",
+          {
+            class: normalizeClass(unref(classes)),
+            onClick: handleClick,
+          },
+          [
+            createElementVNode(
+              "span",
+              {
+                class: normalizeClass(unref(ns).e("content")),
+              },
+              [renderSlot(_ctx.$slots, "default")],
+              2,
+            ),
+            props.closable
+              ? (openBlock(),
+                createBlock(
+                  unref(_sfc_main$1),
+                  {
+                    key: 0,
+                    name: "close",
+                    class: normalizeClass(unref(ns).e("close")),
+                    onClick: withModifiers(handleClose, ["stop"]),
+                  },
+                  null,
+                  8,
+                  ["class", "onClick"],
+                ))
+              : createCommentVNode("", true),
+          ],
+          2,
+        )
+      );
     };
-  }
+  },
 });
-export {
-  _sfc_main as default
-};
+export { _sfc_main as default };

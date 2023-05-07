@@ -4,56 +4,56 @@ import { isString } from "../../../node_modules/@vue/shared/dist/shared.esm-bund
 const inputProps = {
   placeholder: {
     type: String,
-    default: ""
+    default: "",
   },
   showPassword: {
     type: Boolean,
-    default: false
+    default: false,
   },
   // readonly: Boolean,
   autocomplete: {
     type: String,
-    default: "off"
+    default: "off",
   },
   modelValue: {
     type: definePropType([String, Number]),
-    default: ""
+    default: "",
   },
   clearable: {
     type: Boolean,
-    default: false
+    default: false,
   },
   type: {
     type: String,
     values: ["text", "textarea"],
-    default: "text"
+    default: "text",
   },
   size: {
     type: String,
     values: ["small", "medium", "large"],
-    default: "medium"
+    default: "medium",
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   prefixIcon: {
     type: String,
-    default: ""
+    default: "",
   },
   suffixIcon: {
     type: String,
-    default: ""
+    default: "",
   },
   formatter: {
-    type: Function
+    type: Function,
   },
   parser: {
-    type: Function
+    type: Function,
   },
   readonly: {
-    type: Boolean
-  }
+    type: Boolean,
+  },
 };
 const inputEmits = {
   "update:modelValue": (value) => isString(value),
@@ -61,9 +61,6 @@ const inputEmits = {
   change: (value) => isString(value),
   clear: () => true,
   mouseleave: (evt) => evt instanceof MouseEvent,
-  mouseenter: (evt) => evt instanceof MouseEvent
+  mouseenter: (evt) => evt instanceof MouseEvent,
 };
-export {
-  inputEmits,
-  inputProps
-};
+export { inputEmits, inputProps };

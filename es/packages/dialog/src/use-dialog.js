@@ -1,4 +1,11 @@
-import { getCurrentInstance, ref, computed, watch, nextTick, onMounted } from "vue";
+import {
+  getCurrentInstance,
+  ref,
+  computed,
+  watch,
+  nextTick,
+  onMounted,
+} from "vue";
 import { useTimeoutFn } from "../../hooks/use-timout/index.js";
 import { addUnit } from "../../utils/dom/style.js";
 import { useZIndex } from "../../hooks/use-z-index/index.js";
@@ -63,8 +70,7 @@ const useDialog = (props, targetRef) => {
   }
   function handleClose() {
     function hide(shouldCancel) {
-      if (shouldCancel)
-        return;
+      if (shouldCancel) return;
       closed.value = true;
       visible.value = false;
     }
@@ -107,7 +113,7 @@ const useDialog = (props, targetRef) => {
           close();
         }
       }
-    }
+    },
   );
   onMounted(() => {
     if (props.modelValue) {
@@ -128,9 +134,7 @@ const useDialog = (props, targetRef) => {
     overlayDialogStyle,
     rendered,
     visible,
-    zIndex
+    zIndex,
   };
 };
-export {
-  useDialog
-};
+export { useDialog };

@@ -11,7 +11,9 @@ _sfc_main$1.install = (app) => {
 _sfc_main$2.install = (app) => {
   app.component(_sfc_main$2.name, _sfc_main$2);
 };
-const select = { Select: _sfc_main, Option: _sfc_main$1, OptionGroup: _sfc_main$2 };
-export {
-  select as default
+const select = {
+  Select: _sfc_main,
+  Option: _sfc_main$1,
+  OptionGroup: _sfc_main$2,
 };
+export { select as default };

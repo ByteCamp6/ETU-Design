@@ -5,42 +5,31 @@ const uploadContentProps = {
   ...uploadBaseProps,
   beforeUpload: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onRemove: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onStart: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onSuccess: {
-    type: definePropType(
-      Function
-    ),
-    default: () => {
-    }
+    type: definePropType(Function),
+    default: () => {},
   },
   onProgress: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onError: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onExceed: {
     type: definePropType(Function),
-    default: () => {
-    }
-  }
+    default: () => {},
+  },
 };
-export {
-  uploadContentProps
-};
+export { uploadContentProps };

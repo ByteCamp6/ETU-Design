@@ -1,4 +1,18 @@
-import { defineComponent, ref, computed, watchEffect, openBlock, createElementBlock, normalizeClass, unref, createCommentVNode, createVNode, Fragment, renderList, toDisplayString } from "vue";
+import {
+  defineComponent,
+  ref,
+  computed,
+  watchEffect,
+  openBlock,
+  createElementBlock,
+  normalizeClass,
+  unref,
+  createCommentVNode,
+  createVNode,
+  Fragment,
+  renderList,
+  toDisplayString,
+} from "vue";
 import "../../../icon/index.js";
 import { paginationPagerProps } from "./pager.js";
 import { useNamespace } from "../../../hooks/use-namespace/index.js";
@@ -6,7 +20,7 @@ import "../../../hooks/use-z-index/index.js";
 import _sfc_main$1 from "../../../icon/src/icon.vue.js";
 const _hoisted_1 = ["onClick"];
 const __default__ = defineComponent({
-  name: "EtuPaginationPager"
+  name: "EtuPaginationPager",
 });
 const _sfc_main = /* @__PURE__ */ defineComponent({
   ...__default__,
@@ -87,53 +101,127 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       }
     }
     return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("ul", {
-        class: normalizeClass([unref(ns).b()])
-      }, [
-        props.pageCount > 0 ? (openBlock(), createElementBlock("li", {
-          key: 0,
-          class: normalizeClass(["number", [
-            unref(ns).is("active", props.currentPage === 1),
-            unref(ns).is("disabled", props.disabled)
-          ]]),
-          onClick: _cache[0] || (_cache[0] = ($event) => onPagerClick(1))
-        }, " 1 ", 2)) : createCommentVNode("", true),
-        showPrevMore.value ? (openBlock(), createElementBlock("li", {
-          key: 1,
-          class: normalizeClass([unref(ns).is("disabled", props.disabled)]),
-          onClick: _cache[1] || (_cache[1] = ($event) => onPagerClick(props.currentPage - props.pagerCount + 2))
-        }, [
-          createVNode(unref(_sfc_main$1), { name: "elipsis" })
-        ], 2)) : createCommentVNode("", true),
-        (openBlock(true), createElementBlock(Fragment, null, renderList(unref(pagers), (pager) => {
-          return openBlock(), createElementBlock("li", {
-            class: normalizeClass([[
-              unref(ns).is("active", props.currentPage === pager),
-              unref(ns).is("disabled", props.disabled)
-            ], "number"]),
-            key: pager,
-            onClick: ($event) => onPagerClick(pager)
-          }, toDisplayString(pager), 11, _hoisted_1);
-        }), 128)),
-        showNextMore.value ? (openBlock(), createElementBlock("li", {
-          key: 2,
-          class: normalizeClass([unref(ns).is("disabled", props.disabled)]),
-          onClick: _cache[2] || (_cache[2] = ($event) => onPagerClick(props.currentPage + props.pagerCount - 2))
-        }, [
-          createVNode(unref(_sfc_main$1), { name: "elipsis" })
-        ], 2)) : createCommentVNode("", true),
-        props.pageCount > 1 ? (openBlock(), createElementBlock("li", {
-          key: 3,
-          class: normalizeClass([[
-            unref(ns).is("active", props.currentPage === props.pageCount),
-            unref(ns).is("disabled", props.disabled)
-          ], "number"]),
-          onClick: _cache[3] || (_cache[3] = ($event) => onPagerClick(props.pageCount))
-        }, toDisplayString(props.pageCount), 3)) : createCommentVNode("", true)
-      ], 2);
+      return (
+        openBlock(),
+        createElementBlock(
+          "ul",
+          {
+            class: normalizeClass([unref(ns).b()]),
+          },
+          [
+            props.pageCount > 0
+              ? (openBlock(),
+                createElementBlock(
+                  "li",
+                  {
+                    key: 0,
+                    class: normalizeClass([
+                      "number",
+                      [
+                        unref(ns).is("active", props.currentPage === 1),
+                        unref(ns).is("disabled", props.disabled),
+                      ],
+                    ]),
+                    onClick:
+                      _cache[0] || (_cache[0] = ($event) => onPagerClick(1)),
+                  },
+                  " 1 ",
+                  2,
+                ))
+              : createCommentVNode("", true),
+            showPrevMore.value
+              ? (openBlock(),
+                createElementBlock(
+                  "li",
+                  {
+                    key: 1,
+                    class: normalizeClass([
+                      unref(ns).is("disabled", props.disabled),
+                    ]),
+                    onClick:
+                      _cache[1] ||
+                      (_cache[1] = ($event) =>
+                        onPagerClick(props.currentPage - props.pagerCount + 2)),
+                  },
+                  [createVNode(unref(_sfc_main$1), { name: "elipsis" })],
+                  2,
+                ))
+              : createCommentVNode("", true),
+            (openBlock(true),
+            createElementBlock(
+              Fragment,
+              null,
+              renderList(unref(pagers), (pager) => {
+                return (
+                  openBlock(),
+                  createElementBlock(
+                    "li",
+                    {
+                      class: normalizeClass([
+                        [
+                          unref(ns).is("active", props.currentPage === pager),
+                          unref(ns).is("disabled", props.disabled),
+                        ],
+                        "number",
+                      ]),
+                      key: pager,
+                      onClick: ($event) => onPagerClick(pager),
+                    },
+                    toDisplayString(pager),
+                    11,
+                    _hoisted_1,
+                  )
+                );
+              }),
+              128,
+            )),
+            showNextMore.value
+              ? (openBlock(),
+                createElementBlock(
+                  "li",
+                  {
+                    key: 2,
+                    class: normalizeClass([
+                      unref(ns).is("disabled", props.disabled),
+                    ]),
+                    onClick:
+                      _cache[2] ||
+                      (_cache[2] = ($event) =>
+                        onPagerClick(props.currentPage + props.pagerCount - 2)),
+                  },
+                  [createVNode(unref(_sfc_main$1), { name: "elipsis" })],
+                  2,
+                ))
+              : createCommentVNode("", true),
+            props.pageCount > 1
+              ? (openBlock(),
+                createElementBlock(
+                  "li",
+                  {
+                    key: 3,
+                    class: normalizeClass([
+                      [
+                        unref(ns).is(
+                          "active",
+                          props.currentPage === props.pageCount,
+                        ),
+                        unref(ns).is("disabled", props.disabled),
+                      ],
+                      "number",
+                    ]),
+                    onClick:
+                      _cache[3] ||
+                      (_cache[3] = ($event) => onPagerClick(props.pageCount)),
+                  },
+                  toDisplayString(props.pageCount),
+                  3,
+                ))
+              : createCommentVNode("", true),
+          ],
+          2,
+        )
+      );
     };
-  }
+  },
 });
-export {
-  _sfc_main as default
-};
+export { _sfc_main as default };

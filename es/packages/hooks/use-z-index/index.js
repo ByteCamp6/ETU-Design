@@ -9,9 +9,7 @@ const useZIndex = () => {
   };
   return {
     currentZIndex,
-    nextZIndex
+    nextZIndex,
   };
 };
-export {
-  useZIndex
-};
+export { useZIndex };

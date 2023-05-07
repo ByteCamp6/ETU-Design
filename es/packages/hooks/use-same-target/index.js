@@ -1,9 +1,6 @@
 const useSameTarget = (handleClick) => {
   if (!handleClick) {
-    return { onClick: () => {
-    }, onMousedown: () => {
-    }, onMouseup: () => {
-    } };
+    return { onClick: () => {}, onMousedown: () => {}, onMouseup: () => {} };
   }
   let mousedownTarget = false;
   let mouseupTarget = false;
@@ -21,6 +18,4 @@ const useSameTarget = (handleClick) => {
   };
   return { onClick, onMousedown, onMouseup };
 };
-export {
-  useSameTarget
-};
+export { useSameTarget };

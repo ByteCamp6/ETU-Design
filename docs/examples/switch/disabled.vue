@@ -1,6 +1,6 @@
 <template>
-  <etu-switch disabled/>
-  <etu-switch class="ml-2" v-model="value2" disabled/>
+  <etu-switch disabled />
+  <etu-switch class="ml-2" v-model="value2" disabled />
 </template>
 
 <script lang="ts" setup>

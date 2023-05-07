@@ -1,4 +1,2 @@
 const selectKey = Symbol("selectKey");
-export {
-  selectKey
-};
+export { selectKey };

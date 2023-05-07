@@ -1,4 +1,2 @@
 const TableKey = Symbol("TableKey");
-export {
-  TableKey
-};
+export { TableKey };

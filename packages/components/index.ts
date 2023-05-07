@@ -87,7 +87,7 @@ const components = [
   MenuGroup,
   MenuGroupItem,
   Text,
-  Affix
+  Affix,
 ];
 
 // 全局动态添加

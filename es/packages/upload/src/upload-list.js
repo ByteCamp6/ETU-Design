@@ -2,25 +2,22 @@ import { uploadListTypes } from "./upload.js";
 const uploadListProps = {
   files: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   handlePreview: {
-    type: Function
+    type: Function,
   },
   listType: {
     type: String,
     values: uploadListTypes,
-    default: "text"
-  }
+    default: "text",
+  },
 };
 const uploadListEmits = {
-  remove: (file) => !!file
+  remove: (file) => !!file,
 };
-export {
-  uploadListEmits,
-  uploadListProps
-};
+export { uploadListEmits, uploadListProps };

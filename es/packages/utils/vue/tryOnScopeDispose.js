@@ -6,6 +6,4 @@ function tryOnScopeDispose(fn) {
   }
   return false;
 }
-export {
-  tryOnScopeDispose
-};
+export { tryOnScopeDispose };

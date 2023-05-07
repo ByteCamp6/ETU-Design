@@ -13,7 +13,7 @@ const useDropDownStyle = (props) => {
   const placeMent = props.placement;
   const judgeTriggerHover = {
     hover: true,
-    click: false
+    click: false,
   };
   const isTriggerHover = judgeTriggerHover[props.trigger];
   const isUseArrowDown = props.arrowDown;
@@ -22,9 +22,7 @@ const useDropDownStyle = (props) => {
     canclePadding,
     scrollbarMaxHeight,
     placeMent,
-    isTriggerHover
+    isTriggerHover,
   };
 };
-export {
-  useDropDownStyle
-};
+export { useDropDownStyle };

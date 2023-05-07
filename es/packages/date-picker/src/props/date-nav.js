@@ -2,18 +2,16 @@ import { sharedProps } from "./shared.js";
 const dateNavProps = {
   left: {
     type: Boolean,
-    default: true
+    default: true,
   },
   right: {
     type: Boolean,
-    default: true
+    default: true,
   },
   change: {
     type: Boolean,
-    default: true
+    default: true,
   },
-  ...sharedProps
+  ...sharedProps,
 };
-export {
-  dateNavProps
-};
+export { dateNavProps };

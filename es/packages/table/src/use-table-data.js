@@ -27,7 +27,7 @@ const useTableData = (props, hasKey, emit) => {
     emit(
       "sort-change",
       sortingColumn.value.column,
-      sortingColumn.value.sortDirections
+      sortingColumn.value.sortDirections,
     );
   };
   const sortedData = computed(() => {
@@ -35,7 +35,7 @@ const useTableData = (props, hasKey, emit) => {
     if (sortingColumn.value.column) {
       const columns = props.columns;
       const sortColumn = columns.find(
-        (column) => sortingColumn.value.column === column.prop
+        (column) => sortingColumn.value.column === column.prop,
       );
       const data = cloneDeep(originData.value);
       if ((_a = sortColumn.sortable) == null ? void 0 : _a.sorter) {
@@ -64,7 +64,7 @@ const useTableData = (props, hasKey, emit) => {
   const changeFilterRules = (columnProp, filtersValue) => {
     if (!filterRules.value[columnProp]) {
       filterRules.value[columnProp] = {
-        filtersValue: []
+        filtersValue: [],
       };
     }
     filterRules.value[columnProp].filtersValue = filtersValue;
@@ -77,20 +77,25 @@ const useTableData = (props, hasKey, emit) => {
       columns.forEach((column) => {
         var _a, _b;
         const columnFilterRules = filterRules.value[column.prop];
-        if (column.filterable && !isEmpty(columnFilterRules) && !isEmpty(columnFilterRules.filtersValue)) {
+        if (
+          column.filterable &&
+          !isEmpty(columnFilterRules) &&
+          !isEmpty(columnFilterRules.filtersValue)
+        ) {
           const filter = (_a = column.filterable) == null ? void 0 : _a.filter;
-          const filterCombine = (_b = column.filterable) == null ? void 0 : _b.filterCombine;
+          const filterCombine =
+            (_b = column.filterable) == null ? void 0 : _b.filterCombine;
           const innerFilterFunction = (record, filter2, filterCombine2) => {
             if (!filter2) {
               filter2 = (value, record2) => record2[column.prop] === value;
             }
             if (filterCombine2 && filterCombine2 === "and") {
-              return columnFilterRules.filtersValue.every(
-                (value) => filter2 == null ? void 0 : filter2(value, record)
+              return columnFilterRules.filtersValue.every((value) =>
+                filter2 == null ? void 0 : filter2(value, record),
               );
             } else {
-              return columnFilterRules.filtersValue.some(
-                (value) => filter2 == null ? void 0 : filter2(value, record)
+              return columnFilterRules.filtersValue.some((value) =>
+                filter2 == null ? void 0 : filter2(value, record),
               );
             }
           };
@@ -113,9 +118,7 @@ const useTableData = (props, hasKey, emit) => {
     sortingColumn,
     changeSortingColumn,
     changeFilterRules,
-    clearSort
+    clearSort,
   };
 };
-export {
-  useTableData
-};
+export { useTableData };

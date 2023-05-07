@@ -1,4 +1,2 @@
 const PaginationKey = Symbol("etuPaginationKey");
-export {
-  PaginationKey
-};
+export { PaginationKey };

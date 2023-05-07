@@ -3,29 +3,26 @@ const tagProps = {
   type: {
     type: String,
     values: ["success", "info", "warning", "danger", "primary"],
-    default: "primary"
+    default: "primary",
   },
   color: {
     type: String,
-    default: ""
+    default: "",
   },
   size: {
     type: String,
     values: ["large", "default", "small"],
-    default: "default"
+    default: "default",
   },
   effect: {
     type: String,
     values: ["dark", "light", "plain"],
-    default: "light"
+    default: "light",
   },
-  round: Boolean
+  round: Boolean,
 };
 const tagEmits = {
   close: (evt) => evt instanceof MouseEvent,
-  click: (evt) => evt instanceof MouseEvent
+  click: (evt) => evt instanceof MouseEvent,
 };
-export {
-  tagEmits,
-  tagProps
-};
+export { tagEmits, tagProps };

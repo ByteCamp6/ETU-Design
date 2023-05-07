@@ -7,22 +7,26 @@ const useTableStyle = (props) => {
   const tableInnerStyle = computed(() => {
     if (props.height) {
       return {
-        height: isNumber(props.height) ? `${props.height}px` : props.height
+        height: isNumber(props.height) ? `${props.height}px` : props.height,
       };
     }
     if (props.maxHeight) {
       return {
-        maxHeight: isNumber(props.maxHeight) ? `${props.maxHeight}px` : props.maxHeight
+        maxHeight: isNumber(props.maxHeight)
+          ? `${props.maxHeight}px`
+          : props.maxHeight,
       };
     }
     return {};
   });
   onMounted(() => {
     var _a;
-    headerWrapperHeight.value = (_a = table.refs.headerWrapper) == null ? void 0 : _a.offsetHeight;
+    headerWrapperHeight.value =
+      (_a = table.refs.headerWrapper) == null ? void 0 : _a.offsetHeight;
     useResizeObserver(table.refs.headerWrapper, () => {
       var _a2;
-      headerWrapperHeight.value = (_a2 = table.refs.headerWrapper) == null ? void 0 : _a2.offsetHeight;
+      headerWrapperHeight.value =
+        (_a2 = table.refs.headerWrapper) == null ? void 0 : _a2.offsetHeight;
     });
   });
   const headerWrapperHeight = ref(0);
@@ -38,7 +42,12 @@ const useTableStyle = (props) => {
   const scrollingPosition = computed(() => {
     if (scrollBarLeft.value === 0) {
       return "left";
-    } else if (table.refs.tableBodyNativeRef.offsetWidth - table.refs.bodyWrapper.offsetWidth - scrollBarLeft.value < 1) {
+    } else if (
+      table.refs.tableBodyNativeRef.offsetWidth -
+        table.refs.bodyWrapper.offsetWidth -
+        scrollBarLeft.value <
+      1
+    ) {
       return "right";
     }
     return "middle";
@@ -54,7 +63,9 @@ const useTableStyle = (props) => {
     if (props.maxHeight) {
       if (!Number.isNaN(Number(props.maxHeight))) {
         const maxHeight = props.maxHeight;
-        return headerWrapperHeight.value ? maxHeight - headerWrapperHeight.value : maxHeight;
+        return headerWrapperHeight.value
+          ? maxHeight - headerWrapperHeight.value
+          : maxHeight;
       }
     }
     return void 0;
@@ -66,9 +77,7 @@ const useTableStyle = (props) => {
     scrollingPosition,
     bindScroll,
     scrollbarMaxHeight,
-    headerWrapperHeight
+    headerWrapperHeight,
   };
 };
-export {
-  useTableStyle
-};
+export { useTableStyle };

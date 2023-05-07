@@ -1,12 +1,10 @@
 const optionGroupProps = {
   label: {
-    type: [String, Number]
+    type: [String, Number],
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 };
-export {
-  optionGroupProps
-};
+export { optionGroupProps };

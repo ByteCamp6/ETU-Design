@@ -4,6 +4,4 @@ const useDisabled = (fallback) => {
   const disabled = useProp("disabled");
   return computed(() => disabled.value || unref(fallback) || false);
 };
-export {
-  useDisabled
-};
+export { useDisabled };

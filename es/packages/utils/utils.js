@@ -1,6 +1,6 @@
 function _debounce(fn, wait) {
   let timer = null;
-  return function(...args) {
+  return function (...args) {
     const context = this;
     if (timer) {
       clearTimeout(timer);
@@ -11,6 +11,4 @@ function _debounce(fn, wait) {
     }, wait);
   };
 }
-export {
-  _debounce
-};
+export { _debounce };

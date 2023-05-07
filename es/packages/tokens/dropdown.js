@@ -1,4 +1,2 @@
 const dropdownKey = Symbol("dropdownKey");
-export {
-  dropdownKey
-};
+export { dropdownKey };

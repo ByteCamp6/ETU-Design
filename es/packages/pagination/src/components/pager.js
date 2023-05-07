@@ -1,18 +1,16 @@
 const paginationPagerProps = {
   currentPage: {
     type: Number,
-    default: 1
+    default: 1,
   },
   pageCount: {
     type: Number,
-    required: true
+    required: true,
   },
   pagerCount: {
     type: Number,
-    default: 7
+    default: 7,
   },
-  disabled: Boolean
+  disabled: Boolean,
 };
-export {
-  paginationPagerProps
-};
+export { paginationPagerProps };

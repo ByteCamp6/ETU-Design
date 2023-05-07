@@ -6,7 +6,4 @@ _sfc_main.install = (app) => {
 _sfc_main$1.install = (app) => {
   app.component(_sfc_main$1.name, _sfc_main$1);
 };
-export {
-  _sfc_main as Form,
-  _sfc_main$1 as FormItem
-};
+export { _sfc_main as Form, _sfc_main$1 as FormItem };

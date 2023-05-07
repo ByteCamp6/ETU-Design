@@ -1,17 +1,15 @@
 const formProps = {
   model: {
     type: Object,
-    default: () => ({})
+    default: () => ({}),
   },
   rules: {
     type: Object,
-    default: () => ({})
+    default: () => ({}),
   },
   showMessage: {
     type: Boolean,
-    default: true
-  }
+    default: true,
+  },
 };
-export {
-  formProps
-};
+export { formProps };

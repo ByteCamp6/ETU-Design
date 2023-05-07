@@ -7,6 +7,4 @@ _sfc_main$1.install = (app) => {
   app.component(_sfc_main$1.name, _sfc_main$1);
 };
 const breadcrumb = { Breadcrumb: _sfc_main, BreadcrumbItem: _sfc_main$1 };
-export {
-  breadcrumb as default
-};
+export { breadcrumb as default };

@@ -3,7 +3,12 @@ const useInputState = (props, nativeInputValue, inputDisabled) => {
   const { emit } = getCurrentInstance();
   const isEnter = ref(false);
   const isClearable = computed(
-    () => props.clearable && !inputDisabled.value && !props.readonly && !!nativeInputValue.value && isEnter.value
+    () =>
+      props.clearable &&
+      !inputDisabled.value &&
+      !props.readonly &&
+      !!nativeInputValue.value &&
+      isEnter.value,
   );
   const handleMouseLeave = (evt) => {
     isEnter.value = false;
@@ -21,7 +26,11 @@ const useInputState = (props, nativeInputValue, inputDisabled) => {
   };
   const passwordVisible = ref(false);
   const isPwdVisible = computed(
-    () => props.showPassword && !inputDisabled.value && !props.readonly && !!nativeInputValue.value
+    () =>
+      props.showPassword &&
+      !inputDisabled.value &&
+      !props.readonly &&
+      !!nativeInputValue.value,
   );
   function changeType() {
     passwordVisible.value = !passwordVisible.value;
@@ -34,9 +43,7 @@ const useInputState = (props, nativeInputValue, inputDisabled) => {
     clearValue,
     passwordVisible,
     isPwdVisible,
-    changeType
+    changeType,
   };
 };
-export {
-  useInputState
-};
+export { useInputState };

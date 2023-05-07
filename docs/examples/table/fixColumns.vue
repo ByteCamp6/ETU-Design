@@ -1,9 +1,5 @@
 <template>
-  <etu-table
-    :columns="columns"
-    :data="tableData"
-    rowKey="name"
-  ></etu-table>
+  <etu-table :columns="columns" :data="tableData" rowKey="name"></etu-table>
 </template>
 
 <script setup lang="tsx">

@@ -6,7 +6,7 @@ const checkboxGroupProps = {
    */
   modelValue: {
     type: Array,
-    default: () => []
+    default: () => [],
   },
   /**
    * @description whether the nesting checkboxes are disabled
@@ -23,14 +23,11 @@ const checkboxGroupProps = {
   size: {
     type: String,
     values: ["large", "default", "small"],
-    default: "default"
-  }
+    default: "default",
+  },
 };
 const checkboxGroupEmits = {
   "update:modelValue": (val) => isArray(val),
-  change: (val) => isArray(val)
+  change: (val) => isArray(val),
 };
-export {
-  checkboxGroupEmits,
-  checkboxGroupProps
-};
+export { checkboxGroupEmits, checkboxGroupProps };

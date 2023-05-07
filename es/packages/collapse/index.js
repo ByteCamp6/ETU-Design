@@ -9,8 +9,6 @@ _sfc_main$1.install = (app) => {
 };
 const collapse = {
   Collapse: _sfc_main,
-  CollapseItem: _sfc_main$1
+  CollapseItem: _sfc_main$1,
 };
-export {
-  collapse as default
-};
+export { collapse as default };

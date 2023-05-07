@@ -1,5 +1,10 @@
 <template>
-  <etu-table :columns="columns" :data="tableData" rowKey="name" :height="300"></etu-table>
+  <etu-table
+    :columns="columns"
+    :data="tableData"
+    rowKey="name"
+    :height="300"
+  ></etu-table>
 </template>
 
 <script setup lang="tsx">

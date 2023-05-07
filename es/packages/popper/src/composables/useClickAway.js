@@ -17,6 +17,4 @@ function useClickAway(target, handler) {
   };
   return useEventListener(window, event, listener);
 }
-export {
-  useClickAway
-};
+export { useClickAway };

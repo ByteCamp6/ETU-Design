@@ -1,21 +1,28 @@
 import "vue";
-import { isString, isArray, isObject } from "../../../node_modules/@vue/shared/dist/shared.esm-bundler.js";
-import { isNumber, isBoolean } from "../../../node_modules/@vueuse/shared/index.js";
+import {
+  isString,
+  isArray,
+  isObject,
+} from "../../../node_modules/@vue/shared/dist/shared.esm-bundler.js";
+import {
+  isNumber,
+  isBoolean,
+} from "../../../node_modules/@vueuse/shared/index.js";
 const booleanType = {
   type: Boolean,
-  default: false
+  default: false,
 };
 const selectProps = {
   modelValue: {
-    type: [String, Number, Boolean, Object, Array]
+    type: [String, Number, Boolean, Object, Array],
   },
   size: {
     type: String,
     values: ["large", "default", "small"],
-    default: "default"
+    default: "default",
   },
   noDataText: {
-    type: String
+    type: String,
   },
   placement: {
     type: String,
@@ -31,28 +38,30 @@ const selectProps = {
       "left-end",
       "right",
       "right-start",
-      "right-end"
+      "right-end",
     ],
-    default: "bottom-start"
+    default: "bottom-start",
   },
   remoteMethod: Function,
   placeholder: {
-    type: String
+    type: String,
   },
   remote: booleanType,
   disabled: booleanType,
   filterable: booleanType,
   clearable: booleanType,
-  multiple: booleanType
+  multiple: booleanType,
 };
 const selectEmits = {
-  "update:modelValue": (val) => isString(val) || isNumber(val) || isArray(val) || isObject(val) || isBoolean(val),
+  "update:modelValue": (val) =>
+    isString(val) ||
+    isNumber(val) ||
+    isArray(val) ||
+    isObject(val) ||
+    isBoolean(val),
   "visible-change": (val) => isBoolean(val),
   change: (val) => isString(val),
   blur: (event) => event instanceof FocusEvent,
-  focus: (event) => event instanceof FocusEvent
+  focus: (event) => event instanceof FocusEvent,
 };
-export {
-  selectEmits,
-  selectProps
-};
+export { selectEmits, selectProps };

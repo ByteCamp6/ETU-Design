@@ -22,7 +22,7 @@
 }
 </style>
 <script setup lang="ts">
-function fun_1():void {
+function fun_1(): void {
   console.log("fun1");
 }
 </script>

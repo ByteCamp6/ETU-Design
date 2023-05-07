@@ -15,12 +15,12 @@
       :limit="3"
       :on-exceed="handleExceed"
     >
-<!--      <template #trigger>-->
-<!--        <etu-button type="primary">上传文件</etu-button>-->
-<!--      </template>-->
-<!--      <etu-button type="success" @click="submitUpload">-->
-<!--        upload to server-->
-<!--      </etu-button>-->
+      <!--      <template #trigger>-->
+      <!--        <etu-button type="primary">上传文件</etu-button>-->
+      <!--      </template>-->
+      <!--      <etu-button type="success" @click="submitUpload">-->
+      <!--        upload to server-->
+      <!--      </etu-button>-->
       <template #tip>
         <div>格式要求：</div>
       </template>

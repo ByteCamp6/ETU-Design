@@ -4,10 +4,8 @@ const thumbProps = {
   move: Number,
   ratio: {
     type: Number,
-    required: true
+    required: true,
   },
-  always: Boolean
+  always: Boolean,
 };
-export {
-  thumbProps
-};
+export { thumbProps };

@@ -12,8 +12,10 @@ const useDatePickerStates = (props) => {
     startLabel: "",
     endLabel: "",
     format: props.format ? props.format : initFormate(props.type),
-    valueFormat: props.valueFormat ? props.valueFormat : initFormate(props.type),
-    selected: []
+    valueFormat: props.valueFormat
+      ? props.valueFormat
+      : initFormate(props.type),
+    selected: [],
   });
 };
 const useDatePicker = (states, props, emit) => {
@@ -29,16 +31,14 @@ const useDatePicker = (states, props, emit) => {
     if (index !== -1) {
       states.model[index] = states.value[index].clone();
       emit("update:modelValue", getFormate(states.value, states.valueFormat));
-      if (states.selected.length === 2)
-        states.selected = [];
+      if (states.selected.length === 2) states.selected = [];
       states.selected.push(states.model[index]);
       if (states.selected.length <= 1) {
         states.startLabel = getFormate(states.model[index], states.format);
       } else {
         states.endLabel = getFormate(states.model[index], states.format);
       }
-      if (index === 1)
-        hideMenu();
+      if (index === 1) hideMenu();
     } else {
       states.model = states.value.clone();
       states.currentLabel = getFormate(states.value, states.format);
@@ -47,8 +47,7 @@ const useDatePicker = (states, props, emit) => {
     }
   };
   const getDate2 = (type, index = -1) => {
-    if (!states.model || !states.model[index])
-      return "";
+    if (!states.model || !states.model[index]) return "";
     if (index !== -1) {
       return states.model[index].get(type);
     }
@@ -105,13 +104,11 @@ const useDatePicker = (states, props, emit) => {
       setYear(states.value.year(), index);
     }
     updateDate("month", val, index);
-    if (props.type === "month")
-      updateModel(index);
+    if (props.type === "month") updateModel(index);
   };
   const setYear = (val, index = -1) => {
     updateDate("year", val, index);
-    if (props.type === "year")
-      updateModel(index);
+    if (props.type === "year") updateModel(index);
   };
   const monthAdd = (index = -1) => {
     dateAdd(1, "month", index);
@@ -129,8 +126,7 @@ const useDatePicker = (states, props, emit) => {
     states.type = type;
   };
   const toggleMenu = () => {
-    if (props.disabled)
-      return;
+    if (props.disabled) return;
     states.visible = true;
     emit && emit("visible-change", states.visible);
   };
@@ -155,10 +151,7 @@ const useDatePicker = (states, props, emit) => {
     dateSubtract,
     dateAdd,
     toggleMenu,
-    hideMenu
+    hideMenu,
   };
 };
-export {
-  useDatePicker,
-  useDatePickerStates
-};
+export { useDatePicker, useDatePickerStates };

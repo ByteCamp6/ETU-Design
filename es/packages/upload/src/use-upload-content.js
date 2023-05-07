@@ -14,13 +14,11 @@ const useUploadContent = (props) => {
   };
   const handleChange = (e) => {
     const files = e.target.files;
-    if (!files)
-      return;
+    if (!files) return;
     uploadFiles(Array.from(files));
   };
   const uploadFiles = (files) => {
-    if (files.length === 0)
-      return;
+    if (files.length === 0) return;
     const { autoUpload, limit, fileList, multiple, onStart, onExceed } = props;
     if (limit && fileList.length + files.length > limit) {
       onExceed(files, fileList);
@@ -33,8 +31,7 @@ const useUploadContent = (props) => {
       const rawFile = file;
       rawFile.uid = genFileId();
       onStart(rawFile);
-      if (autoUpload)
-        upload(rawFile);
+      if (autoUpload) upload(rawFile);
     }
   };
   const upload = async (rawFile) => {
@@ -58,14 +55,14 @@ const useUploadContent = (props) => {
         file = hookResult;
       } else {
         file = new File([hookResult], rawFile.name, {
-          type: rawFile.type
+          type: rawFile.type,
         });
       }
     }
     doUpload(
       Object.assign(file, {
-        uid: rawFile.uid
-      })
+        uid: rawFile.uid,
+      }),
     );
   };
   const doUpload = (rawFile) => {
@@ -79,7 +76,7 @@ const useUploadContent = (props) => {
       onProgress,
       onSuccess,
       onError,
-      httpRequest
+      httpRequest,
     } = props;
     const { uid } = rawFile;
     const options = {
@@ -103,7 +100,7 @@ const useUploadContent = (props) => {
       onError: (err) => {
         onError(err, rawFile);
         delete requests.value[uid];
-      }
+      },
     };
     const request = httpRequest(options);
     requests.value[uid] = request;
@@ -115,8 +112,7 @@ const useUploadContent = (props) => {
     Object.keys(requests.value).forEach((uid) => {
       if (String(file == null ? void 0 : file.uid) === uid) {
         const req = requests.value[uid];
-        if (req instanceof XMLHttpRequest)
-          req.abort();
+        if (req instanceof XMLHttpRequest) req.abort();
         delete requests.value[uid];
       }
     });
@@ -128,9 +124,7 @@ const useUploadContent = (props) => {
     handleChange,
     uploadFiles,
     upload,
-    abort
+    abort,
   };
 };
-export {
-  useUploadContent
-};
+export { useUploadContent };

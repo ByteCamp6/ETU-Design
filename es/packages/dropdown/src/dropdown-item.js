@@ -3,17 +3,15 @@ import { definePropType } from "../../utils/vue/runtime.js";
 const dropdownItemProps = {
   command: {
     type: definePropType([Object, String, Number]),
-    default: () => ""
+    default: () => "",
   },
   disabled: {
     type: Boolean,
-    default: false
+    default: false,
   },
   divided: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 };
-export {
-  dropdownItemProps
-};
+export { dropdownItemProps };

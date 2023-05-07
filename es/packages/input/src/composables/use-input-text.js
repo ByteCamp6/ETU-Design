@@ -6,13 +6,12 @@ import _sfc_main from "../input.vue.js";
 const useInputText = (props, aimRef) => {
   const isComposing = ref(false);
   const { emit } = getCurrentInstance();
-  const nativeInputValue = computed(
-    () => props.modelValue === void 0 ? "" : String(props.modelValue)
+  const nativeInputValue = computed(() =>
+    props.modelValue === void 0 ? "" : String(props.modelValue),
   );
   const setNativeInputValue = () => {
     const input2 = aimRef.value;
-    if (!input2 || input2.value === nativeInputValue.value)
-      return;
+    if (!input2 || input2.value === nativeInputValue.value) return;
     input2.value = nativeInputValue.value;
   };
   const [recordCursor, setCursor] = useCursor(_sfc_main);
@@ -23,8 +22,7 @@ const useInputText = (props, aimRef) => {
       value = props.parser ? props.parser(value) : value;
       value = props.formatter(value);
     }
-    if (isComposing.value)
-      return;
+    if (isComposing.value) return;
     emit("update:modelValue", value);
     emit("input", value);
     await nextTick();
@@ -32,10 +30,7 @@ const useInputText = (props, aimRef) => {
     setCursor();
   };
   const handleChange = (event) => {
-    emit(
-      "change",
-      event.target.value
-    );
+    emit("change", event.target.value);
   };
   const handleCompositionStart = () => {
     isComposing.value = true;
@@ -54,9 +49,7 @@ const useInputText = (props, aimRef) => {
     handleInput,
     handleChange,
     handleCompositionStart,
-    handleCompositionEnd
+    handleCompositionEnd,
   };
 };
-export {
-  useInputText
-};
+export { useInputText };

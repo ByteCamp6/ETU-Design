@@ -3,17 +3,14 @@ import { isArray } from "../../../node_modules/@vue/shared/dist/shared.esm-bundl
 const uploadDraggerProps = {
   accept: {
     type: String,
-    default: ""
+    default: "",
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 };
 const uploadDraggerEmits = {
-  file: (file) => isArray(file)
+  file: (file) => isArray(file),
 };
-export {
-  uploadDraggerEmits,
-  uploadDraggerProps
-};
+export { uploadDraggerEmits, uploadDraggerProps };

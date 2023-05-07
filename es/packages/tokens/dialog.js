@@ -1,4 +1,2 @@
 const dialogInjectionKey = Symbol("dialogInjectionKey");
-export {
-  dialogInjectionKey
-};
+export { dialogInjectionKey };

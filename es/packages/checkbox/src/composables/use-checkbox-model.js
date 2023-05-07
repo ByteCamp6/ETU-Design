@@ -11,25 +11,37 @@ const useCheckboxModel = (props) => {
   const model = computed({
     get() {
       var _a;
-      return isGroup.value ? (_a = checkboxGroup == null ? void 0 : checkboxGroup.modelValue) == null ? void 0 : _a.value : props.modelValue ?? selfModel.value;
+      return isGroup.value
+        ? (_a = checkboxGroup == null ? void 0 : checkboxGroup.modelValue) ==
+          null
+          ? void 0
+          : _a.value
+        : props.modelValue ?? selfModel.value;
     },
     set(val) {
       var _a, _b;
       if (isGroup.value && isArray(val)) {
-        isLimitExceeded.value = ((_a = checkboxGroup == null ? void 0 : checkboxGroup.max) == null ? void 0 : _a.value) !== void 0 && val.length > (checkboxGroup == null ? void 0 : checkboxGroup.max.value);
-        isLimitExceeded.value === false && ((_b = checkboxGroup == null ? void 0 : checkboxGroup.changeEvent) == null ? void 0 : _b.call(checkboxGroup, val));
+        isLimitExceeded.value =
+          ((_a = checkboxGroup == null ? void 0 : checkboxGroup.max) == null
+            ? void 0
+            : _a.value) !== void 0 &&
+          val.length >
+            (checkboxGroup == null ? void 0 : checkboxGroup.max.value);
+        isLimitExceeded.value === false &&
+          ((_b = checkboxGroup == null ? void 0 : checkboxGroup.changeEvent) ==
+          null
+            ? void 0
+            : _b.call(checkboxGroup, val));
       } else {
         emit("update:modelValue", val);
         selfModel.value = val;
       }
-    }
+    },
   });
   return {
     model,
     isGroup,
-    isLimitExceeded
+    isLimitExceeded,
   };
 };
-export {
-  useCheckboxModel
-};
+export { useCheckboxModel };

@@ -1,36 +1,36 @@
 const rowProps = {
   tag: {
     type: String,
-    default: "div"
+    default: "div",
   },
   gutter: {
     type: Number,
-    default: 0
+    default: 0,
   },
   // 分栏间隔
   type: {
     type: String,
-    default: ""
+    default: "",
   },
   // 布局方式
   justify: {
     type: String,
     default: "center",
-    validator: function(value) {
-      return ["start", "end", "center", "space-around", "space-between"].indexOf(
-        value
-      ) !== -1;
-    }
+    validator: function (value) {
+      return (
+        ["start", "end", "center", "space-around", "space-between"].indexOf(
+          value,
+        ) !== -1
+      );
+    },
   },
   // flex下的水平排列方式
   align: {
     type: String,
     default: "middle",
-    validator: function(value) {
+    validator: function (value) {
       return ["top", "middle", "bottom"].indexOf(value) !== -1;
-    }
-  }
+    },
+  },
 };
-export {
-  rowProps
-};
+export { rowProps };

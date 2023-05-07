@@ -15,7 +15,7 @@ import { ref } from "vue";
 let val = ref(false);
 
 const handleChange = (row: any) => {
-  console.log("这是个自定义事件",row);
+  console.log("这是个自定义事件", row);
 };
 </script>
 

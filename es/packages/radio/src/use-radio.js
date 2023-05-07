@@ -11,7 +11,11 @@ const useRadio = (props) => {
   const modelValue = computed({
     get() {
       var _a;
-      return isGroup.value ? (_a = radioGroup.modelValue) == null ? void 0 : _a.value : props.modelValue;
+      return isGroup.value
+        ? (_a = radioGroup.modelValue) == null
+          ? void 0
+          : _a.value
+        : props.modelValue;
     },
     set(val) {
       if (isGroup.value) {
@@ -20,12 +24,16 @@ const useRadio = (props) => {
         emit && emit("update:modelValue", val);
       }
       radioRef.value.checked = props.modelValue === props.label;
-    }
+    },
   });
-  const disabled = useDisabled(computed(() => {
-    var _a;
-    return (_a = radioGroup == null ? void 0 : radioGroup.disabled) == null ? void 0 : _a.value;
-  }));
+  const disabled = useDisabled(
+    computed(() => {
+      var _a;
+      return (_a = radioGroup == null ? void 0 : radioGroup.disabled) == null
+        ? void 0
+        : _a.value;
+    }),
+  );
   const focus = ref(false);
   return {
     radioRef,
@@ -33,9 +41,7 @@ const useRadio = (props) => {
     radioGroup,
     focus,
     disabled,
-    modelValue
+    modelValue,
   };
 };
-export {
-  useRadio
-};
+export { useRadio };

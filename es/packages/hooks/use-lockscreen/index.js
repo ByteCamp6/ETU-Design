@@ -18,7 +18,8 @@ const useLockscreen = (trigger) => {
   };
   const getScrollbarWidth = () => {
     const scrollDiv = document.createElement("div");
-    scrollDiv.style.cssText = "width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;";
+    scrollDiv.style.cssText =
+      "width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;";
     document.body.appendChild(scrollDiv);
     const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
@@ -34,15 +35,18 @@ const useLockscreen = (trigger) => {
       bodyWidth = document.body.style.width;
     }
     scrollBarWidth = getScrollbarWidth();
-    const bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight;
+    const bodyHasOverflow =
+      document.documentElement.clientHeight < document.body.scrollHeight;
     const bodyOverflowY = getStyle(document.body, "overflowY");
-    if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === "scroll") && withoutHiddenStyle) {
+    if (
+      scrollBarWidth > 0 &&
+      (bodyHasOverflow || bodyOverflowY === "scroll") &&
+      withoutHiddenStyle
+    ) {
       document.body.style.width = `calc(100% - ${scrollBarWidth}px)`;
     }
     setStyle(document.body, hiddenStyle);
   });
   onScopeDispose(() => cleanup());
 };
-export {
-  useLockscreen
-};
+export { useLockscreen };

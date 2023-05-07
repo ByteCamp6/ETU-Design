@@ -1,36 +1,33 @@
 const dialogContentProps = {
   center: {
     type: Boolean,
-    default: false
+    default: false,
   },
   alignCenter: {
     type: Boolean,
-    default: false
+    default: false,
   },
   closeIcon: {
-    type: String
+    type: String,
   },
   customClass: {
     type: String,
-    default: ""
+    default: "",
   },
   draggable: {
     type: Boolean,
-    default: false
+    default: false,
   },
   showClose: {
     type: Boolean,
-    default: true
+    default: true,
   },
   title: {
     type: String,
-    default: ""
-  }
+    default: "",
+  },
 };
 const dialogContentEmits = {
-  close: () => true
+  close: () => true,
 };
-export {
-  dialogContentEmits,
-  dialogContentProps
-};
+export { dialogContentEmits, dialogContentProps };

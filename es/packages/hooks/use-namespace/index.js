@@ -16,13 +16,28 @@ const _bem = (namespace, block, blockSuffix, element, modifier) => {
 };
 const useNamespace = (block) => {
   const namespace = computed(() => defaultNamespace);
-  const b = (blockSuffix = "") => _bem(unref(namespace), block, blockSuffix, "", "");
-  const e = (element) => element ? _bem(unref(namespace), block, "", element, "") : "";
-  const m = (modifier) => modifier ? _bem(unref(namespace), block, "", "", modifier) : "";
-  const be = (blockSuffix, element) => blockSuffix && element ? _bem(unref(namespace), block, blockSuffix, element, "") : "";
-  const em = (element, modifier) => element && modifier ? _bem(unref(namespace), block, "", element, modifier) : "";
-  const bm = (blockSuffix, modifier) => blockSuffix && modifier ? _bem(unref(namespace), block, blockSuffix, "", modifier) : "";
-  const bem = (blockSuffix, element, modifier) => blockSuffix && element && modifier ? _bem(unref(namespace), block, blockSuffix, element, modifier) : "";
+  const b = (blockSuffix = "") =>
+    _bem(unref(namespace), block, blockSuffix, "", "");
+  const e = (element) =>
+    element ? _bem(unref(namespace), block, "", element, "") : "";
+  const m = (modifier) =>
+    modifier ? _bem(unref(namespace), block, "", "", modifier) : "";
+  const be = (blockSuffix, element) =>
+    blockSuffix && element
+      ? _bem(unref(namespace), block, blockSuffix, element, "")
+      : "";
+  const em = (element, modifier) =>
+    element && modifier
+      ? _bem(unref(namespace), block, "", element, modifier)
+      : "";
+  const bm = (blockSuffix, modifier) =>
+    blockSuffix && modifier
+      ? _bem(unref(namespace), block, blockSuffix, "", modifier)
+      : "";
+  const bem = (blockSuffix, element, modifier) =>
+    blockSuffix && element && modifier
+      ? _bem(unref(namespace), block, blockSuffix, element, modifier)
+      : "";
   const is = (name, ...args) => {
     const state = args.length >= 1 ? args[0] : true;
     return name && state ? `${statePrefix}-${name}` : "";
@@ -36,11 +51,7 @@ const useNamespace = (block) => {
     em,
     bm,
     bem,
-    is
+    is,
   };
 };
-export {
-  defaultNamespace,
-  statePrefix,
-  useNamespace
-};
+export { defaultNamespace, statePrefix, useNamespace };

@@ -9,7 +9,7 @@ function useVmodel(props, key, emit) {
   const proxy = ref(props[key]);
   watch(
     () => props[key],
-    (v) => proxy.value = v
+    (v) => (proxy.value = v),
   );
   watch(
     () => proxy.value,
@@ -17,10 +17,8 @@ function useVmodel(props, key, emit) {
       if (v !== props[key]) {
         _emit(event, v);
       }
-    }
+    },
   );
   return proxy;
 }
-export {
-  useVmodel
-};
+export { useVmodel };

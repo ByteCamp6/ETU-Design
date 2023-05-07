@@ -18,9 +18,7 @@ const useCheckboxStatus = (props, slots, { model }) => {
   return {
     isChecked,
     isFocused,
-    hasOwnLabel
+    hasOwnLabel,
   };
 };
-export {
-  useCheckboxStatus
-};
+export { useCheckboxStatus };

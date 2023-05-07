@@ -1,13 +1,11 @@
 const emptyProps = {
   description: {
     type: String,
-    default: "No Data"
+    default: "No Data",
   },
   image: {
-    type: String
+    type: String,
   },
-  imageSize: Number
+  imageSize: Number,
 };
-export {
-  emptyProps
-};
+export { emptyProps };

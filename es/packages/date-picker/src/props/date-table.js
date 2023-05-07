@@ -1,7 +1,5 @@
 import { sharedProps } from "./shared.js";
 const dateTableProps = {
-  ...sharedProps
+  ...sharedProps,
 };
-export {
-  dateTableProps
-};
+export { dateTableProps };

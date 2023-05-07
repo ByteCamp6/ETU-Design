@@ -1,5 +1,13 @@
 var __defProp = Object.defineProperty;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __defNormalProp = (obj, key, value) =>
+  key in obj
+    ? __defProp(obj, key, {
+        enumerable: true,
+        configurable: true,
+        writable: true,
+        value,
+      })
+    : (obj[key] = value);
 var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
@@ -23,114 +31,100 @@ class UploadAjaxError extends Error {
 const uploadBaseProps = {
   action: {
     type: String,
-    default: "#"
+    default: "#",
   },
   headers: {
-    type: definePropType(Object)
+    type: definePropType(Object),
   },
   method: {
     type: String,
-    default: "post"
+    default: "post",
   },
   data: {
     type: Object,
-    default: () => {
-    }
+    default: () => {},
   },
   multiple: {
     type: Boolean,
-    default: false
+    default: false,
   },
   name: {
     type: String,
-    default: "file"
+    default: "file",
   },
   drag: {
     type: Boolean,
-    default: false
+    default: false,
   },
   withCredentials: Boolean,
   showFileList: {
     type: Boolean,
-    default: true
+    default: true,
   },
   accept: {
     type: String,
-    default: ""
+    default: "",
   },
   type: {
     type: String,
-    default: "select"
+    default: "select",
   },
   fileList: {
     type: definePropType(Array),
-    default: () => []
+    default: () => [],
   },
   autoUpload: {
     type: Boolean,
-    default: true
+    default: true,
   },
   listType: {
     type: String,
     values: uploadListTypes,
-    default: "text"
+    default: "text",
   },
   httpRequest: {
     type: definePropType(Function),
-    default: ajaxUpload
+    default: ajaxUpload,
   },
   disabled: Boolean,
-  limit: Number
+  limit: Number,
 };
 const uploadProps = {
   ...uploadBaseProps,
   beforeUpload: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   beforeRemove: {
-    type: definePropType(Function)
+    type: definePropType(Function),
   },
   onRemove: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onChange: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onPreview: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onSuccess: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onProgress: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onError: {
     type: definePropType(Function),
-    default: () => {
-    }
+    default: () => {},
   },
   onExceed: {
     type: definePropType(Function),
-    default: () => {
-    }
-  }
+    default: () => {},
+  },
 };
-export {
-  UploadAjaxError,
-  uploadBaseProps,
-  uploadListTypes,
-  uploadProps
-};
+export { UploadAjaxError, uploadBaseProps, uploadListTypes, uploadProps };
