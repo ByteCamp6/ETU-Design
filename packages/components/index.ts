@@ -1,4 +1,5 @@
 // 整合所有组件
+export * from "./link";
 import Link from "./link";
 import Button from "./button";
 import Divider from "./divider";

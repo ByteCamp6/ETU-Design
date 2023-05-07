@@ -73,7 +73,7 @@ const createMessage = ({
       render(null, container);
     },
   };
-  // 创建Message组件
+  // 创建Message组件isVNode
   const vnode = createVNode(
     MessageConstructor,
     props,
