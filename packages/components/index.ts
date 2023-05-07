@@ -32,6 +32,8 @@ import dropdown from "./dropdown";
 import Pagination from "./pagination";
 import MenuGroup from "./menu-group";
 import MenuGroupItem from "./menu-group-item";
+import Text from "./text";
+import Affix from "./affix";
 import type { App } from "vue";
 const { Breadcrumb, BreadcrumbItem } = breadcrumb;
 const { Checkbox, CheckboxGroup } = checkbox;
@@ -84,6 +86,8 @@ const components = [
   Pagination,
   MenuGroup,
   MenuGroupItem,
+  Text,
+  Affix
 ];
 
 // 全局动态添加

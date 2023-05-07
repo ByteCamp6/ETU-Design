@@ -18,6 +18,7 @@ export default {
         { text: "Layout 布局", link: "/component/layout.md" },
         { text: "Link 链接", link: "/component/link.md" },
         { text: "Scrollbar 滚动条", link: "/component/scrollbar.md" },
+        { text: "Text 文本", link: "/component/text.md" }
       ],
     },
     {
@@ -46,6 +47,7 @@ export default {
     {
       text: "Navigation 导航组件",
       items: [
+        { text: "Affix 固钉", link: "/component/affix.md" },
         { text: "Breadcrumb 面包屑", link: "/component/breadcrumb.md" },
         { text: "Dropdown 下拉菜单", link: "/component/dropdown.md" },
         { text: "Menu 菜单", link: "/component/menu.md" },
