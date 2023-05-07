@@ -41,7 +41,6 @@ export default {
         { text: "Progress 进度条", link: "/component/progress.md" },
         { text: "Table 表格", link: "/component/table.md" },
         { text: "Tag标签", link: "/component/tag.md" },
-        { text: "Tree 树形控件", link: "/component/tree.md" },
       ],
     },
     {

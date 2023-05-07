@@ -17,7 +17,7 @@ export function usePopper({
   triggerRef,
 }: {
   arrowPadding: MaybeUndefinedRef<string>;
-  emit: (event: "open:popper" | "close:popper", ...args: any[]) => void;
+  emit: (event: "open" | "close", ...args: any[]) => void;
   locked: MaybeUndefinedRef<boolean>;
   offsetDistance: MaybeUndefinedRef<string>;
   offsetSkid: MaybeUndefinedRef<string>;

@@ -45,7 +45,6 @@ const dialogClass = computed(() => {
     ns.b(),
     ns.is("draggable", props.draggable),
     ns.is("align-center", props.alignCenter),
-    { [ns.m("center")]: props.center },
     props.customClass,
   ];
 });

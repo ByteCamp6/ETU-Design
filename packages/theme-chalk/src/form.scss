@@ -4,6 +4,8 @@
 
 @include b(form-item){
   display: flex;
+  margin: 5px;
+  align-items: center;
   @include e(label){
     display: inline-flex;
     justify-content: flex-end;
