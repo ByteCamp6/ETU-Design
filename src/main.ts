@@ -19,10 +19,10 @@ import "../dist/theme-chalk/index.css";
 //   ],
 // });
 
-import { Link } from "../dist/es/packages/components/index";
+import Etu from "@etu-design/components";
 // import "./assets/main.css";
 
 const app = createApp(App);
-app.use(Link);
+app.use(Etu);
 // app.use(router);
 app.mount("#app");
