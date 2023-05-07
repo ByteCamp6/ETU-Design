@@ -16,18 +16,18 @@ import {
   unref,
   watch,
   withCtx
-} from "./chunk-K4I7CSBL.js";
+} from "./chunk-4YZBSD63.js";
 import {
   normalizeClass,
   normalizeStyle,
   toDisplayString
-} from "./chunk-2D2BEOV3.js";
+} from "./chunk-IHWWPORK.js";
 import "./chunk-RSJERJUL.js";
 
-// node_modules/@vitepress-demo-preview/component/dist/preview-component.js
-var $ = (t, o) => {
+// node_modules/.pnpm/@vitepress-demo-preview+component@2.2.0_zmxsty7o2oyjk7tlqascbjf3iy/node_modules/@vitepress-demo-preview/component/dist/preview-component.js
+var $ = (t, n) => {
   const e = t.__vccOpts || t;
-  for (const [c, i] of o)
+  for (const [c, i] of n)
     e[c] = i;
   return e;
 };
@@ -49,10 +49,10 @@ var K = createBaseVNode("path", {
 var Q = [
   K
 ];
-function W(t, o) {
+function W(t, n) {
   return openBlock(), createElementBlock("svg", J, Q);
 }
-var S = $(G, [["render", W]]);
+var D = $(G, [["render", W]]);
 var X = {};
 var Y = {
   t: "1661231449868",
@@ -71,11 +71,11 @@ var ee = createBaseVNode("path", {
 var te = [
   ee
 ];
-function oe(t, o) {
+function ne(t, n) {
   return openBlock(), createElementBlock("svg", Y, te);
 }
-var T = $(X, [["render", oe]]);
-var ne = {};
+var S = $(X, [["render", ne]]);
+var oe = {};
 var se = {
   width: "24",
   height: "24",
@@ -87,20 +87,20 @@ var ce = createStaticVNode('<path d="M13 38H41V16H30V4H13V38Z" fill="none" strok
 var ie = [
   ce
 ];
-function le(t, o) {
+function le(t, n) {
   return openBlock(), createElementBlock("svg", se, ie);
 }
-var z = $(ne, [["render", le]]);
-var y = "vitepress-demo-preview";
-var L = (t, o, e, c) => {
-  let i = o === "" ? `${t}` : `${t}-${o}`;
+var z = $(oe, [["render", le]]);
+var L = "vitepress-demo-preview";
+var y = (t, n, e, c) => {
+  let i = n === "" ? `${t}` : `${t}-${n}`;
   return e && (i += `__${e}`), c && (i += `--${c}`), i;
 };
-var A = (t = "") => ({
-  b: () => L(y, t),
-  e: (p = "") => L(y, t, p),
-  m: (p = "") => L(y, t, "", p),
-  bem: (p, h, C) => L(y, p, h, C)
+var B = (t = "") => ({
+  b: () => y(L, t),
+  e: (p = "") => y(L, t, p),
+  m: (p = "") => y(L, t, "", p),
+  bem: (p, h, C) => y(L, p, h, C)
 });
 var E = () => {
   const t = ref(true);
@@ -145,7 +145,7 @@ var pe = [
   ue,
   ae
 ];
-function _e(t, o) {
+function _e(t, n) {
   return openBlock(), createElementBlock("svg", de, pe);
 }
 var he = $(re, [["render", _e]]);
@@ -155,8 +155,8 @@ var Ce = defineComponent({
     content: { default: "复制成功！" },
     close: null
   },
-  setup(t, { expose: o }) {
-    const e = t, c = A(), i = ref(false), p = (r) => {
+  setup(t, { expose: n }) {
+    const e = t, c = B(), i = ref(false), p = (r) => {
       i.value = r;
     }, h = ref(-999), C = (r) => {
       h.value = r;
@@ -169,7 +169,7 @@ var Ce = defineComponent({
     const m = () => {
       e.close();
     };
-    return o({
+    return n({
       setVisible: p,
       setTopHeight: C
     }), (r, w) => (openBlock(), createBlock(Transition, {
@@ -190,22 +190,23 @@ var Ce = defineComponent({
     }));
   }
 });
-var b = [];
+var H = [];
 var j = {
   open: () => {
-    const t = document.createElement("div"), o = createApp(Ce, {
+    const t = document.createElement("div"), n = createApp(Ce, {
       content: "复制成功！",
       close: () => {
-        document.body.removeChild(t), b.pop(), o.unmount();
+        document.body.removeChild(t), H.pop(), n.unmount();
       }
-    }), e = o.mount(t);
+    }), e = n.mount(t);
     document.body.appendChild(t);
-    const c = b.length, i = c === 0 ? 10 : (c + 1) * 10 + c * 42;
-    e.setTopHeight(i), e.setVisible(true), b.push(e);
+    const c = H.length, i = c === 0 ? 10 : (c + 1) * 10 + c * 42;
+    e.setTopHeight(i), e.setVisible(true), H.push(e);
   }
 };
 var ve = ["innerHTML"];
-var fe = defineComponent({
+var me = ["innerHTML"];
+var ke = defineComponent({
   __name: "AntDesign",
   props: {
     code: null,
@@ -214,27 +215,27 @@ var fe = defineComponent({
     description: { default: "描述内容" }
   },
   setup(t) {
-    const o = t, e = A(), { isCodeFold: c, setCodeFold: i } = E(), { copyContent: p, clickCopy: h } = I(), C = ref(decodeURIComponent(o.code)), m = ref(decodeURIComponent(o.showCode)), r = ref(null), w = () => {
+    const n = t, e = B(), { isCodeFold: c, setCodeFold: i } = E(), { copyContent: p, clickCopy: h } = I(), C = ref(decodeURIComponent(n.code)), m = ref(decodeURIComponent(n.showCode)), r = ref(null), w = () => {
       h(C.value), j.open();
     }, g = computed(() => {
-      var n;
-      return r.value ? (n = r.value) == null ? void 0 : n.clientHeight : 0;
-    }), f = (n) => {
-      c.value ? r.value.style.height = "0px" : r.value.style.height = `${n}px`;
+      var o;
+      return r.value ? (o = r.value) == null ? void 0 : o.clientHeight : 0;
+    }), f = (o) => {
+      c.value ? r.value.style.height = "0px" : r.value.style.height = `${o}px`;
     };
     return onMounted(() => {
-      const n = g.value;
-      f(n);
+      const o = g.value;
+      f(o);
     }), watch(c, () => {
-      const n = g.value;
-      f(n);
-    }), (n, _) => (openBlock(), createElementBlock("div", {
+      const o = g.value;
+      f(o);
+    }), (o, _) => (openBlock(), createElementBlock("div", {
       class: normalizeClass([unref(e).e("ant-design__container")])
     }, [
       createBaseVNode("section", {
         class: normalizeClass([unref(e).bem("preview")])
       }, [
-        renderSlot(n.$slots, "default")
+        renderSlot(o.$slots, "default")
       ], 2),
       createBaseVNode("section", {
         class: normalizeClass([unref(e).bem("description")])
@@ -243,82 +244,19 @@ var fe = defineComponent({
           class: normalizeClass([unref(e).bem("description", "title")])
         }, toDisplayString(t.title), 3),
         createBaseVNode("div", {
-          class: normalizeClass([unref(e).bem("description", "content")])
-        }, toDisplayString(t.description), 3),
+          class: normalizeClass([unref(e).bem("description", "content")]),
+          innerHTML: t.description
+        }, null, 10, ve),
         createBaseVNode("div", {
           class: normalizeClass([unref(e).bem("description", "split-line")])
         }, null, 2),
         createBaseVNode("div", {
           class: normalizeClass([unref(e).bem("description", "handle-btn")])
         }, [
-          unref(c) ? (openBlock(), createBlock(S, {
+          unref(c) ? (openBlock(), createBlock(D, {
             key: 1,
             onClick: _[1] || (_[1] = (x) => unref(i)(false))
-          })) : (openBlock(), createBlock(T, {
-            key: 0,
-            onClick: _[0] || (_[0] = (x) => unref(i)(true))
-          })),
-          createVNode(z, { onClick: w })
-        ], 2)
-      ], 2),
-      createBaseVNode("section", {
-        class: normalizeClass([unref(e).bem("source")]),
-        ref_key: "sourceCodeArea",
-        ref: r
-      }, [
-        createBaseVNode("div", {
-          innerHTML: m.value,
-          class: "language-vue"
-        }, null, 8, ve)
-      ], 2)
-    ], 2));
-  }
-});
-var me = ["innerHTML"];
-var ke = defineComponent({
-  __name: "ElementPlus",
-  props: {
-    code: null,
-    showCode: null,
-    title: { default: "默认标题" },
-    description: { default: "描述内容" }
-  },
-  setup(t) {
-    const o = t, e = A(), { isCodeFold: c, setCodeFold: i } = E(), { copyContent: p, clickCopy: h } = I(), C = ref(decodeURIComponent(o.code)), m = ref(decodeURIComponent(o.showCode)), r = ref(null), w = () => {
-      h(C.value), j.open();
-    }, g = computed(() => {
-      var n;
-      return r.value ? (n = r.value) == null ? void 0 : n.clientHeight : 0;
-    }), f = (n) => {
-      c.value ? r.value.style.height = "0px" : r.value.style.height = `${n}px`;
-    };
-    return onMounted(() => {
-      const n = g.value;
-      f(n);
-    }), watch(c, () => {
-      const n = g.value;
-      f(n);
-    }), (n, _) => (openBlock(), createElementBlock("div", {
-      class: normalizeClass([unref(e).e("element-plus__container")])
-    }, [
-      createBaseVNode("section", {
-        class: normalizeClass([unref(e).bem("preview")])
-      }, [
-        renderSlot(n.$slots, "default")
-      ], 2),
-      createBaseVNode("section", {
-        class: normalizeClass([unref(e).bem("description")])
-      }, [
-        createBaseVNode("div", {
-          class: normalizeClass([unref(e).bem("description", "split-line")])
-        }, null, 2),
-        createBaseVNode("div", {
-          class: normalizeClass([unref(e).bem("description", "handle-btn")])
-        }, [
-          unref(c) ? (openBlock(), createBlock(S, {
-            key: 1,
-            onClick: _[1] || (_[1] = (x) => unref(i)(false))
-          })) : (openBlock(), createBlock(T, {
+          })) : (openBlock(), createBlock(S, {
             key: 0,
             onClick: _[0] || (_[0] = (x) => unref(i)(true))
           })),
@@ -338,8 +276,72 @@ var ke = defineComponent({
     ], 2));
   }
 });
+var ge = ["innerHTML"];
+var we = defineComponent({
+  __name: "ElementPlus",
+  props: {
+    code: null,
+    showCode: null,
+    title: { default: "默认标题" },
+    description: { default: "描述内容" }
+  },
+  setup(t) {
+    const n = t, e = B(), { isCodeFold: c, setCodeFold: i } = E(), { copyContent: p, clickCopy: h } = I(), C = ref(decodeURIComponent(n.code)), m = ref(decodeURIComponent(n.showCode)), r = ref(null), w = () => {
+      h(C.value), j.open();
+    }, g = computed(() => {
+      var o;
+      return r.value ? (o = r.value) == null ? void 0 : o.clientHeight : 0;
+    }), f = (o) => {
+      c.value ? r.value.style.height = "0px" : r.value.style.height = `${o}px`;
+    };
+    return onMounted(() => {
+      const o = g.value;
+      f(o);
+    }), watch(c, () => {
+      const o = g.value;
+      f(o);
+    }), (o, _) => (openBlock(), createElementBlock("div", {
+      class: normalizeClass([unref(e).e("element-plus__container")])
+    }, [
+      createBaseVNode("section", {
+        class: normalizeClass([unref(e).bem("preview")])
+      }, [
+        renderSlot(o.$slots, "default")
+      ], 2),
+      createBaseVNode("section", {
+        class: normalizeClass([unref(e).bem("description")])
+      }, [
+        createBaseVNode("div", {
+          class: normalizeClass([unref(e).bem("description", "split-line")])
+        }, null, 2),
+        createBaseVNode("div", {
+          class: normalizeClass([unref(e).bem("description", "handle-btn")])
+        }, [
+          unref(c) ? (openBlock(), createBlock(D, {
+            key: 1,
+            onClick: _[1] || (_[1] = (x) => unref(i)(false))
+          })) : (openBlock(), createBlock(S, {
+            key: 0,
+            onClick: _[0] || (_[0] = (x) => unref(i)(true))
+          })),
+          createVNode(z, { onClick: w })
+        ], 2)
+      ], 2),
+      createBaseVNode("section", {
+        class: normalizeClass([unref(e).bem("source")]),
+        ref_key: "sourceCodeArea",
+        ref: r
+      }, [
+        createBaseVNode("div", {
+          innerHTML: m.value,
+          class: "language-vue"
+        }, null, 8, ge)
+      ], 2)
+    ], 2));
+  }
+});
 export {
-  fe as AntDesignContainer,
-  ke as ElementPlusContainer
+  ke as AntDesignContainer,
+  we as ElementPlusContainer
 };
 //# sourceMappingURL=@vitepress-demo-preview_component.js.map
