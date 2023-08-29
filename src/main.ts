@@ -1,8 +1,8 @@
 // import { createRouter, createWebHistory } from "vue-router";
 import { createApp } from "vue";
 import App from "./App.vue";
-// import "../packages/theme-chalk/src/index.scss";
-import "../dist/theme-chalk/index.css";
+import "../packages/theme-chalk/src/index.scss";
+// import "../dist/theme-chalk/index.css";
 // const router = createRouter({
 //   history: createWebHistory(),
 //   routes: [

@@ -4,13 +4,7 @@
   </i>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuIcon",
-};
-</script>
-
-<script setup lang="ts">
+<script setup lang="ts" name="EtuIcon">
 import { computed } from "vue";
 import { useNamespace } from "@etu-design/hooks";
 import { iconProps } from "./icon";

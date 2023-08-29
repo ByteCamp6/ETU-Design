@@ -35,11 +35,11 @@
     "jsx": "preserve",
     "strict": true,
     "target": "ES2015",
-    "module": "ESNext",
+    "module": "ESNext", // 打包模块类型
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "moduleResolution": "Node",
-    "lib": ["esnext", "dom"]
+    "esModuleInterop": true, // 支持es6，commonjs模块
+    "moduleResolution": "Node", // 按照node模块进行解析
+    "lib": ["esnext", "dom"] // 编译时用的库
   },
   "references": [
     {

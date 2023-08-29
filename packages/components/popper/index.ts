@@ -6,5 +6,4 @@ Popper.install = (app: App) => {
   // 注册组件
   app.component(Popper.name, Popper);
 };
-console.log("????????????");
 export default Popper;

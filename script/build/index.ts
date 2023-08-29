@@ -22,6 +22,7 @@ export const buildStyle = () => {
 export const buildComponent = async () => {
   run("pnpm run build", componentPath + `/packages/components`);
 };
+
 export default series(
   async () => removeDist(),
   parallel(

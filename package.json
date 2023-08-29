@@ -17,7 +17,8 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "preinstall": "npx only-allow pnpm",
-    "publish": "gulp -f script/publish/index.ts"
+    "publish": "gulp -f script/publish/index.ts",
+    "play": "pnpm -C play dev"
   },
   "dependencies": {
     "@etu-design/components": "workspace:*",

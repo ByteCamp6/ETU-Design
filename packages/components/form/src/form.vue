@@ -4,13 +4,7 @@
   </form>
 </template>
 
-<script lang="ts">
-export default {
-  name: "EtuForm",
-};
-</script>
-
-<script lang="ts" setup>
+<script lang="ts" setup name="EtuForm">
 import { provide, reactive, toRefs, computed } from "vue";
 import { formProps } from "./form";
 // import { FormItemContext } from "./form-item";
