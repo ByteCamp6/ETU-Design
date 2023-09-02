@@ -6,4 +6,5 @@ Icon.install = (app: App) => {
   app.component(Icon.name, Icon);
 };
 
+export { Icon };
 export default Icon;

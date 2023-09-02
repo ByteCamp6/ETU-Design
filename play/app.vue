@@ -1,7 +1,7 @@
 <template>
-  <div>test</div>
-  <etu-input type="textarea" v-model="text"></etu-input>
-  <etu-icon>1</etu-icon>
+  <div><i class="etu-i-3column"></i></div>
+  <div><etu-icon name="close"></etu-icon></div>
+  <div class="test etu-i-back">this is a test</div>
 </template>
 
 <script setup></script>
