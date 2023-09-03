@@ -52,6 +52,10 @@ export const inputProps = {
   },
   readonly: {
     type: Boolean,
+    default: false,
+  },
+  label: {
+    type: String,
   },
 } as const;
 
@@ -59,8 +63,15 @@ export type InputProps = ExtractPropTypes<typeof inputProps>;
 
 export const inputEmits = {
   "update:modelValue": (value: string) => isString(value),
+  // 输入
   input: (value: string) => isString(value),
+  // 离开焦点
   change: (value: string) => isString(value),
+  // 获取焦点
+  focus: (e: FocusEvent) => e instanceof FocusEvent,
+  // 失焦
+  blur: (e: FocusEvent) => e instanceof FocusEvent,
+  // 清空
   clear: () => true,
   mouseleave: (evt: MouseEvent) => evt instanceof MouseEvent,
   mouseenter: (evt: MouseEvent) => evt instanceof MouseEvent,
